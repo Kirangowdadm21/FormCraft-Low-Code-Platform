@@ -1,0 +1,235 @@
+from pydantic import BaseModel, EmailStr, Field as PydanticField
+from typing import List, Optional, Any
+from datetime import datetime
+
+# ==========================================
+# USER SCHEMAS
+# ==========================================
+class UserBase(BaseModel):
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    email: EmailStr
+    role: str = "user"
+
+class UserCreate(UserBase):
+    password: str
+
+class UserResponse(UserBase):
+    id: int
+    is_active: bool
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+# ==========================================
+# AUTH SCHEMAS
+# ==========================================
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    email: Optional[str] = None
+
+
+# ==========================================
+# FIELD OPTIONS SCHEMAS
+# ==========================================
+class FieldOptionBase(BaseModel):
+    optiontext: str
+    value: str
+    display_order: int = 0
+
+class FieldOptionCreate(FieldOptionBase):
+    pass
+
+class FieldOptionResponse(FieldOptionBase):
+    id: int
+    field_id: int
+
+    class Config:
+        from_attributes = True
+
+# ==========================================
+# FIELD SCHEMAS
+# ==========================================
+class FieldBase(BaseModel):
+    label: str
+    field_name: str
+    field_type: str
+    placeholder: Optional[str] = None
+    required: bool = False
+    display_order: int = 0
+    validation_conf: Optional[dict] = None
+
+class FieldCreate(FieldBase):
+    formversion: Optional[int] = None
+    options: Optional[List[FieldOptionCreate]] = None
+
+class FieldUpdate(BaseModel):
+    formversion: Optional[int] = None
+    label: Optional[str] = None
+    field_name: Optional[str] = None
+    field_type: Optional[str] = None
+    placeholder: Optional[str] = None
+    required: Optional[bool] = None
+    display_order: Optional[int] = None
+    validation_conf: Optional[dict] = None
+    options: Optional[List[FieldOptionCreate]] = None
+
+
+class FieldResponse(FieldBase):
+    id: int
+    formversion: int
+    createdat: datetime
+    updatedat: datetime
+    options: List[FieldOptionResponse] = []
+
+    class Config:
+        from_attributes = True
+
+# ==========================================
+# CONDITIONAL RULES SCHEMAS
+# ==========================================
+class ConditionalRuleBase(BaseModel):
+    trigger_field: int
+    operator: str
+    comparison: Optional[str] = None
+    targeted_field: int
+    action: str
+    logical_group: Optional[str] = None
+
+class ConditionalRuleCreate(ConditionalRuleBase):
+    pass
+
+class ConditionalRuleResponse(ConditionalRuleBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+class ConditionalRuleUpdate(BaseModel):
+    trigger_field: Optional[int] = None
+    operator: Optional[str] = None
+    comparison: Optional[str] = None
+    targeted_field: Optional[int] = None
+    action: Optional[str] = None
+    logical_group: Optional[str] = None
+
+
+# ==========================================
+# FORM VERSION SCHEMAS
+# ==========================================
+class FormVersionBase(BaseModel):
+    version_number: int
+    ispublished: bool = False
+
+class FormVersionCreate(FormVersionBase):
+    fields: List[FieldCreate] = []
+
+class FormVersionResponse(FormVersionBase):
+    id: int
+    formid: int
+    publishedat: Optional[datetime] = None
+    createdat: datetime
+    updatedat: datetime
+    fields: List[FieldResponse] = []
+
+    class Config:
+        from_attributes = True
+
+# ==========================================
+# FORM SCHEMAS
+# ==========================================
+class FormBase(BaseModel):
+    title: str
+    description: Optional[str] = None
+    status: str = "draft"
+
+class FormCreate(FormBase):
+    initial_version: Optional[FormVersionCreate] = None
+
+class FormUpdate(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+    status: Optional[str] = None
+    current_version: Optional[int] = None
+
+
+class FormResponse(FormBase):
+    id: int
+    owner_id: int
+    current_version: Optional[int] = None
+    createdat: datetime
+    updatedat: datetime
+    versions: List[FormVersionResponse] = []
+
+    class Config:
+        from_attributes = True
+
+class PublicFormResponse(BaseModel):
+    id: int
+    title: str
+    description: Optional[str] = None
+    current_version: int
+    fields: List[FieldResponse] = []
+
+    class Config:
+        from_attributes = True
+
+
+# ==========================================
+# SUBMISSION SCHEMAS
+# ==========================================
+class ResponseValueCreate(BaseModel):
+    field_id: int
+    value: Optional[str] = None
+    uploaded_file: Optional[int] = None
+
+class ResponseValueResponse(ResponseValueCreate):
+    id: int
+    submission_id: int
+
+    class Config:
+        from_attributes = True
+
+class SubmissionCreate(BaseModel):
+    form_version: int
+    submitted_by: Optional[int] = None
+    responses: List[ResponseValueCreate]
+
+class SubmissionResponse(BaseModel):
+    id: int
+    form_version: int
+    submission_id: str
+    submitted_by: Optional[int] = None
+    status: str
+    started_at: datetime
+    submitted_at: Optional[datetime] = None
+    response_values: List[ResponseValueResponse] = []
+
+    class Config:
+        from_attributes = True
+
+# ==========================================
+# UPLOADED FILE SCHEMAS
+# ==========================================
+class UploadedFileResponse(BaseModel):
+    id: int
+    filename: str
+    file_path: str
+    mime_type: str
+    size: int
+    uploaded_at: datetime
+
+    class Config:
+        from_attributes = True

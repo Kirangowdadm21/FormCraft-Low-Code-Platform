@@ -1,0 +1,27 @@
+# Python temporary files and bytecodes
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+env/
+venv/
+ENV/
+
+# Node.js dependencies and production builds
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Alembic log files
+alembic.log
+
+# IDE settings
+.vscode/
+.idea/
+.DS_Store
+
+# Local media uploads folder
+backend/uploads/*
+!backend/uploads/.gitkeep
