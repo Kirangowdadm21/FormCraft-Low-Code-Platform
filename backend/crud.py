@@ -371,3 +371,174 @@ def delete_conditional_rule(db: Session, rule_id: int) -> bool:
     return True
 
 
+# ==========================================
+# TEMPLATE CRUD
+# ==========================================
+def get_template(db: Session, template_id: int):
+    return db.query(models.Template).filter(models.Template.id == template_id).first()
+
+def get_templates(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Template).offset(skip).limit(limit).all()
+
+def create_template(db: Session, template: schemas.TemplateCreate):
+    db_template = models.Template(
+        title=template.title,
+        description=template.description
+    )
+    db.add(db_template)
+    db.commit()
+    db.refresh(db_template)
+
+    for field_data in template.fields:
+        db_field = models.TemplateField(
+            template_id=db_template.id,
+            label=field_data.label,
+            field_name=field_data.field_name,
+            field_type=field_data.field_type,
+            placeholder=field_data.placeholder,
+            required=field_data.required,
+            display_order=field_data.display_order,
+            validation_conf=field_data.validation_conf,
+            options=field_data.options
+        )
+        db.add(db_field)
+    db.commit()
+    db.refresh(db_template)
+    return db_template
+
+def update_template(db: Session, template_id: int, template_update: schemas.TemplateUpdate):
+    db_template = db.query(models.Template).filter(models.Template.id == template_id).first()
+    if not db_template:
+        return None
+    
+    update_data = template_update.model_dump(exclude_unset=True)
+    fields_data = update_data.pop("fields", None)
+
+    for key, value in update_data.items():
+        setattr(db_template, key, value)
+
+    if fields_data is not None:
+        # Clear existing template fields
+        db.query(models.TemplateField).filter(models.TemplateField.template_id == template_id).delete()
+        # Add new ones
+        for field_data in fields_data:
+            db_field = models.TemplateField(
+                template_id=template_id,
+                label=field_data.label if hasattr(field_data, 'label') else field_data.get("label"),
+                field_name=field_data.field_name if hasattr(field_data, 'field_name') else field_data.get("field_name"),
+                field_type=field_data.field_type if hasattr(field_data, 'field_type') else field_data.get("field_type"),
+                placeholder=field_data.placeholder if hasattr(field_data, 'placeholder') else field_data.get("placeholder"),
+                required=field_data.required if hasattr(field_data, 'required') else field_data.get("required", False),
+                display_order=field_data.display_order if hasattr(field_data, 'display_order') else field_data.get("display_order", 0),
+                validation_conf=field_data.validation_conf if hasattr(field_data, 'validation_conf') else field_data.get("validation_conf"),
+                options=field_data.options if hasattr(field_data, 'options') else field_data.get("options")
+            )
+            db.add(db_field)
+            
+    db.commit()
+    db.refresh(db_template)
+    return db_template
+
+def delete_template(db: Session, template_id: int) -> bool:
+    db_template = db.query(models.Template).filter(models.Template.id == template_id).first()
+    if not db_template:
+        return False
+    db.delete(db_template)
+    db.commit()
+    return True
+
+def create_form_from_template(db: Session, template_id: int, owner_id: int, override: Optional[schemas.CreateFormFromTemplate] = None):
+    db_template = db.query(models.Template).filter(models.Template.id == template_id).first()
+    if not db_template:
+        return None
+    title = override.title if (override and override.title is not None) else db_template.title
+    description = override.description if (override and override.description is not None) else db_template.description
+    db_form = models.Form(
+        title=title,
+        description=description,
+        status="draft",
+        owner_id=owner_id
+    )
+    db.add(db_form)
+    db.commit()
+    db.refresh(db_form)
+    
+    db_version = models.FormVersion(
+        formid=db_form.id,
+        version_number=1,
+        ispublished=False
+    )
+    db.add(db_version)
+    db.commit()
+    db.refresh(db_version)
+    
+    for temp_field in db_template.fields:
+        db_field = models.Field(
+            formversion=db_version.id,
+            label=temp_field.label,
+            field_name=temp_field.field_name,
+            field_type=temp_field.field_type,
+            placeholder=temp_field.placeholder,
+            required=temp_field.required,
+            display_order=temp_field.display_order,
+            validation_conf=temp_field.validation_conf
+        )
+        db.add(db_field)
+        db.commit()
+        db.refresh(db_field)
+        
+        if temp_field.options:
+            for option_data in temp_field.options:
+                db_option = models.FieldOption(
+                    field_id=db_field.id,
+                    optiontext=option_data.get("optiontext") if isinstance(option_data, dict) else option_data.optiontext,
+                    value=option_data.get("value") if isinstance(option_data, dict) else option_data.value,
+                    display_order=option_data.get("display_order", 0) if isinstance(option_data, dict) else option_data.display_order
+                )
+                db.add(db_option)
+                
+    db.commit()
+    db.refresh(db_form)
+    return db_form
+
+
+# ==========================================
+# QR CODE CRUD
+# ==========================================
+def create_qrcode(db: Session, qrcode_data: schemas.QRCodeCreate, qr_image_path: str):
+    db_qr = models.QRCode(
+        title=qrcode_data.title,
+        target_url=qrcode_data.target_url,
+        qr_image_path=qr_image_path
+    )
+    db.add(db_qr)
+    db.commit()
+    db.refresh(db_qr)
+    return db_qr
+
+def get_qrcode(db: Session, qr_id: int):
+    return db.query(models.QRCode).filter(models.QRCode.id == qr_id).first()
+
+def get_qrcodes(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.QRCode).offset(skip).limit(limit).all()
+
+def delete_qrcode(db: Session, qr_id: int) -> bool:
+    import os
+    db_qr = db.query(models.QRCode).filter(models.QRCode.id == qr_id).first()
+    if not db_qr:
+        return False
+    
+    # Try removing the local file
+    try:
+        if os.path.exists(db_qr.qr_image_path):
+            os.remove(db_qr.qr_image_path)
+    except Exception:
+        pass
+
+    db.delete(db_qr)
+    db.commit()
+    return True
+
+
+
+

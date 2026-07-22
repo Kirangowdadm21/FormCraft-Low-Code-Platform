@@ -233,3 +233,116 @@ class UploadedFileResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class SubmissionCreatePublic(BaseModel):
+    responses: List[ResponseValueCreate]
+
+
+# ==========================================
+# ANALYTICS & TREND SCHEMAS
+# ==========================================
+class DashboardAnalytics(BaseModel):
+    total_users: int
+    total_forms: int
+    published_forms: int
+    archived_forms: int
+    draft_forms: int
+    total_submissions: int
+    started_submissions: int
+    submitted_submissions: int
+    completion_rate: float
+
+class FormAnalytics(BaseModel):
+    form_id: int
+    title: str
+    status: str
+    version_count: int
+    total_submissions: int
+    started_submissions: int
+    completed_submissions: int
+    completion_rate: float
+
+class SubmissionTrendItem(BaseModel):
+    date: Optional[str] = None
+    month: Optional[str] = None
+    count: int
+
+
+# ==========================================
+# TEMPLATE FIELD SCHEMAS
+# ==========================================
+class TemplateFieldBase(BaseModel):
+    label: str
+    field_name: str
+    field_type: str
+    placeholder: Optional[str] = None
+    required: bool = False
+    display_order: int = 0
+    validation_conf: Optional[dict] = None
+    options: Optional[List[dict]] = None
+
+class TemplateFieldCreate(TemplateFieldBase):
+    pass
+
+class TemplateFieldResponse(TemplateFieldBase):
+    id: int
+    template_id: int
+    createdat: datetime
+    updatedat: datetime
+
+    class Config:
+        from_attributes = True
+
+
+# ==========================================
+# TEMPLATE SCHEMAS
+# ==========================================
+class TemplateBase(BaseModel):
+    title: str
+    description: Optional[str] = None
+
+class TemplateCreate(TemplateBase):
+    fields: List[TemplateFieldCreate] = []
+
+class TemplateUpdate(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+    fields: Optional[List[TemplateFieldCreate]] = None
+
+class TemplateResponse(TemplateBase):
+    id: int
+    createdat: datetime
+    updatedat: datetime
+    fields: List[TemplateFieldResponse] = []
+
+    class Config:
+        from_attributes = True
+
+
+class CreateFormFromTemplate(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+
+
+# ==========================================
+# QR CODE SCHEMAS
+# ==========================================
+class QRCodeBase(BaseModel):
+    title: str
+    target_url: str
+
+class QRCodeCreate(QRCodeBase):
+    pass
+
+class QRCodeResponse(QRCodeBase):
+    id: int
+    qr_image_path: str
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+
+

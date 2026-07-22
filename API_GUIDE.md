@@ -664,3 +664,390 @@ Deletes a rule logic configuration.
   ```bash
   curl -X DELETE "http://localhost:8000/rules/1"
   ```
+
+---
+
+## Form Templates APIs
+
+The templates module allows administrators/users to define reusable blueprints (Templates and Template Fields) to instantiate fresh forms, ensuring that subsequent changes to the forms are isolated.
+
+### 21. Create Template (POST /templates)
+Creates a reusable form template with nested fields and options.
+
+- **URL**: `/templates/`
+- **Method**: `POST`
+- **Headers**: `Content-Type: application/json`
+- **Request Body**:
+  ```json
+  {
+    "title": "Customer Feedback Template",
+    "description": "Standard feedback template for customer service evaluations",
+    "fields": [
+      {
+        "label": "Full Name",
+        "field_name": "full_name",
+        "field_type": "text",
+        "required": true,
+        "display_order": 1,
+        "placeholder": "Enter your name"
+      },
+      {
+        "label": "Satisfaction Rating",
+        "field_name": "satisfaction",
+        "field_type": "dropdown",
+        "required": false,
+        "display_order": 2,
+        "placeholder": "Select your rating",
+        "options": [
+          {"optiontext": "Satisfied", "value": "satisfied", "display_order": 1},
+          {"optiontext": "Unsatisfied", "value": "unsatisfied", "display_order": 2}
+        ]
+      }
+    ]
+  }
+  ```
+- **Response** (Status `201 Created`):
+  ```json
+  {
+    "title": "Customer Feedback Template",
+    "description": "Standard feedback template for customer service evaluations",
+    "id": 1,
+    "createdat": "2026-07-17T15:40:00Z",
+    "updatedat": "2026-07-17T15:40:00Z",
+    "fields": [
+      {
+        "label": "Full Name",
+        "field_name": "full_name",
+        "field_type": "text",
+        "placeholder": "Enter your name",
+        "required": true,
+        "display_order": 1,
+        "validation_conf": null,
+        "options": null,
+        "id": 1,
+        "template_id": 1,
+        "createdat": "2026-07-17T15:40:00Z",
+        "updatedat": "2026-07-17T15:40:00Z"
+      },
+      {
+        "label": "Satisfaction Rating",
+        "field_name": "satisfaction",
+        "field_type": "dropdown",
+        "placeholder": "Select your rating",
+        "required": false,
+        "display_order": 2,
+        "validation_conf": null,
+        "options": [
+          {"optiontext": "Satisfied", "value": "satisfied", "display_order": 1},
+          {"optiontext": "Unsatisfied", "value": "unsatisfied", "display_order": 2}
+        ],
+        "id": 2,
+        "template_id": 1,
+        "createdat": "2026-07-17T15:40:00Z",
+        "updatedat": "2026-07-17T15:40:00Z"
+      }
+    ]
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X POST "http://localhost:8000/templates/" \
+       -H "Content-Type: application/json" \
+       -d '{"title": "Customer Feedback Template", "description": "Standard feedback template", "fields": [{"label": "Full Name", "field_name": "full_name", "field_type": "text", "required": true, "display_order": 1, "placeholder": "Enter your name"}]}'
+  ```
+
+---
+
+### 22. List Templates (GET /templates)
+Retrieves a list of all reusable form templates.
+
+- **URL**: `/templates/` (Optional query: `?skip=0&limit=100`)
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  [
+    {
+      "title": "Customer Feedback Template",
+      "description": "Standard feedback template for customer service evaluations",
+      "id": 1,
+      "createdat": "2026-07-17T15:40:00Z",
+      "updatedat": "2026-07-17T15:40:00Z",
+      "fields": [...]
+    }
+  ]
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/templates/?limit=10"
+  ```
+
+---
+
+### 23. Get Template by ID (GET /templates/{template_id})
+Retrieves a single template configuration.
+
+- **URL**: `/templates/{template_id}`
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "title": "Customer Feedback Template",
+    "description": "Standard feedback template for customer service evaluations",
+    "id": 1,
+    "createdat": "2026-07-17T15:40:00Z",
+    "updatedat": "2026-07-17T15:40:00Z",
+    "fields": [...]
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/templates/1"
+  ```
+
+---
+
+### 24. Update Template (PATCH /templates/{template_id})
+Partially updates a template's details or entirely replaces its fields.
+
+- **URL**: `/templates/{template_id}`
+- **Method**: `PATCH`
+- **Headers**: `Content-Type: application/json`
+- **Request Body**:
+  ```json
+  {
+    "title": "Updated Feedback Template",
+    "fields": [
+      {
+        "label": "Short Feedback Comment",
+        "field_name": "comment",
+        "field_type": "text",
+        "required": false,
+        "display_order": 1
+      }
+    ]
+  }
+  ```
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "title": "Updated Feedback Template",
+    "description": "Standard feedback template for customer service evaluations",
+    "id": 1,
+    "createdat": "2026-07-17T15:40:00Z",
+    "updatedat": "2026-07-17T15:45:00Z",
+    "fields": [
+      {
+        "label": "Short Feedback Comment",
+        "field_name": "comment",
+        "field_type": "text",
+        "placeholder": null,
+        "required": false,
+        "display_order": 1,
+        "validation_conf": null,
+        "options": null,
+        "id": 3,
+        "template_id": 1,
+        "createdat": "2026-07-17T15:45:00Z",
+        "updatedat": "2026-07-17T15:45:00Z"
+      }
+    ]
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X PATCH "http://localhost:8000/templates/1" \
+       -H "Content-Type: application/json" \
+       -d '{"title": "Updated Feedback Template"}'
+  ```
+
+---
+
+### 25. Delete Template (DELETE /templates/{template_id})
+Deletes a template and all associated template fields.
+
+- **URL**: `/templates/{template_id}`
+- **Method**: `DELETE`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "message": "Template successfully deleted"
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X DELETE "http://localhost:8000/templates/1"
+  ```
+
+---
+
+### 26. Create Form from Template (POST /templates/{template_id}/create-form)
+Generates a new, independent Form based on the specified template. Copies all fields and field options into fresh Form database records under an active Version 1.
+
+- **URL**: `/templates/{template_id}/create-form` (Query parameter: `owner_id`)
+- **Method**: `POST`
+- **Headers**: `Content-Type: application/json`
+- **Request Body (Optional)**:
+  ```json
+  {
+    "title": "Overridden Form Title",
+    "description": "Overridden Form Description"
+  }
+  ```
+- **Response** (Status `201 Created`):
+  ```json
+  {
+    "title": "Overridden Form Title",
+    "description": "Overridden Form Description",
+    "status": "draft",
+    "id": 10,
+    "owner_id": 1,
+    "current_version": null,
+    "createdat": "2026-07-17T15:50:00Z",
+    "updatedat": "2026-07-17T15:50:00Z",
+    "versions": [
+      {
+        "version_number": 1,
+        "ispublished": false,
+        "id": 5,
+        "formid": 10,
+        "publishedat": null,
+        "createdat": "2026-07-17T15:50:00Z",
+        "updatedat": "2026-07-17T15:50:00Z",
+        "fields": [
+          {
+            "label": "Short Feedback Comment",
+            "field_name": "comment",
+            "field_type": "text",
+            "placeholder": null,
+            "required": false,
+            "display_order": 1,
+            "validation_conf": null,
+            "id": 20,
+            "formversion": 5,
+            "createdat": "2026-07-17T15:50:00Z",
+            "updatedat": "2026-07-17T15:50:00Z",
+            "options": []
+          }
+        ]
+      }
+    ]
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X POST "http://localhost:8000/templates/1/create-form?owner_id=1" \
+       -H "Content-Type: application/json" \
+       -d '{"title": "Custom Customer Satisfaction Form"}'
+  ```
+
+---
+
+## QR Code Generation APIs
+
+The QR Code module allows generating, managing, and retrieving QR code images for any target URL. QR images are saved as PNG files on disk and cleaned up on deletion. This module operates independently from all other modules.
+
+### 27. Create QR Code (POST /qrcodes)
+Generates a QR code image for the specified target URL and saves it to disk.
+
+- **URL**: `/qrcodes`
+- **Method**: `POST`
+- **Headers**: `Content-Type: application/json`
+- **Request Body**:
+  ```json
+  {
+    "title": "Feedback Form Link",
+    "target_url": "https://example.com/forms/public/1"
+  }
+  ```
+- **Response** (Status `201 Created`):
+  ```json
+  {
+    "title": "Feedback Form Link",
+    "target_url": "https://example.com/forms/public/1",
+    "qr_image_path": "uploads/qrcodes/a1b2c3d4e5f6.png",
+    "id": 1,
+    "created_at": "2026-07-17T19:00:00Z"
+  }
+  ```
+
+- **Validation**: Only `http://` and `https://` URLs are accepted. Invalid URLs return `400 Bad Request`.
+
+- **Testing with cURL**:
+  ```bash
+  curl -X POST "http://localhost:8000/qrcodes" \
+       -H "Content-Type: application/json" \
+       -d '{"title": "Feedback Form Link", "target_url": "https://example.com/forms/public/1"}'
+  ```
+
+---
+
+### 28. List QR Codes (GET /qrcodes)
+Retrieves all QR code records.
+
+- **URL**: `/qrcodes` (Optional query: `?skip=0&limit=100`)
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  [
+    {
+      "title": "Feedback Form Link",
+      "target_url": "https://example.com/forms/public/1",
+      "qr_image_path": "uploads/qrcodes/a1b2c3d4e5f6.png",
+      "id": 1,
+      "created_at": "2026-07-17T19:00:00Z"
+    }
+  ]
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/qrcodes?limit=10"
+  ```
+
+---
+
+### 29. Get QR Code by ID (GET /qrcodes/{qr_id})
+Retrieves a specific QR code record by its unique ID.
+
+- **URL**: `/qrcodes/{qr_id}`
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "title": "Feedback Form Link",
+    "target_url": "https://example.com/forms/public/1",
+    "qr_image_path": "uploads/qrcodes/a1b2c3d4e5f6.png",
+    "id": 1,
+    "created_at": "2026-07-17T19:00:00Z"
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/qrcodes/1"
+  ```
+
+---
+
+### 30. Delete QR Code (DELETE /qrcodes/{qr_id})
+Deletes a QR code record and removes the associated PNG image file from disk.
+
+- **URL**: `/qrcodes/{qr_id}`
+- **Method**: `DELETE`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "message": "QR Code successfully deleted"
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X DELETE "http://localhost:8000/qrcodes/1"
+  ```

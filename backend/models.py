@@ -182,3 +182,48 @@ class RevokedToken(Base):
     revoked_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     expires_at = Column(DateTime(timezone=True), nullable=False)
 
+
+class Template(Base):
+    __tablename__ = "templates"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    title = Column(String(255), nullable=False)
+    description = Column(Text, nullable=True)
+    createdat = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updatedat = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
+
+    # Relationships
+    fields = relationship("TemplateField", back_populates="template", cascade="all, delete-orphan")
+
+
+class TemplateField(Base):
+    __tablename__ = "template_fields"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    template_id = Column(Integer, ForeignKey("templates.id", ondelete="CASCADE"), nullable=False)
+    label = Column(String(255), nullable=False)
+    field_name = Column(String(100), nullable=False)
+    field_type = Column(String(50), nullable=False)  # text, number, email, dropdown, checkboxes, date, file_upload, rating
+    placeholder = Column(String(255), nullable=True)
+    required = Column(Boolean, default=False, nullable=False)
+    display_order = Column(Integer, default=0, nullable=False)
+    validation_conf = Column(JSON, nullable=True)
+    options = Column(JSON, nullable=True)  # Store list of option dicts as JSON
+    createdat = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updatedat = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
+
+    # Relationships
+    template = relationship("Template", back_populates="fields")
+
+
+class QRCode(Base):
+    __tablename__ = "qrcodes"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    title = Column(String(255), nullable=False)
+    target_url = Column(String(1024), nullable=False)
+    qr_image_path = Column(String(512), nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+
+
