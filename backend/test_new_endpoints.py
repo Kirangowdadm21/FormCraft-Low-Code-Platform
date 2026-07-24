@@ -64,7 +64,7 @@ def test_new_endpoints_workflow():
         "password": "ownerpassword123",
         "role": "user"
     }
-    register_response = client.post("/users/register", json=user_payload)
+    register_response = client.post("/auth/register", json=user_payload)
     assert register_response.status_code == 201
     owner_id = register_response.json()["id"]
 

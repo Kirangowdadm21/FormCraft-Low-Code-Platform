@@ -23,6 +23,7 @@ Low-Code-Workflow-Automation/
 │   ├── schemas.py            # Pydantic schemas
 │   ├── crud.py               # Database queries
 │   ├── routes/               # API route modules
+│   │   ├── auth.py
 │   │   ├── users.py
 │   │   ├── forms.py
 │   │   ├── fields.py
@@ -30,7 +31,8 @@ Low-Code-Workflow-Automation/
 │   │   ├── submissions.py
 │   │   ├── analytics.py
 │   │   ├── templates.py
-│   │   └── qrcodes.py
+│   │   ├── qrcodes.py
+│   │   └── reports.py
 │   ├── uploads/              # Uploaded file storage
 │   ├── requirements.txt
 │   └── .env
@@ -102,8 +104,9 @@ npm run dev
 ---
 
 ## Completed Features
-- **User Management Frontend**: React.js components for user registration (`RegisterPage`), login (`LoginPage`), profile management (`ProfilePage`), authentication context (`AuthContext`), and protected route guards (`ProtectedRoute`). Integrates directly with FastAPI backend APIs (`POST /users/register`, `POST /users/login`, `GET /users/profile`, `POST /users/logout`) with automatic Bearer JWT header attachment and localStorage token persistence.
-- **Authentication**: JWT-based registration, login, profile retrieval, and token revocation.
+- **User Management Frontend**: React.js components for user registration (`RegisterPage`), login (`LoginPage`), profile management (`ProfilePage`), authentication context (`AuthContext`), and protected route guards (`ProtectedRoute`). Integrates directly with FastAPI backend APIs (`POST /auth/register`, `POST /auth/login`, `GET /auth/profile`, `POST /auth/logout`) with automatic Bearer JWT header attachment and localStorage token persistence.
+- **Authentication Module (`/auth`)**: Separated authentication router handling user/admin registration (`POST /auth/register`), login (`POST /auth/login`), profile (`GET /auth/profile`), and token revocation (`POST /auth/logout`).
+- **User Management Module (`/users`)**: Administrator endpoints for managing user accounts (`GET /users`, `GET /users/{id}`, `POST /users`, `PATCH /users/{id}`, `DELETE /users/{id}`).
 - **Forms CRUD**: Create, list, read, update, and delete forms.
 - **Fields CRUD**: Manage form fields and field options.
 - **Form Lifecycle**: Publishing, version history, public rendering, and archiving.
@@ -113,11 +116,12 @@ npm run dev
 - **Analytics & Export**: Dashboard metrics, per-form analytics, submission trends (daily/monthly), and CSV/JSON/PDF data export.
 - **Form Templates**: Create reusable form blueprints/templates with nested fields and options, and instantiate new forms with unique field copies from them.
 - **QR Code Generation**: Create, list, view, and delete QR codes for any target URL with automatic PNG image generation and disk storage/cleanup.
+- **Independent Reports Module (`/reports`)**: Standalone read-only reporting router providing structured `{ summary, data }` responses for dashboard, forms, single-form detail, templates, QR codes, submissions, responses, and report export generation (JSON, CSV, PDF).
 
 ---
 
 ## Current Project Status
-All core modules and React user management frontend views are fully implemented, tested, and validated — including authentication, form lifecycle management, conditional rules, submissions, file uploads, analytics, data export, form templates, and QR code generation.
+All core modules and React user management frontend views are fully implemented, tested, and validated — including authentication, form lifecycle management, conditional rules, submissions, file uploads, analytics, data export, form templates, QR code generation, and independent reports.
 
 ---
 

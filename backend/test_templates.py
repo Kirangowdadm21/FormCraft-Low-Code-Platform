@@ -25,7 +25,7 @@ def test_template_workflow():
     }
     
     print(f"Creating test owner user with email: {test_email}")
-    register_response = client.post("/users/register", json=user_payload)
+    register_response = client.post("/auth/register", json=user_payload)
     assert register_response.status_code == 201, f"Failed to register user: {register_response.text}"
     owner_data = register_response.json()
     owner_id = owner_data["id"]

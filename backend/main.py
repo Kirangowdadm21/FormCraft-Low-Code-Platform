@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 
 # Import routers from routes directory
-from routes import users, forms, submissions, analytics, fields, rules, responses, uploads, export, templates, qrcodes
+from routes import auth, users, forms, submissions, analytics, fields, rules, responses, uploads, export, templates, qrcodes, reports
 from database import get_db
 
 app = FastAPI(
@@ -23,6 +23,7 @@ app.add_middleware(
 )
 
 # Include subrouters
+app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(forms.router)
 app.include_router(fields.router)
@@ -35,6 +36,7 @@ app.include_router(analytics.router)
 app.include_router(export.router)
 app.include_router(templates.router)
 app.include_router(qrcodes.router)
+app.include_router(reports.router)
 
 
 

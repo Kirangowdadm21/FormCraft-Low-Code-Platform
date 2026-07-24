@@ -14,6 +14,14 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     password: str
 
+class UserUpdate(BaseModel):
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    email: Optional[EmailStr] = None
+    password: Optional[str] = None
+    role: Optional[str] = None
+    is_active: Optional[bool] = None
+
 class UserResponse(UserBase):
     id: int
     is_active: bool

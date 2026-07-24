@@ -4,14 +4,14 @@ This document contains detailed request/response examples and cURL testing comma
 
 ---
 
-## Authentication API
+## Authentication API (/auth)
 
-The backend implements a JWT-based authentication system with secure password hashing (using `bcrypt`) and server-side token revocation (Logout) stored in a `revoked_tokens` table.
+The backend implements a JWT-based authentication system under the `/auth` router with secure password hashing (using `bcrypt`) and server-side token revocation (Logout) stored in a `revoked_tokens` table.
 
 ### 1. User Registration (Register)
 Creates a new user profile with a hashed password.
 
-- **URL**: `/users/register` (or `/users/` POST)
+- **URL**: `/auth/register`
 - **Method**: `POST`
 - **Headers**: `Content-Type: application/json`
 - **Request Body**:
@@ -40,7 +40,7 @@ Creates a new user profile with a hashed password.
 
 - **Testing with cURL**:
   ```bash
-  curl -X POST "http://localhost:8000/users/register" \
+  curl -X POST "http://localhost:8000/auth/register" \
        -H "Content-Type: application/json" \
        -d '{"first_name": "John", "last_name": "Doe", "email": "john.doe@example.com", "password": "mysecurepassword123", "role": "user"}'
   ```
@@ -50,12 +50,12 @@ Creates a new user profile with a hashed password.
 ### 2. User Login (Login)
 Validates email and password, issuing a JWT access token.
 
-- **URL**: `/users/login`
+- **URL**: `/auth/login`
 - **Method**: `POST`
 - **Headers**: `Content-Type: application/json`
 
 > [!NOTE]
-> The backend also exposes a Form-URL-Encoded login endpoint at `/users/login-form` (hidden from the main Swagger documentation listing but configured as the OAuth2 `tokenUrl`). This ensures the **Authorize** button in the Swagger UI works natively by prompting you for username (email) and password in form fields.
+> The backend also exposes a Form-URL-Encoded login endpoint at `/auth/login-form` (hidden from the main Swagger documentation listing but configured as the OAuth2 `tokenUrl`). This ensures the **Authorize** button in the Swagger UI works natively by prompting you for username (email) and password in form fields.
 
 - **Request Body**:
   ```json
@@ -74,7 +74,7 @@ Validates email and password, issuing a JWT access token.
 
 - **Testing with cURL**:
   ```bash
-  curl -X POST "http://localhost:8000/users/login" \
+  curl -X POST "http://localhost:8000/auth/login" \
        -H "Content-Type: application/json" \
        -d '{"email": "john.doe@example.com", "password": "mysecurepassword123"}'
   ```
@@ -84,7 +84,7 @@ Validates email and password, issuing a JWT access token.
 ### 3. User Profile
 Retrieves the logged-in user's profile info. Requires a valid JWT token in the Authorization header.
 
-- **URL**: `/users/profile`
+- **URL**: `/auth/profile`
 - **Method**: `GET`
 - **Headers**: 
   - `Authorization: Bearer <your_jwt_token>`
@@ -104,7 +104,7 @@ Retrieves the logged-in user's profile info. Requires a valid JWT token in the A
 
 - **Testing with cURL**:
   ```bash
-  curl -X GET "http://localhost:8000/users/profile" \
+  curl -X GET "http://localhost:8000/auth/profile" \
        -H "Authorization: Bearer <your_jwt_token>"
   ```
 
@@ -113,7 +113,7 @@ Retrieves the logged-in user's profile info. Requires a valid JWT token in the A
 ### 4. User Logout
 Logs out the user and revokes the JWT token server-side.
 
-- **URL**: `/users/logout`
+- **URL**: `/auth/logout`
 - **Method**: `POST`
 - **Headers**:
   - `Authorization: Bearer <your_jwt_token>`
@@ -126,9 +126,62 @@ Logs out the user and revokes the JWT token server-side.
 
 - **Testing with cURL**:
   ```bash
-  curl -X POST "http://localhost:8000/users/logout" \
+  curl -X POST "http://localhost:8000/auth/logout" \
        -H "Authorization: Bearer <your_jwt_token>"
   ```
+
+---
+
+## User Management API (/users)
+
+The administrator User Management module provides full CRUD management for user accounts.
+
+### 5. List All Users (GET /users)
+Retrieves a paginated list of user accounts.
+
+- **URL**: `/users`
+- **Method**: `GET`
+- **Headers**: `Authorization: Bearer <admin_token>`
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/users?skip=0&limit=50" \
+       -H "Authorization: Bearer <admin_token>"
+  ```
+
+### 6. Get User by ID (GET /users/{id})
+Retrieves specific user account details.
+
+- **URL**: `/users/{id}`
+- **Method**: `GET`
+- **Headers**: `Authorization: Bearer <admin_token>`
+
+### 7. Create User Account (POST /users)
+Creates a new user account (admin function).
+
+- **URL**: `/users`
+- **Method**: `POST`
+- **Headers**: `Authorization: Bearer <admin_token>`, `Content-Type: application/json`
+
+### 8. Update User Account (PATCH /users/{id})
+Partially updates user details (first name, last name, email, password, role, is_active).
+
+- **URL**: `/users/{id}`
+- **Method**: `PATCH`
+- **Headers**: `Authorization: Bearer <admin_token>`, `Content-Type: application/json`
+- **Request Body**:
+  ```json
+  {
+    "first_name": "Jane",
+    "role": "admin"
+  }
+  ```
+
+### 9. Delete User Account (DELETE /users/{id})
+Deletes a user account by ID.
+
+- **URL**: `/users/{id}`
+- **Method**: `DELETE`
+- **Headers**: `Authorization: Bearer <admin_token>`
 
 ---
 
@@ -1051,3 +1104,297 @@ Deletes a QR code record and removes the associated PNG image file from disk.
   ```bash
   curl -X DELETE "http://localhost:8000/qrcodes/1"
   ```
+
+---
+
+## Reports API (/reports)
+
+The Reports module is a completely independent backend feature. It performs only read (SELECT) operations across existing database records, returning standardized responses with a `summary` overview and detailed `data`.
+
+### 31. Get Dashboard Report (GET /reports/dashboard)
+Retrieves a consolidated high-level overview of system metrics across users, forms, submissions, templates, and QR codes.
+
+- **URL**: `/reports/dashboard`
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "summary": {
+      "generated_at": "2026-07-24T21:59:00Z",
+      "report_type": "Dashboard",
+      "total_forms": 15,
+      "published_forms": 10,
+      "draft_forms": 5,
+      "archived_forms": 0,
+      "total_templates": 5,
+      "total_qrcodes": 12,
+      "total_submissions": 245,
+      "total_responses": 245,
+      "completion_rate": 95.5
+    },
+    "data": {
+      "users_count": 8,
+      "forms_summary": { "total": 15, "published": 10, "draft": 5, "archived": 0 },
+      "submissions_summary": { "total": 245, "completed": 234, "completion_rate": 95.5 },
+      "modules_count": { "templates": 5, "qrcodes": 12, "responses": 245 }
+    }
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/reports/dashboard"
+  ```
+
+---
+
+### 32. Get Forms Summary Report (GET /reports/forms)
+Retrieves a summary and array of forms with status, fields count, response count, and last submission date.
+
+- **URL**: `/reports/forms`
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "summary": {
+      "generated_at": "2026-07-24T21:59:00Z",
+      "report_type": "Forms Report",
+      "total_forms": 15,
+      "published_forms": 10,
+      "draft_forms": 5,
+      "archived_forms": 0,
+      "total_fields": 48,
+      "total_responses": 245
+    },
+    "data": [
+      {
+        "id": 1,
+        "title": "Customer Feedback Form",
+        "description": "General survey",
+        "status": "published",
+        "owner_id": 1,
+        "current_version": 1,
+        "createdat": "2026-07-10T12:00:00Z",
+        "updatedat": "2026-07-10T12:00:00Z",
+        "number_of_fields": 4,
+        "number_of_responses": 20,
+        "last_submission_date": "2026-07-24T20:00:00Z"
+      }
+    ]
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/reports/forms"
+  ```
+
+---
+
+### 33. Get Single Form Report (GET /reports/forms/{form_id})
+Retrieves detailed report breakdown for a single form including versions, fields, options, and submission metrics.
+
+- **URL**: `/reports/forms/{form_id}`
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "summary": {
+      "generated_at": "2026-07-24T21:59:00Z",
+      "report_type": "Form Detail Report",
+      "form_id": 1,
+      "form_name": "Customer Feedback Form",
+      "status": "published",
+      "created_date": "2026-07-10T12:00:00Z",
+      "number_of_fields": 4,
+      "number_of_responses": 20,
+      "last_submission_date": "2026-07-24T20:00:00Z"
+    },
+    "data": {
+      "id": 1,
+      "title": "Customer Feedback Form",
+      "description": "General survey",
+      "owner_id": 1,
+      "status": "published",
+      "current_version": 1,
+      "versions": [...]
+    }
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/reports/forms/1"
+  ```
+
+---
+
+### 34. Get Templates Report (GET /reports/templates)
+Retrieves templates report with field count and usage count.
+
+- **URL**: `/reports/templates`
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "summary": {
+      "generated_at": "2026-07-24T21:59:00Z",
+      "report_type": "Templates Report",
+      "total_templates": 5,
+      "total_template_fields": 25
+    },
+    "data": [
+      {
+        "id": 1,
+        "title": "Customer Feedback Template",
+        "description": "Standard survey blueprint",
+        "createdat": "2026-07-17T15:00:00Z",
+        "updatedat": "2026-07-17T15:00:00Z",
+        "number_of_fields": 5,
+        "usage_count": 3
+      }
+    ]
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/reports/templates"
+  ```
+
+---
+
+### 35. Get QR Codes Report (GET /reports/qrcodes)
+Retrieves QR code report detailing target URLs and creation dates.
+
+- **URL**: `/reports/qrcodes`
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "summary": {
+      "generated_at": "2026-07-24T21:59:00Z",
+      "report_type": "QR Code Report",
+      "total_qrcodes": 12
+    },
+    "data": [
+      {
+        "id": 1,
+        "title": "Feedback Form Link",
+        "target_url": "https://example.com/forms/public/1",
+        "qr_image_path": "uploads/qrcodes/a1b2c3d4e5f6.png",
+        "creation_date": "2026-07-17T19:00:00Z"
+      }
+    ]
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/reports/qrcodes"
+  ```
+
+---
+
+### 36. Get Submissions Report (GET /reports/submissions)
+Retrieves submissions report with successful count, latest submission date, and form metadata.
+
+- **URL**: `/reports/submissions` (Optional query: `?form_id=1`)
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "summary": {
+      "generated_at": "2026-07-24T21:59:00Z",
+      "report_type": "Submission Report",
+      "total_submissions": 245,
+      "successful_submissions": 234,
+      "latest_submission": "2026-07-24T20:00:00Z"
+    },
+    "data": [
+      {
+        "id": 1,
+        "submission_id": "uuid-string-1234",
+        "form_version_id": 1,
+        "version_number": 1,
+        "form_id": 1,
+        "form_title": "Customer Feedback Form",
+        "submitted_by": 1,
+        "status": "submitted",
+        "started_at": "2026-07-24T19:55:00Z",
+        "submitted_at": "2026-07-24T20:00:00Z",
+        "response_count": 4
+      }
+    ]
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/reports/submissions?form_id=1"
+  ```
+
+---
+
+### 37. Get Responses Report (GET /reports/responses)
+Retrieves granular responses report with field labels, types, and form titles.
+
+- **URL**: `/reports/responses` (Optional query: `?submission_id=1&field_id=2`)
+- **Method**: `GET`
+- **Response** (Status `200 OK`):
+  ```json
+  {
+    "summary": {
+      "generated_at": "2026-07-24T21:59:00Z",
+      "report_type": "Response Report",
+      "total_responses": 245,
+      "latest_response": "2026-07-24T20:00:00Z",
+      "associated_forms_count": 10
+    },
+    "data": [
+      {
+        "id": 1,
+        "submission_id": 1,
+        "field_id": 2,
+        "field_name": "feedback_text",
+        "field_label": "Your Feedback",
+        "field_type": "text",
+        "form_id": 1,
+        "form_title": "Customer Feedback Form",
+        "value": "Great experience!",
+        "uploaded_file": null
+      }
+    ]
+  }
+  ```
+
+- **Testing with cURL**:
+  ```bash
+  curl -X GET "http://localhost:8000/reports/responses"
+  ```
+
+---
+
+### 38. Generate Exportable Report (POST /reports/generate)
+Generates an export file (JSON, CSV, or PDF) for any report type, delegating PDF bytes generation to the export module.
+
+- **URL**: `/reports/generate`
+- **Method**: `POST`
+- **Headers**: `Content-Type: application/json`
+- **Request Body**:
+  ```json
+  {
+    "report_type": "dashboard",
+    "format": "json"
+  }
+  ```
+- **Response**: Binary file attachment download (`report_dashboard.json`, `report_forms.csv`, or `report_submissions.pdf`).
+
+- **Testing with cURL**:
+  ```bash
+  curl -X POST "http://localhost:8000/reports/generate" \
+       -H "Content-Type: application/json" \
+       -d '{"report_type": "forms", "format": "csv"}' \
+       --output report_forms.csv
+  ```
+

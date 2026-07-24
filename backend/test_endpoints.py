@@ -26,7 +26,7 @@ def test_crud_endpoints():
     }
     
     print(f"Creating test user with email: {test_email}")
-    register_response = client.post("/users/register", json=user_payload)
+    register_response = client.post("/auth/register", json=user_payload)
     assert register_response.status_code == 201, f"Failed to register user: {register_response.text}"
     user_data = register_response.json()
     owner_id = user_data["id"]

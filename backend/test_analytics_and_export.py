@@ -28,7 +28,7 @@ def test_analytics_and_export_workflow():
         "role": "user"
     }
     print(f"Creating owner: {test_email}")
-    register_response = client.post("/users/register", json=user_payload)
+    register_response = client.post("/auth/register", json=user_payload)
     assert register_response.status_code == 201, f"User registration failed: {register_response.text}"
     owner_id = register_response.json()["id"]
 

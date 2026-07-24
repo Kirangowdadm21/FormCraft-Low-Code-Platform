@@ -31,6 +31,30 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.refresh(db_user)
     return db_user
 
+def get_users(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.User).offset(skip).limit(limit).all()
+
+def update_user(db: Session, user_id: int, user_update: schemas.UserUpdate):
+    db_user = db.query(models.User).filter(models.User.id == user_id).first()
+    if not db_user:
+        return None
+    update_data = user_update.model_dump(exclude_unset=True)
+    if "password" in update_data and update_data["password"]:
+        update_data["password"] = security.hash_password(update_data["password"])
+    for key, value in update_data.items():
+        setattr(db_user, key, value)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
+
+def delete_user(db: Session, user_id: int) -> bool:
+    db_user = db.query(models.User).filter(models.User.id == user_id).first()
+    if not db_user:
+        return False
+    db.delete(db_user)
+    db.commit()
+    return True
+
 def is_token_revoked(db: Session, token: str) -> bool:
     return db.query(models.RevokedToken).filter(models.RevokedToken.token == token).first() is not None
 
@@ -40,6 +64,7 @@ def revoke_token(db: Session, token: str, expires_at: datetime.datetime):
     db.commit()
     db.refresh(db_token)
     return db_token
+
 
 
 # ==========================================

@@ -16,12 +16,12 @@ import crud
 import models
 
 # Environment config variables with secure defaults
-SECRET_KEY = os.getenv("JWT_SECRET_KEY", "a_very_secret_key_12345!@#$")
+SECRET_KEY = os.getenv("JWT_SECRET_KEY", "9xK2!mL8#Qa7Pz1@Wv4Rk6Ys0Bn3Hu5Xe9Cf")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
-# OAuth2 scheme config. Token retrieval is expected via POST /users/login-form
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/users/login-form")
+# OAuth2 scheme config. Token retrieval is expected via POST /auth/login-form
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login-form")
 
 
 def hash_password(password: str) -> str:
@@ -35,6 +35,7 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
     """Encode JWT session token with expiration time."""
+    
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
