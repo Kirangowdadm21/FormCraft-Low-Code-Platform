@@ -406,3 +406,58 @@ body {
   background: rgba(239, 68, 68, 0.1);
   color: #ef4444;
 }
+
+/* Centered Authentication Layout */
+.auth-page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-main);
+  position: relative;
+  overflow-y: auto;
+  padding: 2.5rem 1rem;
+}
+
+.auth-brand-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+.auth-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 2.25rem;
+  font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.auth-brand-subtext {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.auth-card-box {
+  width: 100%;
+  max-width: 460px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Spin animation for loaders */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

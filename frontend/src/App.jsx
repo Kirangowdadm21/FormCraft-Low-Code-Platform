@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { 
   LayoutDashboard, 
   FileText, 
@@ -17,8 +17,20 @@ import {
   FileUp, 
   Sparkles,
   ChevronRight,
-  CheckCircle2
+  CheckCircle2,
+  User,
+  LogIn,
+  UserPlus,
+  LogOut,
+  Shield,
+  Loader2
 } from 'lucide-react'
+import { AuthProvider, useAuth } from './context/AuthContext'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
+import ProfilePage from './pages/ProfilePage'
+import PublicFormPage from './pages/PublicFormPage'
+import ProtectedRoute from './components/ProtectedRoute'
 import { 
   AreaChart, 
   Area, 
@@ -188,7 +200,8 @@ const conditionalRulesList = [
   { id: 104, trigger: 'File Upload Option', operator: 'is_empty', comparison: '', target: 'Explain Reason', action: 'require', group: 'G3' },
 ]
 
-export default function App() {
+function MainDashboard() {
+  const { user, isAuthenticated, logout } = useAuth()
   const [activeTab, setActiveTab] = useState('overview')
   const [forms, setForms] = useState(initialForms)
   const [filterForm, setFilterForm] = useState('All')
@@ -210,6 +223,13 @@ export default function App() {
     setForms(forms.filter(f => f.id !== id))
   }
 
+  const displayName = user 
+    ? [user.first_name, user.last_name].filter(Boolean).join(' ') || user.email 
+    : 'Guest User';
+  const displayInitials = user 
+    ? ((user.first_name?.[0] || '') + (user.last_name?.[0] || '')).toUpperCase() || user.email[0].toUpperCase() 
+    : 'G';
+
   return (
     <div className="dashboard-container">
       <div className="bg-glow-1"></div>
@@ -217,7 +237,7 @@ export default function App() {
 
       {/* Sidebar */}
       <aside className="sidebar">
-        <div className="brand-logo">
+        <div className="brand-logo" style={{ cursor: 'pointer' }} onClick={() => setActiveTab('overview')}>
           <Sparkles size={24} color="#8b5cf6" />
           <span>FormCraft</span>
         </div>
@@ -252,13 +272,51 @@ export default function App() {
               <span>Database Schema</span>
             </div>
           </li>
+          <li style={{ marginTop: '1rem', borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem' }}>
+            <div className={`nav-item ${activeTab === 'profile' ? 'active' : ''}`} onClick={() => setActiveTab('profile')}>
+              <User size={20} />
+              <span>User Profile</span>
+            </div>
+          </li>
+          {isAuthenticated ? (
+            <li>
+              <div 
+                className="nav-item" 
+                onClick={logout}
+                style={{ color: 'var(--text-muted)' }}
+              >
+                <LogOut size={20} />
+                <span>Sign Out</span>
+              </div>
+            </li>
+          ) : null}
         </ul>
-        <div className="user-profile">
-          <div className="avatar">M</div>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Madhuvanth DM</span>
-            <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Project Owner</span>
+
+        {/* User profile footer */}
+        <div className="user-profile" style={{ justifyContent: 'space-between' }}>
+          <div 
+            style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', overflow: 'hidden' }}
+            onClick={() => setActiveTab(isAuthenticated ? 'profile' : 'login')}
+          >
+            <div className="avatar">{displayInitials}</div>
+            <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+              <span style={{ fontSize: '0.85rem', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {displayName}
+              </span>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'capitalize' }}>
+                {isAuthenticated ? (user.role || 'User') : 'Not Signed In'}
+              </span>
+            </div>
           </div>
+          {isAuthenticated ? (
+            <button 
+              title="Logout"
+              onClick={logout} 
+              style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '4px' }}
+            >
+              <LogOut size={16} />
+            </button>
+          ) : null}
         </div>
       </aside>
 
@@ -610,6 +668,7 @@ export default function App() {
                 </table>
               </div>
             </div>
+
           </div>
         )}
 
@@ -669,7 +728,102 @@ export default function App() {
           </div>
         )}
 
+        {/* USER PROFILE TAB */}
+        {activeTab === 'profile' && (
+          <ProtectedRoute onNavigateToLogin={() => setActiveTab('login')}>
+            <ProfilePage onLogoutSuccess={() => setActiveTab('login')} />
+          </ProtectedRoute>
+        )}
+
+
+
       </main>
     </div>
+  )
+}
+
+function AppContent() {
+  const { isAuthenticated, loading } = useAuth()
+  const [authMode, setAuthMode] = useState('register')
+
+  // Detect public form URL patterns
+  const publicFormId = useMemo(() => {
+    const path = window.location.pathname
+    const search = window.location.search
+    const params = new URLSearchParams(search)
+
+    // Pattern: /forms/public/:id
+    const publicMatch = path.match(/\/forms\/public\/([^/]+)/)
+    if (publicMatch) return publicMatch[1]
+
+    // Pattern: ?publicFormId=xxx
+    if (params.get('publicFormId')) return params.get('publicFormId')
+
+    // Pattern: ?formId=xxx
+    if (params.get('formId')) return params.get('formId')
+
+    return null
+  }, [])
+
+  // Public form: render standalone, no auth needed
+  if (publicFormId) {
+    return <PublicFormPage formId={publicFormId} />
+  }
+
+  // Loading state while checking auth
+  if (loading) {
+    return (
+      <div className="auth-page-wrapper">
+        <div className="bg-glow-1"></div>
+        <div className="bg-glow-2"></div>
+        <Loader2 size={36} className="animate-spin" style={{ color: 'var(--primary)' }} />
+      </div>
+    )
+  }
+
+  // Unauthenticated: show clean auth card
+  if (!isAuthenticated) {
+    return (
+      <div className="auth-page-wrapper">
+        <div className="bg-glow-1"></div>
+        <div className="bg-glow-2"></div>
+
+        {/* Brand Header */}
+        <div className="auth-brand-header">
+          <div className="auth-brand-logo">
+            <Sparkles size={32} />
+            FormCraft
+          </div>
+          <p className="auth-brand-subtext">
+            Low-Code Workflow Automation &amp; Intelligent Data Collection
+          </p>
+        </div>
+
+        {/* Auth Card */}
+        <div className="auth-card-box">
+          {authMode === 'register' ? (
+            <RegisterPage
+              onNavigateToLogin={() => setAuthMode('login')}
+            />
+          ) : (
+            <LoginPage
+              onLoginSuccess={() => {/* isAuthenticated will flip automatically */}}
+              onNavigateToRegister={() => setAuthMode('register')}
+            />
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  // Authenticated: full dashboard
+  return <MainDashboard />
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   )
 }
