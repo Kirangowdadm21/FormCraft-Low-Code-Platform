@@ -14,6 +14,14 @@ export default defineConfig({
       '/auth': {
         target: 'http://localhost:8000',
         changeOrigin: true
+      },
+      '/forms': {
+        target: 'http://localhost:8000',
+        changeOrigin: true
+      },
+      '/fields': {
+        target: 'http://localhost:8000',
+        changeOrigin: true
       }
     }
   }

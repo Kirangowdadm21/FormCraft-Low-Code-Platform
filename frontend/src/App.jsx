@@ -31,6 +31,7 @@ import RegisterPage from './pages/RegisterPage'
 import ProfilePage from './pages/ProfilePage'
 import PublicFormPage from './pages/PublicFormPage'
 import ProtectedRoute from './components/ProtectedRoute'
+import FormsPage from './pages/FormsPage'
 import { 
   AreaChart, 
   Area, 
@@ -486,79 +487,7 @@ function MainDashboard() {
 
         {/* FORMS PORTFOLIO TAB */}
         {activeTab === 'forms' && (
-          <div>
-            <div className="header">
-              <div className="header-title">
-                <h1>Forms Portfolio</h1>
-                <p>Manage, version, publish, and duplicate your intelligent collection schemas.</p>
-              </div>
-              <button className="btn-primary" onClick={() => {
-                const title = prompt("Enter form title:")
-                if (title) {
-                  setForms([...forms, {
-                    id: forms.length + 1,
-                    title,
-                    description: 'No description provided.',
-                    owner: 'Madhuvanth DM',
-                    status: 'draft',
-                    current_version: null,
-                    createdat: new Date().toISOString().split('T')[0],
-                    fields_count: 0
-                  }])
-                }
-              }}>
-                <Plus size={18} />
-                <span>Create New Draft</span>
-              </button>
-            </div>
-
-            <div className="data-card">
-              <div className="table-wrapper">
-                <table className="custom-table">
-                  <thead>
-                    <tr>
-                      <th>Form Title</th>
-                      <th>Owner</th>
-                      <th>Status</th>
-                      <th>Current Version</th>
-                      <th>Total Fields</th>
-                      <th>Created On</th>
-                      <th style={{ textAlign: 'right' }}>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {forms.map((form) => (
-                      <tr key={form.id}>
-                        <td>
-                          <div style={{ fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.2rem' }}>{form.title}</div>
-                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{form.description}</div>
-                        </td>
-                        <td>{form.owner}</td>
-                        <td>
-                          <span className={`badge ${form.status === 'published' ? 'badge-success' : 'badge-draft'}`}>
-                            {form.status}
-                          </span>
-                        </td>
-                        <td style={{ textAlign: 'center', fontWeight: 600 }}>{form.current_version || '--'}</td>
-                        <td style={{ fontFamily: 'monospace', textAlign: 'center' }}>{form.fields_count}</td>
-                        <td style={{ color: 'var(--text-secondary)' }}>{form.createdat}</td>
-                        <td>
-                          <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>
-                            <button style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }} onClick={() => handleDuplicate(form)}>
-                              <Copy size={16} />
-                            </button>
-                            <button style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }} onClick={() => handleDelete(form.id)}>
-                              <Trash2 size={16} />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <FormsPage />
         )}
 
         {/* SUBMISSIONS TAB */}
