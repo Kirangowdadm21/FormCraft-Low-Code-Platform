@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { X, Eye, Calendar, Clock, User, ShieldCheck, Loader2 } from 'lucide-react';
+import { X, Eye, Calendar, Clock, User, ShieldCheck, Loader2, QrCode } from 'lucide-react';
 import { getFormById } from '../../services/formsApi';
 import VersionTimeline from './VersionTimeline';
+import PublicFormQRModal from './PublicFormQRModal';
 
-export default function FormDetailModal({ isOpen, onClose, formId, onEditVersion }) {
+export default function FormDetailModal({ isOpen, onClose, formId, onEditVersion, onNavigateToPublished }) {
   const [formData, setFormData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showQr, setShowQr] = useState(false);
 
   const fetchFormData = useCallback(() => {
     if (!formId) return;
@@ -131,6 +133,7 @@ export default function FormDetailModal({ isOpen, onClose, formId, onEditVersion
                 isLoading={loading}
                 error={error}
                 onRetry={fetchFormData}
+                onNavigateToPublished={onNavigateToPublished}
                 onEditVersion={(ver) => {
                   onClose();
                   if (onEditVersion) {
@@ -142,11 +145,28 @@ export default function FormDetailModal({ isOpen, onClose, formId, onEditVersion
           )}
         </div>
 
-        <div className="modal-footer">
+        <div className="modal-footer" style={{ justifyContent: 'space-between' }}>
+          {formData && (
+            <button
+              type="button"
+              className="btn-secondary"
+              onClick={() => setShowQr(true)}
+              style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+            >
+              <QrCode size={16} />
+              <span>QR Code</span>
+            </button>
+          )}
           <button type="button" className="btn-secondary" onClick={onClose}>
             Close
           </button>
         </div>
+
+        <PublicFormQRModal
+          isOpen={showQr}
+          onClose={() => setShowQr(false)}
+          form={formData}
+        />
       </div>
     </div>
   );

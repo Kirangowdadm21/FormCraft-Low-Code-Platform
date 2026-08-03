@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { LogIn, Mail, Lock, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
+import { Mail, Lock, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
+import LogoMark from '../components/common/LogoMark';
 
 export default function LoginPage({ onLoginSuccess, onNavigateToRegister }) {
   const { login } = useAuth();
@@ -37,44 +38,44 @@ export default function LoginPage({ onLoginSuccess, onNavigateToRegister }) {
   };
 
   return (
-    <div className="data-card" style={{ padding: '2.5rem 2rem' }}>
+    <div className="data-card" style={{ padding: '2.5rem' }}>
       
       {/* Header */}
-      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+      <div style={{ textAlign: 'center', marginBottom: '2.25rem' }}>
         <div style={{
-          width: '56px',
-          height: '56px',
-          borderRadius: '16px',
-          background: 'var(--gradient-brand)',
+          width: '48px',
+          height: '48px',
+          borderRadius: '4px',
+          background: 'var(--ledger)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '0 auto 1rem auto',
-          boxShadow: '0 8px 20px rgba(139, 92, 246, 0.3)'
+          margin: '0 auto 1.25rem auto'
         }}>
-          <LogIn size={28} color="#fff" />
+          <LogoMark size={24} color="var(--paper)" />
         </div>
-        <h1 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.5rem' }}>Administrator Sign In</h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-          Sign in to access your FormCraft admin dashboard
+        <h1 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.35rem' }}>Administrator Sign In</h1>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
+          Sign in to access your FormCraft admin registry
         </p>
       </div>
 
       {/* Error Alert */}
       {error && (
         <div style={{
-          background: 'rgba(239, 68, 68, 0.12)',
-          border: '1px solid rgba(239, 68, 68, 0.3)',
-          borderRadius: '12px',
-          padding: '0.85rem 1rem',
+          background: '#FAF0EC',
+          border: '1px solid var(--stamp)',
+          borderRadius: '4px',
+          padding: '0.75rem 1rem',
           marginBottom: '1.5rem',
           display: 'flex',
           alignItems: 'center',
           gap: '0.75rem',
-          color: '#ef4444',
-          fontSize: '0.875rem'
+          color: 'var(--stamp)',
+          fontSize: '0.9rem',
+          fontWeight: 500
         }}>
-          <AlertCircle size={20} style={{ flexShrink: 0 }} />
+          <AlertCircle size={18} style={{ flexShrink: 0 }} />
           <span>{error}</span>
         </div>
       )}
@@ -83,13 +84,14 @@ export default function LoginPage({ onLoginSuccess, onNavigateToRegister }) {
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         
         {/* Email Field */}
-        <div>
-          <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, marginBottom: '0.4rem', color: 'var(--text-secondary)' }}>
+        <div className="form-group">
+          <label className="form-label" htmlFor="login-email">
             Email Address
           </label>
           <div style={{ position: 'relative' }}>
-            <Mail size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+            <Mail size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
             <input
+              id="login-email"
               type="email"
               required
               value={email}
@@ -98,28 +100,24 @@ export default function LoginPage({ onLoginSuccess, onNavigateToRegister }) {
                 if (error) setError(null);
               }}
               placeholder="admin@example.com"
+              className="form-input"
               style={{
                 width: '100%',
-                padding: '0.75rem 0.75rem 0.75rem 2.5rem',
-                background: 'rgba(10, 11, 18, 0.6)',
-                border: '1px solid var(--border-color)',
-                borderRadius: '10px',
-                color: 'var(--text-primary)',
-                fontSize: '0.9rem',
-                outline: 'none'
+                paddingLeft: '2.5rem'
               }}
             />
           </div>
         </div>
 
         {/* Password Field */}
-        <div>
-          <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, marginBottom: '0.4rem', color: 'var(--text-secondary)' }}>
+        <div className="form-group">
+          <label className="form-label" htmlFor="login-password">
             Password
           </label>
           <div style={{ position: 'relative' }}>
-            <Lock size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+            <Lock size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
             <input
+              id="login-password"
               type="password"
               required
               value={password}
@@ -128,15 +126,10 @@ export default function LoginPage({ onLoginSuccess, onNavigateToRegister }) {
                 if (error) setError(null);
               }}
               placeholder="••••••••"
+              className="form-input"
               style={{
                 width: '100%',
-                padding: '0.75rem 0.75rem 0.75rem 2.5rem',
-                background: 'rgba(10, 11, 18, 0.6)',
-                border: '1px solid var(--border-color)',
-                borderRadius: '10px',
-                color: 'var(--text-primary)',
-                fontSize: '0.9rem',
-                outline: 'none'
+                paddingLeft: '2.5rem'
               }}
             />
           </div>
@@ -150,7 +143,7 @@ export default function LoginPage({ onLoginSuccess, onNavigateToRegister }) {
           style={{
             width: '100%',
             justifyContent: 'center',
-            padding: '0.85rem',
+            padding: '0.75rem',
             marginTop: '0.5rem',
             opacity: loading ? 0.7 : 1,
             cursor: loading ? 'not-allowed' : 'pointer'
@@ -172,16 +165,16 @@ export default function LoginPage({ onLoginSuccess, onNavigateToRegister }) {
       </form>
 
       {/* Footer Link to Register */}
-      <div style={{ textAlign: 'center', marginTop: '1.75rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border-color)' }}>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+      <div style={{ textAlign: 'center', marginTop: '1.75rem', paddingTop: '1.25rem', borderTop: '1px solid var(--rule)' }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
           Don't have an account yet?{' '}
           <button
             onClick={onNavigateToRegister}
             style={{
               background: 'none',
               border: 'none',
-              color: 'var(--primary)',
-              fontWeight: 600,
+              color: 'var(--ledger)',
+              fontWeight: 700,
               cursor: 'pointer',
               textDecoration: 'underline'
             }}

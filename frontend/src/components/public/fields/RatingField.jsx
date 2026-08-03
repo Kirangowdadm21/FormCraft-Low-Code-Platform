@@ -4,12 +4,12 @@ import { Star, AlertCircle } from 'lucide-react';
 export default function RatingField({ field, value, onChange, error, disabled }) {
   const fieldId = `field-${field.id}`;
   const maxStars = field.validation_conf?.max_value || 5;
-  const currentRating = parseInt(value) || 0;
+  const currentRating = Number(value) || 0;
   const [hoverRating, setHoverRating] = useState(0);
 
   const handleStarClick = (starNum) => {
     if (disabled) return;
-    onChange(starNum === currentRating ? '' : String(starNum));
+    onChange(starNum === currentRating ? 0 : starNum);
   };
 
   return (
@@ -46,7 +46,7 @@ export default function RatingField({ field, value, onChange, error, disabled })
               <Star
                 size={28}
                 fill={isFilled ? '#f59e0b' : 'transparent'}
-                stroke={isFilled ? '#f59e0b' : 'rgba(255,255,255,0.2)'}
+                stroke={isFilled ? '#f59e0b' : '#D8D3C7'}
                 strokeWidth={1.5}
               />
             </button>

@@ -111,10 +111,3 @@ def get_submission_trend(interval: str = "daily", form_id: Optional[int] = None,
             
     return trend_data
 
-@router.get("/form/{form_id}")
-def read_form_analytics(form_id: int, db: Session = Depends(get_db)):
-    db_form = crud.get_form(db, form_id=form_id)
-    if db_form is None:
-        raise HTTPException(status_code=404, detail="Form not found")
-    return crud.get_submission_analytics(db=db, form_id=form_id)
-

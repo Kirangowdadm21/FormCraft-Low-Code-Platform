@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Save, Eye, Send, Loader2, CheckCircle, AlertCircle, GitBranch } from 'lucide-react';
+import { ArrowLeft, Save, Eye, Send, Loader2, CheckCircle, AlertCircle, GitBranch, Copy } from 'lucide-react';
 
 export default function BuilderHeader({
   form,
@@ -11,6 +11,7 @@ export default function BuilderHeader({
   onPublish,
   onPreview,
   onBack,
+  onSaveAsTemplate,
 }) {
   const handleBackClick = () => {
     if (isDirty) {
@@ -33,10 +34,14 @@ export default function BuilderHeader({
         <div className="builder-title-group">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
             <h2 className="builder-form-title">{form?.title || 'Form Builder'}</h2>
-            {activeVersion && (
+            {activeVersion ? (
               <span className="badge badge-version-header" title={`Loaded version ${activeVersion.version_number}`}>
                 <GitBranch size={11} style={{ marginRight: '0.2rem' }} />
                 v{activeVersion.version_number}
+              </span>
+            ) : (
+              <span className="badge badge-draft" title="No versions saved yet">
+                Unsaved Draft
               </span>
             )}
           </div>
@@ -49,12 +54,12 @@ export default function BuilderHeader({
                 <AlertCircle size={12} />
                 Unsaved changes
               </span>
-            ) : (
+            ) : activeVersion ? (
               <span className="saved-badge" title="All changes saved">
                 <CheckCircle size={12} />
                 Saved
               </span>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
@@ -68,6 +73,16 @@ export default function BuilderHeader({
         >
           <Eye size={16} />
           <span>Preview</span>
+        </button>
+
+        <button
+          type="button"
+          className="btn-secondary"
+          onClick={onSaveAsTemplate}
+          title="Save current form as a reusable template"
+        >
+          <Copy size={16} />
+          <span>Save as Template</span>
         </button>
 
         <button

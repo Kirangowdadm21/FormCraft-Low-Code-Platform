@@ -41,11 +41,23 @@ export default function SaveVersionModal({
           >
             <AlertCircle size={20} color="var(--primary)" style={{ marginTop: '0.1rem', flexShrink: 0 }} />
             <div style={{ fontSize: '0.9rem', color: 'var(--text-primary)', lineHeight: '1.5' }}>
-              Saving these changes will generate a <strong>new version (v{nextVersionNumber})</strong>.
-              <br />
-              <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-                Version {currentVersionNumber} will remain completely unchanged in your version timeline history.
-              </span>
+              {currentVersionNumber === 0 ? (
+                <>
+                  This will save your form fields as <strong>Version 1</strong>.
+                  <br />
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                    Your form currently has no saved versions. This creates the first one.
+                  </span>
+                </>
+              ) : (
+                <>
+                  Saving these changes will generate a <strong>new version (v{nextVersionNumber})</strong>.
+                  <br />
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                    Version {currentVersionNumber} will remain completely unchanged in your version timeline history.
+                  </span>
+                </>
+              )}
             </div>
           </div>
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { AlertCircle } from 'lucide-react';
+import { parseFieldOptions } from './parseFieldOptions';
 
 export default function RadioField({ field, value, onChange, error, disabled }) {
   const fieldId = `field-${field.id}`;
-  const options = field.options || [];
+  const options = parseFieldOptions(field);
 
   return (
     <div className="public-field-group">
@@ -16,16 +17,16 @@ export default function RadioField({ field, value, onChange, error, disabled }) 
       ) : (
         <div className="radio-group-options" role="radiogroup" aria-label={field.label}>
           {options.map((opt, idx) => {
-            const optVal = opt.value || opt.optiontext || `Option ${idx + 1}`;
-            const optText = opt.optiontext || opt.value || `Option ${idx + 1}`;
-            const isSelected = value === optVal;
+            const optVal = opt.value;
+            const optText = opt.label;
+            const isSelected = value !== undefined && value !== null && value !== '' && String(value) === String(optVal);
             const optId = `${fieldId}-radio-${idx}`;
 
             return (
               <label
-                key={opt.id || idx}
+                key={opt.id ?? idx}
                 htmlFor={optId}
-                className={`choice-item-card ${isSelected ? 'choice-checked' : ''}`}
+                className={`choice-item-card ${isSelected ? 'choice-checked' : ''} ${disabled ? 'choice-disabled' : ''}`}
               >
                 <input
                   type="radio"
@@ -34,7 +35,7 @@ export default function RadioField({ field, value, onChange, error, disabled }) 
                   className="visually-hidden"
                   value={optVal}
                   checked={isSelected}
-                  onChange={() => onChange(optVal)}
+                  onChange={() => !disabled && onChange(optVal)}
                   disabled={disabled}
                 />
                 <div className={`radio-custom-dot ${isSelected ? 'dot-selected' : ''}`}>

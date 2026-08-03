@@ -153,7 +153,7 @@ export default function FieldProperties({ selectedField, onUpdateField }) {
         {hasOptions && (
           <div className="properties-section">
             <div className="section-title">
-              <Layers size={16} color="var(--primary)" />
+              <Layers size={16} color="var(--ledger)" />
               <span>Options List</span>
             </div>
 
@@ -197,7 +197,7 @@ export default function FieldProperties({ selectedField, onUpdateField }) {
         {/* Validation Rules Section */}
         <div className="properties-section">
           <div className="section-title">
-            <Sliders size={16} color="var(--primary)" />
+            <Sliders size={16} color="var(--ledger)" />
             <span>Validation Rules</span>
           </div>
 
@@ -208,11 +208,12 @@ export default function FieldProperties({ selectedField, onUpdateField }) {
               type="number"
               className="form-input"
               placeholder="e.g. 1"
-              value={selectedField.validation_conf?.min || ''}
+              value={selectedField.validation_conf?.min_length ?? selectedField.validation_conf?.min_value ?? ''}
               onChange={(e) =>
                 handleChange('validation_conf', {
                   ...selectedField.validation_conf,
-                  min: e.target.value ? Number(e.target.value) : null,
+                  min_length: e.target.value ? Number(e.target.value) : null,
+                  min_value: e.target.value ? Number(e.target.value) : null,
                 })
               }
             />
@@ -225,11 +226,12 @@ export default function FieldProperties({ selectedField, onUpdateField }) {
               type="number"
               className="form-input"
               placeholder="e.g. 255"
-              value={selectedField.validation_conf?.max || ''}
+              value={selectedField.validation_conf?.max_length ?? selectedField.validation_conf?.max_value ?? ''}
               onChange={(e) =>
                 handleChange('validation_conf', {
                   ...selectedField.validation_conf,
-                  max: e.target.value ? Number(e.target.value) : null,
+                  max_length: e.target.value ? Number(e.target.value) : null,
+                  max_value: e.target.value ? Number(e.target.value) : null,
                 })
               }
             />

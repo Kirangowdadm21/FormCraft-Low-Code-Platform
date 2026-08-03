@@ -79,11 +79,11 @@ export async function getFormById(formId) {
 }
 
 /**
- * POST /forms?owner_id={ownerId}
- * Create a new form.
+ * POST /forms
+ * Create a new form. owner_id is derived from the authenticated user on the backend.
  */
-export async function createForm(formData, ownerId = 1) {
-  const response = await fetch(`${BASE_URL}/forms?owner_id=${ownerId}`, {
+export async function createForm(formData) {
+  const response = await fetch(`${BASE_URL}/forms/`, {
     method: 'POST',
     headers: getAuthHeaders(),
     body: JSON.stringify({
@@ -220,6 +220,32 @@ export async function publishForm(formId, versionNumber = null) {
   const response = await fetch(url, {
     method: 'POST',
     headers: getAuthHeaders(),
+  });
+
+  return handleResponse(response);
+}
+
+/**
+ * POST /forms/{formId}/archive
+ * Archive a form by ID.
+ */
+export async function archiveForm(formId) {
+  const response = await fetch(`${BASE_URL}/forms/${formId}/archive`, {
+    method: 'POST',
+    headers: getAuthHeaders(),
+  });
+
+  return handleResponse(response);
+}
+
+/**
+ * GET /forms/public/{formId}
+ * Fetch a published form for public rendering (no auth required).
+ */
+export async function getPublicForm(formId) {
+  const response = await fetch(`${BASE_URL}/forms/public/${formId}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
   });
 
   return handleResponse(response);

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { 
   LayoutDashboard, 
   FileText, 
@@ -15,7 +15,6 @@ import {
   Copy, 
   Trash2, 
   FileUp, 
-  Sparkles,
   ChevronRight,
   CheckCircle2,
   User,
@@ -23,8 +22,11 @@ import {
   UserPlus,
   LogOut,
   Shield,
-  Loader2
+  Loader2,
+  Globe
 } from 'lucide-react'
+import LogoMark from './components/common/LogoMark'
+import StatTile from './components/dashboard/StatTile'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
@@ -32,53 +34,14 @@ import ProfilePage from './pages/ProfilePage'
 import PublicFormPage from './pages/PublicFormPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import FormsPage from './pages/FormsPage'
-import { 
-  AreaChart, 
-  Area, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  Cell
-} from 'recharts'
+import PublishedFormsPage from './pages/PublishedFormsPage'
+import ConditionalRulesPage from './pages/ConditionalRulesPage'
+import ResponsesPage from './pages/ResponsesPage'
+import AnalyticsPage from './pages/AnalyticsPage'
+import ReportsExportPage from './pages/ReportsExportPage'
+import TemplatesPage from './pages/TemplatesPage'
+import OverviewPage from './pages/OverviewPage'
 
-// Mock Data
-const initialForms = [
-  { id: 1, title: 'Job Application Form', description: 'HR department recruitment questionnaire.', owner: 'Madhuvanth DM', status: 'published', current_version: 2, createdat: '2026-06-15', fields_count: 14 },
-  { id: 2, title: 'Product Feedback Survey', description: 'Post-launch feedback for FormCraft v1.', owner: 'Madhuvanth DM', status: 'published', current_version: 1, createdat: '2026-06-28', fields_count: 8 },
-  { id: 3, title: 'Tech Quiz 2026', description: 'Internal developers check.', owner: 'Madhuvanth DM', status: 'published', current_version: 1, createdat: '2026-07-01', fields_count: 12 },
-  { id: 4, title: 'Contact Us Inquiry', description: 'General contact form for respondents.', owner: 'Madhuvanth DM', status: 'published', current_version: 3, createdat: '2026-05-10', fields_count: 5 },
-  { id: 5, title: 'Event Registration Form', description: 'Signup sheet for upcoming technology hackathon.', owner: 'Madhuvanth DM', status: 'draft', current_version: null, createdat: '2026-07-03', fields_count: 9 },
-]
-
-const recentSubmissions = [
-  { id: 'SUB-4841', form: 'Job Application Form', respondent: 'R. Kumar', fields_filled: '14/14', duration: '4m 12s', date: '10:14 AM', status: 'Complete' },
-  { id: 'SUB-4840', form: 'Product Feedback Survey', respondent: 'A. Singh', fields_filled: '8/8', duration: '1m 48s', date: '10:12 AM', status: 'Complete' },
-  { id: 'SUB-4839', form: 'Tech Quiz 2026', respondent: 'P. Joshi', fields_filled: '12/12', duration: '6m 02s', date: '10:10 AM', status: 'Complete' },
-  { id: 'SUB-4838', form: 'Contact Us Inquiry', respondent: 'M. Nair', fields_filled: '3/5', duration: '--', date: '10:08 AM', status: 'Partial' },
-  { id: 'SUB-4837', form: 'Event Registration Form', respondent: 'S. Rao', fields_filled: '9/9', duration: '2m 34s', date: '10:06 AM', status: 'Complete' },
-]
-
-const submissionChartData = [
-  { name: 'Mon', submissions: 120 },
-  { name: 'Tue', submissions: 180 },
-  { name: 'Wed', submissions: 156 },
-  { name: 'Thu', submissions: 240 },
-  { name: 'Fri', submissions: 198 },
-  { name: 'Sat', submissions: 290 },
-  { name: 'Sun', submissions: 486 },
-]
-
-const fieldTypeData = [
-  { name: 'Text Input', value: 24, color: '#8b5cf6' },
-  { name: 'Dropdown', value: 12, color: '#3b82f6' },
-  { name: 'Rating Scale', value: 8, color: '#ec4899' },
-  { name: 'File Upload', value: 6, color: '#f59e0b' },
-  { name: 'Checkboxes', value: 10, color: '#10b981' },
-]
 
 // Database structure for visualization
 const dbTables = [
@@ -203,26 +166,11 @@ const conditionalRulesList = [
 
 function MainDashboard() {
   const { user, isAuthenticated, logout } = useAuth()
-  const [activeTab, setActiveTab] = useState('overview')
-  const [forms, setForms] = useState(initialForms)
-  const [filterForm, setFilterForm] = useState('All')
+  const [activeTab, setActiveTab] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('tab') || 'overview';
+  })
   const [selectedTable, setSelectedTable] = useState('users')
-
-  const handleDuplicate = (form) => {
-    const newForm = {
-      ...form,
-      id: forms.length + 1,
-      title: `${form.title} (Copy)`,
-      status: 'draft',
-      createdat: new Date().toISOString().split('T')[0],
-      current_version: null
-    }
-    setForms([...forms, newForm])
-  }
-
-  const handleDelete = (id) => {
-    setForms(forms.filter(f => f.id !== id))
-  }
 
   const displayName = user 
     ? [user.first_name, user.last_name].filter(Boolean).join(' ') || user.email 
@@ -233,49 +181,75 @@ function MainDashboard() {
 
   return (
     <div className="dashboard-container">
-      <div className="bg-glow-1"></div>
-      <div className="bg-glow-2"></div>
 
       {/* Sidebar */}
       <aside className="sidebar">
         <div className="brand-logo" style={{ cursor: 'pointer' }} onClick={() => setActiveTab('overview')}>
-          <Sparkles size={24} color="#8b5cf6" />
+          <LogoMark size={24} color="var(--ledger)" />
           <span>FormCraft</span>
         </div>
+
         <ul className="nav-list">
+          <li className="nav-section-label">Workspace</li>
           <li>
             <div className={`nav-item ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => setActiveTab('overview')}>
-              <LayoutDashboard size={20} />
+              <LayoutDashboard size={18} />
               <span>Overview</span>
             </div>
           </li>
           <li>
             <div className={`nav-item ${activeTab === 'forms' ? 'active' : ''}`} onClick={() => setActiveTab('forms')}>
-              <FileText size={20} />
+              <FileText size={18} />
               <span>Forms Portfolio</span>
             </div>
           </li>
           <li>
+            <div className={`nav-item ${activeTab === 'published' ? 'active' : ''}`} onClick={() => setActiveTab('published')}>
+              <Globe size={18} />
+              <span>Published Forms</span>
+            </div>
+          </li>
+          <li>
+            <div className={`nav-item ${activeTab === 'templates' ? 'active' : ''}`} onClick={() => setActiveTab('templates')}>
+              <Copy size={18} />
+              <span>Templates</span>
+            </div>
+          </li>
+          <li>
             <div className={`nav-item ${activeTab === 'submissions' ? 'active' : ''}`} onClick={() => setActiveTab('submissions')}>
-              <Send size={20} />
+              <Send size={18} />
               <span>Submissions</span>
             </div>
           </li>
           <li>
             <div className={`nav-item ${activeTab === 'conditions' ? 'active' : ''}`} onClick={() => setActiveTab('conditions')}>
-              <GitFork size={20} />
+              <GitFork size={18} />
               <span>Conditional Rules</span>
             </div>
           </li>
           <li>
+            <div className={`nav-item ${activeTab === 'analytics' ? 'active' : ''}`} onClick={() => setActiveTab('analytics')}>
+              <Layers size={18} />
+              <span>Analytics</span>
+            </div>
+          </li>
+          <li>
+            <div className={`nav-item ${activeTab === 'reports' ? 'active' : ''}`} onClick={() => setActiveTab('reports')}>
+              <Download size={18} />
+              <span>Reports & Export</span>
+            </div>
+          </li>
+          <li>
             <div className={`nav-item ${activeTab === 'dbschema' ? 'active' : ''}`} onClick={() => setActiveTab('dbschema')}>
-              <Database size={20} />
+              <Database size={18} />
               <span>Database Schema</span>
             </div>
           </li>
-          <li style={{ marginTop: '1rem', borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem' }}>
+
+          <li className="nav-section-label">Account</li>
+          <li>
             <div className={`nav-item ${activeTab === 'profile' ? 'active' : ''}`} onClick={() => setActiveTab('profile')}>
-              <User size={20} />
+              <User size={18} />
               <span>User Profile</span>
             </div>
           </li>
@@ -284,20 +258,20 @@ function MainDashboard() {
               <div 
                 className="nav-item" 
                 onClick={logout}
-                style={{ color: 'var(--text-muted)' }}
+                style={{ color: 'var(--stamp)' }}
               >
-                <LogOut size={20} />
+                <LogOut size={18} />
                 <span>Sign Out</span>
               </div>
             </li>
           ) : null}
         </ul>
 
-        {/* User profile footer */}
+        {/* User Profile Footer */}
         <div className="user-profile" style={{ justifyContent: 'space-between' }}>
           <div 
-            style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', overflow: 'hidden' }}
-            onClick={() => setActiveTab(isAuthenticated ? 'profile' : 'login')}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', cursor: 'pointer', overflow: 'hidden' }}
+            onClick={() => setActiveTab(isAuthenticated ? 'profile' : 'overview')}
           >
             <div className="avatar">{displayInitials}</div>
             <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
@@ -313,9 +287,9 @@ function MainDashboard() {
             <button 
               title="Logout"
               onClick={logout} 
-              style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '4px' }}
+              className="btn-destructive-subtle"
             >
-              <LogOut size={16} />
+              <LogOut size={15} />
             </button>
           ) : null}
         </div>
@@ -326,279 +300,42 @@ function MainDashboard() {
         
         {/* OVERVIEW TAB */}
         {activeTab === 'overview' && (
-          <div>
-            <div className="header">
-              <div className="header-title">
-                <h1>Dashboard Overview</h1>
-                <p>Welcome back! Here is what is happening on your smart form builder platform.</p>
-              </div>
-              <button className="btn-primary" onClick={() => setActiveTab('forms')}>
-                <Plus size={18} />
-                <span>Create New Form</span>
-              </button>
-            </div>
-
-            {/* Quick Stats Grid */}
-            <div className="stats-grid">
-              <div className="stat-card">
-                <div>
-                  <span className="stat-label">Active Forms</span>
-                  <h3 className="stat-value">{forms.filter(f => f.status === 'published').length}</h3>
-                  <span className="stat-trend trend-up">
-                    <ArrowUpRight size={12} style={{ marginRight: 2 }} />
-                    5 in draft
-                  </span>
-                </div>
-                <div className="stat-icon">
-                  <FileText size={24} />
-                </div>
-              </div>
-
-              <div className="stat-card">
-                <div>
-                  <span className="stat-label">Submissions Today</span>
-                  <h3 className="stat-value">486</h3>
-                  <span className="stat-trend trend-up">
-                    <ArrowUpRight size={12} style={{ marginRight: 2 }} />
-                    12.3% vs yesterday
-                  </span>
-                </div>
-                <div className="stat-icon">
-                  <Send size={24} />
-                </div>
-              </div>
-
-              <div className="stat-card">
-                <div>
-                  <span className="stat-label">Avg. Completion Rate</span>
-                  <h3 className="stat-value">67%</h3>
-                  <span className="stat-trend trend-up">
-                    <ArrowUpRight size={12} style={{ marginRight: 2 }} />
-                    Top performing: 94%
-                  </span>
-                </div>
-                <div className="stat-icon">
-                  <CheckCircle2 size={24} />
-                </div>
-              </div>
-
-              <div className="stat-card">
-                <div>
-                  <span className="stat-label">Pending Reviews</span>
-                  <h3 className="stat-value">3</h3>
-                  <span className="stat-trend trend-down">
-                    <ArrowDownRight size={12} style={{ marginRight: 2 }} />
-                    2 awaiting export
-                  </span>
-                </div>
-                <div className="stat-icon">
-                  <Settings size={24} />
-                </div>
-              </div>
-            </div>
-
-            {/* Graphs Grid */}
-            <div className="charts-grid">
-              <div className="chart-card">
-                <div className="chart-header">
-                  <span className="chart-title">Submissions per Form (Today)</span>
-                </div>
-                <div className="chart-wrapper">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={submissionChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                      <defs>
-                        <linearGradient id="colorSubmissions" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.4}/>
-                          <stop offset="95%" stopColor="var(--primary)" stopOpacity={0}/>
-                        </linearGradient>
-                      </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                      <XAxis dataKey="name" stroke="var(--text-muted)" fontSize={11} />
-                      <YAxis stroke="var(--text-muted)" fontSize={11} />
-                      <Tooltip contentStyle={{ backgroundColor: '#131520', borderColor: 'var(--border-color)', borderRadius: 10 }} />
-                      <Area type="monotone" dataKey="submissions" stroke="var(--primary)" strokeWidth={3} fillOpacity={1} fill="url(#colorSubmissions)" />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-
-              <div className="chart-card">
-                <div className="chart-header">
-                  <span className="chart-title">Fields distribution</span>
-                </div>
-                <div className="chart-wrapper">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={fieldTypeData} layout="vertical" margin={{ top: 5, right: 5, left: -10, bottom: 5 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                      <XAxis type="number" stroke="var(--text-muted)" fontSize={10} />
-                      <YAxis dataKey="name" type="category" stroke="var(--text-muted)" fontSize={10} width={80} />
-                      <Tooltip contentStyle={{ backgroundColor: '#131520', borderColor: 'var(--border-color)', borderRadius: 10 }} />
-                      <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={16}>
-                        {fieldTypeData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={entry.color} />
-                        ))}
-                      </Bar>
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-            </div>
-
-            {/* Recent Submissions Table */}
-            <div className="data-card">
-              <div className="chart-header">
-                <span className="chart-title">Recent Submissions</span>
-              </div>
-              <div className="table-wrapper">
-                <table className="custom-table">
-                  <thead>
-                    <tr>
-                      <th>Sub ID</th>
-                      <th>Form</th>
-                      <th>Respondent</th>
-                      <th>Fields</th>
-                      <th>Time Taken</th>
-                      <th>Submitted At</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {recentSubmissions.map((sub, idx) => (
-                      <tr key={idx}>
-                        <td style={{ color: 'var(--primary)', fontWeight: 600 }}>{sub.id}</td>
-                        <td style={{ fontWeight: 500 }}>{sub.form}</td>
-                        <td>{sub.respondent}</td>
-                        <td style={{ fontFamily: 'monospace' }}>{sub.fields_filled}</td>
-                        <td>{sub.duration}</td>
-                        <td style={{ color: 'var(--text-secondary)' }}>{sub.date}</td>
-                        <td>
-                          <span className={`badge ${sub.status === 'Complete' ? 'badge-success' : 'badge-partial'}`}>
-                            {sub.status}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <OverviewPage onNavigateToForms={() => setActiveTab('forms')} />
         )}
 
         {/* FORMS PORTFOLIO TAB */}
         {activeTab === 'forms' && (
-          <FormsPage />
+          <FormsPage onNavigateToPublished={() => setActiveTab('published')} />
+        )}
+
+        {/* PUBLISHED FORMS TAB */}
+        {activeTab === 'published' && (
+          <PublishedFormsPage />
+        )}
+
+        {/* TEMPLATES TAB */}
+        {activeTab === 'templates' && (
+          <TemplatesPage onNavigateToPublished={() => setActiveTab('published')} />
         )}
 
         {/* SUBMISSIONS TAB */}
         {activeTab === 'submissions' && (
-          <div>
-            <div className="header">
-              <div className="header-title">
-                <h1>Submissions Browser</h1>
-                <p>View client responses, verify conditional outputs, and download response datasets.</p>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <select style={{ backgroundColor: '#131520', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)', padding: '0.5rem 1rem' }} onChange={(e) => setFilterForm(e.target.value)}>
-                  <option value="All">All Forms</option>
-                  {forms.map(f => <option key={f.id} value={f.title}>{f.title}</option>)}
-                </select>
-                <button className="btn-primary" onClick={() => alert("CSV Export complete!")}>
-                  <Download size={18} />
-                  <span>Export responses</span>
-                </button>
-              </div>
-            </div>
-
-            <div className="data-card">
-              <div className="table-wrapper">
-                <table className="custom-table">
-                  <thead>
-                    <tr>
-                      <th>Submission UUID</th>
-                      <th>Respondent Name</th>
-                      <th>Answer Preview</th>
-                      <th>Attachments</th>
-                      <th>Submitted On</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {recentSubmissions
-                      .filter(sub => filterForm === 'All' || sub.form === filterForm)
-                      .map((sub, idx) => (
-                        <tr key={idx}>
-                          <td style={{ color: 'var(--primary)', fontFamily: 'monospace', fontWeight: 600 }}>{sub.id}</td>
-                          <td style={{ fontWeight: 500 }}>{sub.respondent}</td>
-                          <td style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>
-                            {sub.form === 'Job Application Form' ? '{"role": "Senior Dev", "experience": "5 yrs"}' : '{"satisfaction": 9}'}
-                          </td>
-                          <td>
-                            {sub.form === 'Job Application Form' ? (
-                              <span style={{ color: 'var(--accent)', cursor: 'pointer' }}>resume.pdf</span>
-                            ) : '--'}
-                          </td>
-                          <td style={{ color: 'var(--text-secondary)' }}>{sub.date}</td>
-                          <td>
-                            <span className={`badge ${sub.status === 'Complete' ? 'badge-success' : 'badge-partial'}`}>
-                              {sub.status}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <ResponsesPage />
         )}
 
         {/* CONDITIONAL RULES TAB */}
         {activeTab === 'conditions' && (
-          <div>
-            <div className="header">
-              <div className="header-title">
-                <h1>Conditional rules logic</h1>
-                <p>Rules enforced server-side at submission time to validate fields show/hide behaviors.</p>
-              </div>
-            </div>
+          <ConditionalRulesPage />
+        )}
 
-            <div className="data-card">
-              <div className="table-wrapper">
-                <table className="custom-table">
-                  <thead>
-                    <tr>
-                      <th>Rule ID</th>
-                      <th>Trigger Field</th>
-                      <th>Operator</th>
-                      <th>Comparison Match</th>
-                      <th>Target Field</th>
-                      <th>Action</th>
-                      <th>Logical Group</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {conditionalRulesList.map((rule) => (
-                      <tr key={rule.id}>
-                        <td style={{ color: 'var(--primary)', fontFamily: 'monospace' }}>#{rule.id}</td>
-                        <td style={{ fontWeight: 600 }}>{rule.trigger}</td>
-                        <td>{rule.operator}</td>
-                        <td>"{rule.comparison || 'N/A'}"</td>
-                        <td style={{ fontWeight: 600 }}>{rule.target}</td>
-                        <td>
-                          <span className={`badge ${rule.action === 'require' ? 'badge-partial' : 'badge-success'}`}>
-                            {rule.action.toUpperCase()}
-                          </span>
-                        </td>
-                        <td style={{ fontFamily: 'monospace', color: 'var(--text-muted)' }}>{rule.group}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+        {/* ANALYTICS TAB */}
+        {activeTab === 'analytics' && (
+          <AnalyticsPage />
+        )}
 
-          </div>
+        {/* REPORTS & EXPORT TAB */}
+        {activeTab === 'reports' && (
+          <ReportsExportPage />
         )}
 
         {/* DATABASE SCHEMA TAB */}
@@ -674,25 +411,48 @@ function MainDashboard() {
 function AppContent() {
   const { isAuthenticated, loading } = useAuth()
   const [authMode, setAuthMode] = useState('register')
+  const [currentUrl, setCurrentUrl] = useState(() => window.location.href)
 
-  // Detect public form URL patterns
+  useEffect(() => {
+    const handleUrlChange = () => setCurrentUrl(window.location.href)
+    window.addEventListener('popstate', handleUrlChange)
+    window.addEventListener('hashchange', handleUrlChange)
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange)
+      window.removeEventListener('hashchange', handleUrlChange)
+    }
+  }, [])
+
+  // Detect public form URL patterns (path, hash, query parameters)
   const publicFormId = useMemo(() => {
     const path = window.location.pathname
     const search = window.location.search
+    const hash = window.location.hash
     const params = new URLSearchParams(search)
 
-    // Pattern: /forms/public/:id
-    const publicMatch = path.match(/\/forms\/public\/([^/]+)/)
-    if (publicMatch) return publicMatch[1]
+    // 1. Hash patterns: #/public/forms/:id, #/forms/public/:id, #/forms/:id
+    if (hash) {
+      const matchHash = hash.match(/#\/public\/forms\/([^/?#]+)/) ||
+                        hash.match(/#\/forms\/public\/([^/?#]+)/) ||
+                        hash.match(/#\/forms\/([^/?#]+)/)
+      if (matchHash && matchHash[1]) return matchHash[1]
+    }
 
-    // Pattern: ?publicFormId=xxx
+    // 2. Path patterns: /forms/public/:id, /public/forms/:id
+    const publicMatch = path.match(/\/forms\/public\/([^/]+)/) ||
+                        path.match(/\/public\/forms\/([^/]+)/)
+    if (publicMatch && publicMatch[1]) return publicMatch[1]
+
+    // Pattern: /forms/:id (standalone public URL)
+    const formsMatch = path.match(/\/forms\/([^/]+)/)
+    if (formsMatch && formsMatch[1] && formsMatch[1] !== 'public') return formsMatch[1]
+
+    // 3. Query parameters: ?publicFormId=xxx or ?formId=xxx
     if (params.get('publicFormId')) return params.get('publicFormId')
-
-    // Pattern: ?formId=xxx
     if (params.get('formId')) return params.get('formId')
 
     return null
-  }, [])
+  }, [currentUrl])
 
   // Public form: render standalone, no auth needed
   if (publicFormId) {
@@ -703,9 +463,7 @@ function AppContent() {
   if (loading) {
     return (
       <div className="auth-page-wrapper">
-        <div className="bg-glow-1"></div>
-        <div className="bg-glow-2"></div>
-        <Loader2 size={36} className="animate-spin" style={{ color: 'var(--primary)' }} />
+        <Loader2 size={36} className="animate-spin" style={{ color: 'var(--ledger)' }} />
       </div>
     )
   }
@@ -714,17 +472,15 @@ function AppContent() {
   if (!isAuthenticated) {
     return (
       <div className="auth-page-wrapper">
-        <div className="bg-glow-1"></div>
-        <div className="bg-glow-2"></div>
 
         {/* Brand Header */}
         <div className="auth-brand-header">
           <div className="auth-brand-logo">
-            <Sparkles size={32} />
+            <LogoMark size={32} color="var(--ledger)" />
             FormCraft
           </div>
           <p className="auth-brand-subtext">
-            Low-Code Workflow Automation &amp; Intelligent Data Collection
+            Low-Code Workflow Automation &amp; Intelligent Data Collection Registry
           </p>
         </div>
 

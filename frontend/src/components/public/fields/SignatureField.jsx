@@ -42,7 +42,7 @@ export default function SignatureField({ field, value, onChange, error, disabled
     const ctx = canvas.getContext('2d');
     const pos = getPosition(e);
     ctx.lineTo(pos.x, pos.y);
-    ctx.strokeStyle = '#e2e8f0';
+    ctx.strokeStyle = '#1C1B19';
     ctx.lineWidth = 2;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';

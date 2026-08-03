@@ -29,7 +29,7 @@ export default function FormCanvas({
           {fields.length === 0 ? (
             <div className="canvas-empty-state">
               <div className="empty-sparkle-icon">
-                <Sparkles size={32} color="var(--primary)" />
+                <Sparkles size={32} color="var(--ledger)" />
               </div>
               <h4>Drag fields here to start building your form</h4>
               <p>Choose field types from the left palette or click any item to add it directly to your canvas.</p>

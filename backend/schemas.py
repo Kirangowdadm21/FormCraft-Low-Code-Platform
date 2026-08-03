@@ -190,6 +190,7 @@ class PublicFormResponse(BaseModel):
     description: Optional[str] = None
     current_version: int
     fields: List[FieldResponse] = []
+    rules: List[ConditionalRuleResponse] = []
 
     class Config:
         from_attributes = True

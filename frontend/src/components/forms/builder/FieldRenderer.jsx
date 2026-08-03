@@ -23,7 +23,7 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
             placeholder={field.placeholder || 'Enter long description...'}
             value={value || ''}
             onChange={(e) => onChange && onChange(e.target.value)}
-            disabled={!isPreview}
+            disabled={isPreview}
             rows={3}
           />
         );
@@ -36,7 +36,7 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
             placeholder={field.placeholder || 'name@example.com'}
             value={value || ''}
             onChange={(e) => onChange && onChange(e.target.value)}
-            disabled={!isPreview}
+            disabled={isPreview}
           />
         );
 
@@ -48,7 +48,7 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
             placeholder={field.placeholder || '0'}
             value={value || ''}
             onChange={(e) => onChange && onChange(e.target.value)}
-            disabled={!isPreview}
+            disabled={isPreview}
           />
         );
 
@@ -60,7 +60,7 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
             placeholder={field.placeholder || '+1 (555) 000-0000'}
             value={value || ''}
             onChange={(e) => onChange && onChange(e.target.value)}
-            disabled={!isPreview}
+            disabled={isPreview}
           />
         );
 
@@ -72,7 +72,7 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
               className="field-preview-input"
               value={value || ''}
               onChange={(e) => onChange && onChange(e.target.value)}
-              disabled={!isPreview}
+              disabled={isPreview}
             />
           </div>
         );
@@ -83,7 +83,7 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
             className="field-preview-input"
             value={value || ''}
             onChange={(e) => onChange && onChange(e.target.value)}
-            disabled={!isPreview}
+            disabled={isPreview}
           >
             <option value="">{field.placeholder || '-- Select option --'}</option>
             {getOptions().map((opt, i) => (
@@ -104,7 +104,7 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
                   name={`radio-${field.id}`}
                   checked={value === opt.value}
                   onChange={() => onChange && onChange(opt.value)}
-                  disabled={!isPreview}
+                  disabled={isPreview}
                 />
                 <span>{opt.label}</span>
               </label>
@@ -131,7 +131,7 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
                     }
                     onChange(current);
                   }}
-                  disabled={!isPreview}
+                  disabled={isPreview}
                 />
                 <span>{opt.label}</span>
               </label>
@@ -157,10 +157,8 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
                 size={22}
                 className={`star-icon ${star <= (rating || value || 0) ? 'filled' : ''}`}
                 onClick={() => {
-                  if (isPreview) {
-                    setRating(star);
-                    onChange && onChange(star);
-                  }
+                  setRating(star);
+                  onChange && onChange(star);
                 }}
               />
             ))}
@@ -196,7 +194,7 @@ export default function FieldRenderer({ field, value, onChange, isPreview = fals
             placeholder={field.placeholder || 'Enter short text...'}
             value={value || ''}
             onChange={(e) => onChange && onChange(e.target.value)}
-            disabled={!isPreview}
+            disabled={isPreview}
           />
         );
     }

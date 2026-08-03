@@ -53,8 +53,82 @@ function getFieldComponent(fieldType) {
       return RatingField;
     case 'signature':
       return SignatureField;
+    case 'submit':
+      return null;
     default:
       return TextField; // Fallback
+  }
+}
+
+/**
+ * Helper to extract numeric values from strings like "3", "3/5", "2 stars"
+ */
+function extractNumeric(str) {
+  if (str === null || str === undefined) return NaN;
+  const s = String(str).trim();
+  const match = s.match(/-?\d+(\.\d+)?/);
+  return match ? parseFloat(match[0]) : parseFloat(s);
+}
+
+/**
+ * Evaluates a single conditional rule operator against trigger value vs comparison
+ */
+function evaluateCondition(operator, val, comp) {
+  const strVal = val !== undefined && val !== null ? String(val).trim() : '';
+  const strComp = comp !== undefined && comp !== null ? String(comp).trim() : '';
+
+  const op = (operator || '').toLowerCase();
+
+  // Determine if trigger field is empty or unselected (e.g. 0 stars or empty string)
+  const isUnselected =
+    val === undefined ||
+    val === null ||
+    val === '' ||
+    val === 0 ||
+    val === '0' ||
+    strVal === '' ||
+    strVal === '0';
+
+  if (op === 'is_empty') {
+    return isUnselected;
+  }
+  if (op === 'is_not_empty') {
+    return !isUnselected;
+  }
+
+  // If the trigger field has not been selected/filled yet, conditions like less_than / greater_than do not trigger
+  if (isUnselected) {
+    return false;
+  }
+
+  switch (op) {
+    case 'equals':
+    case '==':
+    case 'is':
+      return strVal.toLowerCase() === strComp.toLowerCase();
+    case 'not_equals':
+    case '!=':
+    case 'is_not':
+      return strVal.toLowerCase() !== strComp.toLowerCase();
+    case 'contains':
+    case 'in':
+      return strVal.toLowerCase().includes(strComp.toLowerCase());
+    case 'not_contains':
+      return !strVal.toLowerCase().includes(strComp.toLowerCase());
+    case 'greater_than':
+    case '>': {
+      const numV = extractNumeric(strVal);
+      const numC = extractNumeric(strComp);
+      return !isNaN(numV) && !isNaN(numC) && numV > numC;
+    }
+    case 'less_than':
+    case '<': {
+      const numV = extractNumeric(strVal);
+      const numC = extractNumeric(strComp);
+      return !isNaN(numV) && !isNaN(numC) && numV < numC;
+    }
+    default:
+      return false;
   }
 }
 
@@ -62,22 +136,54 @@ function getFieldComponent(fieldType) {
  * Validates a single field value against its metadata.
  * Returns error string or null.
  */
-function validateField(field, value) {
-  const val = typeof value === 'string' ? value.trim() : value;
+function validateField(field, value, isRequired) {
+  const type = (field.field_type || '').toLowerCase();
 
-  // Required check
-  if (field.required) {
-    if (val === null || val === undefined || val === '' || val === '[]') {
-      return `"${field.label}" is required.`;
+  // Non-input fields like 'submit' are not validated
+  if (type === 'submit' || !getFieldComponent(type)) return null;
+
+  const conf = field.validation_conf || {};
+
+  // Helper to determine if a value is empty for validation purposes
+  const isValueEmpty = (val) => {
+    if (val === null || val === undefined || val === '') return true;
+    if (type === 'rating' || type === 'star_rating') {
+      const num = Number(val);
+      return isNaN(num) || num <= 0;
     }
+    if (type === 'number' || type === 'numeric') {
+      return val === '' || val === null || val === undefined || isNaN(Number(val));
+    }
+    if (type === 'checkbox' || type === 'checkboxes') {
+      if (val === false || val === 'false' || val === '' || val === '[]') return true;
+      if (Array.isArray(val) && val.length === 0) return true;
+      if (typeof val === 'string' && val.startsWith('[')) {
+        try {
+          const parsed = JSON.parse(val);
+          if (Array.isArray(parsed) && parsed.length === 0) return true;
+        } catch {
+          // invalid json string
+        }
+      }
+      return false;
+    }
+    if (Array.isArray(val)) return val.length === 0;
+    if (typeof val === 'string') {
+      const trimmed = val.trim();
+      return trimmed === '' || trimmed === '[]';
+    }
+    return false;
+  };
+
+  // 1. Required check
+  if (isRequired && isValueEmpty(value)) {
+    return `${field.label} is required.`;
   }
 
-  // Skip further checks if empty and not required
-  if (!val && val !== 0) return null;
+  // 2. Skip further checks if field is empty and not required
+  if (isValueEmpty(value)) return null;
 
-  const strVal = String(val);
-  const type = (field.field_type || '').toLowerCase();
-  const conf = field.validation_conf || {};
+  const strVal = String(value).trim();
 
   // Email format
   if (type === 'email') {
@@ -101,69 +207,201 @@ function validateField(field, value) {
     if (isNaN(numVal)) {
       return 'Please enter a valid number.';
     }
-    if (conf.min_value !== undefined && numVal < conf.min_value) {
+    if (conf.min_value !== undefined && conf.min_value !== null && numVal < conf.min_value) {
       return `Value must be at least ${conf.min_value}.`;
     }
-    if (conf.max_value !== undefined && numVal > conf.max_value) {
+    if (conf.max_value !== undefined && conf.max_value !== null && numVal > conf.max_value) {
       return `Value must be at most ${conf.max_value}.`;
     }
   }
 
-  // Min/Max length
-  if (conf.min_length && strVal.length < conf.min_length) {
-    return `Must be at least ${conf.min_length} characters.`;
+  // Rating validation
+  if (type === 'rating' || type === 'star_rating') {
+    const numVal = Number(strVal);
+    const maxStars = conf.max_value || 5;
+    if (isNaN(numVal) || numVal < 1 || numVal > maxStars) {
+      return `Rating must be between 1 and ${maxStars}.`;
+    }
   }
-  if (conf.max_length && strVal.length > conf.max_length) {
-    return `Must not exceed ${conf.max_length} characters.`;
+
+  // Min/Max length ONLY for text-based types
+  const isTextType = ['text', 'short_text', 'textarea', 'long_text', 'email', 'phone', 'phone_number'].includes(type);
+  if (isTextType) {
+    if (conf.min_length && strVal.length < conf.min_length) {
+      return `Must be at least ${conf.min_length} characters.`;
+    }
+    if (conf.max_length && strVal.length > conf.max_length) {
+      return `Must not exceed ${conf.max_length} characters.`;
+    }
   }
 
   return null;
 }
 
-/**
- * PublicFormRenderer
- *
- * Central renderer component that maps field metadata to dynamic field
- * components, performs client-side validation, collects state, and
- * transforms answers into backend-compatible payload format.
- *
- * Supports:
- *  - isPreview={true}: Admin Preview mode – renders form exactly as
- *    respondents see it but disables actual submission.
- *  - isPreview={false}: Public Respondent Submission mode.
- */
 export default function PublicFormRenderer({
   fields = [],
+  rules = [],
   onSubmit,
   isPreview = false,
   isSubmitting = false,
 }) {
   const [values, setValues] = useState(() => {
     const init = {};
-    fields.forEach((f) => { init[f.id] = ''; });
+    (fields || []).forEach((f) => {
+      const def = f.default_value ?? f.validation_conf?.default_value;
+      const type = (f.field_type || '').toLowerCase();
+      if (type === 'rating' || type === 'star_rating') {
+        init[f.id] = def !== undefined && def !== null && def !== '' ? Number(def) : 0;
+      } else {
+        init[f.id] = def !== undefined && def !== null ? String(def) : '';
+      }
+    });
     return init;
   });
 
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState(null);
 
-  // Sort fields by display_order
-  const sortedFields = useMemo(
-    () => [...fields].sort((a, b) => (a.display_order || 0) - (b.display_order || 0)),
-    [fields]
-  );
+  // Synchronize values state when fields prop changes
+  React.useEffect(() => {
+    if (!fields || fields.length === 0) return;
+    setValues((prev) => {
+      let changed = false;
+      const next = { ...prev };
+      fields.forEach((f) => {
+        if (next[f.id] === undefined) {
+          const def = f.default_value ?? f.validation_conf?.default_value;
+          const type = (f.field_type || '').toLowerCase();
+          if (type === 'rating' || type === 'star_rating') {
+            next[f.id] = def !== undefined && def !== null && def !== '' ? Number(def) : 0;
+          } else {
+            next[f.id] = def !== undefined && def !== null ? String(def) : '';
+          }
+          changed = true;
+        }
+      });
+      return changed ? next : prev;
+    });
+  }, [fields]);
+
+  // Compute ordered fields where targeted conditional fields render immediately below their trigger field
+  const schemaFields = useMemo(() => {
+    if (!fields || fields.length === 0) return [];
+    if (!rules || rules.length === 0) return fields;
+
+    // Build map of trigger_field -> array of targeted_fields
+    const triggerToTargets = {};
+    const targetedSet = new Set();
+
+    rules.forEach((rule) => {
+      const trig = rule.trigger_field;
+      const targ = rule.targeted_field;
+      if (trig && targ && String(trig) !== String(targ)) {
+        const trigStr = String(trig);
+        const targStr = String(targ);
+        if (!triggerToTargets[trigStr]) {
+          triggerToTargets[trigStr] = [];
+        }
+        if (!triggerToTargets[trigStr].includes(targStr)) {
+          triggerToTargets[trigStr].push(targStr);
+        }
+        targetedSet.add(targStr);
+      }
+    });
+
+    if (targetedSet.size === 0) return fields;
+
+    const ordered = [];
+    const placedSet = new Set();
+
+    const placeField = (fieldId) => {
+      const idStr = String(fieldId);
+      if (placedSet.has(idStr)) return;
+      placedSet.add(idStr);
+
+      const fieldObj = fields.find((f) => String(f.id) === idStr);
+      if (fieldObj) {
+        ordered.push(fieldObj);
+      }
+
+      // Append any fields targeted by this trigger field immediately below it
+      const targets = triggerToTargets[idStr] || [];
+      targets.forEach((targId) => {
+        placeField(targId);
+      });
+    };
+
+    // Place non-targeted base fields in schema order
+    fields.forEach((field) => {
+      if (!targetedSet.has(String(field.id))) {
+        placeField(field.id);
+      }
+    });
+
+    // Fallback for any unplaced targeted fields (e.g. missing trigger)
+    fields.forEach((field) => {
+      if (!placedSet.has(String(field.id))) {
+        placeField(field.id);
+      }
+    });
+
+    return ordered;
+  }, [fields, rules]);
+
+  // Dynamically compute visibility & requirement rules for every field
+  const computedFieldStates = useMemo(() => {
+    const states = {};
+
+    schemaFields.forEach((field) => {
+      states[field.id] = {
+        hidden: false,
+        required: !!field.required,
+      };
+    });
+
+    if (!rules || rules.length === 0) return states;
+
+    rules.forEach((rule) => {
+      const targetId = rule.targeted_field;
+      if (!states[targetId]) return;
+
+      const triggerVal = values[rule.trigger_field];
+      const isMet = evaluateCondition(rule.operator, triggerVal, rule.comparison);
+      const act = (rule.action || '').toLowerCase();
+
+      if (act === 'hide') {
+        if (isMet) {
+          states[targetId].hidden = true;
+        }
+      } else if (act === 'show') {
+        if (isMet) {
+          states[targetId].hidden = false;
+        } else {
+          states[targetId].hidden = true;
+        }
+      } else if (act === 'require') {
+        if (isMet) {
+          states[targetId].required = true;
+        }
+      }
+    });
+
+    return states;
+  }, [schemaFields, rules, values]);
 
   const handleChange = useCallback((fieldId, val) => {
     setValues((prev) => ({ ...prev, [fieldId]: val }));
-    // Clear error for this field on change
+    // Clear error for this field on change and clear formError if no errors remain
     setErrors((prev) => {
       if (!prev[fieldId]) return prev;
       const next = { ...prev };
       delete next[fieldId];
+      if (Object.keys(next).length === 0) {
+        setFormError(null);
+      }
       return next;
     });
-    if (formError) setFormError(null);
-  }, [formError]);
+  }, []);
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
@@ -173,17 +411,24 @@ export default function PublicFormRenderer({
       return;
     }
 
-    // Validate all fields
+    // Validate visible fields
     const newErrors = {};
-    for (const field of sortedFields) {
-      const err = validateField(field, values[field.id]);
+    for (const field of schemaFields) {
+      const type = (field.field_type || '').toLowerCase();
+      // Skip non-input fields like 'submit' or unrendered field types
+      if (type === 'submit' || !getFieldComponent(type)) continue;
+
+      const state = computedFieldStates[field.id] || { hidden: false, required: !!field.required };
+      if (state.hidden) continue; // Do not validate hidden fields
+
+      const err = validateField(field, values[field.id], state.required);
+
       if (err) newErrors[field.id] = err;
     }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       setFormError('Please correct the highlighted fields before submitting.');
-      // Focus on first error field
       const firstErrorId = Object.keys(newErrors)[0];
       const el = document.getElementById(`field-${firstErrorId}`);
       if (el) el.focus();
@@ -193,17 +438,34 @@ export default function PublicFormRenderer({
     setErrors({});
     setFormError(null);
 
-    // Transform answers into backend payload format
-    const responses = sortedFields.map((field) => {
+    // Transform field answers into backend payload format for ALL fields in the form
+    const responses = schemaFields.map((field) => {
+      const ft = (field.field_type || '').toLowerCase();
+      const state = computedFieldStates[field.id] || { hidden: false };
+
+      if (ft === 'submit') {
+        return {
+          field_id: field.id,
+          value: 'Submitted',
+          uploaded_file: null,
+        };
+      }
+
+      if (state.hidden) {
+        return {
+          field_id: field.id,
+          value: null,
+          uploaded_file: null,
+        };
+      }
+
       const rawVal = values[field.id];
-      let submitValue = typeof rawVal === 'string' ? rawVal : JSON.stringify(rawVal);
+      let submitValue = typeof rawVal === 'string' ? rawVal : (rawVal !== undefined && rawVal !== null ? String(rawVal) : null);
       let uploadedFile = null;
 
-      // Handle file upload: extract file_id
-      const ft = (field.field_type || '').toLowerCase();
       if (ft === 'file' || ft === 'file_upload') {
         try {
-          const parsed = JSON.parse(rawVal);
+          const parsed = typeof rawVal === 'string' ? JSON.parse(rawVal) : rawVal;
           if (parsed && parsed.file_id) {
             uploadedFile = parsed.file_id;
             submitValue = parsed.filename || '';
@@ -215,7 +477,7 @@ export default function PublicFormRenderer({
 
       return {
         field_id: field.id,
-        value: submitValue || null,
+        value: submitValue !== undefined && submitValue !== null && submitValue !== '' ? submitValue : null,
         uploaded_file: uploadedFile,
       };
     });
@@ -223,7 +485,7 @@ export default function PublicFormRenderer({
     if (onSubmit) {
       onSubmit({ responses });
     }
-  }, [isPreview, sortedFields, values, onSubmit]);
+  }, [isPreview, schemaFields, computedFieldStates, values, onSubmit]);
 
   return (
     <form onSubmit={handleSubmit} className="public-form-fields-layout" noValidate>
@@ -246,18 +508,26 @@ export default function PublicFormRenderer({
         </div>
       )}
 
-      {/* Render each field dynamically */}
-      {sortedFields.length === 0 ? (
+      {/* Render each visible field dynamically */}
+      {schemaFields.length === 0 ? (
         <div className="public-empty-fields">
           <p>No questions have been added to this form yet.</p>
         </div>
       ) : (
-        sortedFields.map((field) => {
+        schemaFields.map((field) => {
           const FieldComponent = getFieldComponent(field.field_type);
+          if (!FieldComponent) return null;
+
+          const state = computedFieldStates[field.id] || { hidden: false, required: !!field.required };
+          if (state.hidden) return null; // Do not render if hidden by rule
+
+          // Dynamic field overrides for required state
+          const dynamicField = state.required !== !!field.required ? { ...field, required: state.required } : field;
+
           return (
             <FieldComponent
               key={field.id}
-              field={field}
+              field={dynamicField}
               value={values[field.id]}
               onChange={(val) => handleChange(field.id, val)}
               error={errors[field.id]}
@@ -268,7 +538,7 @@ export default function PublicFormRenderer({
       )}
 
       {/* Submit / Preview Button */}
-      {sortedFields.length > 0 && (
+      {schemaFields.length > 0 && (
         <SubmitButton
           isSubmitting={isSubmitting}
           disabled={isPreview}

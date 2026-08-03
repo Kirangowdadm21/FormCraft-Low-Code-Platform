@@ -102,3 +102,46 @@ CREATE TABLE response_values (
     value TEXT,
     uploaded_file INTEGER REFERENCES uploaded_files(id) ON DELETE SET NULL
 );
+
+-- 10. RevokedTokens Table
+CREATE TABLE IF NOT EXISTS revoked_tokens (
+    id SERIAL PRIMARY KEY,
+    token VARCHAR(512) UNIQUE NOT NULL,
+    revoked_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    expires_at TIMESTAMP WITH TIME ZONE NOT NULL
+);
+CREATE INDEX IF NOT EXISTS ix_revoked_tokens_token ON revoked_tokens(token);
+
+-- 11. Templates Table
+CREATE TABLE IF NOT EXISTS templates (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    createdat TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updatedat TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+-- 12. TemplateFields Table
+CREATE TABLE IF NOT EXISTS template_fields (
+    id SERIAL PRIMARY KEY,
+    template_id INTEGER REFERENCES templates(id) ON DELETE CASCADE NOT NULL,
+    label VARCHAR(255) NOT NULL,
+    field_name VARCHAR(100) NOT NULL,
+    field_type VARCHAR(50) NOT NULL,
+    placeholder VARCHAR(255),
+    required BOOLEAN DEFAULT FALSE NOT NULL,
+    display_order INTEGER DEFAULT 0 NOT NULL,
+    validation_conf JSON,
+    options JSON,
+    createdat TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updatedat TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+-- 13. QRCodes Table
+CREATE TABLE IF NOT EXISTS qrcodes (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    target_url VARCHAR(1024) NOT NULL,
+    qr_image_path VARCHAR(512) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+);

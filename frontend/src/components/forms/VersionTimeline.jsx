@@ -38,6 +38,7 @@ export default function VersionTimeline({
   isLoading = false,
   error = null,
   onRetry,
+  onNavigateToPublished,
 }) {
   const [viewingVersion, setViewingVersion] = useState(null);
   const [comparingVersion, setComparingVersion] = useState(null);
@@ -149,12 +150,12 @@ export default function VersionTimeline({
     try {
       await publishForm(formId, versionNumber);
       showToast('Version Published Successfully', 'success');
-      setPublishingVersionObj(null);
       if (onVersionPublished) {
         onVersionPublished(versionNumber);
       }
     } catch (err) {
       showToast(err.message || 'Failed to publish version', 'error');
+      throw err;
     } finally {
       setIsPublishing(false);
     }
@@ -510,6 +511,8 @@ export default function VersionTimeline({
         version={publishingVersionObj}
         isPublishing={isPublishing}
         formTitle={formTitle}
+        formId={formId}
+        onNavigateToPublished={onNavigateToPublished}
       />
     </div>
   );

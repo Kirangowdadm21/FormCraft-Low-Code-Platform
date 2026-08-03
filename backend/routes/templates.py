@@ -7,6 +7,8 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import crud
 import schemas
+import models
+import security
 from database import get_db
 
 router = APIRouter(
@@ -46,18 +48,13 @@ def delete_existing_template(template_id: int, db: Session = Depends(get_db)):
 @router.post("/{template_id}/create-form", response_model=schemas.FormResponse, status_code=status.HTTP_201_CREATED)
 def create_form_from_template_endpoint(
     template_id: int,
-    owner_id: int,
     override: Optional[schemas.CreateFormFromTemplate] = None,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(security.get_current_user)
 ):
     db_template = crud.get_template(db, template_id=template_id)
     if db_template is None:
         raise HTTPException(status_code=404, detail="Template not found")
-    
-    # Check if user exists
-    db_user = crud.get_user(db, user_id=owner_id)
-    if db_user is None:
-        raise HTTPException(status_code=404, detail="Owner/User not found")
-        
-    db_form = crud.create_form_from_template(db=db, template_id=template_id, owner_id=owner_id, override=override)
+
+    db_form = crud.create_form_from_template(db=db, template_id=template_id, owner_id=current_user.id, override=override)
     return db_form

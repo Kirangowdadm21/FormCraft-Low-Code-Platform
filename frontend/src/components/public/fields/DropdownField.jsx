@@ -1,9 +1,10 @@
 import React from 'react';
 import { ChevronDown, AlertCircle } from 'lucide-react';
+import { parseFieldOptions } from './parseFieldOptions';
 
 export default function DropdownField({ field, value, onChange, error, disabled }) {
   const fieldId = `field-${field.id}`;
-  const options = field.options || [];
+  const options = parseFieldOptions(field);
 
   return (
     <div className="public-field-group">
@@ -23,9 +24,9 @@ export default function DropdownField({ field, value, onChange, error, disabled 
           aria-describedby={error ? `${fieldId}-error` : undefined}
         >
           <option value="">{field.placeholder || 'Select an option...'}</option>
-          {options.map((opt, idx) => (
-            <option key={opt.id || idx} value={opt.value || opt.optiontext}>
-              {opt.optiontext || opt.value || `Option ${idx + 1}`}
+          {options.map((opt) => (
+            <option key={opt.id} value={opt.value}>
+              {opt.label}
             </option>
           ))}
         </select>

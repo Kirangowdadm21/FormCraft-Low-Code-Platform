@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import func
 import uuid
 import datetime
+from datetime import timezone
 import models
 import schemas
 import security
@@ -101,7 +102,7 @@ def create_form_version(db: Session, form_id: int, version: schemas.FormVersionC
         formid=form_id,
         version_number=next_ver,
         ispublished=version.ispublished,
-        publishedat=datetime.datetime.utcnow() if version.ispublished else None
+        publishedat=datetime.datetime.now(timezone.utc) if version.ispublished else None
     )
     db.add(db_version)
     db.commit()
@@ -155,7 +156,7 @@ def create_submission(db: Session, submission: schemas.SubmissionCreate):
         submission_id=sub_uuid,
         submitted_by=submission.submitted_by,
         status="submitted",
-        submitted_at=datetime.datetime.utcnow()
+        submitted_at=datetime.datetime.now(timezone.utc)
     )
     db.add(db_sub)
     db.commit()
@@ -207,7 +208,7 @@ def get_submission_analytics(db: Session, form_id: int):
         "total_submissions": total_subs,
         "started": started_count,
         "completed": submitted_count,
-        "completion_rate": (submitted_count / (started_count + submitted_count) * 100) if (started_count + submitted_count) > 0 else 0
+        "completion_rate": (submitted_count / total_subs * 100) if total_subs > 0 else 0
     }
 
 def update_form(db: Session, form_id: int, form_update: schemas.FormUpdate):
@@ -331,14 +332,14 @@ def publish_form(db: Session, form_id: int, version_number: Optional[int] = None
             formid=form_id,
             version_number=1,
             ispublished=True,
-            publishedat=datetime.datetime.utcnow()
+            publishedat=datetime.datetime.now(timezone.utc)
         )
         db.add(version)
         db.commit()
         db.refresh(version)
     else:
         version.ispublished = True
-        version.publishedat = datetime.datetime.utcnow()
+        version.publishedat = datetime.datetime.now(timezone.utc)
         
     db_form.current_version = version.version_number
     db_form.status = "published"
@@ -447,16 +448,17 @@ def update_template(db: Session, template_id: int, template_update: schemas.Temp
         db.query(models.TemplateField).filter(models.TemplateField.template_id == template_id).delete()
         # Add new ones
         for field_data in fields_data:
+            fd = field_data if isinstance(field_data, dict) else field_data.__dict__
             db_field = models.TemplateField(
                 template_id=template_id,
-                label=field_data.label if hasattr(field_data, 'label') else field_data.get("label"),
-                field_name=field_data.field_name if hasattr(field_data, 'field_name') else field_data.get("field_name"),
-                field_type=field_data.field_type if hasattr(field_data, 'field_type') else field_data.get("field_type"),
-                placeholder=field_data.placeholder if hasattr(field_data, 'placeholder') else field_data.get("placeholder"),
-                required=field_data.required if hasattr(field_data, 'required') else field_data.get("required", False),
-                display_order=field_data.display_order if hasattr(field_data, 'display_order') else field_data.get("display_order", 0),
-                validation_conf=field_data.validation_conf if hasattr(field_data, 'validation_conf') else field_data.get("validation_conf"),
-                options=field_data.options if hasattr(field_data, 'options') else field_data.get("options")
+                label=fd.get("label"),
+                field_name=fd.get("field_name"),
+                field_type=fd.get("field_type"),
+                placeholder=fd.get("placeholder"),
+                required=fd.get("required", False),
+                display_order=fd.get("display_order", 0),
+                validation_conf=fd.get("validation_conf"),
+                options=fd.get("options")
             )
             db.add(db_field)
             

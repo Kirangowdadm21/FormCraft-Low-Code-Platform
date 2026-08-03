@@ -39,6 +39,9 @@ def create_new_qrcode(qrcode_data: schemas.QRCodeCreate, db: Session = Depends(g
     os.makedirs(QR_DIR, exist_ok=True)
 
     # 3. Generate QR code image
+    unique_filename = f"{uuid.uuid4().hex}.png"
+    qr_image_path = os.path.join(QR_DIR, unique_filename)
+
     try:
         import qrcode
         qr = qrcode.QRCode(
@@ -51,17 +54,18 @@ def create_new_qrcode(qrcode_data: schemas.QRCodeCreate, db: Session = Depends(g
         qr.make(fit=True)
 
         img = qr.make_image(fill_color="black", back_color="white")
-        
-        # Unique filename
-        unique_filename = f"{uuid.uuid4().hex}.png"
-        qr_image_path = os.path.join(QR_DIR, unique_filename)
-        
         img.save(qr_image_path)
-    except Exception as e:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to generate QR Code image: {str(e)}"
-        )
+    except Exception as local_err:
+        try:
+            import urllib.request
+            import urllib.parse
+            qr_api_url = f"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={urllib.parse.quote(qrcode_data.target_url)}"
+            urllib.request.urlretrieve(qr_api_url, qr_image_path)
+        except Exception as e:
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Failed to generate QR Code image: {str(local_err)} | Fallback error: {str(e)}"
+            )
 
     # 4. Insert into database
     return crud.create_qrcode(db=db, qrcode_data=qrcode_data, qr_image_path=qr_image_path)

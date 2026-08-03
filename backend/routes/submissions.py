@@ -10,6 +10,7 @@ import schemas
 import models
 import uuid
 import datetime
+from datetime import timezone
 from database import get_db
 
 router = APIRouter(
@@ -23,7 +24,10 @@ public_router = APIRouter(
 
 @router.post("/", response_model=schemas.SubmissionResponse, status_code=status.HTTP_201_CREATED)
 def submit_response(submission: schemas.SubmissionCreate, db: Session = Depends(get_db)):
-    # Server-side validation of field requirements can happen here before creation
+    # Verify form version exists
+    version = db.query(models.FormVersion).filter(models.FormVersion.id == submission.form_version).first()
+    if not version:
+        raise HTTPException(status_code=404, detail="Form version not found")
     return crud.create_submission(db=db, submission=submission)
 
 @router.get("/", response_model=List[schemas.SubmissionResponse])
@@ -74,7 +78,7 @@ def submit_public_form(token: str, submission_data: schemas.SubmissionCreatePubl
         submission_id=sub_uuid,
         submitted_by=None,
         status="submitted",
-        submitted_at=datetime.datetime.utcnow()
+        submitted_at=datetime.datetime.now(timezone.utc)
     )
     db.add(db_sub)
     db.commit()

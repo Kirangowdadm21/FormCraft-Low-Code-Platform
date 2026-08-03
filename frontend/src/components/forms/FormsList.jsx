@@ -2,7 +2,7 @@ import React from 'react';
 import FormCard from './FormCard';
 import { FileText } from 'lucide-react';
 
-export default function FormsList({ forms, onView, onEdit, onBuild, onDelete, onCreateClick }) {
+export default function FormsList({ forms, onView, onEdit, onBuild, onDelete, onArchive, onCreateClick }) {
   if (!forms || forms.length === 0) {
     return (
       <div className="empty-state">
@@ -32,6 +32,7 @@ export default function FormsList({ forms, onView, onEdit, onBuild, onDelete, on
           onEdit={onEdit}
           onBuild={onBuild}
           onDelete={onDelete}
+          onArchive={onArchive}
         />
       ))}
     </div>

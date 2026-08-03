@@ -1,29 +1,31 @@
 import React from 'react';
 import { AlertCircle, Check } from 'lucide-react';
+import { parseFieldOptions } from './parseFieldOptions';
 
 export default function CheckboxField({ field, value, onChange, error, disabled }) {
   const fieldId = `field-${field.id}`;
-  const options = field.options || [];
+  const options = parseFieldOptions(field);
 
   // Parse current selected values as array
   let selectedValues = [];
   if (Array.isArray(value)) {
-    selectedValues = value;
+    selectedValues = value.map(String);
   } else if (typeof value === 'string' && value.trim()) {
     try {
       const parsed = JSON.parse(value);
-      selectedValues = Array.isArray(parsed) ? parsed : [value];
+      selectedValues = Array.isArray(parsed) ? parsed.map(String) : [value];
     } catch {
       selectedValues = [value];
     }
   }
 
   const handleOptionToggle = (optionVal) => {
+    const valStr = String(optionVal);
     let next;
-    if (selectedValues.includes(optionVal)) {
-      next = selectedValues.filter((v) => v !== optionVal);
+    if (selectedValues.includes(valStr)) {
+      next = selectedValues.filter((v) => v !== valStr);
     } else {
-      next = [...selectedValues, optionVal];
+      next = [...selectedValues, valStr];
     }
     onChange(JSON.stringify(next));
   };
@@ -41,13 +43,17 @@ export default function CheckboxField({ field, value, onChange, error, disabled 
       {options.length > 0 ? (
         <div className="checkbox-group-options" role="group" aria-label={field.label}>
           {options.map((opt, idx) => {
-            const optVal = opt.value || opt.optiontext || `Option ${idx + 1}`;
-            const optText = opt.optiontext || opt.value || `Option ${idx + 1}`;
-            const isChecked = selectedValues.includes(optVal);
+            const optVal = opt.value;
+            const optText = opt.label;
+            const isChecked = selectedValues.includes(String(optVal));
             const optId = `${fieldId}-opt-${idx}`;
 
             return (
-              <label key={opt.id || idx} htmlFor={optId} className={`choice-item-card ${isChecked ? 'choice-checked' : ''}`}>
+              <label
+                key={opt.id ?? idx}
+                htmlFor={optId}
+                className={`choice-item-card ${isChecked ? 'choice-checked' : ''} ${disabled ? 'choice-disabled' : ''}`}
+              >
                 <input
                   type="checkbox"
                   id={optId}
@@ -65,18 +71,21 @@ export default function CheckboxField({ field, value, onChange, error, disabled 
           })}
         </div>
       ) : (
-        <label htmlFor={fieldId} className={`choice-item-card ${value === 'true' ? 'choice-checked' : ''}`}>
+        <label
+          htmlFor={fieldId}
+          className={`choice-item-card ${value === 'true' || value === true ? 'choice-checked' : ''} ${disabled ? 'choice-disabled' : ''}`}
+        >
           <input
             type="checkbox"
             id={fieldId}
             className="visually-hidden"
-            checked={value === 'true'}
+            checked={value === 'true' || value === true}
             onChange={(e) => handleSingleToggle(e.target.checked)}
             disabled={disabled}
             aria-required={field.required}
           />
-          <div className={`checkbox-custom-box ${value === 'true' ? 'box-checked' : ''}`}>
-            {value === 'true' && <Check size={12} strokeWidth={3} />}
+          <div className={`checkbox-custom-box ${value === 'true' || value === true ? 'box-checked' : ''}`}>
+            {(value === 'true' || value === true) && <Check size={12} strokeWidth={3} />}
           </div>
           <span className="choice-label-text">{field.placeholder || 'I agree and confirm'}</span>
         </label>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Plus, Loader2 } from 'lucide-react';
 import { createForm } from '../../services/formsApi';
 
-export default function CreateFormModal({ isOpen, onClose, onFormCreated, ownerId = 1 }) {
+export default function CreateFormModal({ isOpen, onClose, onFormCreated }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ export default function CreateFormModal({ isOpen, onClose, onFormCreated, ownerI
     try {
       setLoading(true);
       setError(null);
-      const newForm = await createForm({ title, description }, ownerId);
+      const newForm = await createForm({ title, description });
       setTitle('');
       setDescription('');
       onFormCreated(newForm);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   DndContext,
   DragOverlay,
@@ -22,9 +22,12 @@ import FormCanvas from './FormCanvas';
 import FieldProperties from './FieldProperties';
 import FormPreviewModal from './FormPreviewModal';
 import SaveVersionModal from './SaveVersionModal';
+import PublishConfirmModal from '../PublishConfirmModal';
+import SaveAsTemplateModal from '../SaveAsTemplateModal';
 import { Loader2, AlertCircle } from 'lucide-react';
 
-export default function FormBuilder({ formId, initialVersionId, onBack }) {
+export default function FormBuilder({ formId, initialVersionId, onBack, onNavigateToPublished }) {
+  const saveLock = useRef(false);
   const [form, setForm] = useState(null);
   const [allVersions, setAllVersions] = useState([]);
   const [activeVersion, setActiveVersion] = useState(null);
@@ -41,6 +44,8 @@ export default function FormBuilder({ formId, initialVersionId, onBack }) {
 
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
+  const [isPublishModalOpen, setIsPublishModalOpen] = useState(false);
+  const [isSaveTemplateModalOpen, setIsSaveTemplateModalOpen] = useState(false);
   const [activeDragItem, setActiveDragItem] = useState(null);
 
   // Setup dnd-kit sensors
@@ -71,21 +76,22 @@ export default function FormBuilder({ formId, initialVersionId, onBack }) {
       // 2. Fetch form versions list
       let versions = await getFormVersions(formId);
       if (!versions || versions.length === 0) {
-        const initialVer = await createFormVersion(formId, 1, [], false);
-        versions = [initialVer];
+        versions = [];
       }
       setAllVersions(versions);
 
-      // 3. Determine target version to load
+      // 3. Determine target version to load (null = unsaved draft)
       let versionToUse = null;
-      if (initialVersionId) {
-        versionToUse = versions.find(
-          (v) => v.id === initialVersionId || v.version_number === initialVersionId
-        );
-      }
-      if (!versionToUse) {
-        // Pick latest version by highest version_number
-        versionToUse = [...versions].sort((a, b) => b.version_number - a.version_number)[0];
+      if (versions.length > 0) {
+        if (initialVersionId) {
+          versionToUse = versions.find(
+            (v) => v.id === initialVersionId || v.version_number === initialVersionId
+          );
+        }
+        if (!versionToUse) {
+          // Pick latest version by highest version_number
+          versionToUse = [...versions].sort((a, b) => b.version_number - a.version_number)[0];
+        }
       }
       setActiveVersion(versionToUse);
 
@@ -260,10 +266,10 @@ export default function FormBuilder({ formId, initialVersionId, onBack }) {
   };
 
   // Calculate next version number
-  const currentVersionNumber = activeVersion ? activeVersion.version_number : 1;
+  const currentVersionNumber = activeVersion ? activeVersion.version_number : 0;
   const maxVersionNumber = allVersions.length > 0
     ? Math.max(...allVersions.map((v) => v.version_number || 0))
-    : currentVersionNumber;
+    : 0;
   const nextVersionNumber = maxVersionNumber + 1;
 
   // Open Save Confirmation Dialog
@@ -271,8 +277,10 @@ export default function FormBuilder({ formId, initialVersionId, onBack }) {
     setIsSaveModalOpen(true);
   };
 
-  // Execute Save as NEW Version
+  // Execute Save as NEW Version (with saveLock to prevent double-click)
   const handleConfirmSaveNewVersion = async () => {
+    if (saveLock.current) return;
+    saveLock.current = true;
     try {
       setSaving(true);
       setError(null);
@@ -326,21 +334,27 @@ export default function FormBuilder({ formId, initialVersionId, onBack }) {
       setError(err.message || 'Failed to create new form version');
     } finally {
       setSaving(false);
+      saveLock.current = false;
     }
   };
 
   // Publish form version
-  const handlePublish = async () => {
+  const handlePublish = async (verNum) => {
+    // Block publishing if there are unsaved changes — user must save first
+    if (isDirty) {
+      setError('You have unsaved changes. Please save your work before publishing.');
+      return;
+    }
+    // Block publishing if no version has been saved yet
+    if (!activeVersion) {
+      setError('No saved version to publish. Please save your form first.');
+      return;
+    }
     try {
       setPublishing(true);
       setError(null);
 
-      // Save as new version first if there are pending modifications
-      if (isDirty) {
-        await handleConfirmSaveNewVersion();
-      }
-
-      const versionToPublish = activeVersion ? activeVersion.version_number : null;
+      const versionToPublish = verNum || activeVersion.version_number;
       const res = await publishForm(formId, versionToPublish);
       setForm((prev) => ({ ...prev, status: res.status || 'published' }));
       setActiveVersion((prev) => (prev ? { ...prev, ispublished: true } : prev));
@@ -348,6 +362,7 @@ export default function FormBuilder({ formId, initialVersionId, onBack }) {
     } catch (err) {
       console.error('Error publishing form:', err);
       setError(err.message || 'Failed to publish form version');
+      throw err;
     } finally {
       setPublishing(false);
     }
@@ -358,7 +373,7 @@ export default function FormBuilder({ formId, initialVersionId, onBack }) {
   if (loading) {
     return (
       <div style={{ padding: '6rem 0', textAlign: 'center', color: 'var(--text-muted)' }}>
-        <Loader2 size={40} className="animate-spin" style={{ margin: '0 auto 1rem auto', color: 'var(--primary)' }} />
+        <Loader2 size={40} className="animate-spin" style={{ margin: '0 auto 1rem auto', color: 'var(--ledger)' }} />
         <p style={{ fontSize: '1rem' }}>Loading Form Builder environment...</p>
       </div>
     );
@@ -374,9 +389,10 @@ export default function FormBuilder({ formId, initialVersionId, onBack }) {
         saving={saving}
         publishing={publishing}
         onSave={handleInitiateSave}
-        onPublish={handlePublish}
+        onPublish={() => setIsPublishModalOpen(true)}
         onPreview={() => setIsPreviewOpen(true)}
         onBack={onBack}
+        onSaveAsTemplate={() => setIsSaveTemplateModalOpen(true)}
       />
 
       {/* Floating Notification Toast */}
@@ -448,6 +464,34 @@ export default function FormBuilder({ formId, initialVersionId, onBack }) {
         currentVersionNumber={currentVersionNumber}
         nextVersionNumber={nextVersionNumber}
         saving={saving}
+      />
+
+      {/* Publish Success & Confirmation Dialog */}
+      <PublishConfirmModal
+        isOpen={isPublishModalOpen}
+        onClose={() => setIsPublishModalOpen(false)}
+        onConfirm={handlePublish}
+        version={activeVersion}
+        isPublishing={publishing}
+        formTitle={form?.title}
+        formId={formId}
+        onNavigateToPublished={onNavigateToPublished}
+      />
+
+      {/* Save as Template Modal */}
+      <SaveAsTemplateModal
+        isOpen={isSaveTemplateModalOpen}
+        onClose={() => setIsSaveTemplateModalOpen(false)}
+        form={form}
+        fields={originalFields}
+        isDirty={isDirty}
+        onTemplateSaved={(newTemplate) => {
+          setIsSaveTemplateModalOpen(false);
+          showNotification(
+            `Template "${newTemplate.title}" saved successfully!`,
+            'success'
+          );
+        }}
       />
     </div>
   );

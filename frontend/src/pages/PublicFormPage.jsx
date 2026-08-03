@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
-  Sparkles,
   CheckCircle2,
   AlertCircle,
   Loader2,
@@ -8,11 +7,39 @@ import {
   RotateCcw,
   X,
 } from 'lucide-react';
+import LogoMark from '../components/common/LogoMark';
 import PublicFormRenderer from '../components/public/PublicFormRenderer';
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 export default function PublicFormPage({ formId, isPreview = false, previewForm = null }) {
+  const effectiveFormId = useMemo(() => {
+    if (formId) return formId;
+    const path = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
+    const params = new URLSearchParams(search);
+
+    if (hash) {
+      const matchHash = hash.match(/#\/public\/forms\/([^/?#]+)/) ||
+                        hash.match(/#\/forms\/public\/([^/?#]+)/) ||
+                        hash.match(/#\/forms\/([^/?#]+)/);
+      if (matchHash && matchHash[1]) return matchHash[1];
+    }
+
+    const publicMatch = path.match(/\/forms\/public\/([^/]+)/) ||
+                        path.match(/\/public\/forms\/([^/]+)/);
+    if (publicMatch && publicMatch[1]) return publicMatch[1];
+
+    const formsMatch = path.match(/\/forms\/([^/]+)/);
+    if (formsMatch && formsMatch[1] && formsMatch[1] !== 'public') return formsMatch[1];
+
+    if (params.get('publicFormId')) return params.get('publicFormId');
+    if (params.get('formId')) return params.get('formId');
+
+    return null;
+  }, [formId]);
+
   const [form, setForm] = useState(previewForm || null);
   const [loading, setLoading] = useState(!previewForm);
   const [submitting, setSubmitting] = useState(false);
@@ -21,11 +48,11 @@ export default function PublicFormPage({ formId, isPreview = false, previewForm 
   const [submitKey, setSubmitKey] = useState(0); // Used to reset the form
 
   const fetchForm = useCallback(async () => {
-    if (previewForm) return; // Preview mode uses passed-in form data
+    if (previewForm || !effectiveFormId) return; // Preview mode uses passed-in form data
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch(`${BASE_URL}/forms/public/${formId}`);
+      const res = await fetch(`${BASE_URL}/forms/public/${effectiveFormId}`);
       if (!res.ok) {
         const errData = await res.json().catch(() => ({}));
         throw new Error(errData.detail || 'Form not found or not published.');
@@ -37,21 +64,21 @@ export default function PublicFormPage({ formId, isPreview = false, previewForm 
     } finally {
       setLoading(false);
     }
-  }, [formId, previewForm]);
+  }, [effectiveFormId, previewForm]);
 
   useEffect(() => {
-    if (formId && !previewForm) {
+    if (effectiveFormId && !previewForm) {
       fetchForm();
     }
-  }, [formId, previewForm, fetchForm]);
+  }, [effectiveFormId, previewForm, fetchForm]);
 
   const handleSubmit = async (payload) => {
-    if (isPreview) return;
+    if (isPreview || !effectiveFormId) return;
     setError(null);
     setSubmitting(true);
 
     try {
-      const res = await fetch(`${BASE_URL}/public/forms/${formId}/submit`, {
+      const res = await fetch(`${BASE_URL}/public/forms/${effectiveFormId}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -78,17 +105,8 @@ export default function PublicFormPage({ formId, isPreview = false, previewForm 
 
   return (
     <div className="public-form-page">
-      <div className="bg-glow-1"></div>
-      <div className="bg-glow-2"></div>
 
-      {/* Branding Header */}
-      <div className="public-form-brand">
-        <div className="public-brand-logo">
-          <Sparkles size={26} />
-          <span>FormCraft</span>
-        </div>
-        <p className="public-brand-tagline">Intelligent Data Collection Platform</p>
-      </div>
+      {/* Clean Public Form View */}
 
       <div className="public-form-container">
         {/* LOADING STATE with skeleton */}
@@ -130,7 +148,7 @@ export default function PublicFormPage({ formId, isPreview = false, previewForm 
             <div className="success-icon-circle">
               <CheckCircle2 size={44} />
             </div>
-            <h2 className="success-heading">✓ Thank You!</h2>
+            <h2 className="success-heading">✓ Thank You</h2>
             <p className="success-description">
               Your response has been submitted successfully.
             </p>
@@ -147,8 +165,20 @@ export default function PublicFormPage({ formId, isPreview = false, previewForm 
               <button
                 className="btn-secondary"
                 onClick={() => {
-                  if (window.opener) window.close();
-                  else window.history.back();
+                  if (window.opener && !window.opener.closed) {
+                    try {
+                      window.close();
+                      return;
+                    } catch (e) {
+                      // Fallthrough if blocked
+                    }
+                  }
+                  const ref = document.referrer;
+                  if (ref && (ref.includes('/forms') || ref.includes(window.location.host))) {
+                    window.location.href = '/?tab=published';
+                    return;
+                  }
+                  window.location.href = '/';
                 }}
               >
                 <X size={16} />
@@ -181,6 +211,7 @@ export default function PublicFormPage({ formId, isPreview = false, previewForm 
             <PublicFormRenderer
               key={submitKey}
               fields={form.fields || []}
+              rules={form.rules || []}
               onSubmit={handleSubmit}
               isPreview={isPreview}
               isSubmitting={submitting}

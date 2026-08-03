@@ -1,24 +1,22 @@
 import React from 'react';
-import { Eye, Edit3, Wrench, Trash2, Calendar, Clock, Layers } from 'lucide-react';
+import { Eye, Edit3, Wrench, Trash2, ExternalLink, Archive } from 'lucide-react';
 
-export default function FormCard({ form, onView, onEdit, onBuild, onDelete }) {
+export default function FormCard({ form, onView, onEdit, onBuild, onDelete, onArchive }) {
   const formatDate = (dateStr) => {
     if (!dateStr) return 'N/A';
     try {
       const d = new Date(dateStr);
       return d.toLocaleDateString('en-US', {
         month: 'short',
-        day: 'numeric',
-        year: 'numeric'
+        day: 'numeric'
       });
     } catch {
       return dateStr;
     }
   };
 
-  // Determine field count if versions or fields are returned
   const fieldCount = form.fields_count ?? 
-    (form.versions && form.versions.length > 0 && form.versions[0]?.fields ? form.versions[0].fields.length : null);
+    (form.versions && form.versions.length > 0 && form.versions[0]?.fields ? form.versions[0].fields.length : 0);
 
   const getStatusBadge = (status) => {
     switch (status?.toLowerCase()) {
@@ -36,70 +34,98 @@ export default function FormCard({ form, onView, onEdit, onBuild, onDelete }) {
     <div className="form-card">
       <div className="form-card-header">
         <div style={{ flex: 1, paddingRight: '0.5rem' }}>
-          <h3 className="form-card-title">{form.title}</h3>
-          <p className="form-card-description">
-            {form.description || 'No description provided.'}
-          </p>
-        </div>
-        <div>{getStatusBadge(form.status)}</div>
-      </div>
-
-      <div className="form-card-meta">
-        <div className="meta-item" title="Created date">
-          <Calendar size={14} />
-          <span>Created {formatDate(form.createdat)}</span>
-        </div>
-        <div className="meta-item" title="Updated date">
-          <Clock size={14} />
-          <span>Updated {formatDate(form.updatedat)}</span>
-        </div>
-        {fieldCount !== null && (
-          <div className="meta-item" title="Fields count">
-            <Layers size={14} />
-            <span>{fieldCount} {fieldCount === 1 ? 'field' : 'fields'}</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
+            <span className="mono-id">FORM-{form.id}</span>
+            {getStatusBadge(form.status)}
           </div>
-        )}
+          <h3 className="form-card-title">{form.title}</h3>
+        </div>
       </div>
 
-      <div className="form-card-actions">
-        {onBuild && (
+      <p className="form-card-description">
+        {form.description || 'No description provided.'}
+      </p>
+
+      {/* Condensed Single-Line Metadata Strip */}
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: '0.75rem', 
+        fontSize: '0.8rem', 
+        color: 'var(--text-muted)', 
+        margin: '0.85rem 0',
+        padding: '0.5rem 0',
+        borderTop: '1px solid var(--rule)',
+        borderBottom: '1px solid var(--rule)'
+      }}>
+        <span>{fieldCount} {fieldCount === 1 ? 'field' : 'fields'}</span>
+        <span>•</span>
+        <span>Updated {formatDate(form.updatedat)}</span>
+      </div>
+
+      {/* Compact Tertiary Icon-Button Cluster */}
+      <div className="form-card-actions" style={{ justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', gap: '0.25rem', flexWrap: 'wrap' }}>
+          {form.status?.toLowerCase() === 'published' && (
+            <button
+              className="btn-tertiary"
+              onClick={() => window.open(`${window.location.origin}/forms/${form.id}`, '_blank', 'noopener,noreferrer')}
+              title="Open Live Public Form"
+            >
+              <ExternalLink size={14} />
+              <span>Public</span>
+            </button>
+          )}
+
+          {onBuild && (
+            <button
+              className="btn-tertiary"
+              onClick={() => onBuild(form)}
+              title="Open Form Builder"
+            >
+              <Wrench size={14} />
+              <span>Builder</span>
+            </button>
+          )}
+
           <button
-            className="btn-card-action edit"
-            onClick={() => onBuild(form)}
-            title="Open Drag and Drop Form Builder"
-            style={{ borderColor: 'rgba(139, 92, 246, 0.4)', color: '#a78bfa' }}
+            className="btn-tertiary"
+            onClick={() => onView(form)}
+            title="View Details"
           >
-            <Wrench size={15} />
-            <span>Builder</span>
+            <Eye size={14} />
+            <span>View</span>
           </button>
-        )}
 
-        <button
-          className="btn-card-action view"
-          onClick={() => onView(form)}
-          title="View Form Details"
-        >
-          <Eye size={16} />
-          <span>View</span>
-        </button>
+          <button
+            className="btn-tertiary"
+            onClick={() => onEdit(form)}
+            title="Edit Info"
+          >
+            <Edit3 size={14} />
+            <span>Edit</span>
+          </button>
+        </div>
 
-        <button
-          className="btn-card-action edit"
-          onClick={() => onEdit(form)}
-          title="Edit Form Info"
-        >
-          <Edit3 size={16} />
-          <span>Edit</span>
-        </button>
-
-        <button
-          className="btn-card-action delete"
-          onClick={() => onDelete(form)}
-          title="Delete Form"
-        >
-          <Trash2 size={16} />
-          <span>Delete</span>
-        </button>
+        <div style={{ display: 'flex', gap: '0.25rem' }}>
+          {form.status?.toLowerCase() !== 'archived' && onArchive && (
+            <button
+              className="btn-tertiary"
+              onClick={() => onArchive(form)}
+              title="Archive Form"
+              style={{ color: '#f59e0b' }}
+            >
+              <Archive size={14} />
+            </button>
+          )}
+          <button
+            className="btn-destructive-subtle"
+            onClick={() => onDelete(form)}
+            title="Delete Form"
+          >
+            <Trash2 size={14} />
+          </button>
+        </div>
       </div>
     </div>
   );
