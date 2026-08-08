@@ -476,7 +476,9 @@
     "then": "ನಂತರ"
   },
   "analyticsPage": {
-    "text": "%)"
+    "text": "%)",
+    "form": "ಫಾರ್ಮ್",
+    "forms": "ಫಾರ್ಮ್‌ಗಳು"
   },
   "protectedRoute": {
     "verifyingAuthenticationSession": "ದೃಢೀಕರಣ ಸೆಶನ್ ಅನ್ನು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ...",

@@ -323,9 +323,13 @@ export default function AnalyticsPage() {
   // 2. Form Submissions Bar Data
   const formSubmissionsBarData = useMemo(() => {
     const versionToFormIdMap = {};
-    versions.forEach((v) => {
-      const fId = v.form_id || v.formid;
-      if (fId) versionToFormIdMap[v.id] = fId;
+    forms.forEach((form) => {
+      if (form.versions && form.versions.length > 0) {
+        form.versions.forEach((v) => {
+          const fId = v.form_id || v.formid || form.id;
+          if (fId) versionToFormIdMap[v.id] = fId;
+        });
+      }
     });
 
     const formMap = {};
@@ -1466,10 +1470,7 @@ export default function AnalyticsPage() {
                           whiteSpace: "nowrap",
                         }}
                       >
-                        {item.name}
-                        {t("analyticsPage.text")}
-                        {item.value}
-                        {t("analyticsPage.text")}
+                        {item.name} {`(${item.value}%)`}
                       </span>
                     </div>
                   ))}
@@ -1619,10 +1620,7 @@ export default function AnalyticsPage() {
                             fontWeight: 500,
                           }}
                         >
-                          {item.value} {item.value === 1 ? "form" : "forms"}
-                          {t("analyticsPage.text")}
-                          {Math.round((item.value / (totalForms || 1)) * 100)}
-                          {t("analyticsPage.text")}
+                          {item.value} {item.value === 1 ? t("analyticsPage.form") : t("analyticsPage.forms")} {`(${Math.round((item.value / (totalForms || 1)) * 100)}%)`}
                         </span>
                       </div>
                     </div>

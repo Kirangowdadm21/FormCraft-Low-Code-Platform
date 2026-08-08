@@ -114,6 +114,8 @@ export default function OverviewPage({
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [versionToFormTitle, setVersionToFormTitle] = useState({});
   const [versionToFieldsCount, setVersionToFieldsCount] = useState({});
+  const [formToFormTitle, setFormToFormTitle] = useState({});
+  const [formToFieldsCount, setFormToFieldsCount] = useState({});
 
   // Interactive UI Filters & Controls
   const [timeRange, setTimeRange] = useState("Last 30 days");
@@ -144,7 +146,10 @@ export default function OverviewPage({
         const titlesToTranslate = new Set();
         forms.slice(0, 10).forEach((f) => f.title && titlesToTranslate.add(f.title));
         submissions.slice(0, 10).forEach((s) => {
-          const rawTitle = versionToFormTitle[s.form_version] || s.form_title;
+          const rawTitle =
+            versionToFormTitle[s.form_version] ||
+            formToFormTitle[s.form_version] ||
+            s.form_title;
           if (rawTitle) titlesToTranslate.add(rawTitle);
         });
 
@@ -173,7 +178,7 @@ export default function OverviewPage({
       isMounted = false;
       clearTimeout(timer);
     };
-  }, [currentLang, forms, submissions, versionToFormTitle]);
+  }, [currentLang, forms, submissions, versionToFormTitle, formToFormTitle]);
 
   // Close Date Dropdown on Click Outside
   useEffect(() => {
@@ -203,11 +208,19 @@ export default function OverviewPage({
 
       const versionMap = {};
       const fieldsMap = {};
+      const formMap = {};
+      const formFieldsMap = {};
 
       if (formList && formList.length > 0) {
         formList.forEach((form) => {
-          versionMap[form.id] = form.title;
-          fieldsMap[form.id] = form.fields_count || 8;
+          formMap[form.id] = form.title;
+          formFieldsMap[form.id] = form.fields_count || 8;
+          if (form.versions && form.versions.length > 0) {
+            form.versions.forEach((ver) => {
+              versionMap[ver.id] = form.title;
+              fieldsMap[ver.id] = (ver.fields && ver.fields.length) || form.fields_count || 8;
+            });
+          }
         });
       }
 
@@ -226,6 +239,8 @@ export default function OverviewPage({
       setRegisteredUsers(userList || []);
       setVersionToFormTitle(versionMap);
       setVersionToFieldsCount(fieldsMap);
+      setFormToFormTitle(formMap);
+      setFormToFieldsCount(formFieldsMap);
 
       // Unblock UI immediately for instant rendering
       setLoading(false);
@@ -275,6 +290,7 @@ export default function OverviewPage({
       list = list.filter((sub) => {
         const rawFormTitle =
           versionToFormTitle[sub.form_version] ||
+          formToFormTitle[sub.form_version] ||
           sub.form_title ||
           `Form #${sub.form_version || sub.id}`;
         const formTitle = (
@@ -291,7 +307,7 @@ export default function OverviewPage({
         new Date(b.submitted_at || b.started_at || 0).getTime() || (b.id || 0);
       return timeB - timeA;
     });
-  }, [timeFilteredSubmissions, searchQuery, versionToFormTitle, translatedTitles]);
+  }, [timeFilteredSubmissions, searchQuery, versionToFormTitle, formToFormTitle, translatedTitles]);
 
   // 3. Process Real Submission Trend Data for Telemetry Chart
   const chartData = useMemo(() => {
@@ -335,6 +351,7 @@ export default function OverviewPage({
     submissions.forEach((s) => {
       const formTitle =
         versionToFormTitle[s.form_version] ||
+        formToFormTitle[s.form_version] ||
         s.form_title ||
         `Form #${s.form_version || s.id}`;
       counts[formTitle] = (counts[formTitle] || 0) + 1;
@@ -362,7 +379,7 @@ export default function OverviewPage({
       ...f,
       percent: Math.min(100, Math.round((f.submissions_count / maxSubs) * 100)),
     }));
-  }, [forms, submissions, versionToFormTitle]);
+  }, [forms, submissions, versionToFormTitle, formToFormTitle]);
 
   if (loading && !refreshing) {
     return <OverviewSkeleton />;
@@ -1103,6 +1120,7 @@ export default function OverviewPage({
               {searchFilteredSubmissions.slice(0, 6).map((sub, idx) => {
                 const rawFormTitle =
                   versionToFormTitle[sub.form_version] ||
+                  formToFormTitle[sub.form_version] ||
                   sub.form_title ||
                   `Form #${sub.form_version || sub.id}`;
                 const formTitle =
@@ -1112,6 +1130,7 @@ export default function OverviewPage({
                   : `SUB-${sub.id || idx + 144}`;
                 const fieldsCount =
                   versionToFieldsCount[sub.form_version] ||
+                  formToFieldsCount[sub.form_version] ||
                   sub.fields_count ||
                   8;
                 const exactDateTime = formatExactDateTime(

@@ -476,7 +476,9 @@
     "then": "പിന്നെ"
   },
   "analyticsPage": {
-    "text": "%)"
+    "text": "%)",
+    "form": "ഫോം",
+    "forms": "ഫോമുകൾ"
   },
   "protectedRoute": {
     "verifyingAuthenticationSession": "പ്രാമാണീകരണ സെഷൻ പരിശോധിക്കുന്നു...",

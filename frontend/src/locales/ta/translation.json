@@ -476,7 +476,9 @@
     "then": "பிறகு"
   },
   "analyticsPage": {
-    "text": "%)"
+    "text": "%)",
+    "form": "படிவம்",
+    "forms": "படிவங்கள்"
   },
   "protectedRoute": {
     "verifyingAuthenticationSession": "அங்கீகார அமர்வைச் சரிபார்க்கிறது...",

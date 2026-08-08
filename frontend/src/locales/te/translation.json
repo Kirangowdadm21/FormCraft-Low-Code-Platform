@@ -476,7 +476,9 @@
     "then": "అప్పుడు"
   },
   "analyticsPage": {
-    "text": "%)"
+    "text": "%)",
+    "form": "ఫారమ్",
+    "forms": "ఫారమ్‌లు"
   },
   "protectedRoute": {
     "verifyingAuthenticationSession": "ప్రమాణీకరణ సెషన్‌ని ధృవీకరిస్తోంది...",

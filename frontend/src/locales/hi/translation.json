@@ -476,12 +476,14 @@
     "then": "तब"
   },
   "analyticsPage": {
-    "text": "%"
+    "text": "%",
+    "form": "फ़ॉर्म",
+    "forms": "फ़ॉर्म"
   },
   "protectedRoute": {
     "verifyingAuthenticationSession": "प्रमाणीकरण सत्र सत्यापित किया जा रहा है...",
     "accessRestricted": "प्रवेश प्रतिबंधित",
-    "youMustBeLogged": "आपको इस खंड को देखने के लिए लॉग इन करना होगा। कृपया अपने खाता क्रेडेंशियल के साथ साइन इन करें।",
+    "youMustBeLogged": "आपको इस खंड को देखने के लिए लॉग इन करना होगा। कृपया अपने खाता क्रेडेंशियल के साथ साइन इन करें。",
     "goToLoginPage": "लॉगिन पेज पर जाएं"
   },
   "useTemplateModal": {

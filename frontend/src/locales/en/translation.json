@@ -476,7 +476,9 @@
     "then": "THEN"
   },
   "analyticsPage": {
-    "text": "%)"
+    "text": "%)",
+    "form": "form",
+    "forms": "forms"
   },
   "protectedRoute": {
     "verifyingAuthenticationSession": "Verifying authentication session...",
