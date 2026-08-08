@@ -30,7 +30,13 @@ def get_now_str() -> str:
 # ==========================================
 
 def get_dashboard_report(db: Session) -> report_schemas.DashboardReportResponse:
-    total_users = db.query(models.User).count()
+    total_users = db.query(models.User).filter(
+        ~models.User.email.like("%_owner_%@example.com"),
+        ~models.User.email.like("test_%@example.com"),
+        ~models.User.email.like("user_%@example.com"),
+        ~models.User.email.like("admin_%@example.com"),
+        ~models.User.email.like("managed_%@example.com")
+    ).count()
     total_forms = db.query(models.Form).count()
     published_forms = db.query(models.Form).filter(models.Form.status == "published").count()
     draft_forms = db.query(models.Form).filter(models.Form.status == "draft").count()

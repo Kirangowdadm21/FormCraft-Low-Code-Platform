@@ -63,13 +63,18 @@ def submit_public_form(token: str, submission_data: schemas.SubmissionCreatePubl
     if not version:
         raise HTTPException(status_code=404, detail="Form version not found")
 
-    # Validate required fields
     version_fields = {f.id: f for f in version.fields}
     provided_fields = {r.field_id for r in submission_data.responses}
 
     for field_id, field in version_fields.items():
+        if (field.field_type or "").lower() == "submit":
+            continue
         if field.required and field_id not in provided_fields:
             raise HTTPException(status_code=400, detail=f"Required field '{field.label}' (ID: {field_id}) is missing.")
+
+    for resp in submission_data.responses:
+        if resp.field_id not in version_fields:
+            raise HTTPException(status_code=400, detail=f"Field ID {resp.field_id} does not belong to this form version")
 
     # Create submission record
     sub_uuid = str(uuid.uuid4())
@@ -86,9 +91,6 @@ def submit_public_form(token: str, submission_data: schemas.SubmissionCreatePubl
 
     # Store responses
     for resp in submission_data.responses:
-        if resp.field_id not in version_fields:
-            raise HTTPException(status_code=400, detail=f"Field ID {resp.field_id} does not belong to this form version")
-        
         db_resp = models.ResponseValue(
             submission_id=db_sub.id,
             field_id=resp.field_id,

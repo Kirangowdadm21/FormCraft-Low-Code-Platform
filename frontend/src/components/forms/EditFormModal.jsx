@@ -1,32 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { X, Edit3, Loader2 } from 'lucide-react';
-import { updateForm } from '../../services/formsApi';
-
-export default function EditFormModal({ isOpen, onClose, form, onFormUpdated }) {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [status, setStatus] = useState('draft');
+import { useTranslation } from "react-i18next";
+import React, { useState, useEffect } from "react";
+import { X, Edit3, Loader2 } from "lucide-react";
+import { updateForm } from "../../services/formsApi";
+export default function EditFormModal({
+  isOpen,
+  onClose,
+  form,
+  onFormUpdated,
+}) {
+  const { t } = useTranslation();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [status, setStatus] = useState("draft");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     if (form) {
-      setTitle(form.title || '');
-      setDescription(form.description || '');
-      setStatus(form.status || 'draft');
+      setTitle(form.title || "");
+      setDescription(form.description || "");
+      setStatus(form.status || "draft");
       setError(null);
     }
   }, [form]);
-
   if (!isOpen || !form) return null;
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title.trim()) {
-      setError('Form title is required');
+      setError("Form title is required");
       return;
     }
-
     try {
       setLoading(true);
       setError(null);
@@ -38,19 +40,26 @@ export default function EditFormModal({ isOpen, onClose, form, onFormUpdated }) 
       onFormUpdated(updated);
       onClose();
     } catch (err) {
-      setError(err.message || 'Failed to update form');
+      setError(err.message || "Failed to update form");
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
             <Edit3 size={20} color="var(--primary)" />
-            <h2 className="modal-title">Edit Form Information</h2>
+            <h2 className="modal-title">
+              {t("editFormModal.editFormInformation")}
+            </h2>
           </div>
           <button className="modal-close-btn" onClick={onClose}>
             <X size={20} />
@@ -59,15 +68,18 @@ export default function EditFormModal({ isOpen, onClose, form, onFormUpdated }) 
 
         <form onSubmit={handleSubmit}>
           <div className="modal-body">
-            {error && (
-              <div className="modal-error">
-                {error}
-              </div>
-            )}
+            {error && <div className="modal-error">{error}</div>}
 
             <div className="form-group">
               <label className="form-label" htmlFor="edit-form-title">
-                Form Title <span style={{ color: '#ef4444' }}>*</span>
+                {t("editFormModal.formTitle")}
+                <span
+                  style={{
+                    color: "#ef4444",
+                  }}
+                >
+                  {t("editFormModal.text")}
+                </span>
               </label>
               <input
                 id="edit-form-title"
@@ -81,7 +93,7 @@ export default function EditFormModal({ isOpen, onClose, form, onFormUpdated }) 
 
             <div className="form-group">
               <label className="form-label" htmlFor="edit-form-description">
-                Description
+                {t("editFormModal.description")}
               </label>
               <textarea
                 id="edit-form-description"
@@ -95,7 +107,7 @@ export default function EditFormModal({ isOpen, onClose, form, onFormUpdated }) 
 
             <div className="form-group">
               <label className="form-label" htmlFor="edit-form-status">
-                Status
+                {t("editFormModal.status")}
               </label>
               <select
                 id="edit-form-status"
@@ -104,9 +116,11 @@ export default function EditFormModal({ isOpen, onClose, form, onFormUpdated }) 
                 onChange={(e) => setStatus(e.target.value)}
                 disabled={loading}
               >
-                <option value="draft">Draft</option>
-                <option value="published">Published</option>
-                <option value="archived">Archived</option>
+                <option value="draft">{t("editFormModal.draft")}</option>
+                <option value="published">
+                  {t("editFormModal.published")}
+                </option>
+                <option value="archived">{t("editFormModal.archived")}</option>
               </select>
             </div>
           </div>
@@ -118,20 +132,16 @@ export default function EditFormModal({ isOpen, onClose, form, onFormUpdated }) 
               onClick={onClose}
               disabled={loading}
             >
-              Cancel
+              {t("editFormModal.cancel")}
             </button>
-            <button
-              type="submit"
-              className="btn-primary"
-              disabled={loading}
-            >
+            <button type="submit" className="btn-primary" disabled={loading}>
               {loading ? (
                 <>
                   <Loader2 size={18} className="animate-spin" />
-                  <span>Saving...</span>
+                  <span>{t("editFormModal.saving")}</span>
                 </>
               ) : (
-                <span>Save Changes</span>
+                <span>{t("editFormModal.saveChanges")}</span>
               )}
             </button>
           </div>

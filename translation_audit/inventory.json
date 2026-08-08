@@ -1,0 +1,5970 @@
+[
+  {
+    "file": "App.jsx",
+    "line": 100,
+    "rawString": "FormCraft HQ",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 103,
+    "rawString": "Production Workspace",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 114,
+    "rawString": "Workspace",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 118,
+    "rawString": "sidebar.overview",
+    "alreadyUsingT": "yes",
+    "i18nKey": "sidebar.overview",
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 124,
+    "rawString": "sidebar.forms_portfolio",
+    "alreadyUsingT": "yes",
+    "i18nKey": "sidebar.forms_portfolio",
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 130,
+    "rawString": "sidebar.templates",
+    "alreadyUsingT": "yes",
+    "i18nKey": "sidebar.templates",
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 136,
+    "rawString": "sidebar.submissions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "sidebar.submissions",
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 142,
+    "rawString": "sidebar.conditional_rules",
+    "alreadyUsingT": "yes",
+    "i18nKey": "sidebar.conditional_rules",
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 148,
+    "rawString": "sidebar.analytics",
+    "alreadyUsingT": "yes",
+    "i18nKey": "sidebar.analytics",
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 154,
+    "rawString": "sidebar.reports_export",
+    "alreadyUsingT": "yes",
+    "i18nKey": "sidebar.reports_export",
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 158,
+    "rawString": "Account",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 162,
+    "rawString": "sidebar.user_profile",
+    "alreadyUsingT": "yes",
+    "i18nKey": "sidebar.user_profile",
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 173,
+    "rawString": "sidebar.sign_out",
+    "alreadyUsingT": "yes",
+    "i18nKey": "sidebar.sign_out",
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 213,
+    "rawString": "Sign Out",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 344,
+    "rawString": "FormCraft",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 367,
+    "rawString": "FormCraft",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: App"
+  },
+  {
+    "file": "App.jsx",
+    "line": 370,
+    "rawString": "Low-Code Workflow Automation & Intelligent Data Collection Registry",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: App"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 134,
+    "rawString": "templates.title",
+    "alreadyUsingT": "yes",
+    "i18nKey": "templates.title",
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 137,
+    "rawString": "templates.subtitle",
+    "alreadyUsingT": "yes",
+    "i18nKey": "templates.subtitle",
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 142,
+    "rawString": "common.refresh",
+    "alreadyUsingT": "yes",
+    "i18nKey": "common.refresh",
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 145,
+    "rawString": "templates.create_template",
+    "alreadyUsingT": "yes",
+    "i18nKey": "templates.create_template",
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 153,
+    "rawString": "Total Templates:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 157,
+    "rawString": "+",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 158,
+    "rawString": "Pre-configured Fields:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 167,
+    "rawString": "Search templates by title or description...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 178,
+    "rawString": "Sort by Newest",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 179,
+    "rawString": "Sort by Oldest",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 180,
+    "rawString": "Sort by Title (A-Z)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 181,
+    "rawString": "Sort by Most Fields",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 191,
+    "rawString": "Retry",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/TemplatesPage.jsx",
+    "line": 212,
+    "rawString": "Create First Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "TemplatesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 216,
+    "rawString": "submissions.title",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.title",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 219,
+    "rawString": "submissions.subtitle",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.subtitle",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 243,
+    "rawString": "submissions.refresh",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.refresh",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 273,
+    "rawString": "submissions.form_label",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.form_label",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 293,
+    "rawString": "submissions.select_form",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.select_form",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 298,
+    "rawString": "▼",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 317,
+    "rawString": "submissions.version_label",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.version_label",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 338,
+    "rawString": "submissions.select_version",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.select_version",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 340,
+    "rawString": "v",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 341,
+    "rawString": "submissions.published_version",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.published_version",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 345,
+    "rawString": "▼",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 364,
+    "rawString": "submissions.search_label",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.search_label",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 370,
+    "rawString": "submissions.search_placeholder",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.search_placeholder",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 391,
+    "rawString": "submissions.submission_count_other",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.submission_count_other",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 392,
+    "rawString": "submissions.submission_count_one",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.submission_count_one",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 427,
+    "rawString": "Retry",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 440,
+    "rawString": "submissions.no_submissions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.no_submissions",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 443,
+    "rawString": "submissions.no_submissions_version",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.no_submissions_version",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 444,
+    "rawString": "submissions.no_submissions_select",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.no_submissions_select",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 493,
+    "rawString": "SUB-",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 514,
+    "rawString": "submissions.loading_responses",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.loading_responses",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 518,
+    "rawString": "submissions.no_field_responses",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.no_field_responses",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 537,
+    "rawString": "submissions.id_col",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.id_col",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 538,
+    "rawString": "submissions.field_col",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.field_col",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 539,
+    "rawString": "submissions.value_col",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.value_col",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 558,
+    "rawString": "R-",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 572,
+    "rawString": "submissions.empty_value",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.empty_value",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ResponsesPage.jsx",
+    "line": 583,
+    "rawString": "submissions.delete_response",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.delete_response",
+    "route": "ResponsesPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 70,
+    "rawString": "reports.title",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.title",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 73,
+    "rawString": "reports.subtitle",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.subtitle",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 95,
+    "rawString": "reports.configure_export",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.configure_export",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 102,
+    "rawString": "reports.data_category",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.data_category",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 105,
+    "rawString": "reports.category_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.category_forms",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 106,
+    "rawString": "reports.category_submissions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.category_submissions",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 107,
+    "rawString": "reports.category_analytics",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.category_analytics",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 108,
+    "rawString": "reports.category_dashboard",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.category_dashboard",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 115,
+    "rawString": "reports.filter_by_form",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.filter_by_form",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 115,
+    "rawString": "reports.optional",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.optional",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 118,
+    "rawString": "reports.all_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.all_forms",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 128,
+    "rawString": "reports.file_format",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.file_format",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 148,
+    "rawString": "CSV",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 167,
+    "rawString": "JSON",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 186,
+    "rawString": "PDF",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 202,
+    "rawString": "reports.generate_download",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.generate_download",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 214,
+    "rawString": "reports.system_overview",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.system_overview",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 218,
+    "rawString": "reports.total_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.total_forms",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 222,
+    "rawString": "reports.total_submissions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.total_submissions",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 226,
+    "rawString": "reports.published_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.published_forms",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/ReportsExportPage.jsx",
+    "line": 230,
+    "rawString": "reports.completion_rate",
+    "alreadyUsingT": "yes",
+    "i18nKey": "reports.completion_rate",
+    "route": "ReportsExportPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 86,
+    "rawString": "Create Administrator",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 87,
+    "rawString": "Set up primary admin credentials to access FormCraft",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 129,
+    "rawString": "Administrator account created in Firebase! Redirecting to Sign In...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 139,
+    "rawString": "First Name",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 150,
+    "rawString": "Admin",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 161,
+    "rawString": "Last Name",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 172,
+    "rawString": "User",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 185,
+    "rawString": "Email Address *",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 197,
+    "rawString": "admin@example.com",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 209,
+    "rawString": "Password *",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 221,
+    "rawString": "••••••••",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 248,
+    "rawString": "Creating Firebase Account...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 252,
+    "rawString": "Register Administrator",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 262,
+    "rawString": "Already registered?",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/RegisterPage.jsx",
+    "line": 274,
+    "rawString": "Sign In",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "RegisterPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 138,
+    "rawString": "Published Forms",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 139,
+    "rawString": "View and manage all your live, publicly accessible forms.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 144,
+    "rawString": "Published",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 146,
+    "rawString": "Refresh",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 156,
+    "rawString": "Search published forms...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 167,
+    "rawString": "Newest First",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 168,
+    "rawString": "Oldest First",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 169,
+    "rawString": "Name A → Z",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 170,
+    "rawString": "Name Z → A",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 180,
+    "rawString": "Retry",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 211,
+    "rawString": "Published",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 218,
+    "rawString": "v",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 234,
+    "rawString": "Open Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 250,
+    "rawString": "QR Code",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublishedFormsPage.jsx",
+    "line": 258,
+    "rawString": "Details",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublishedFormsPage"
+  },
+  {
+    "file": "pages/PublicFormPage.jsx",
+    "line": 126,
+    "rawString": "Form Unavailable",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublicFormPage"
+  },
+  {
+    "file": "pages/PublicFormPage.jsx",
+    "line": 130,
+    "rawString": "Try Again",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublicFormPage"
+  },
+  {
+    "file": "pages/PublicFormPage.jsx",
+    "line": 141,
+    "rawString": "✓ Thank You",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublicFormPage"
+  },
+  {
+    "file": "pages/PublicFormPage.jsx",
+    "line": 142,
+    "rawString": "Your response has been submitted successfully.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublicFormPage"
+  },
+  {
+    "file": "pages/PublicFormPage.jsx",
+    "line": 146,
+    "rawString": "Form:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublicFormPage"
+  },
+  {
+    "file": "pages/PublicFormPage.jsx",
+    "line": 153,
+    "rawString": "Submit Another Response",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublicFormPage"
+  },
+  {
+    "file": "pages/PublicFormPage.jsx",
+    "line": 175,
+    "rawString": "Close",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublicFormPage"
+  },
+  {
+    "file": "pages/PublicFormPage.jsx",
+    "line": 218,
+    "rawString": "Powered by",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublicFormPage"
+  },
+  {
+    "file": "pages/PublicFormPage.jsx",
+    "line": 218,
+    "rawString": "FormCraft",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "PublicFormPage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 113,
+    "rawString": "Refresh Account Data",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 116,
+    "rawString": "profile.refresh",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.refresh",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 126,
+    "rawString": "profile.sign_out",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.sign_out",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 140,
+    "rawString": "profile.account_specs",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.account_specs",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 143,
+    "rawString": "profile.confidential",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.confidential",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 150,
+    "rawString": "profile.user_identifier",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.user_identifier",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 159,
+    "rawString": "profile.full_name",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.full_name",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 166,
+    "rawString": "profile.registered_email",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.registered_email",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 173,
+    "rawString": "profile.system_role",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.system_role",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 176,
+    "rawString": "profile.administrator",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.administrator",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 182,
+    "rawString": "profile.account_created",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.account_created",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 196,
+    "rawString": "profile.security_section",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.security_section",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 199,
+    "rawString": "profile.encrypted",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.encrypted",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 206,
+    "rawString": "profile.auth_protocol",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.auth_protocol",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 208,
+    "rawString": "profile.auth_value",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.auth_value",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 213,
+    "rawString": "profile.api_scope",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.api_scope",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 215,
+    "rawString": "profile.api_scope_value",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.api_scope_value",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 220,
+    "rawString": "profile.session_state",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.session_state",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 223,
+    "rawString": "profile.active_token",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.active_token",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 229,
+    "rawString": "profile.password_policy",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.password_policy",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/ProfilePage.jsx",
+    "line": 231,
+    "rawString": "profile.password_value",
+    "alreadyUsingT": "yes",
+    "i18nKey": "profile.password_value",
+    "route": "ProfilePage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 312,
+    "rawString": ",",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 313,
+    "rawString": "👋",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 316,
+    "rawString": "overview.subtitle",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.subtitle",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 328,
+    "rawString": "overview.search_placeholder",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.search_placeholder",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 351,
+    "rawString": "common.refresh",
+    "alreadyUsingT": "yes",
+    "i18nKey": "common.refresh",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 477,
+    "rawString": "common.create_form",
+    "alreadyUsingT": "yes",
+    "i18nKey": "common.create_form",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 512,
+    "rawString": "overview.total_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.total_forms",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 522,
+    "rawString": "overview.published_count",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.published_count",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 522,
+    "rawString": "·",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 522,
+    "rawString": "overview.draft_count",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.draft_count",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 545,
+    "rawString": "overview.total_submissions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.total_submissions",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 555,
+    "rawString": "overview.completed_count",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.completed_count",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 555,
+    "rawString": "·",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 555,
+    "rawString": "overview.in_progress_count",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.in_progress_count",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 578,
+    "rawString": "overview.completion_rate",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.completion_rate",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 585,
+    "rawString": "%",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 589,
+    "rawString": "100%",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 591,
+    "rawString": "overview.finalized_vs_started",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.finalized_vs_started",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 611,
+    "rawString": "overview.registered_users",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.registered_users",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 621,
+    "rawString": "overview.active_accounts",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.active_accounts",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 653,
+    "rawString": "overview.recent_submissions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.recent_submissions",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 686,
+    "rawString": "overview.view_all",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.view_all",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 696,
+    "rawString": "No submissions found",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 718,
+    "rawString": "overview.headers.id",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.headers.id",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 719,
+    "rawString": "overview.headers.form_title",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.headers.form_title",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 720,
+    "rawString": "overview.headers.fields",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.headers.fields",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 721,
+    "rawString": "overview.headers.status",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.headers.status",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 722,
+    "rawString": "overview.headers.submitted_at",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.headers.submitted_at",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 762,
+    "rawString": "common.fields_count",
+    "alreadyUsingT": "yes",
+    "i18nKey": "common.fields_count",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 769,
+    "rawString": "common.completed",
+    "alreadyUsingT": "yes",
+    "i18nKey": "common.completed",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 798,
+    "rawString": "overview.quick_actions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.quick_actions",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 824,
+    "rawString": "overview.new_form",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.new_form",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 848,
+    "rawString": "overview.analytics",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.analytics",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 872,
+    "rawString": "overview.rules",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.rules",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 896,
+    "rawString": "overview.export",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.export",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 914,
+    "rawString": "overview.top_performing_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.top_performing_forms",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 922,
+    "rawString": "overview.manage",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.manage",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 929,
+    "rawString": "No forms found.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/OverviewPage.jsx",
+    "line": 938,
+    "rawString": "overview.responses_count",
+    "alreadyUsingT": "yes",
+    "i18nKey": "overview.responses_count",
+    "route": "OverviewPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 73,
+    "rawString": "Administrator Sign In",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 74,
+    "rawString": "Sign in to access your FormCraft admin registry",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 104,
+    "rawString": "Email Address",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 118,
+    "rawString": "admin@example.com",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 130,
+    "rawString": "Password",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 144,
+    "rawString": "••••••••",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 171,
+    "rawString": "Authenticating...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 175,
+    "rawString": "Sign In",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 186,
+    "rawString": "OR",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 217,
+    "rawString": "Connecting to Google...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 227,
+    "rawString": "Continue with Google",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 234,
+    "rawString": "Don't have an account yet?",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/LoginPage.jsx",
+    "line": 246,
+    "rawString": "Create an Account",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "LoginPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 308,
+    "rawString": "forms.title",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.title",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 308,
+    "rawString": ">",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 308,
+    "rawString": "forms.published_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.published_forms",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 312,
+    "rawString": "forms.published_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.published_forms",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 312,
+    "rawString": "forms.title",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.title",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 316,
+    "rawString": "forms.published_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.published_forms",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 317,
+    "rawString": "forms.subtitle",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.subtitle",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 322,
+    "rawString": "forms.create_btn",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.create_btn",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 348,
+    "rawString": "forms.all_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.all_forms",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 349,
+    "rawString": "forms.all_tab",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.all_tab",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 372,
+    "rawString": "forms.published_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.published_forms",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 373,
+    "rawString": "forms.published_tab",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.published_tab",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 383,
+    "rawString": "forms.retry",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.retry",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 398,
+    "rawString": "forms.search_all_placeholder",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.search_all_placeholder",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 405,
+    "rawString": "forms.all_status",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.all_status",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 406,
+    "rawString": "forms.status_published",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.status_published",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 407,
+    "rawString": "forms.status_draft",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.status_draft",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 408,
+    "rawString": "forms.status_archived",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.status_archived",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 413,
+    "rawString": "forms.sort_recent",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.sort_recent",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 414,
+    "rawString": "forms.sort_asc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.sort_asc",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 440,
+    "rawString": "📍",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 440,
+    "rawString": "forms.audit_rail",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.audit_rail",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 442,
+    "rawString": "•",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 442,
+    "rawString": "forms.live",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.live",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 460,
+    "rawString": "forms.recently",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.recently",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 468,
+    "rawString": "forms.by_author",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.by_author",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 485,
+    "rawString": "forms.view_full_log",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.view_full_log",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 499,
+    "rawString": "forms.search_published_placeholder",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.search_published_placeholder",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 506,
+    "rawString": "forms.all_status",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.all_status",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 507,
+    "rawString": "forms.status_published",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.status_published",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 512,
+    "rawString": "forms.sort_newest",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.sort_newest",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 513,
+    "rawString": "forms.sort_oldest",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.sort_oldest",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 514,
+    "rawString": "forms.sort_name_asc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.sort_name_asc",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 515,
+    "rawString": "forms.sort_name_desc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.sort_name_desc",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 525,
+    "rawString": "forms.no_matching_published",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.no_matching_published",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 525,
+    "rawString": "forms.no_published_yet",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.no_published_yet",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 528,
+    "rawString": "forms.no_match_desc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.no_match_desc",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 529,
+    "rawString": "forms.no_published_desc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.no_published_desc",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 568,
+    "rawString": "❖",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 568,
+    "rawString": "forms.version_label",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.version_label",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 569,
+    "rawString": "•",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 570,
+    "rawString": "≡",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 570,
+    "rawString": "forms.fields_count",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.fields_count",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 571,
+    "rawString": "•",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 572,
+    "rawString": "🗓",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 572,
+    "rawString": "forms.published_on",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.published_on",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 572,
+    "rawString": ":",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 580,
+    "rawString": "•",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 580,
+    "rawString": "forms.published_badge",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.published_badge",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 591,
+    "rawString": "forms.open_form",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.open_form",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 601,
+    "rawString": "forms.copied",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.copied",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 601,
+    "rawString": "forms.copy_link",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.copy_link",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 611,
+    "rawString": "forms.qr_code",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.qr_code",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 621,
+    "rawString": "forms.details",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.details",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 700,
+    "rawString": "forms.activity_logs_title",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.activity_logs_title",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 707,
+    "rawString": "forms.showing_events_plural",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.showing_events_plural",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 708,
+    "rawString": "forms.showing_events",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.showing_events",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 711,
+    "rawString": "forms.close",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.close",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 721,
+    "rawString": "forms.search_logs_placeholder",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.search_logs_placeholder",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 753,
+    "rawString": "forms.no_logs",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.no_logs",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/FormsPage.jsx",
+    "line": 801,
+    "rawString": "forms.by_author",
+    "alreadyUsingT": "yes",
+    "i18nKey": "forms.by_author",
+    "route": "FormsPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 111,
+    "rawString": "rules.confirm_delete",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.confirm_delete",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 148,
+    "rawString": "rules.title",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.title",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 151,
+    "rawString": "rules.subtitle",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.subtitle",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 175,
+    "rawString": "rules.refresh",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.refresh",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 196,
+    "rawString": "rules.create_rule",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.create_rule",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 226,
+    "rawString": "rules.form_label",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.form_label",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 246,
+    "rawString": "rules.select_form",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.select_form",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 251,
+    "rawString": "▼",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 270,
+    "rawString": "rules.version_label",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.version_label",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 291,
+    "rawString": "rules.select_version",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.select_version",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 293,
+    "rawString": "v",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 294,
+    "rawString": "submissions.published_version",
+    "alreadyUsingT": "yes",
+    "i18nKey": "submissions.published_version",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 298,
+    "rawString": "▼",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 308,
+    "rawString": "rules.fields_loaded",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.fields_loaded",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 345,
+    "rawString": "rules.retry",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.retry",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 357,
+    "rawString": "rules.no_rules",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.no_rules",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 360,
+    "rawString": "rules.no_rules_version",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.no_rules_version",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 361,
+    "rawString": "rules.no_rules_select",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.no_rules_select",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 402,
+    "rawString": "RULE-",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 410,
+    "rawString": "rules.edit_rule",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.edit_rule",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 430,
+    "rawString": "rules.delete_rule",
+    "alreadyUsingT": "yes",
+    "i18nKey": "rules.delete_rule",
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 456,
+    "rawString": "IF",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 460,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 460,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 466,
+    "rawString": "THEN",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/ConditionalRulesPage.jsx",
+    "line": 481,
+    "rawString": "—",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "ConditionalRulesPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 91,
+    "rawString": ":",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 356,
+    "rawString": "analytics.title",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.title",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 359,
+    "rawString": "analytics.subtitle",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.subtitle",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 364,
+    "rawString": "analytics.refresh_metrics",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.refresh_metrics",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 374,
+    "rawString": "analytics.retry",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.retry",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 384,
+    "rawString": "analytics.form_selector",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.form_selector",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 387,
+    "rawString": "analytics.all_forms_overview",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.all_forms_overview",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 396,
+    "rawString": "analytics.version_selector",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.version_selector",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 399,
+    "rawString": "analytics.all_versions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.all_versions",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 401,
+    "rawString": "analytics.version_label",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.version_label",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 401,
+    "rawString": "(",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 401,
+    "rawString": "analytics.published_label",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.published_label",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 401,
+    "rawString": "analytics.draft_label",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.draft_label",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 401,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 408,
+    "rawString": "analytics.date_range",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.date_range",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 411,
+    "rawString": "analytics.all_time",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.all_time",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 412,
+    "rawString": "analytics.last_7_days",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.last_7_days",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 413,
+    "rawString": "analytics.last_30_days",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.last_30_days",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 414,
+    "rawString": "analytics.last_90_days",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.last_90_days",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 420,
+    "rawString": "analytics.interval",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.interval",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 423,
+    "rawString": "analytics.daily",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.daily",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 424,
+    "rawString": "analytics.monthly",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.monthly",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 441,
+    "rawString": "analytics.total_forms",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.total_forms",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 451,
+    "rawString": "analytics.published_draft",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.published_draft",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 459,
+    "rawString": "analytics.total_submissions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.total_submissions",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 469,
+    "rawString": "analytics.completed_inprogress",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.completed_inprogress",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 477,
+    "rawString": "analytics.completion_rate",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.completion_rate",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 484,
+    "rawString": "%",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 487,
+    "rawString": "analytics.finalized_vs_started",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.finalized_vs_started",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 495,
+    "rawString": "analytics.registered_users",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.registered_users",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 505,
+    "rawString": "analytics.active_accounts",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.active_accounts",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 520,
+    "rawString": "analytics.chart_submission_trend",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_submission_trend",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 523,
+    "rawString": "analytics.chart_submission_trend_desc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_submission_trend_desc",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 550,
+    "rawString": "analytics.chart_form_submissions",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_form_submissions",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 553,
+    "rawString": "analytics.chart_form_submissions_desc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_form_submissions_desc",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 557,
+    "rawString": "analytics.ranked",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.ranked",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 590,
+    "rawString": "analytics.chart_response_area",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_response_area",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 593,
+    "rawString": "analytics.chart_response_area_desc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_response_area_desc",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 597,
+    "rawString": "analytics.area_chart",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.area_chart",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 626,
+    "rawString": "analytics.chart_field_dist",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_field_dist",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 629,
+    "rawString": "analytics.chart_field_dist_desc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_field_dist_desc",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 633,
+    "rawString": "analytics.field_types",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.field_types",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 663,
+    "rawString": "analytics.chart_field_comp",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_field_comp",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 666,
+    "rawString": "analytics.chart_field_comp_desc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_field_comp_desc",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 670,
+    "rawString": "analytics.google_pie",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.google_pie",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 702,
+    "rawString": "(",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 702,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 716,
+    "rawString": "analytics.chart_form_status",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_form_status",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 719,
+    "rawString": "analytics.chart_form_status_desc",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.chart_form_status_desc",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 723,
+    "rawString": "analytics.google_pie",
+    "alreadyUsingT": "yes",
+    "i18nKey": "analytics.google_pie",
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 763,
+    "rawString": "(",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "pages/AnalyticsPage.jsx",
+    "line": 763,
+    "rawString": "%)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "AnalyticsPage"
+  },
+  {
+    "file": "components/ProtectedRoute.jsx",
+    "line": 21,
+    "rawString": "Verifying authentication session...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ProtectedRoute"
+  },
+  {
+    "file": "components/ProtectedRoute.jsx",
+    "line": 47,
+    "rawString": "Access Restricted",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ProtectedRoute"
+  },
+  {
+    "file": "components/ProtectedRoute.jsx",
+    "line": 48,
+    "rawString": "You must be logged in to view this section. Please sign in with your account credentials.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ProtectedRoute"
+  },
+  {
+    "file": "components/ProtectedRoute.jsx",
+    "line": 55,
+    "rawString": "Go to Login Page",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ProtectedRoute"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 51,
+    "rawString": "Use Template to Create Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 66,
+    "rawString": "Create a new form powered by template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 67,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 67,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 67,
+    "rawString": ". All",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 68,
+    "rawString": "fields will be copied into your new form draft.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 72,
+    "rawString": "New Form Title",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 73,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 79,
+    "rawString": "Enter form title...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 88,
+    "rawString": "Form Description",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 95,
+    "rawString": "Enter description...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 109,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 120,
+    "rawString": "Creating Form...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/UseTemplateModal.jsx",
+    "line": 125,
+    "rawString": "Create & Launch Builder",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: UseTemplateModal"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 41,
+    "rawString": "TPL-",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 44,
+    "rawString": "≡",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 60,
+    "rawString": "Created",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 61,
+    "rawString": "• Updated",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 72,
+    "rawString": "Use Template to create form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 74,
+    "rawString": "Use",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 83,
+    "rawString": "Preview Template schema",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 85,
+    "rawString": "Preview",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 94,
+    "rawString": "Edit Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 96,
+    "rawString": "Edit",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/TemplateCard.jsx",
+    "line": 105,
+    "rawString": "Delete Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TemplateCard"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 15,
+    "rawString": "Template Preview",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 26,
+    "rawString": "TPL-",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 42,
+    "rawString": "Field Schema (",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 43,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 48,
+    "rawString": "This template does not contain pre-configured fields.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 73,
+    "rawString": "* Required",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 81,
+    "rawString": "Placeholder: \"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 81,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 109,
+    "rawString": "Close",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/PreviewTemplateModal.jsx",
+    "line": 121,
+    "rawString": "Use Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PreviewTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 133,
+    "rawString": "Edit Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 145,
+    "rawString": "Template Name",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 146,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 152,
+    "rawString": "Template title...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 160,
+    "rawString": "Description",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 167,
+    "rawString": "Template description...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 178,
+    "rawString": "Template Fields (",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 179,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 181,
+    "rawString": "Modify question schema for this template.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 193,
+    "rawString": "Add Field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 200,
+    "rawString": "No fields configured. Click",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 201,
+    "rawString": "\"Add Field\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 201,
+    "rawString": "to add questions.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 220,
+    "rawString": "Field #",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 228,
+    "rawString": "Remove field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 236,
+    "rawString": "Label",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 237,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 243,
+    "rawString": "e.g. Full Name",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 251,
+    "rawString": "Field Name (Slug)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 252,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 258,
+    "rawString": "full_name",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 268,
+    "rawString": "Field Type",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 287,
+    "rawString": "Placeholder",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 294,
+    "rawString": "Optional placeholder...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 309,
+    "rawString": "Required",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 326,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 333,
+    "rawString": "Saving...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/EditTemplateModal.jsx",
+    "line": 338,
+    "rawString": "Save Changes",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditTemplateModal"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 31,
+    "rawString": "Delete Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 45,
+    "rawString": "Are you sure you want to delete template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 46,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 46,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 46,
+    "rawString": "?",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 62,
+    "rawString": "⚠ This action cannot be undone.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 62,
+    "rawString": "The template schema and its field definitions will be permanently removed.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 73,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 85,
+    "rawString": "Deleting...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/DeleteTemplateDialog.jsx",
+    "line": 90,
+    "rawString": "Confirm Delete",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteTemplateDialog"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 116,
+    "rawString": "Create New Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 128,
+    "rawString": "Template Name",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 129,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 135,
+    "rawString": "e.g. Employee Onboarding Questionnaire",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 144,
+    "rawString": "Description",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 151,
+    "rawString": "Describe the purpose of this template...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 162,
+    "rawString": "Template Fields (",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 163,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 165,
+    "rawString": "Define pre-configured question fields for this template (optional).",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 177,
+    "rawString": "Add Field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 184,
+    "rawString": "No fields added yet. Click",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 185,
+    "rawString": "\"Add Field\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 185,
+    "rawString": "to attach questions to this template.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 204,
+    "rawString": "Field #",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 212,
+    "rawString": "Remove field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 220,
+    "rawString": "Label",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 221,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 227,
+    "rawString": "e.g. Email Address",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 235,
+    "rawString": "Field Name (Slug)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 236,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 242,
+    "rawString": "email_address",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 252,
+    "rawString": "Field Type",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 271,
+    "rawString": "Placeholder",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 278,
+    "rawString": "Optional placeholder...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 293,
+    "rawString": "Required",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 310,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 317,
+    "rawString": "Creating...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/templates/CreateTemplateModal.jsx",
+    "line": 322,
+    "rawString": "Create Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateTemplateModal"
+  },
+  {
+    "file": "components/public/PublicFormRenderer.jsx",
+    "line": 497,
+    "rawString": "Preview Mode",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublicFormRenderer"
+  },
+  {
+    "file": "components/public/PublicFormRenderer.jsx",
+    "line": 498,
+    "rawString": "You are viewing this form as a respondent. Submission is disabled.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublicFormRenderer"
+  },
+  {
+    "file": "components/public/PublicFormRenderer.jsx",
+    "line": 514,
+    "rawString": "No questions have been added to this form yet.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublicFormRenderer"
+  },
+  {
+    "file": "components/public/fields/TextField.jsx",
+    "line": 13,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: TextField"
+  },
+  {
+    "file": "components/public/fields/SubmitButton.jsx",
+    "line": 15,
+    "rawString": "Submitting Response...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SubmitButton"
+  },
+  {
+    "file": "components/public/fields/SignatureField.jsx",
+    "line": 76,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SignatureField"
+  },
+  {
+    "file": "components/public/fields/SignatureField.jsx",
+    "line": 99,
+    "rawString": "Draw your signature here",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SignatureField"
+  },
+  {
+    "file": "components/public/fields/SignatureField.jsx",
+    "line": 108,
+    "rawString": "Clear signature",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SignatureField"
+  },
+  {
+    "file": "components/public/fields/SignatureField.jsx",
+    "line": 111,
+    "rawString": "Clear",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SignatureField"
+  },
+  {
+    "file": "components/public/fields/RatingField.jsx",
+    "line": 18,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: RatingField"
+  },
+  {
+    "file": "components/public/fields/RatingField.jsx",
+    "line": 57,
+    "rawString": "/",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: RatingField"
+  },
+  {
+    "file": "components/public/fields/RadioField.jsx",
+    "line": 12,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: RadioField"
+  },
+  {
+    "file": "components/public/fields/RadioField.jsx",
+    "line": 16,
+    "rawString": "No radio options configured.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: RadioField"
+  },
+  {
+    "file": "components/public/fields/PhoneField.jsx",
+    "line": 10,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PhoneField"
+  },
+  {
+    "file": "components/public/fields/NumberField.jsx",
+    "line": 12,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: NumberField"
+  },
+  {
+    "file": "components/public/fields/FileUploadField.jsx",
+    "line": 73,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FileUploadField"
+  },
+  {
+    "file": "components/public/fields/FileUploadField.jsx",
+    "line": 90,
+    "rawString": "Remove uploaded file",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FileUploadField"
+  },
+  {
+    "file": "components/public/fields/FileUploadField.jsx",
+    "line": 113,
+    "rawString": "Uploading file...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FileUploadField"
+  },
+  {
+    "file": "components/public/fields/FileUploadField.jsx",
+    "line": 118,
+    "rawString": "Click to upload a file",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FileUploadField"
+  },
+  {
+    "file": "components/public/fields/FileUploadField.jsx",
+    "line": 119,
+    "rawString": "Supported: PDF, Images, Documents",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FileUploadField"
+  },
+  {
+    "file": "components/public/fields/EmailField.jsx",
+    "line": 10,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EmailField"
+  },
+  {
+    "file": "components/public/fields/DropdownField.jsx",
+    "line": 12,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DropdownField"
+  },
+  {
+    "file": "components/public/fields/DateField.jsx",
+    "line": 10,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DateField"
+  },
+  {
+    "file": "components/public/fields/CheckboxField.jsx",
+    "line": 40,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CheckboxField"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 186,
+    "rawString": "Total Versions",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 196,
+    "rawString": "Published Versions",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 206,
+    "rawString": "Draft Versions",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 216,
+    "rawString": "Archived Versions",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 226,
+    "rawString": "Current Active Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 236,
+    "rawString": "Version History",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 246,
+    "rawString": "Active: v",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 251,
+    "rawString": "No Active Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 263,
+    "rawString": "Search by version #, status, date, or fields...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 266,
+    "rawString": "Search version history",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 272,
+    "rawString": "Clear search query",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 309,
+    "rawString": "Unable to load version history",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 314,
+    "rawString": "Retry",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 350,
+    "rawString": "Reset Filters",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 388,
+    "rawString": "Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 395,
+    "rawString": "✓ Active Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 399,
+    "rawString": "Published",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 402,
+    "rawString": "Draft",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 419,
+    "rawString": "field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 432,
+    "rawString": "View",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 443,
+    "rawString": "Edit",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 455,
+    "rawString": "Compare",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 463,
+    "rawString": "This version is already active",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 467,
+    "rawString": "Already Active",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionTimeline.jsx",
+    "line": 477,
+    "rawString": "Publish",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionTimeline"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 44,
+    "rawString": "Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 47,
+    "rawString": "Complete version details",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 66,
+    "rawString": "Published",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 74,
+    "rawString": "Active",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 83,
+    "rawString": "Version Number",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 85,
+    "rawString": "v",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 90,
+    "rawString": "Status",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 99,
+    "rawString": "Created Date",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 106,
+    "rawString": "Updated Date",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 114,
+    "rawString": "Published Date",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 124,
+    "rawString": "Field Count",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 126,
+    "rawString": "field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 133,
+    "rawString": "Fields in This Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 140,
+    "rawString": "No fields have been added to this version yet.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 151,
+    "rawString": "Required",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionDetailModal.jsx",
+    "line": 163,
+    "rawString": "Close",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionDetailModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 152,
+    "rawString": "Version Comparison",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 155,
+    "rawString": "Comparing Target Version with Base Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 163,
+    "rawString": "Close version comparison dialog",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 174,
+    "rawString": "Target Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 177,
+    "rawString": "Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 185,
+    "rawString": "with",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 190,
+    "rawString": "Base Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 192,
+    "rawString": "No other versions available to compare.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 204,
+    "rawString": "Select base version to compare against",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 207,
+    "rawString": "Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 208,
+    "rawString": "(",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 208,
+    "rawString": "fields",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 209,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 222,
+    "rawString": "Added:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 226,
+    "rawString": "Removed:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 230,
+    "rawString": "Modified:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 234,
+    "rawString": "Unchanged:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 243,
+    "rawString": "Please select another version to generate field diff comparison.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 251,
+    "rawString": "Added Fields (",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 251,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 254,
+    "rawString": "No new fields added in Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 254,
+    "rawString": ".",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 263,
+    "rawString": "Required",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 274,
+    "rawString": "Removed Fields (",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 274,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 277,
+    "rawString": "No fields removed compared to Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 277,
+    "rawString": ".",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 286,
+    "rawString": "Present in v",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 297,
+    "rawString": "Modified Fields (",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 297,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 300,
+    "rawString": "No modified fields between these versions.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/VersionCompareModal.jsx",
+    "line": 325,
+    "rawString": "Close",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: VersionCompareModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 97,
+    "rawString": "Save Form as Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 126,
+    "rawString": "Notice:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 126,
+    "rawString": "This will save a template based on the last saved version of this form.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 131,
+    "rawString": "Create a reusable blueprint from this form. The template will include all",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 133,
+    "rawString": "question fields.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 137,
+    "rawString": "Template Name",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 138,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 144,
+    "rawString": "e.g. Job Application Blueprint",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 153,
+    "rawString": "Template Description",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 160,
+    "rawString": "Describe the purpose of this template...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 174,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 181,
+    "rawString": "Saving Template...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/SaveAsTemplateModal.jsx",
+    "line": 186,
+    "rawString": "Save Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveAsTemplateModal"
+  },
+  {
+    "file": "components/forms/QRCodeCard.jsx",
+    "line": 72,
+    "rawString": "Delete QR Code",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: QRCodeCard"
+  },
+  {
+    "file": "components/forms/QRCodeCard.jsx",
+    "line": 120,
+    "rawString": "Download",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: QRCodeCard"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 99,
+    "rawString": "Published Form Details",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 110,
+    "rawString": "Open Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 125,
+    "rawString": "Close",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 147,
+    "rawString": "Loading form details...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 183,
+    "rawString": "Published",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 202,
+    "rawString": "Current Published Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 213,
+    "rawString": "Published Date",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 224,
+    "rawString": "Owner ID",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 233,
+    "rawString": "Created Date",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 242,
+    "rawString": "Updated Date",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 252,
+    "rawString": "Number of Fields",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 260,
+    "rawString": "Number of Versions",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishedFormDetailModal.jsx",
+    "line": 284,
+    "rawString": "Public Form URL",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishedFormDetailModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 105,
+    "rawString": "Open Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 120,
+    "rawString": "View Published Forms",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 128,
+    "rawString": "Close",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 138,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 147,
+    "rawString": "Publish",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 166,
+    "rawString": "Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 169,
+    "rawString": "Status: Published",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 178,
+    "rawString": "Published on:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 187,
+    "rawString": "Shareable Public Link",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 196,
+    "rawString": "Click to open public form in new tab",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 210,
+    "rawString": "This version will become the active version.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 211,
+    "rawString": "Publishing Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 212,
+    "rawString": "will mark it as the default live version used for respondent submissions.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 219,
+    "rawString": "Target Version:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 220,
+    "rawString": "v",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 223,
+    "rawString": "Total Fields:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 224,
+    "rawString": "fields",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublishConfirmModal.jsx",
+    "line": 227,
+    "rawString": "Current Status:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublishConfirmModal"
+  },
+  {
+    "file": "components/forms/PublicFormQRModal.jsx",
+    "line": 87,
+    "rawString": "QR Code & Public Link",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublicFormQRModal"
+  },
+  {
+    "file": "components/forms/PublicFormQRModal.jsx",
+    "line": 91,
+    "rawString": "Close",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublicFormQRModal"
+  },
+  {
+    "file": "components/forms/PublicFormQRModal.jsx",
+    "line": 94,
+    "rawString": "Download PNG",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublicFormQRModal"
+  },
+  {
+    "file": "components/forms/PublicFormQRModal.jsx",
+    "line": 113,
+    "rawString": "Scan with any smartphone camera to open and submit this form directly.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublicFormQRModal"
+  },
+  {
+    "file": "components/forms/PublicFormQRModal.jsx",
+    "line": 132,
+    "rawString": "Generating QR...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublicFormQRModal"
+  },
+  {
+    "file": "components/forms/PublicFormQRModal.jsx",
+    "line": 137,
+    "rawString": "QR Code",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: PublicFormQRModal"
+  },
+  {
+    "file": "components/forms/FormsList.jsx",
+    "line": 12,
+    "rawString": "No Forms Found",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormsList"
+  },
+  {
+    "file": "components/forms/FormsList.jsx",
+    "line": 13,
+    "rawString": "You haven't created any forms yet, or no forms matched your search filter.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormsList"
+  },
+  {
+    "file": "components/forms/FormsList.jsx",
+    "line": 17,
+    "rawString": "Create Your First Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormsList"
+  },
+  {
+    "file": "components/forms/FormDetailModal.jsx",
+    "line": 66,
+    "rawString": "Form Overview",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormDetailModal"
+  },
+  {
+    "file": "components/forms/FormDetailModal.jsx",
+    "line": 68,
+    "rawString": "Close form overview dialog",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormDetailModal"
+  },
+  {
+    "file": "components/forms/FormDetailModal.jsx",
+    "line": 77,
+    "rawString": "Loading form details...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormDetailModal"
+  },
+  {
+    "file": "components/forms/FormDetailModal.jsx",
+    "line": 103,
+    "rawString": "Owner ID",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormDetailModal"
+  },
+  {
+    "file": "components/forms/FormDetailModal.jsx",
+    "line": 108,
+    "rawString": "Current Active Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormDetailModal"
+  },
+  {
+    "file": "components/forms/FormDetailModal.jsx",
+    "line": 115,
+    "rawString": "Created At",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormDetailModal"
+  },
+  {
+    "file": "components/forms/FormDetailModal.jsx",
+    "line": 120,
+    "rawString": "Last Updated",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormDetailModal"
+  },
+  {
+    "file": "components/forms/FormDetailModal.jsx",
+    "line": 157,
+    "rawString": "QR Code",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormDetailModal"
+  },
+  {
+    "file": "components/forms/FormDetailModal.jsx",
+    "line": 160,
+    "rawString": "Close",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormDetailModal"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 36,
+    "rawString": "• Published",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 38,
+    "rawString": "• Archived",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 41,
+    "rawString": "• Draft",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 86,
+    "rawString": "≡",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 86,
+    "rawString": "Fields",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 87,
+    "rawString": "•",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 88,
+    "rawString": "🗓 Updated:",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 106,
+    "rawString": "Open Form Builder",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 108,
+    "rawString": "Builder",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 118,
+    "rawString": "View Form Details",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 120,
+    "rawString": "View",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 129,
+    "rawString": "Edit Form Title & Description",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 131,
+    "rawString": "Edit",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 141,
+    "rawString": "Archive Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 143,
+    "rawString": "Archive",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 153,
+    "rawString": "Delete Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/FormCard.jsx",
+    "line": 155,
+    "rawString": "Delete",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCard"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 53,
+    "rawString": "Edit Form Information",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 69,
+    "rawString": "Form Title",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 70,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 83,
+    "rawString": "Description",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 97,
+    "rawString": "Status",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 107,
+    "rawString": "Draft",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 108,
+    "rawString": "Published",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 109,
+    "rawString": "Archived",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 120,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 131,
+    "rawString": "Saving...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/EditFormModal.jsx",
+    "line": 134,
+    "rawString": "Save Changes",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: EditFormModal"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 31,
+    "rawString": "Delete Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 45,
+    "rawString": "Are you sure you want to delete form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 46,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 46,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 46,
+    "rawString": "?",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 62,
+    "rawString": "⚠ This action cannot be undone.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 62,
+    "rawString": "All versions, fields, responses, and submissions linked to this form will be permanently deleted.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 73,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 85,
+    "rawString": "Deleting...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/DeleteFormDialog.jsx",
+    "line": 90,
+    "rawString": "Confirm Delete",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: DeleteFormDialog"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 154,
+    "rawString": "IF — Trigger Field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 160,
+    "rawString": "Select trigger field...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 163,
+    "rawString": "(",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 163,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 171,
+    "rawString": "Operator",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 187,
+    "rawString": "Comparison Value",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 200,
+    "rawString": "THEN — Action",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 216,
+    "rawString": "Target Field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 222,
+    "rawString": "Select target field...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 225,
+    "rawString": "(",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 225,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 233,
+    "rawString": "Logical Group",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 233,
+    "rawString": "(optional)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 239,
+    "rawString": "e.g. group_a",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateRuleModal.jsx",
+    "line": 246,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateRuleModal"
+  },
+  {
+    "file": "components/forms/CreateFormModal.jsx",
+    "line": 41,
+    "rawString": "Create New Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateFormModal"
+  },
+  {
+    "file": "components/forms/CreateFormModal.jsx",
+    "line": 57,
+    "rawString": "Form Title",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateFormModal"
+  },
+  {
+    "file": "components/forms/CreateFormModal.jsx",
+    "line": 58,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateFormModal"
+  },
+  {
+    "file": "components/forms/CreateFormModal.jsx",
+    "line": 64,
+    "rawString": "e.g. Customer Satisfaction Survey",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateFormModal"
+  },
+  {
+    "file": "components/forms/CreateFormModal.jsx",
+    "line": 73,
+    "rawString": "Description",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateFormModal"
+  },
+  {
+    "file": "components/forms/CreateFormModal.jsx",
+    "line": 80,
+    "rawString": "Briefly describe the purpose of this form...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateFormModal"
+  },
+  {
+    "file": "components/forms/CreateFormModal.jsx",
+    "line": 94,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateFormModal"
+  },
+  {
+    "file": "components/forms/CreateFormModal.jsx",
+    "line": 105,
+    "rawString": "Creating...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateFormModal"
+  },
+  {
+    "file": "components/forms/CreateFormModal.jsx",
+    "line": 110,
+    "rawString": "Create Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: CreateFormModal"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 31,
+    "rawString": "Archive Form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 45,
+    "rawString": "Are you sure you want to archive form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 46,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 46,
+    "rawString": "\"",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 46,
+    "rawString": "?",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 61,
+    "rawString": "Archiving will",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 62,
+    "rawString": "unpublish",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 62,
+    "rawString": "this form and",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 62,
+    "rawString": "stop accepting new submissions",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 62,
+    "rawString": ". Existing submissions and data will be preserved. You can view archived forms but they cannot receive new responses.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 74,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 87,
+    "rawString": "Archiving...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/ArchiveFormDialog.jsx",
+    "line": 92,
+    "rawString": "Confirm Archive",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ArchiveFormDialog"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 22,
+    "rawString": "Create Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 22,
+    "rawString": "?",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 45,
+    "rawString": "This will save your form fields as",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 46,
+    "rawString": "Version 1",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 46,
+    "rawString": ".",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 48,
+    "rawString": "Your form currently has no saved versions. This creates the first one.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 53,
+    "rawString": "Saving these changes will generate a",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 54,
+    "rawString": "new version (v",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 54,
+    "rawString": ")",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 54,
+    "rawString": ".",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 56,
+    "rawString": "Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 57,
+    "rawString": "will remain completely unchanged in your version timeline history.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 64,
+    "rawString": "All current field configurations, labels, options, and rules will be stored under Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 65,
+    "rawString": ".",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 70,
+    "rawString": "Cancel",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 77,
+    "rawString": "Creating Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 77,
+    "rawString": "...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/SaveVersionModal.jsx",
+    "line": 82,
+    "rawString": "Confirm & Create Version",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: SaveVersionModal"
+  },
+  {
+    "file": "components/forms/builder/FormPreviewModal.jsx",
+    "line": 28,
+    "rawString": "Form Live Preview",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormPreviewModal"
+  },
+  {
+    "file": "components/forms/builder/FormPreviewModal.jsx",
+    "line": 30,
+    "rawString": "Respondent View",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormPreviewModal"
+  },
+  {
+    "file": "components/forms/builder/FormPreviewModal.jsx",
+    "line": 34,
+    "rawString": "Close preview dialog",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormPreviewModal"
+  },
+  {
+    "file": "components/forms/builder/FormPreviewModal.jsx",
+    "line": 60,
+    "rawString": "Close Preview",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormPreviewModal"
+  },
+  {
+    "file": "components/forms/builder/FormCanvas.jsx",
+    "line": 34,
+    "rawString": "Drag fields here to start building your form",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCanvas"
+  },
+  {
+    "file": "components/forms/builder/FormCanvas.jsx",
+    "line": 35,
+    "rawString": "Choose field types from the left palette or click any item to add it directly to your canvas.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormCanvas"
+  },
+  {
+    "file": "components/forms/builder/FormBuilder.jsx",
+    "line": 377,
+    "rawString": "Loading Form Builder environment...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormBuilder"
+  },
+  {
+    "file": "components/forms/builder/FormBuilder.jsx",
+    "line": 445,
+    "rawString": "Dragging",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FormBuilder"
+  },
+  {
+    "file": "components/forms/builder/FieldRenderer.jsx",
+    "line": 146,
+    "rawString": "Click or drag files here to upload",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldRenderer"
+  },
+  {
+    "file": "components/forms/builder/FieldRenderer.jsx",
+    "line": 147,
+    "rawString": "Supports PDF, DOCX, PNG, JPG (Max 10MB)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldRenderer"
+  },
+  {
+    "file": "components/forms/builder/FieldRenderer.jsx",
+    "line": 172,
+    "rawString": "Draw or sign name here",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldRenderer"
+  },
+  {
+    "file": "components/forms/builder/FieldRenderer.jsx",
+    "line": 211,
+    "rawString": "*",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldRenderer"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 14,
+    "rawString": "No Field Selected",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 15,
+    "rawString": "Click on any field in the canvas to configure its properties, options, and validation rules.",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 61,
+    "rawString": "Field Properties",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 62,
+    "rawString": "Editing target field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 72,
+    "rawString": "Field Label",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 79,
+    "rawString": "Field Code Identifier (field_name)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 81,
+    "rawString": "e.g. email_address",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 89,
+    "rawString": "Placeholder Text",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 98,
+    "rawString": "Help / Description Subtext",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 100,
+    "rawString": "Subtext shown below the label...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 108,
+    "rawString": "Required Field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 111,
+    "rawString": "Submissions require this value",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 126,
+    "rawString": "Layout Width",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 135,
+    "rawString": "Full (100%)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 143,
+    "rawString": "Half (50%)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 151,
+    "rawString": "Third (33%)",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 162,
+    "rawString": "Options List",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 183,
+    "rawString": "Remove Option",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 196,
+    "rawString": "Add Choice Option",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 206,
+    "rawString": "Validation Rules",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 211,
+    "rawString": "Minimum Length / Value",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 213,
+    "rawString": "e.g. 1",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 225,
+    "rawString": "Maximum Length / Value",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldProperties.jsx",
+    "line": 227,
+    "rawString": "e.g. 255",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldProperties"
+  },
+  {
+    "file": "components/forms/builder/FieldPalette.jsx",
+    "line": 66,
+    "rawString": "Click or drag into canvas",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldPalette"
+  },
+  {
+    "file": "components/forms/builder/FieldPalette.jsx",
+    "line": 91,
+    "rawString": "Field Palette",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldPalette"
+  },
+  {
+    "file": "components/forms/builder/FieldPalette.jsx",
+    "line": 92,
+    "rawString": "Drag fields or click to add",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldPalette"
+  },
+  {
+    "file": "components/forms/builder/FieldPalette.jsx",
+    "line": 97,
+    "rawString": "Filter field types...",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldPalette"
+  },
+  {
+    "file": "components/forms/builder/FieldCard.jsx",
+    "line": 43,
+    "rawString": "Drag to reorder",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldCard"
+  },
+  {
+    "file": "components/forms/builder/FieldCard.jsx",
+    "line": 46,
+    "rawString": "Required",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldCard"
+  },
+  {
+    "file": "components/forms/builder/FieldCard.jsx",
+    "line": 58,
+    "rawString": "Duplicate field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldCard"
+  },
+  {
+    "file": "components/forms/builder/FieldCard.jsx",
+    "line": 69,
+    "rawString": "Delete field",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: FieldCard"
+  },
+  {
+    "file": "components/forms/builder/BuilderHeader.jsx",
+    "line": 32,
+    "rawString": "Dashboard",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: BuilderHeader"
+  },
+  {
+    "file": "components/forms/builder/BuilderHeader.jsx",
+    "line": 41,
+    "rawString": "v",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: BuilderHeader"
+  },
+  {
+    "file": "components/forms/builder/BuilderHeader.jsx",
+    "line": 45,
+    "rawString": "Unsaved Draft",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: BuilderHeader"
+  },
+  {
+    "file": "components/forms/builder/BuilderHeader.jsx",
+    "line": 56,
+    "rawString": "Unsaved changes",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: BuilderHeader"
+  },
+  {
+    "file": "components/forms/builder/BuilderHeader.jsx",
+    "line": 60,
+    "rawString": "All changes saved",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: BuilderHeader"
+  },
+  {
+    "file": "components/forms/builder/BuilderHeader.jsx",
+    "line": 68,
+    "rawString": "Preview",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: BuilderHeader"
+  },
+  {
+    "file": "components/forms/builder/BuilderHeader.jsx",
+    "line": 71,
+    "rawString": "Save as Template",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: BuilderHeader"
+  },
+  {
+    "file": "components/forms/builder/BuilderHeader.jsx",
+    "line": 81,
+    "rawString": "Publish",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: BuilderHeader"
+  },
+  {
+    "file": "components/forms/builder/BuilderHeader.jsx",
+    "line": 91,
+    "rawString": "Save",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: BuilderHeader"
+  },
+  {
+    "file": "components/common/Modal.jsx",
+    "line": 43,
+    "rawString": "Close modal",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: Modal"
+  },
+  {
+    "file": "components/common/ErrorBoundary.jsx",
+    "line": 40,
+    "rawString": "Application Encountered an Error",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ErrorBoundary"
+  },
+  {
+    "file": "components/common/ErrorBoundary.jsx",
+    "line": 63,
+    "rawString": "Reload Application",
+    "alreadyUsingT": "no",
+    "i18nKey": null,
+    "route": "Component: ErrorBoundary"
+  }
+]

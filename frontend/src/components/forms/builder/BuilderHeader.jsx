@@ -1,6 +1,17 @@
-import React from 'react';
-import { ArrowLeft, Save, Eye, Send, Loader2, CheckCircle, AlertCircle, GitBranch, Copy } from 'lucide-react';
-
+import { useTranslation } from "react-i18next";
+import React from "react";
+import {
+  ArrowLeft,
+  Save,
+  Eye,
+  Send,
+  CheckCircle,
+  AlertCircle,
+  GitBranch,
+  Copy,
+} from "lucide-react";
+import Button from "../../common/Button";
+import Badge from "../../common/Badge";
 export default function BuilderHeader({
   form,
   activeVersion,
@@ -13,117 +24,150 @@ export default function BuilderHeader({
   onBack,
   onSaveAsTemplate,
 }) {
+  const { t } = useTranslation();
   const handleBackClick = () => {
     if (isDirty) {
-      if (window.confirm('You have unsaved changes in the form builder. Discard changes and exit to dashboard?')) {
+      if (
+        window.confirm(
+          "You have unsaved changes in the form builder. Discard changes and exit to dashboard?",
+        )
+      ) {
         onBack();
       }
     } else {
       onBack();
     }
   };
-
   return (
-    <div className="builder-header">
-      <div className="builder-header-left">
-        <button className="btn-icon-back" onClick={handleBackClick} title="Back to Forms Dashboard">
-          <ArrowLeft size={18} />
-          <span>Dashboard</span>
-        </button>
-        <div className="builder-header-divider" />
-        <div className="builder-title-group">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <h2 className="builder-form-title">{form?.title || 'Form Builder'}</h2>
-            {activeVersion ? (
-              <span className="badge badge-version-header" title={`Loaded version ${activeVersion.version_number}`}>
-                <GitBranch size={11} style={{ marginRight: '0.2rem' }} />
-                v{activeVersion.version_number}
-              </span>
-            ) : (
-              <span className="badge badge-draft" title="No versions saved yet">
-                Unsaved Draft
-              </span>
-            )}
-          </div>
-          <div className="builder-status-tags">
-            <span className={`badge ${form?.status === 'published' ? 'badge-success' : 'badge-draft'}`}>
-              {form?.status?.toUpperCase() || 'DRAFT'}
-            </span>
-            {isDirty ? (
-              <span className="unsaved-badge" title="Unsaved changes. Saving will create a new version.">
-                <AlertCircle size={12} />
-                Unsaved changes
-              </span>
-            ) : activeVersion ? (
-              <span className="saved-badge" title="All changes saved">
-                <CheckCircle size={12} />
-                Saved
-              </span>
-            ) : null}
-          </div>
+    <div
+      className="builder-header"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0.75rem 1.5rem",
+        background: "#FFFFFF",
+        borderBottom: "1px solid var(--rule)",
+      }}
+    >
+      {/* Left Group */}
+      <div
+        className="builder-header-left"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
+        <Button
+          variant="ghost"
+          size="sm"
+          leftIcon={ArrowLeft}
+          onClick={handleBackClick}
+        >
+          {t("builderHeader.dashboard")}
+        </Button>
+        <div
+          style={{
+            height: "20px",
+            width: "1px",
+            background: "var(--rule)",
+          }}
+        />
+        <div
+          className="builder-title-group"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+          }}
+        >
+          <h2
+            className="builder-form-title"
+            style={{
+              fontSize: "1.1rem",
+              fontWeight: 700,
+              margin: 0,
+            }}
+          >
+            {form?.title || "Form Builder"}
+          </h2>
+          {activeVersion ? (
+            <Badge variant="outline" icon={GitBranch}>
+              {t("builderHeader.v")}
+              {activeVersion.version_number}
+            </Badge>
+          ) : (
+            <Badge variant="neutral">{t("builderHeader.unsavedDraft")}</Badge>
+          )}
+          <Badge variant={form?.status === "published" ? "success" : "neutral"}>
+            {form?.status?.toUpperCase() || "DRAFT"}
+          </Badge>
         </div>
       </div>
 
-      <div className="builder-header-right">
-        <button
-          type="button"
-          className="btn-secondary"
-          onClick={onPreview}
-          title="Live Preview Form"
-        >
-          <Eye size={16} />
-          <span>Preview</span>
-        </button>
+      {/* Center Group: Auto-save status */}
+      <div
+        className="builder-header-center"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          fontSize: "0.8rem",
+          color: "var(--text-muted)",
+        }}
+      >
+        {isDirty ? (
+          <Badge variant="warning" icon={AlertCircle}>
+            {t("builderHeader.unsavedChanges")}
+          </Badge>
+        ) : activeVersion ? (
+          <Badge variant="success" icon={CheckCircle}>
+            {t("builderHeader.allChangesSaved")}
+          </Badge>
+        ) : null}
+      </div>
 
-        <button
-          type="button"
-          className="btn-secondary"
+      {/* Right Group */}
+      <div
+        className="builder-header-right"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
+      >
+        <Button variant="outline" size="sm" leftIcon={Eye} onClick={onPreview}>
+          {t("builderHeader.preview")}
+        </Button>
+        <Button
+          variant="ghost"
+          size="sm"
+          leftIcon={Copy}
           onClick={onSaveAsTemplate}
-          title="Save current form as a reusable template"
         >
-          <Copy size={16} />
-          <span>Save as Template</span>
-        </button>
-
-        <button
-          type="button"
-          className="btn-publish"
-          onClick={onPublish}
+          {t("builderHeader.saveAsTemplate")}
+        </Button>
+        <Button
+          variant="primary"
+          size="sm"
+          leftIcon={Send}
+          isLoading={publishing}
           disabled={publishing || saving}
-          title="Publish Form Version"
+          onClick={onPublish}
         >
-          {publishing ? (
-            <>
-              <Loader2 size={16} className="animate-spin" />
-              <span>Publishing...</span>
-            </>
-          ) : (
-            <>
-              <Send size={16} />
-              <span>Publish</span>
-            </>
-          )}
-        </button>
-
-        <button
-          type="button"
-          className="btn-primary"
-          onClick={onSave}
+          {t("builderHeader.publish")}
+        </Button>
+        <Button
+          variant="secondary"
+          size="sm"
+          leftIcon={Save}
+          isLoading={saving}
           disabled={saving || !isDirty}
-          title="Save Fields to Backend"
+          onClick={onSave}
         >
-          {saving ? (
-            <>
-              <Loader2 size={16} className="animate-spin" />
-              <span>Saving...</span>
-            </>
-          ) : (
-            <>
-              <Save size={16} />
-              <span>Save</span>
-            </>
-          )}
-        </button>
+          {t("builderHeader.save")}
+        </Button>
       </div>
     </div>
   );

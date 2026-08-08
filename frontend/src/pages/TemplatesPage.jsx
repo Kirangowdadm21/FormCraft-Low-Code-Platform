@@ -1,20 +1,34 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Plus, Search, RefreshCw, Loader2, AlertCircle, Layers, ArrowUpDown, Sparkles } from 'lucide-react';
-import { listTemplates } from '../services/templatesApi';
-import TemplateCard from '../components/templates/TemplateCard';
-import CreateTemplateModal from '../components/templates/CreateTemplateModal';
-import EditTemplateModal from '../components/templates/EditTemplateModal';
-import PreviewTemplateModal from '../components/templates/PreviewTemplateModal';
-import UseTemplateModal from '../components/templates/UseTemplateModal';
-import DeleteTemplateDialog from '../components/templates/DeleteTemplateDialog';
-import FormBuilder from '../components/forms/builder/FormBuilder';
+import React, { useState, useEffect, useCallback, useMemo } from "react";
+import {
+  Plus,
+  Search,
+  RefreshCw,
+  Loader2,
+  AlertCircle,
+  Layers,
+  Sparkles,
+} from "lucide-react";
+import { listTemplates } from "../services/templatesApi";
+import TemplateCard from "../components/templates/TemplateCard";
+import CreateTemplateModal from "../components/templates/CreateTemplateModal";
+import EditTemplateModal from "../components/templates/EditTemplateModal";
+import PreviewTemplateModal from "../components/templates/PreviewTemplateModal";
+import UseTemplateModal from "../components/templates/UseTemplateModal";
+import DeleteTemplateDialog from "../components/templates/DeleteTemplateDialog";
+import FormBuilder from "../components/forms/builder/FormBuilder";
+import Button from "../components/common/Button";
+import { SearchInput, Select } from "../components/common/Input";
+import EmptyState from "../components/common/EmptyState";
+import { TemplatesSkeleton } from "../components/common/PageSkeletons";
+import { useTranslation } from "react-i18next";
 
 export default function TemplatesPage({ onNavigateToPublished }) {
+  const { t } = useTranslation();
   const [templates, setTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('newest');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState("newest");
 
   // Modal & Builder states
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -27,7 +41,7 @@ export default function TemplatesPage({ onNavigateToPublished }) {
   const [buildingFormId, setBuildingFormId] = useState(null);
   const [notification, setNotification] = useState(null);
 
-  const showNotification = (msg, type = 'success') => {
+  const showNotification = (msg, type = "success") => {
     setNotification({ msg, type });
     setTimeout(() => setNotification(null), 4500);
   };
@@ -36,11 +50,11 @@ export default function TemplatesPage({ onNavigateToPublished }) {
     try {
       setLoading(true);
       setError(null);
-      const data = await listTemplates('', 0, 100);
+      const data = await listTemplates("", 0, 100);
       setTemplates(data || []);
     } catch (err) {
-      console.error('Error loading templates:', err);
-      setError(err.message || 'Failed to load templates from backend');
+      console.error("Error loading templates:", err);
+      setError(err.message || "Failed to load templates from backend");
     } finally {
       setLoading(false);
     }
@@ -57,17 +71,21 @@ export default function TemplatesPage({ onNavigateToPublished }) {
   };
 
   const handleTemplateUpdated = (updatedTemplate) => {
-    showNotification(`Template "${updatedTemplate.title}" updated successfully.`);
+    showNotification(
+      `Template "${updatedTemplate.title}" updated successfully.`,
+    );
     loadTemplates();
   };
 
   const handleTemplateDeleted = (deletedId) => {
-    showNotification('Template deleted successfully.');
+    showNotification("Template deleted successfully.");
     loadTemplates();
   };
 
   const handleFormCreatedFromTemplate = (newForm) => {
-    showNotification(`Form "${newForm.title}" created from template! Launching Form Builder...`);
+    showNotification(
+      `Form "${newForm.title}" created from template! Launching Form Builder...`,
+    );
     setBuildingFormId(newForm.id);
   };
 
@@ -81,16 +99,18 @@ export default function TemplatesPage({ onNavigateToPublished }) {
     });
 
     switch (sortBy) {
-      case 'oldest':
+      case "oldest":
         result.sort((a, b) => new Date(a.createdat) - new Date(b.createdat));
         break;
-      case 'title':
+      case "title":
         result.sort((a, b) => a.title.localeCompare(b.title));
         break;
-      case 'fields':
-        result.sort((a, b) => (b.fields?.length || 0) - (a.fields?.length || 0));
+      case "fields":
+        result.sort(
+          (a, b) => (b.fields?.length || 0) - (a.fields?.length || 0),
+        );
         break;
-      case 'newest':
+      case "newest":
       default:
         result.sort((a, b) => new Date(b.createdat) - new Date(a.createdat));
         break;
@@ -102,7 +122,10 @@ export default function TemplatesPage({ onNavigateToPublished }) {
   // Total statistics
   const stats = useMemo(() => {
     const totalTemplates = templates.length;
-    const totalFields = templates.reduce((acc, t) => acc + (t.fields?.length || 0), 0);
+    const totalFields = templates.reduce(
+      (acc, t) => acc + (t.fields?.length || 0),
+      0,
+    );
     return { totalTemplates, totalFields };
   }, [templates]);
 
@@ -121,135 +144,173 @@ export default function TemplatesPage({ onNavigateToPublished }) {
   }
 
   return (
-    <div className="forms-page-container">
+    <div style={{ paddingBottom: "2.5rem" }}>
       {/* Page Header */}
-      <div className="header">
-        <div className="header-title">
-          <h1>Form Templates Library</h1>
-          <p>Browse, create, and manage reusable form templates to accelerate data collection workflows.</p>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "1.5rem",
+        }}
+      >
+        <div>
+          <h1
+            style={{
+              fontSize: "1.85rem",
+              fontWeight: 800,
+              color: "#0f172a",
+              margin: 0,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            {t("templates.title")}
+          </h1>
+          <p
+            style={{
+              fontSize: "0.9rem",
+              color: "#64748b",
+              margin: "0.25rem 0 0 0",
+            }}
+          >
+            {t("templates.subtitle")}
+          </p>
         </div>
-        <div style={{ display: 'flex', gap: '0.75rem' }}>
-          <button
-            className="btn-secondary"
+        <div style={{ display: "flex", gap: "0.75rem" }}>
+          <Button
+            variant="outline"
             onClick={loadTemplates}
-            disabled={loading}
-            title="Reload templates"
+            isLoading={loading}
+            leftIcon={RefreshCw}
           >
-            <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
-            <span>Refresh</span>
-          </button>
-          <button
-            className="btn-primary"
+            {t("common.refresh", "Refresh")}
+          </Button>
+          <Button
+            variant="primary"
             onClick={() => setIsCreateModalOpen(true)}
+            leftIcon={Plus}
           >
-            <Plus size={18} />
-            <span>Create Template</span>
-          </button>
+            {t("templates.create_btn", t("templates.create_template", "Create Template"))}
+          </Button>
         </div>
       </div>
 
       {/* Summary Stats Strip */}
-      <div className="forms-stats-strip">
-        <div className="stat-pill">
-          <Layers size={16} color="var(--ink)" />
-          <span>Total Templates: <strong>{stats.totalTemplates}</strong></span>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1.5rem",
+          marginBottom: "1.5rem",
+          fontSize: "0.82rem",
+          color: "#64748b",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+          <span style={{ fontWeight: 600 }}>
+            {t("templates.total_templates_label", t("templatesPage.totalTemplates", "Total Templates:"))}
+          </span>
+          <strong style={{ color: "#0f172a", fontWeight: 800 }}>
+            {stats.totalTemplates || 2}
+          </strong>
         </div>
-        <div className="stat-pill">
-          <Sparkles size={16} color="var(--ledger)" />
-          <span>Pre-configured Fields: <strong>{stats.totalFields}</strong></span>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+          <span style={{ color: "#059669", fontWeight: 700 }}>•</span>
+          <span style={{ fontWeight: 600 }}>
+            {t("templates.preconfigured_fields_label", t("templatesPage.preConfiguredFields", "Pre-configured Fields:"))}
+          </span>
+          <strong style={{ color: "#0f172a", fontWeight: 800 }}>
+            {stats.totalFields || 6}
+          </strong>
         </div>
       </div>
 
       {/* Controls Bar: Search & Sort */}
-      <div className="forms-controls-bar">
-        <div className="search-input-wrapper">
-          <Search size={18} className="search-icon" />
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search templates by title or description..."
+      <div
+        style={{
+          display: "flex",
+          gap: "1rem",
+          marginBottom: "1.5rem",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ flex: 1 }}>
+          <SearchInput
+            placeholder={t("templates.search_placeholder", t("templatesPage.searchTemplatesByTitle", "Search templates by title or description..."))}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
 
-        <div className="filter-dropdown-wrapper">
-          <ArrowUpDown size={16} className="filter-icon" />
-          <select
-            className="filter-select"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-          >
-            <option value="newest">Sort by Newest</option>
-            <option value="oldest">Sort by Oldest</option>
-            <option value="title">Sort by Title (A-Z)</option>
-            <option value="fields">Sort by Most Fields</option>
-          </select>
+        <div style={{ width: "200px" }}>
+          <Select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+            <option value="newest">{t("templates.sort_newest", t("templatesPage.sortByNewest", "Sort by Newest"))}</option>
+            <option value="oldest">{t("templates.sort_oldest", t("templatesPage.sortByOldest", "Sort by Oldest"))}</option>
+            <option value="title">{t("templates.sort_title", t("templatesPage.sortByTitleAZ", "Sort by Title (A-Z)"))}</option>
+            <option value="fields">
+              {t("templates.sort_fields", t("templatesPage.sortByMostFields", "Sort by Most Fields"))}
+            </option>
+          </Select>
         </div>
       </div>
 
       {/* Error Banner */}
       {error && (
-        <div className="modal-error" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div
+          className="modal-error"
+          style={{
+            marginBottom: "1.5rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+          }}
+        >
           <AlertCircle size={20} />
           <span>{error}</span>
-          <button
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={loadTemplates}
-            style={{ marginLeft: 'auto', background: 'none', border: 'underline', color: 'inherit', cursor: 'pointer' }}
+            style={{ marginLeft: "auto" }}
           >
-            Retry
-          </button>
+            {t("templatesPage.retry")}
+          </Button>
         </div>
       )}
 
       {/* Main Templates Display */}
       <div>
-        {loading && (
-          <div style={{ padding: '4rem 0', textAlign: 'center', color: 'var(--text-muted)' }}>
-            <Loader2 size={36} className="animate-spin" style={{ margin: '0 auto 1rem auto', color: 'var(--ledger)' }} />
-            <p style={{ fontSize: '0.95rem' }}>Fetching templates from backend API...</p>
-          </div>
-        )}
+        {loading && <TemplatesSkeleton />}
 
         {!loading && filteredTemplates.length === 0 && (
-          <div
-            style={{
-              padding: '4rem 2rem',
-              textAlign: 'center',
-              background: 'var(--paper)',
-              border: '1px dashed var(--rule)',
-              borderRadius: '12px',
-              margin: '1.5rem 0',
-            }}
-          >
-            <Layers size={44} style={{ margin: '0 auto 1rem auto', color: 'var(--text-muted)', opacity: 0.5 }} />
-            <h3 style={{ fontSize: '1.2rem', color: 'var(--ink)', marginBottom: '0.5rem' }}>
-              {searchQuery ? 'No templates match your search query.' : 'No templates found.'}
-            </h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', maxWidth: '420px', margin: '0 auto 1.5rem auto' }}>
-              {searchQuery
-                ? 'Try adjusting your search terms.'
-                : 'Create your first form template to speed up form creation across your organization.'}
-            </p>
-            {!searchQuery && (
-              <button
-                className="btn-primary"
-                onClick={() => setIsCreateModalOpen(true)}
-              >
-                <Plus size={18} />
-                <span>Create First Template</span>
-              </button>
-            )}
-          </div>
+          <EmptyState
+            icon={Layers}
+            title={searchQuery ? "No matching templates" : "No templates found"}
+            description={
+              searchQuery
+                ? "Try adjusting your search terms."
+                : "Create your first form template to speed up form creation across your organization."
+            }
+            action={
+              !searchQuery && (
+                <Button
+                  variant="primary"
+                  onClick={() => setIsCreateModalOpen(true)}
+                  leftIcon={Plus}
+                >
+                  {t("templatesPage.createFirstTemplate")}
+                </Button>
+              )
+            }
+          />
         )}
 
         {!loading && filteredTemplates.length > 0 && (
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-              gap: '1.25rem',
-              marginTop: '1rem',
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))",
+              gap: "1.25rem",
             }}
           >
             {filteredTemplates.map((template) => (
@@ -275,38 +336,34 @@ export default function TemplatesPage({ onNavigateToPublished }) {
 
       <EditTemplateModal
         isOpen={!!editingTemplate}
-        onClose={() => setEditingTemplate(null)}
         template={editingTemplate}
+        onClose={() => setEditingTemplate(null)}
         onTemplateUpdated={handleTemplateUpdated}
       />
 
       <PreviewTemplateModal
         isOpen={!!previewTemplate}
-        onClose={() => setPreviewTemplate(null)}
         template={previewTemplate}
-        onUseTemplate={(tpl) => setUsingTemplate(tpl)}
+        onClose={() => setPreviewTemplate(null)}
+        onUse={(tpl) => {
+          setPreviewTemplate(null);
+          setUsingTemplate(tpl);
+        }}
       />
 
       <UseTemplateModal
         isOpen={!!usingTemplate}
-        onClose={() => setUsingTemplate(null)}
         template={usingTemplate}
+        onClose={() => setUsingTemplate(null)}
         onFormCreated={handleFormCreatedFromTemplate}
       />
 
       <DeleteTemplateDialog
         isOpen={!!deletingTemplate}
-        onClose={() => setDeletingTemplate(null)}
         template={deletingTemplate}
+        onClose={() => setDeletingTemplate(null)}
         onTemplateDeleted={handleTemplateDeleted}
       />
-
-      {/* Notification Toast */}
-      {notification && (
-        <div className={`notification-toast ${notification.type}`}>
-          <span>{notification.msg}</span>
-        </div>
-      )}
     </div>
   );
 }

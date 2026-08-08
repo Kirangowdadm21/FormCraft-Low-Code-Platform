@@ -48,6 +48,7 @@ def delete_existing_template(template_id: int, db: Session = Depends(get_db)):
 @router.post("/{template_id}/create-form", response_model=schemas.FormResponse, status_code=status.HTTP_201_CREATED)
 def create_form_from_template_endpoint(
     template_id: int,
+    owner_id: Optional[int] = None,
     override: Optional[schemas.CreateFormFromTemplate] = None,
     db: Session = Depends(get_db),
     current_user: models.User = Depends(security.get_current_user)
@@ -56,5 +57,6 @@ def create_form_from_template_endpoint(
     if db_template is None:
         raise HTTPException(status_code=404, detail="Template not found")
 
-    db_form = crud.create_form_from_template(db=db, template_id=template_id, owner_id=current_user.id, override=override)
+    target_owner_id = owner_id if owner_id is not None else current_user.id
+    db_form = crud.create_form_from_template(db=db, template_id=template_id, owner_id=target_owner_id, override=override)
     return db_form

@@ -179,6 +179,13 @@ def test_lifecycle_and_rules():
     verify_public_archived = client.get(f"/forms/public/{form_id}")
     assert verify_public_archived.status_code == 400
     print("Archived public form route correctly rejected request.")
+
+    # 9.5 Unarchive Form and Verify Restore Status
+    print(f"Unarchiving form {form_id}...")
+    unarchive_resp = client.post(f"/forms/{form_id}/unarchive")
+    assert unarchive_resp.status_code == 200
+    assert unarchive_resp.json()["status"] == "draft"
+    print("Form unarchived successfully.")
     
     # 10. Clean up: Delete form
     print("Cleaning up Form...")

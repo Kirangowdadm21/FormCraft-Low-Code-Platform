@@ -3,7 +3,7 @@
  * Handles API calls to FastAPI backend for registration, login, profile retrieval, and logout.
  */
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 /**
  * Helper to handle HTTP response and throw descriptive error messages.
@@ -17,13 +17,15 @@ async function handleResponse(response) {
   }
 
   if (!response.ok) {
-    let errorMsg = 'An unexpected error occurred';
+    let errorMsg = "An unexpected error occurred";
     if (data) {
-      if (typeof data.detail === 'string') {
+      if (typeof data.detail === "string") {
         errorMsg = data.detail;
       } else if (Array.isArray(data.detail)) {
         // Validation error array from FastAPI/Pydantic
-        errorMsg = data.detail.map(e => `${e.loc ? e.loc.join(' -> ') : ''}: ${e.msg}`).join(', ');
+        errorMsg = data.detail
+          .map((e) => `${e.loc ? e.loc.join(" -> ") : ""}: ${e.msg}`)
+          .join(", ");
       } else if (data.message) {
         errorMsg = data.message;
       }
@@ -41,7 +43,7 @@ async function handleResponse(response) {
  * Get stored JWT access token from localStorage.
  */
 export function getStoredToken() {
-  return localStorage.getItem('access_token');
+  return localStorage.getItem("access_token");
 }
 
 /**
@@ -49,9 +51,9 @@ export function getStoredToken() {
  */
 export function setStoredToken(token) {
   if (token) {
-    localStorage.setItem('access_token', token);
+    localStorage.setItem("access_token", token);
   } else {
-    localStorage.removeItem('access_token');
+    localStorage.removeItem("access_token");
   }
 }
 
@@ -59,7 +61,7 @@ export function setStoredToken(token) {
  * Remove JWT access token from localStorage.
  */
 export function removeStoredToken() {
-  localStorage.removeItem('access_token');
+  localStorage.removeItem("access_token");
 }
 
 /**
@@ -68,16 +70,16 @@ export function removeStoredToken() {
  */
 export async function registerUser(userData) {
   const response = await fetch(`${BASE_URL}/auth/register`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      first_name: userData.first_name || '',
-      last_name: userData.last_name || '',
+      first_name: userData.first_name || "",
+      last_name: userData.last_name || "",
       email: userData.email,
       password: userData.password,
-      role: userData.role || 'user'
+      role: userData.role || "user",
     }),
   });
 
@@ -90,9 +92,9 @@ export async function registerUser(userData) {
  */
 export async function loginUser(credentials) {
   const response = await fetch(`${BASE_URL}/auth/login`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       email: credentials.email,
@@ -110,14 +112,14 @@ export async function loginUser(credentials) {
 export async function getUserProfile(token) {
   const authToken = token || getStoredToken();
   if (!authToken) {
-    throw new Error('No authentication token found');
+    throw new Error("No authentication token found");
   }
 
   const response = await fetch(`${BASE_URL}/auth/profile`, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Authorization': `Bearer ${authToken}`,
-      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
     },
   });
 
@@ -132,15 +134,15 @@ export async function logoutUser(token) {
   const authToken = token || getStoredToken();
   if (!authToken) {
     removeStoredToken();
-    return { message: 'Logged out locally' };
+    return { message: "Logged out locally" };
   }
 
   try {
     const response = await fetch(`${BASE_URL}/auth/logout`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${authToken}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json",
       },
     });
 
@@ -152,4 +154,25 @@ export async function logoutUser(token) {
     removeStoredToken();
     throw err;
   }
+}
+
+/**
+ * GET /users/
+ * Fetch all registered users list using Bearer JWT token.
+ */
+export async function getRegisteredUsers(token) {
+  const authToken = token || getStoredToken();
+  const headers = {
+    "Content-Type": "application/json",
+  };
+  if (authToken) {
+    headers["Authorization"] = `Bearer ${authToken}`;
+  }
+
+  const response = await fetch(`${BASE_URL}/users/`, {
+    method: "GET",
+    headers,
+  });
+
+  return handleResponse(response);
 }

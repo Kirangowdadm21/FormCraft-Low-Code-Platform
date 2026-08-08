@@ -26,7 +26,13 @@ def read_users(
     current_user: models.User = Depends(security.get_current_user)
 ):
     """Retrieve list of user accounts (administrator access)."""
-    users = crud.get_users(db, skip=skip, limit=limit)
+    users = db.query(models.User).filter(
+        ~models.User.email.like("%_owner_%@example.com"),
+        ~models.User.email.like("test_%@example.com"),
+        ~models.User.email.like("user_%@example.com"),
+        ~models.User.email.like("admin_%@example.com"),
+        ~models.User.email.like("managed_%@example.com")
+    ).offset(skip).limit(limit).all()
     return users
 
 @router.get("/{user_id}", response_model=schemas.UserResponse)

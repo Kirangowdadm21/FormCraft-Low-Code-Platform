@@ -1,32 +1,50 @@
-import React from 'react';
-import { AlertCircle } from 'lucide-react';
-import { parseFieldOptions } from './parseFieldOptions';
-
-export default function RadioField({ field, value, onChange, error, disabled }) {
+import { useTranslation } from "react-i18next";
+import React from "react";
+import { AlertCircle } from "lucide-react";
+import { parseFieldOptions } from "./parseFieldOptions";
+export default function RadioField({
+  field,
+  value,
+  onChange,
+  error,
+  disabled,
+}) {
+  const { t } = useTranslation();
   const fieldId = `field-${field.id}`;
   const options = parseFieldOptions(field);
-
   return (
     <div className="public-field-group">
       <label className="public-field-label">
-        {field.label} {field.required && <span className="required-star">*</span>}
+        {field.label}{" "}
+        {field.required && (
+          <span className="required-star">{t("radioField.text")}</span>
+        )}
       </label>
 
       {options.length === 0 ? (
-        <div className="field-hint-text">No radio options configured.</div>
+        <div className="field-hint-text">
+          {t("radioField.noRadioOptionsConfigured")}
+        </div>
       ) : (
-        <div className="radio-group-options" role="radiogroup" aria-label={field.label}>
+        <div
+          className="radio-group-options"
+          role="radiogroup"
+          aria-label={field.label}
+        >
           {options.map((opt, idx) => {
             const optVal = opt.value;
             const optText = opt.label;
-            const isSelected = value !== undefined && value !== null && value !== '' && String(value) === String(optVal);
+            const isSelected =
+              value !== undefined &&
+              value !== null &&
+              value !== "" &&
+              String(value) === String(optVal);
             const optId = `${fieldId}-radio-${idx}`;
-
             return (
               <label
                 key={opt.id ?? idx}
                 htmlFor={optId}
-                className={`choice-item-card ${isSelected ? 'choice-checked' : ''} ${disabled ? 'choice-disabled' : ''}`}
+                className={`choice-item-card ${isSelected ? "choice-checked" : ""} ${disabled ? "choice-disabled" : ""}`}
               >
                 <input
                   type="radio"
@@ -38,7 +56,10 @@ export default function RadioField({ field, value, onChange, error, disabled }) 
                   onChange={() => !disabled && onChange(optVal)}
                   disabled={disabled}
                 />
-                <div className={`radio-custom-dot ${isSelected ? 'dot-selected' : ''}`}>
+
+                <div
+                  className={`radio-custom-dot ${isSelected ? "dot-selected" : ""}`}
+                >
                   {isSelected && <div className="radio-inner-dot" />}
                 </div>
                 <span className="choice-label-text">{optText}</span>

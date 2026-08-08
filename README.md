@@ -1,15 +1,16 @@
 # Low-Code Workflow Automation & Intelligent Data Collection Platform
 
 ## Project Overview
-A smart form builder platform built with FastAPI and React.js. Users can create forms, define versioned fields, configure conditional logic rules, capture submissions, and view analytics — all through a clean admin dashboard.
+A smart form builder platform built with FastAPI, Firebase Authentication, and React.js. Users can create forms, define versioned fields, configure conditional logic rules, capture submissions, and view analytics — all through a clean admin dashboard.
 
 ---
 
 ## Technology Stack
-- **Backend**: Python, FastAPI, SQLAlchemy ORM, Pydantic, Alembic
+- **Backend**: Python, FastAPI, Firebase Admin SDK, SQLAlchemy ORM, Pydantic, Alembic
+- **Authentication**: Firebase Authentication (Email/Password), Firebase Admin SDK ID Token verification
 - **Database**: PostgreSQL
-- **Frontend**: React.js, Vite, Tailwind CSS
-- **Security**: OAuth2 Bearer JWT Tokens, Bcrypt password hashing
+- **Frontend**: React.js, Vite, Firebase Web SDK
+- **Security**: Firebase ID Token Bearer Verification, Bcrypt password hashing
 
 ---
 
@@ -22,6 +23,7 @@ Low-Code-Workflow-Automation/
 │   ├── models.py             # SQLAlchemy models
 │   ├── schemas.py            # Pydantic schemas
 │   ├── crud.py               # Database queries
+│   ├── security.py           # Firebase Admin SDK & token verification
 │   ├── routes/               # API route modules
 │   │   ├── auth.py
 │   │   ├── users.py
@@ -40,9 +42,11 @@ Low-Code-Workflow-Automation/
 │   ├── src/
 │   │   ├── components/
 │   │   ├── pages/
+│   │   ├── firebase.js       # Firebase Web SDK initialization
 │   │   ├── App.jsx
 │   │   └── main.jsx
 │   ├── package.json
+│   ├── .env.local
 │   └── vite.config.js
 ├── database/
 │   └── tables.sql
@@ -57,6 +61,7 @@ Low-Code-Workflow-Automation/
 - Python 3.9+
 - Node.js 18+
 - PostgreSQL 14+
+- Firebase Project with Email/Password Authentication enabled
 
 ---
 
@@ -77,7 +82,9 @@ pip install -r requirements.txt
 Configure `backend/.env`:
 ```ini
 DATABASE_URL=postgresql://postgres:password@localhost:5432/smart_forms
-JWT_SECRET_KEY=your_secret_key
+FIREBASE_PROJECT_ID=formcraft-752c9
+# Optional path to Service Account JSON
+# FIREBASE_SERVICE_ACCOUNT_PATH=path/to/service-account.json
 ```
 
 Start the server:
@@ -90,6 +97,17 @@ python -m uvicorn main:app --reload
 cd frontend
 npm install
 ```
+
+Configure `frontend/.env.local`:
+```env
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
 Start the frontend development server:
 ```bash
 npm run dev
@@ -104,9 +122,9 @@ npm run dev
 ---
 
 ## Completed Features
-- **User Management Frontend**: React.js components for user registration (`RegisterPage`), login (`LoginPage`), profile management (`ProfilePage`), authentication context (`AuthContext`), and protected route guards (`ProtectedRoute`). Integrates directly with FastAPI backend APIs (`POST /auth/register`, `POST /auth/login`, `GET /auth/profile`, `POST /auth/logout`) with automatic Bearer JWT header attachment and localStorage token persistence.
-- **Authentication Module (`/auth`)**: Separated authentication router handling user/admin registration (`POST /auth/register`), login (`POST /auth/login`), profile (`GET /auth/profile`), and token revocation (`POST /auth/logout`).
-- **User Management Module (`/users`)**: Administrator endpoints for managing user accounts (`GET /users`, `GET /users/{id}`, `POST /users`, `PATCH /users/{id}`, `DELETE /users/{id}`).
+- **Firebase Authentication (Email/Password)**: Fully integrated frontend & backend authentication using Firebase Web SDK (`createUserWithEmailAndPassword`, `signInWithEmailAndPassword`) and Firebase Admin SDK (`verify_firebase_token`).
+- **User Management Frontend**: React.js components for user registration (`RegisterPage`), login (`LoginPage`), profile management (`ProfilePage`), authentication context (`AuthContext`), and protected route guards (`ProtectedRoute`). Automatically attaches Firebase Bearer ID Tokens to all backend API calls.
+- **Backend Token Verification (`security.py`)**: Reusable FastAPI dependency (`verify_firebase_token` & `get_current_user`) verifying Firebase ID Tokens and auto-provisioning PostgreSQL user records to maintain foreign key integrity across user-owned resources.
 - **Forms CRUD**: Create, list, read, update, and delete forms.
 - **Fields CRUD**: Manage form fields and field options.
 - **Form Lifecycle**: Publishing, version history, public rendering, and archiving.
@@ -121,7 +139,7 @@ npm run dev
 ---
 
 ## Current Project Status
-All core modules and React user management frontend views are fully implemented, tested, and validated — including authentication, form lifecycle management, conditional rules, submissions, file uploads, analytics, data export, form templates, QR code generation, and independent reports.
+All core modules, Firebase Email/Password authentication, and React frontend views are fully implemented, tested, and validated — including form lifecycle management, conditional rules, submissions, file uploads, analytics, data export, form templates, QR code generation, and independent reports.
 
 ---
 

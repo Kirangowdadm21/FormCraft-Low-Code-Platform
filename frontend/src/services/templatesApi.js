@@ -3,14 +3,14 @@
  * Interacts with FastAPI backend for Template CRUD operations and form creation.
  */
 
-import { getStoredToken } from './api';
+import { getStoredToken } from "./api";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 function getAuthHeaders() {
   const token = getStoredToken();
   return {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
 }
@@ -24,12 +24,14 @@ async function handleResponse(response) {
   }
 
   if (!response.ok) {
-    let errorMsg = 'An unexpected error occurred';
+    let errorMsg = "An unexpected error occurred";
     if (data) {
-      if (typeof data.detail === 'string') {
+      if (typeof data.detail === "string") {
         errorMsg = data.detail;
       } else if (Array.isArray(data.detail)) {
-        errorMsg = data.detail.map(e => `${e.loc ? e.loc.join(' -> ') : ''}: ${e.msg}`).join(', ');
+        errorMsg = data.detail
+          .map((e) => `${e.loc ? e.loc.join(" -> ") : ""}: ${e.msg}`)
+          .join(", ");
       } else if (data.message) {
         errorMsg = data.message;
       }
@@ -46,16 +48,16 @@ async function handleResponse(response) {
 /**
  * GET /templates/ — List templates with optional pagination
  */
-export async function listTemplates(search = '', skip = 0, limit = 100) {
+export async function listTemplates(search = "", skip = 0, limit = 100) {
   const params = new URLSearchParams();
-  params.append('skip', skip);
-  params.append('limit', limit);
+  params.append("skip", skip);
+  params.append("limit", limit);
   if (search) {
-    params.append('search', search);
+    params.append("search", search);
   }
 
   const response = await fetch(`${BASE_URL}/templates/?${params.toString()}`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
   return handleResponse(response);
@@ -66,7 +68,7 @@ export async function listTemplates(search = '', skip = 0, limit = 100) {
  */
 export async function getTemplateById(templateId) {
   const response = await fetch(`${BASE_URL}/templates/${templateId}`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
   return handleResponse(response);
@@ -75,9 +77,13 @@ export async function getTemplateById(templateId) {
 /**
  * POST /templates/ — Create a new template
  */
-export async function createTemplate({ title, description = null, fields = [] }) {
+export async function createTemplate({
+  title,
+  description = null,
+  fields = [],
+}) {
   const response = await fetch(`${BASE_URL}/templates/`, {
-    method: 'POST',
+    method: "POST",
     headers: getAuthHeaders(),
     body: JSON.stringify({
       title,
@@ -93,7 +99,7 @@ export async function createTemplate({ title, description = null, fields = [] })
  */
 export async function updateTemplate(templateId, updateData) {
   const response = await fetch(`${BASE_URL}/templates/${templateId}`, {
-    method: 'PATCH',
+    method: "PATCH",
     headers: getAuthHeaders(),
     body: JSON.stringify(updateData),
   });
@@ -105,7 +111,7 @@ export async function updateTemplate(templateId, updateData) {
  */
 export async function deleteTemplate(templateId) {
   const response = await fetch(`${BASE_URL}/templates/${templateId}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: getAuthHeaders(),
   });
   if (response.status === 204) return true;
@@ -116,13 +122,16 @@ export async function deleteTemplate(templateId) {
  * POST /templates/{template_id}/create-form — Create a new form from a template
  */
 export async function useTemplate(templateId, { title, description = null }) {
-  const response = await fetch(`${BASE_URL}/templates/${templateId}/create-form`, {
-    method: 'POST',
-    headers: getAuthHeaders(),
-    body: JSON.stringify({
-      title,
-      description: description || null,
-    }),
-  });
+  const response = await fetch(
+    `${BASE_URL}/templates/${templateId}/create-form`,
+    {
+      method: "POST",
+      headers: getAuthHeaders(),
+      body: JSON.stringify({
+        title,
+        description: description || null,
+      }),
+    },
+  );
   return handleResponse(response);
 }

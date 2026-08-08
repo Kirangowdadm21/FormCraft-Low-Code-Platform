@@ -3,9 +3,9 @@
  * Interacts with FastAPI backend for Forms CRUD operations.
  */
 
-import { getStoredToken } from './api';
+import { getStoredToken } from "./api";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 /**
  * Helper to handle HTTP response and throw descriptive error messages.
@@ -19,12 +19,14 @@ async function handleResponse(response) {
   }
 
   if (!response.ok) {
-    let errorMsg = 'An unexpected error occurred';
+    let errorMsg = "An unexpected error occurred";
     if (data) {
-      if (typeof data.detail === 'string') {
+      if (typeof data.detail === "string") {
         errorMsg = data.detail;
       } else if (Array.isArray(data.detail)) {
-        errorMsg = data.detail.map(e => `${e.loc ? e.loc.join(' -> ') : ''}: ${e.msg}`).join(', ');
+        errorMsg = data.detail
+          .map((e) => `${e.loc ? e.loc.join(" -> ") : ""}: ${e.msg}`)
+          .join(", ");
       } else if (data.message) {
         errorMsg = data.message;
       }
@@ -44,10 +46,10 @@ async function handleResponse(response) {
 function getAuthHeaders() {
   const token = getStoredToken();
   const headers = {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   };
   if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
+    headers["Authorization"] = `Bearer ${token}`;
   }
   return headers;
 }
@@ -57,10 +59,13 @@ function getAuthHeaders() {
  * Fetch list of forms with pagination options.
  */
 export async function getForms(skip = 0, limit = 100) {
-  const response = await fetch(`${BASE_URL}/forms?skip=${skip}&limit=${limit}`, {
-    method: 'GET',
-    headers: getAuthHeaders(),
-  });
+  const response = await fetch(
+    `${BASE_URL}/forms/?skip=${skip}&limit=${limit}`,
+    {
+      method: "GET",
+      headers: getAuthHeaders(),
+    },
+  );
 
   return handleResponse(response);
 }
@@ -71,7 +76,7 @@ export async function getForms(skip = 0, limit = 100) {
  */
 export async function getFormById(formId) {
   const response = await fetch(`${BASE_URL}/forms/${formId}`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
 
@@ -84,12 +89,12 @@ export async function getFormById(formId) {
  */
 export async function createForm(formData) {
   const response = await fetch(`${BASE_URL}/forms/`, {
-    method: 'POST',
+    method: "POST",
     headers: getAuthHeaders(),
     body: JSON.stringify({
       title: formData.title,
       description: formData.description || null,
-      status: formData.status || 'draft',
+      status: formData.status || "draft",
     }),
   });
 
@@ -102,7 +107,7 @@ export async function createForm(formData) {
  */
 export async function updateForm(formId, updateData) {
   const response = await fetch(`${BASE_URL}/forms/${formId}`, {
-    method: 'PATCH',
+    method: "PATCH",
     headers: getAuthHeaders(),
     body: JSON.stringify(updateData),
   });
@@ -116,7 +121,7 @@ export async function updateForm(formId, updateData) {
  */
 export async function deleteForm(formId) {
   const response = await fetch(`${BASE_URL}/forms/${formId}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: getAuthHeaders(),
   });
 
@@ -128,10 +133,13 @@ export async function deleteForm(formId) {
  * Fetch all fields for a specific form version.
  */
 export async function getFieldsByVersion(versionId) {
-  const response = await fetch(`${BASE_URL}/fields/?formversion_id=${versionId}`, {
-    method: 'GET',
-    headers: getAuthHeaders(),
-  });
+  const response = await fetch(
+    `${BASE_URL}/fields/?formversion_id=${versionId}`,
+    {
+      method: "GET",
+      headers: getAuthHeaders(),
+    },
+  );
 
   return handleResponse(response);
 }
@@ -142,7 +150,7 @@ export async function getFieldsByVersion(versionId) {
  */
 export async function createField(fieldData) {
   const response = await fetch(`${BASE_URL}/fields/`, {
-    method: 'POST',
+    method: "POST",
     headers: getAuthHeaders(),
     body: JSON.stringify(fieldData),
   });
@@ -156,7 +164,7 @@ export async function createField(fieldData) {
  */
 export async function updateField(fieldId, updateData) {
   const response = await fetch(`${BASE_URL}/fields/${fieldId}`, {
-    method: 'PATCH',
+    method: "PATCH",
     headers: getAuthHeaders(),
     body: JSON.stringify(updateData),
   });
@@ -170,7 +178,7 @@ export async function updateField(fieldId, updateData) {
  */
 export async function deleteField(fieldId) {
   const response = await fetch(`${BASE_URL}/fields/${fieldId}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: getAuthHeaders(),
   });
 
@@ -183,7 +191,7 @@ export async function deleteField(fieldId) {
  */
 export async function getFormVersions(formId) {
   const response = await fetch(`${BASE_URL}/forms/${formId}/versions`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
 
@@ -194,9 +202,14 @@ export async function getFormVersions(formId) {
  * POST /forms/{formId}/versions
  * Create a new version for a form.
  */
-export async function createFormVersion(formId, versionNumber = 1, fields = [], ispublished = false) {
+export async function createFormVersion(
+  formId,
+  versionNumber = 1,
+  fields = [],
+  ispublished = false,
+) {
   const response = await fetch(`${BASE_URL}/forms/${formId}/versions`, {
-    method: 'POST',
+    method: "POST",
     headers: getAuthHeaders(),
     body: JSON.stringify({
       version_number: versionNumber,
@@ -218,7 +231,7 @@ export async function publishForm(formId, versionNumber = null) {
     url += `?version_number=${versionNumber}`;
   }
   const response = await fetch(url, {
-    method: 'POST',
+    method: "POST",
     headers: getAuthHeaders(),
   });
 
@@ -231,7 +244,20 @@ export async function publishForm(formId, versionNumber = null) {
  */
 export async function archiveForm(formId) {
   const response = await fetch(`${BASE_URL}/forms/${formId}/archive`, {
-    method: 'POST',
+    method: "POST",
+    headers: getAuthHeaders(),
+  });
+
+  return handleResponse(response);
+}
+
+/**
+ * POST /forms/{formId}/unarchive
+ * Unarchive a form by ID.
+ */
+export async function unarchiveForm(formId) {
+  const response = await fetch(`${BASE_URL}/forms/${formId}/unarchive`, {
+    method: "POST",
     headers: getAuthHeaders(),
   });
 
@@ -244,8 +270,8 @@ export async function archiveForm(formId) {
  */
 export async function getPublicForm(formId) {
   const response = await fetch(`${BASE_URL}/forms/public/${formId}`, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
   });
 
   return handleResponse(response);

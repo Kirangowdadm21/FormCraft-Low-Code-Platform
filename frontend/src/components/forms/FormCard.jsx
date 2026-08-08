@@ -1,130 +1,316 @@
-import React from 'react';
-import { Eye, Edit3, Wrench, Trash2, ExternalLink, Archive } from 'lucide-react';
-
-export default function FormCard({ form, onView, onEdit, onBuild, onDelete, onArchive }) {
+import { useTranslation } from "react-i18next";
+import React from "react";
+import {
+  Eye,
+  Edit3,
+  Wrench,
+  Trash2,
+  Archive,
+  Users,
+  ShoppingBag,
+  GraduationCap,
+  Headphones,
+  FileText,
+} from "lucide-react";
+import DynamicText from "../common/DynamicText";
+import Badge from "../common/Badge";
+import Button from "../common/Button";
+const PASTEL_ICONS = [
+  {
+    bg: "#e0f2fe",
+    color: "#0284c7",
+    Icon: Users,
+  },
+  {
+    bg: "#fef3c7",
+    color: "#d97706",
+    Icon: ShoppingBag,
+  },
+  {
+    bg: "#f3e8ff",
+    color: "#7e22ce",
+    Icon: GraduationCap,
+  },
+  {
+    bg: "#ffe4e6",
+    color: "#e11d48",
+    Icon: Headphones,
+  },
+  {
+    bg: "#d1fae5",
+    color: "#059669",
+    Icon: FileText,
+  },
+];
+export default function FormCard({
+  form,
+  onView,
+  onEdit,
+  onBuild,
+  onDelete,
+  onArchive,
+  onUnarchive,
+}) {
+  const { t } = useTranslation();
   const formatDate = (dateStr) => {
-    if (!dateStr) return 'N/A';
+    if (!dateStr) return t("forms.recently", "Recently");
     try {
       const d = new Date(dateStr);
-      return d.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric'
+      const now = new Date();
+      const isToday = d.toDateString() === now.toDateString();
+      if (isToday) {
+        return `${t("common.today", "Today")}, ${d.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}`;
+      }
+      return d.toLocaleDateString([], {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
       });
     } catch {
       return dateStr;
     }
   };
-
-  const fieldCount = form.fields_count ?? 
-    (form.versions && form.versions.length > 0 && form.versions[0]?.fields ? form.versions[0].fields.length : 0);
-
+  const fieldCount =
+    form.fields_count ??
+    (form.versions && form.versions.length > 0 && form.versions[0]?.fields
+      ? form.versions[0].fields.length
+      : 8);
   const getStatusBadge = (status) => {
     switch (status?.toLowerCase()) {
-      case 'published':
-        return <span className="badge badge-success">Published</span>;
-      case 'archived':
-        return <span className="badge badge-archived">Archived</span>;
-      case 'draft':
+      case "published":
+        return <Badge variant="success">{t("forms.status_published", t("formCard.published", "Published"))}</Badge>;
+      case "archived":
+        return <Badge variant="danger">{t("forms.status_archived", t("formCard.archived", "Archived"))}</Badge>;
+      case "draft":
       default:
-        return <span className="badge badge-draft">Draft</span>;
+        return <Badge variant="warning">{t("forms.status_draft", t("formCard.draft", "Draft"))}</Badge>;
     }
   };
-
+  const badgeConfig = PASTEL_ICONS[(form.id || 0) % PASTEL_ICONS.length];
+  const PastelIcon = badgeConfig.Icon;
   return (
-    <div className="form-card">
-      <div className="form-card-header">
-        <div style={{ flex: 1, paddingRight: '0.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
-            <span className="mono-id">FORM-{form.id}</span>
-            {getStatusBadge(form.status)}
+    <div
+      style={{
+        background: "#FFFFFF",
+        border: "1px solid #e2e8f0",
+        borderRadius: "16px",
+        padding: "1.5rem 1.75rem",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.02)",
+        transition: "all 0.2s ease",
+        width: "100%",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "1.25rem",
+        }}
+      >
+        {/* Left Side: Large Pastel Icon + Form Title & Description */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "1.25rem",
+            flex: 1,
+            minWidth: "300px",
+          }}
+        >
+          <div
+            style={{
+              width: "52px",
+              height: "52px",
+              borderRadius: "16px",
+              background: badgeConfig.bg,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+              marginTop: "0.1rem",
+            }}
+          >
+            <PastelIcon size={24} color={badgeConfig.color} />
           </div>
-          <h3 className="form-card-title">{form.title}</h3>
-        </div>
-      </div>
 
-      <p className="form-card-description">
-        {form.description || 'No description provided.'}
-      </p>
-
-      {/* Condensed Single-Line Metadata Strip */}
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        gap: '0.75rem', 
-        fontSize: '0.8rem', 
-        color: 'var(--text-muted)', 
-        margin: '0.85rem 0',
-        padding: '0.5rem 0',
-        borderTop: '1px solid var(--rule)',
-        borderBottom: '1px solid var(--rule)'
-      }}>
-        <span>{fieldCount} {fieldCount === 1 ? 'field' : 'fields'}</span>
-        <span>•</span>
-        <span>Updated {formatDate(form.updatedat)}</span>
-      </div>
-
-      {/* Compact Tertiary Icon-Button Cluster */}
-      <div className="form-card-actions" style={{ justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', gap: '0.25rem', flexWrap: 'wrap' }}>
-          {form.status?.toLowerCase() === 'published' && (
-            <button
-              className="btn-tertiary"
-              onClick={() => window.open(`${window.location.origin}/forms/${form.id}`, '_blank', 'noopener,noreferrer')}
-              title="Open Live Public Form"
-            >
-              <ExternalLink size={14} />
-              <span>Public</span>
-            </button>
-          )}
-
-          {onBuild && (
-            <button
-              className="btn-tertiary"
-              onClick={() => onBuild(form)}
-              title="Open Form Builder"
-            >
-              <Wrench size={14} />
-              <span>Builder</span>
-            </button>
-          )}
-
-          <button
-            className="btn-tertiary"
-            onClick={() => onView(form)}
-            title="View Details"
+          <div
+            style={{
+              flex: 1,
+            }}
           >
-            <Eye size={14} />
-            <span>View</span>
-          </button>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                marginBottom: "0.35rem",
+              }}
+            >
+              <h3
+                style={{
+                  fontSize: "1.1rem",
+                  fontWeight: 800,
+                  color: "#0f172a",
+                  margin: 0,
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                <DynamicText text={form.title} />
+              </h3>
+            </div>
 
-          <button
-            className="btn-tertiary"
-            onClick={() => onEdit(form)}
-            title="Edit Info"
-          >
-            <Edit3 size={14} />
-            <span>Edit</span>
-          </button>
+            <p
+              style={{
+                fontSize: "0.88rem",
+                color: "#64748b",
+                margin: "0 0 0.65rem 0",
+                lineHeight: 1.5,
+              }}
+            >
+              <DynamicText text={form.description || t("forms.no_description", t("formCard.noDescription", "No description provided"))} />
+            </p>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                fontSize: "0.8rem",
+                color: "#94a3b8",
+              }}
+            >
+              <span
+                style={{
+                  fontWeight: 600,
+                  color: "#475569",
+                }}
+              >
+                {fieldCount} {fieldCount === 1 ? t("forms.field_singular", "field") : t("forms.fields_plural", t("formCard.fields", "fields"))}
+              </span>
+              <span>•</span>
+              <span>
+                {t("forms.updated_prefix", t("formCard.updated", "Updated "))}
+                {formatDate(form.updatedat || form.createdat)}
+              </span>
+            </div>
+          </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '0.25rem' }}>
-          {form.status?.toLowerCase() !== 'archived' && onArchive && (
-            <button
-              className="btn-tertiary"
-              onClick={() => onArchive(form)}
-              title="Archive Form"
-              style={{ color: '#f59e0b' }}
-            >
-              <Archive size={14} />
-            </button>
-          )}
-          <button
-            className="btn-destructive-subtle"
-            onClick={() => onDelete(form)}
-            title="Delete Form"
+        {/* Right Side: Status Badge + Horizontal Action Buttons */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-end",
+            gap: "0.85rem",
+          }}
+        >
+          <div>{getStatusBadge(form.status)}</div>
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              flexWrap: "wrap",
+            }}
           >
-            <Trash2 size={14} />
-          </button>
+            {onBuild && (
+              <Button
+                variant="primary"
+                size="sm"
+                leftIcon={Wrench}
+                onClick={() => onBuild(form.id, form.current_version)}
+                title={t("forms.builder_title", t("formCard.openFormBuilder", "Open Form Builder"))}
+                style={{
+                  padding: "0.45rem 0.95rem",
+                  fontWeight: 600,
+                }}
+              >
+                {t("forms.builder", t("formCard.builder", "Builder"))}
+              </Button>
+            )}
+
+            <Button
+              variant="outline"
+              size="sm"
+              leftIcon={Eye}
+              onClick={() => onView(form.id)}
+              title={t("forms.view_title", t("formCard.viewFormDetails", "View Form Details"))}
+              style={{
+                padding: "0.45rem 0.85rem",
+              }}
+            >
+              {t("forms.view", t("formCard.view", "View"))}
+            </Button>
+
+            <Button
+              variant="outline"
+              size="sm"
+              leftIcon={Edit3}
+              onClick={() => onEdit(form)}
+              title={t("forms.edit_title", t("formCard.editFormTitle", "Edit Form"))}
+              style={{
+                padding: "0.45rem 0.85rem",
+              }}
+            >
+              {t("forms.edit", t("formCard.edit", "Edit"))}
+            </Button>
+
+            {form.status?.toLowerCase() !== "archived" && onArchive && (
+              <Button
+                variant="outline"
+                size="sm"
+                leftIcon={Archive}
+                onClick={() => onArchive(form)}
+                title={t("forms.archive_title", t("formCard.archiveForm", "Archive Form"))}
+                style={{
+                  color: "#d97706",
+                  borderColor: "#fef3c7",
+                  padding: "0.45rem 0.85rem",
+                }}
+              >
+                {t("forms.archive", t("formCard.archive", "Archive"))}
+              </Button>
+            )}
+
+            {form.status?.toLowerCase() === "archived" && onUnarchive && (
+              <Button
+                variant="outline"
+                size="sm"
+                leftIcon={Archive}
+                onClick={() => onUnarchive(form)}
+                title={t("forms.unarchive_title", t("formCard.unarchiveForm", "Unarchive Form"))}
+                style={{
+                  color: "#059669",
+                  borderColor: "#d1fae5",
+                  padding: "0.45rem 0.85rem",
+                }}
+              >
+                {t("forms.unarchive", t("formCard.unarchive", "Unarchive"))}
+              </Button>
+            )}
+
+            <Button
+              variant="outline"
+              size="sm"
+              leftIcon={Trash2}
+              onClick={() => onDelete(form)}
+              title={t("forms.delete_title", t("formCard.deleteForm", "Delete Form"))}
+              style={{
+                color: "#dc2626",
+                borderColor: "#fee2e2",
+                padding: "0.45rem 0.85rem",
+              }}
+            >
+              {t("forms.delete", t("formCard.delete", "Delete"))}
+            </Button>
+          </div>
         </div>
       </div>
     </div>

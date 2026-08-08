@@ -3,9 +3,9 @@
  * Handles binary file downloads (CSV, JSON, PDF).
  */
 
-import { getStoredToken } from './api';
+import { getStoredToken } from "./api";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 function getAuthHeaders() {
   const token = getStoredToken();
@@ -19,7 +19,7 @@ function getAuthHeaders() {
  */
 export function downloadBlob(blob, filename) {
   const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
   a.download = filename;
   document.body.appendChild(a);
@@ -29,19 +29,23 @@ export function downloadBlob(blob, filename) {
 }
 
 // GET /export — Export raw datasets (forms, submissions, analytics)
-export async function exportDataset(dataType = 'forms', format = 'csv', formId = null) {
+export async function exportDataset(
+  dataType = "forms",
+  format = "csv",
+  formId = null,
+) {
   const params = new URLSearchParams();
-  params.append('data_type', dataType);
-  params.append('format', format);
-  if (formId) params.append('form_id', formId);
+  params.append("data_type", dataType);
+  params.append("format", format);
+  if (formId) params.append("form_id", formId);
 
   const response = await fetch(`${BASE_URL}/export?${params.toString()}`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
 
   if (!response.ok) {
-    let errorMsg = 'Failed to export data';
+    let errorMsg = "Failed to export data";
     try {
       const errJson = await response.json();
       errorMsg = errJson.detail || errorMsg;
@@ -54,11 +58,15 @@ export async function exportDataset(dataType = 'forms', format = 'csv', formId =
 }
 
 // POST /reports/generate — Generate structured report files
-export async function generateReportFile(reportType = 'dashboard', format = 'pdf', formId = null) {
+export async function generateReportFile(
+  reportType = "dashboard",
+  format = "pdf",
+  formId = null,
+) {
   const response = await fetch(`${BASE_URL}/reports/generate`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       ...getAuthHeaders(),
     },
     body: JSON.stringify({
@@ -69,7 +77,7 @@ export async function generateReportFile(reportType = 'dashboard', format = 'pdf
   });
 
   if (!response.ok) {
-    let errorMsg = 'Failed to generate report';
+    let errorMsg = "Failed to generate report";
     try {
       const errJson = await response.json();
       errorMsg = errJson.detail || errorMsg;
@@ -84,9 +92,9 @@ export async function generateReportFile(reportType = 'dashboard', format = 'pdf
 // GET /reports/dashboard — Get dashboard report JSON
 export async function getDashboardReport() {
   const response = await fetch(`${BASE_URL}/reports/dashboard`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
-  if (!response.ok) throw new Error('Failed to fetch dashboard report');
+  if (!response.ok) throw new Error("Failed to fetch dashboard report");
   return response.json();
 }

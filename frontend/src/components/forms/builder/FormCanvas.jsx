@@ -1,9 +1,12 @@
-import React from 'react';
-import { useDroppable } from '@dnd-kit/core';
-import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
-import { PlusCircle, Sparkles } from 'lucide-react';
-import FieldCard from './FieldCard';
-
+import { useTranslation } from "react-i18next";
+import React from "react";
+import { useDroppable } from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { PlusCircle, Sparkles } from "lucide-react";
+import FieldCard from "./FieldCard";
 export default function FormCanvas({
   fields,
   selectedFieldId,
@@ -12,27 +15,24 @@ export default function FormCanvas({
   onDeleteField,
   onCanvasClick,
 }) {
+  const { t } = useTranslation();
   const { isOver, setNodeRef } = useDroppable({
-    id: 'canvas-droppable',
+    id: "canvas-droppable",
   });
-
   return (
-    <div
-      className="builder-panel center-panel"
-      onClick={onCanvasClick}
-    >
+    <div className="builder-panel center-panel" onClick={onCanvasClick}>
       <div className="canvas-wrapper">
         <div
           ref={setNodeRef}
-          className={`canvas-drop-area ${isOver ? 'drop-active' : ''}`}
+          className={`canvas-drop-area ${isOver ? "drop-active" : ""}`}
         >
           {fields.length === 0 ? (
             <div className="canvas-empty-state">
               <div className="empty-sparkle-icon">
                 <Sparkles size={32} color="var(--ledger)" />
               </div>
-              <h4>Drag fields here to start building your form</h4>
-              <p>Choose field types from the left palette or click any item to add it directly to your canvas.</p>
+              <h4>{t("formCanvas.dragFieldsHereTo")}</h4>
+              <p>{t("formCanvas.chooseFieldTypesFrom")}</p>
             </div>
           ) : (
             <SortableContext

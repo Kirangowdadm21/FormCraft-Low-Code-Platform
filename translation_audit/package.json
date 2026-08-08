@@ -1,0 +1,21 @@
+{
+  "name": "translation_audit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/parser": "^8.0.4",
+    "@babel/plugin-syntax-jsx": "^8.0.1",
+    "@babel/traverse": "^8.0.4",
+    "fs-extra": "^11.4.0",
+    "glob": "^13.0.6"
+  }
+}

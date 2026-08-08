@@ -17,7 +17,13 @@ router = APIRouter(
 
 @router.get("/dashboard", response_model=schemas.DashboardAnalytics)
 def get_dashboard_analytics(db: Session = Depends(get_db)):
-    total_users = db.query(models.User).count()
+    total_users = db.query(models.User).filter(
+        ~models.User.email.like("%_owner_%@example.com"),
+        ~models.User.email.like("test_%@example.com"),
+        ~models.User.email.like("user_%@example.com"),
+        ~models.User.email.like("admin_%@example.com"),
+        ~models.User.email.like("managed_%@example.com")
+    ).count()
     total_forms = db.query(models.Form).count()
     published_forms = db.query(models.Form).filter(models.Form.status == "published").count()
     archived_forms = db.query(models.Form).filter(models.Form.status == "archived").count()

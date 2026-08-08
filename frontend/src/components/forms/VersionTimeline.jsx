@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import { useTranslation } from "react-i18next";
+import React, { useState, useMemo } from "react";
 import {
   Eye,
   Edit3,
@@ -21,12 +22,11 @@ import {
   ArrowDown,
   ArrowUp,
   Info,
-} from 'lucide-react';
-import VersionDetailModal from './VersionDetailModal';
-import VersionCompareModal from './VersionCompareModal';
-import PublishConfirmModal from './PublishConfirmModal';
-import { publishForm } from '../../services/formsApi';
-
+} from "lucide-react";
+import VersionDetailModal from "./VersionDetailModal";
+import VersionCompareModal from "./VersionCompareModal";
+import PublishConfirmModal from "./PublishConfirmModal";
+import { publishForm } from "../../services/formsApi";
 export default function VersionTimeline({
   versions = [],
   currentVersion,
@@ -40,32 +40,34 @@ export default function VersionTimeline({
   onRetry,
   onNavigateToPublished,
 }) {
+  const { t } = useTranslation();
   const [viewingVersion, setViewingVersion] = useState(null);
   const [comparingVersion, setComparingVersion] = useState(null);
   const [publishingVersionObj, setPublishingVersionObj] = useState(null);
   const [isPublishing, setIsPublishing] = useState(false);
 
   // Search and Filter states
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeFilter, setActiveFilter] = useState('All'); // All, Published, Draft, Archived, Active
-  const [sortOrder, setSortOrder] = useState('Newest'); // Newest, Oldest
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeFilter, setActiveFilter] = useState("All"); // All, Published, Draft, Archived, Active
+  const [sortOrder, setSortOrder] = useState("Newest"); // Newest, Oldest
 
   // Toast Notification state
   const [toast, setToast] = useState(null);
-
-  const showToast = (message, type = 'success') => {
-    setToast({ message, type });
+  const showToast = (message, type = "success") => {
+    setToast({
+      message,
+      type,
+    });
     setTimeout(() => {
       setToast((prev) => (prev?.message === message ? null : prev));
     }, 3500);
   };
-
   const formatDate = (dateStr) => {
-    if (!dateStr) return 'N/A';
+    if (!dateStr) return "N/A";
     try {
-      return new Date(dateStr).toLocaleString('en-US', {
-        dateStyle: 'medium',
-        timeStyle: 'short',
+      return new Date(dateStr).toLocaleString("en-US", {
+        dateStyle: "medium",
+        timeStyle: "short",
       });
     } catch {
       return dateStr;
@@ -77,10 +79,24 @@ export default function VersionTimeline({
     const total = versions.length;
     const published = versions.filter((v) => v.ispublished).length;
     const draft = versions.filter((v) => !v.ispublished).length;
-    const archived = formStatus === 'archived' ? total : 0;
-    const active = currentVersion ? `v${currentVersion}` : 'None';
-
-    return { total, published, draft, archived, active };
+    const archived = formStatus === "archived" ? total : 0;
+    const activeVerObj = versions.find(
+      (v) =>
+        (currentVersion != null && Number(v.version_number) === Number(currentVersion)) ||
+        v.ispublished
+    );
+    const active = activeVerObj
+      ? `v${activeVerObj.version_number}`
+      : currentVersion
+      ? `v${currentVersion}`
+      : "None";
+    return {
+      total,
+      published,
+      draft,
+      archived,
+      active,
+    };
   }, [versions, formStatus, currentVersion]);
 
   // Feature 5 & 6: Search, Filter, and Sort logic
@@ -92,12 +108,14 @@ export default function VersionTimeline({
       const q = searchQuery.toLowerCase().trim();
       result = result.filter((ver) => {
         const verNumStr = `v${ver.version_number} version ${ver.version_number}`;
-        const statusStr = ver.ispublished ? 'published' : 'draft';
-        const isActiveStr = ver.version_number === currentVersion ? 'active' : '';
+        const statusStr = ver.ispublished ? "published" : "draft";
+        const isActiveStr =
+          (currentVersion != null && Number(ver.version_number) === Number(currentVersion)) || ver.ispublished
+            ? "active"
+            : "";
         const createdDateStr = formatDate(ver.createdat).toLowerCase();
         const updatedDateStr = formatDate(ver.updatedat).toLowerCase();
         const fieldCountStr = `${ver.fields ? ver.fields.length : 0} fields`;
-
         return (
           verNumStr.includes(q) ||
           statusStr.includes(q) ||
@@ -110,37 +128,47 @@ export default function VersionTimeline({
     }
 
     // Status filter chips
-    if (activeFilter === 'Published') {
+    if (activeFilter === "Published") {
       result = result.filter((v) => v.ispublished);
-    } else if (activeFilter === 'Draft') {
+    } else if (activeFilter === "Draft") {
       result = result.filter((v) => !v.ispublished);
-    } else if (activeFilter === 'Active') {
-      result = result.filter((v) => currentVersion != null && v.version_number === currentVersion);
-    } else if (activeFilter === 'Archived') {
-      result = formStatus === 'archived' ? result : [];
+    } else if (activeFilter === "Active") {
+      result = result.filter(
+        (v) =>
+          (currentVersion != null && Number(v.version_number) === Number(currentVersion)) ||
+          v.ispublished
+      );
+    } else if (activeFilter === "Archived") {
+      result = formStatus === "archived" ? result : [];
     }
 
     // Sort order (Newest / Oldest)
     result.sort((a, b) => {
-      if (sortOrder === 'Oldest') {
+      if (sortOrder === "Oldest") {
         return a.version_number - b.version_number;
       }
       return b.version_number - a.version_number;
     });
-
     return result;
-  }, [versions, searchQuery, activeFilter, sortOrder, currentVersion, formStatus]);
+  }, [
+    versions,
+    searchQuery,
+    activeFilter,
+    sortOrder,
+    currentVersion,
+    formStatus,
+  ]);
 
   // Handle Filter Chip selection
   const handleFilterClick = (filterName) => {
     setActiveFilter(filterName);
-    showToast(`Filter Applied: ${filterName}`, 'info');
+    showToast(`Filter Applied: ${filterName}`, "info");
   };
 
   // Handle Sort Change
   const handleSortChange = (newSort) => {
     setSortOrder(newSort);
-    showToast(`Sorted by ${newSort}`, 'info');
+    showToast(`Sorted by ${newSort}`, "info");
   };
 
   // Feature 1: Publish action trigger
@@ -149,29 +177,32 @@ export default function VersionTimeline({
     setIsPublishing(true);
     try {
       await publishForm(formId, versionNumber);
-      showToast('Version Published Successfully', 'success');
+      showToast("Version Published Successfully", "success");
       if (onVersionPublished) {
         onVersionPublished(versionNumber);
       }
     } catch (err) {
-      showToast(err.message || 'Failed to publish version', 'error');
+      showToast(err.message || "Failed to publish version", "error");
       throw err;
     } finally {
       setIsPublishing(false);
     }
   };
-
   const hasActiveVersion =
-    currentVersion != null && versions.some((v) => v.version_number === currentVersion);
-
+    currentVersion != null &&
+    versions.some((v) => v.version_number === currentVersion);
   return (
     <div className="version-timeline-container">
       {/* Toast Notification Banner */}
       {toast && (
-        <div className={`notification-toast toast-${toast.type}`} role="status" aria-live="polite">
-          {toast.type === 'success' && <CheckCircle2 size={16} />}
-          {toast.type === 'info' && <Info size={16} />}
-          {toast.type === 'error' && <XCircle size={16} />}
+        <div
+          className={`notification-toast toast-${toast.type}`}
+          role="status"
+          aria-live="polite"
+        >
+          {toast.type === "success" && <CheckCircle2 size={16} />}
+          {toast.type === "info" && <Info size={16} />}
+          {toast.type === "error" && <XCircle size={16} />}
           <span>{toast.message}</span>
         </div>
       )}
@@ -183,7 +214,9 @@ export default function VersionTimeline({
             <Layers size={18} />
           </div>
           <div className="stat-card-content">
-            <span className="stat-card-label">Total Versions</span>
+            <span className="stat-card-label">
+              {t("versionTimeline.totalVersions")}
+            </span>
             <span className="stat-card-value">{stats.total}</span>
           </div>
         </div>
@@ -193,7 +226,9 @@ export default function VersionTimeline({
             <CheckCircle2 size={18} />
           </div>
           <div className="stat-card-content">
-            <span className="stat-card-label">Published Versions</span>
+            <span className="stat-card-label">
+              {t("versionTimeline.publishedVersions")}
+            </span>
             <span className="stat-card-value">{stats.published}</span>
           </div>
         </div>
@@ -203,7 +238,9 @@ export default function VersionTimeline({
             <GitBranch size={18} />
           </div>
           <div className="stat-card-content">
-            <span className="stat-card-label">Draft Versions</span>
+            <span className="stat-card-label">
+              {t("versionTimeline.draftVersions")}
+            </span>
             <span className="stat-card-value">{stats.draft}</span>
           </div>
         </div>
@@ -213,7 +250,9 @@ export default function VersionTimeline({
             <Archive size={18} />
           </div>
           <div className="stat-card-content">
-            <span className="stat-card-label">Archived Versions</span>
+            <span className="stat-card-label">
+              {t("versionTimeline.archivedVersions")}
+            </span>
             <span className="stat-card-value">{stats.archived}</span>
           </div>
         </div>
@@ -223,7 +262,9 @@ export default function VersionTimeline({
             <Zap size={18} />
           </div>
           <div className="stat-card-content">
-            <span className="stat-card-label">Current Active Version</span>
+            <span className="stat-card-label">
+              {t("versionTimeline.currentActiveVersion")}
+            </span>
             <span className="stat-card-value">{stats.active}</span>
           </div>
         </div>
@@ -234,8 +275,11 @@ export default function VersionTimeline({
         <div className="version-timeline-title-row">
           <GitBranch size={20} color="var(--primary)" />
           <h4 className="version-timeline-title">
-            Version History
-            <span className="version-timeline-count">{filteredVersions.length}</span>
+            {t("versionTimeline.versionHistory")}
+
+            <span className="version-timeline-count">
+              {filteredVersions.length}
+            </span>
           </h4>
         </div>
 
@@ -243,12 +287,15 @@ export default function VersionTimeline({
         {hasActiveVersion ? (
           <div className="version-active-indicator">
             <Zap size={14} />
-            <span>Active: v{currentVersion}</span>
+            <span>
+              {t("versionTimeline.activeV")}
+              {currentVersion}
+            </span>
           </div>
         ) : (
           <div className="version-no-active-indicator">
             <AlertTriangle size={14} />
-            <span>No Active Version</span>
+            <span>{t("versionTimeline.noActiveVersion")}</span>
           </div>
         )}
       </div>
@@ -260,16 +307,17 @@ export default function VersionTimeline({
           <input
             type="text"
             className="version-search-input"
-            placeholder="Search by version #, status, date, or fields..."
+            placeholder={t("versionTimeline.searchByVersion")}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            aria-label="Search version history"
+            aria-label={t("versionTimeline.searchVersionHistory")}
           />
+
           {searchQuery && (
             <button
               className="search-clear-btn"
-              onClick={() => setSearchQuery('')}
-              aria-label="Clear search query"
+              onClick={() => setSearchQuery("")}
+              aria-label={t("versionTimeline.clearSearchQuery")}
             >
               <XCircle size={14} />
             </button>
@@ -277,25 +325,33 @@ export default function VersionTimeline({
         </div>
 
         <div className="version-filter-chips">
-          {['All', 'Published', 'Draft', 'Active', 'Archived'].map((filterName) => (
-            <button
-              key={filterName}
-              className={`filter-chip ${activeFilter === filterName ? 'chip-active' : ''}`}
-              onClick={() => handleFilterClick(filterName)}
-              aria-pressed={activeFilter === filterName}
-            >
-              {filterName}
-            </button>
-          ))}
+          {["All", "Published", "Draft", "Active", "Archived"].map(
+            (filterName) => (
+              <button
+                key={filterName}
+                className={`filter-chip ${activeFilter === filterName ? "chip-active" : ""}`}
+                onClick={() => handleFilterClick(filterName)}
+                aria-pressed={activeFilter === filterName}
+              >
+                {filterName}
+              </button>
+            ),
+          )}
         </div>
 
         <div className="version-sort-control">
           <button
             className="sort-toggle-btn"
-            onClick={() => handleSortChange(sortOrder === 'Newest' ? 'Oldest' : 'Newest')}
+            onClick={() =>
+              handleSortChange(sortOrder === "Newest" ? "Oldest" : "Newest")
+            }
             title={`Toggle order (current: ${sortOrder})`}
           >
-            {sortOrder === 'Newest' ? <ArrowDown size={14} /> : <ArrowUp size={14} />}
+            {sortOrder === "Newest" ? (
+              <ArrowDown size={14} />
+            ) : (
+              <ArrowUp size={14} />
+            )}
             <span>{sortOrder}</span>
           </button>
         </div>
@@ -306,12 +362,13 @@ export default function VersionTimeline({
         <div className="version-error-box">
           <AlertTriangle size={20} />
           <div className="error-box-content">
-            <strong>Unable to load version history</strong>
+            <strong>{t("versionTimeline.unableToLoadVersion")}</strong>
             <p>{error}</p>
           </div>
           {onRetry && (
             <button className="btn-secondary btn-sm" onClick={onRetry}>
-              <RefreshCw size={14} /> Retry
+              <RefreshCw size={14} />
+              {t("versionTimeline.retry")}
             </button>
           )}
         </div>
@@ -333,22 +390,29 @@ export default function VersionTimeline({
       {/* Feature 8: Version Timeline Rail */}
       {!isLoading && !error && filteredVersions.length === 0 ? (
         <div className="version-timeline-empty">
-          <Layers size={32} style={{ opacity: 0.25 }} />
+          <Layers
+            size={32}
+            style={{
+              opacity: 0.25,
+            }}
+          />
           <p>
-            {searchQuery || activeFilter !== 'All'
-              ? 'No versions match your search or filter criteria.'
-              : 'No versions available for this form.'}
+            {searchQuery || activeFilter !== "All"
+              ? "No versions match your search or filter criteria."
+              : "No versions available for this form."}
           </p>
-          {(searchQuery || activeFilter !== 'All') && (
+          {(searchQuery || activeFilter !== "All") && (
             <button
               className="btn-secondary btn-sm"
-              style={{ marginTop: '0.75rem' }}
+              style={{
+                marginTop: "0.75rem",
+              }}
               onClick={() => {
-                setSearchQuery('');
-                setActiveFilter('All');
+                setSearchQuery("");
+                setActiveFilter("All");
               }}
             >
-              Reset Filters
+              {t("versionTimeline.resetFilters")}
             </button>
           )}
         </div>
@@ -357,49 +421,63 @@ export default function VersionTimeline({
         !error && (
           <div className="version-timeline-rail">
             <div className="timeline-direction-badge">
-              <span>{sortOrder === 'Newest' ? 'Newest ↓ Older ↓ Oldest' : 'Oldest ↑ Newer ↑ Newest'}</span>
+              <span>
+                {sortOrder === "Newest"
+                  ? "Newest ↓ Older ↓ Oldest"
+                  : "Oldest ↑ Newer ↑ Newest"}
+              </span>
             </div>
 
             {filteredVersions.map((ver, idx) => {
               const isActive =
-                currentVersion != null && ver.version_number === currentVersion;
+                (currentVersion != null && Number(ver.version_number) === Number(currentVersion)) ||
+                ver.ispublished;
               const isFirst = idx === 0;
               const isLast = idx === filteredVersions.length - 1;
               const fieldCount = ver.fields ? ver.fields.length : 0;
-
               return (
                 <div
-                  className={`version-timeline-card ${isActive ? 'version-active' : ''} ${isFirst ? 'version-newest' : ''}`}
+                  className={`version-timeline-card ${isActive ? "version-active" : ""} ${isFirst ? "version-newest" : ""}`}
                   key={ver.id || ver.version_number}
                 >
                   {/* Timeline Dot & Connector Line */}
                   <div className="version-timeline-dot-col">
                     <div
-                      className={`version-timeline-dot ${isActive ? 'dot-active' : ver.ispublished ? 'dot-published' : 'dot-draft'}`}
+                      className={`version-timeline-dot ${isActive ? "dot-active" : ver.ispublished ? "dot-published" : "dot-draft"}`}
                     />
+
                     {!isLast && <div className="version-timeline-line" />}
                   </div>
 
                   {/* Card Content */}
-                  <div className={`version-timeline-card-body ${isActive ? 'card-active' : ''}`}>
+                  <div
+                    className={`version-timeline-card-body ${isActive ? "card-active" : ""}`}
+                  >
                     {/* Top Row: Version Number + Status Badges */}
                     <div className="version-card-top-row">
                       <div className="version-card-num-group">
-                        <span className="version-card-number">Version {ver.version_number}</span>
+                        <span className="version-card-number">
+                          {t("versionTimeline.version")}
+                          {ver.version_number}
+                        </span>
                       </div>
 
                       <div className="version-card-badges">
                         {/* Feature 2: Active Version Badge */}
                         {isActive ? (
                           <span className="badge badge-active-green badge-sm">
-                            <Check size={11} /> ✓ Active Version
+                            <Check size={11} />
+                            {t("versionTimeline.activeVersion")}
                           </span>
                         ) : ver.ispublished ? (
                           <span className="badge badge-success badge-sm">
-                            <CheckCircle2 size={11} /> Published
+                            <CheckCircle2 size={11} />
+                            {t("versionTimeline.published")}
                           </span>
                         ) : (
-                          <span className="badge badge-draft badge-sm">Draft</span>
+                          <span className="badge badge-draft badge-sm">
+                            {t("versionTimeline.draft")}
+                          </span>
                         )}
                       </div>
                     </div>
@@ -416,7 +494,9 @@ export default function VersionTimeline({
                       </span>
                       <span className="version-card-meta-item">
                         <Layers size={13} />
-                        {fieldCount} field{fieldCount !== 1 ? 's' : ''}
+                        {fieldCount}
+                        {t("versionTimeline.field")}
+                        {fieldCount !== 1 ? "s" : ""}
                       </span>
                     </div>
 
@@ -429,7 +509,7 @@ export default function VersionTimeline({
                         aria-label={`View Version ${ver.version_number}`}
                       >
                         <Eye size={14} />
-                        <span>View</span>
+                        <span>{t("versionTimeline.view")}</span>
                       </button>
 
                       {onEditVersion && (
@@ -440,7 +520,7 @@ export default function VersionTimeline({
                           aria-label={`Edit Version ${ver.version_number}`}
                         >
                           <Edit3 size={14} />
-                          <span>Edit</span>
+                          <span>{t("versionTimeline.edit")}</span>
                         </button>
                       )}
 
@@ -452,7 +532,7 @@ export default function VersionTimeline({
                         aria-label={`Compare Version ${ver.version_number}`}
                       >
                         <GitCompare size={14} />
-                        <span>Compare</span>
+                        <span>{t("versionTimeline.compare")}</span>
                       </button>
 
                       {/* Feature 1 & Feature 3: Publish Button / Already Active Disabled State */}
@@ -460,11 +540,11 @@ export default function VersionTimeline({
                         <button
                           className="version-card-publish-btn btn-disabled-active"
                           disabled
-                          title="This version is already active"
+                          title={t("versionTimeline.thisVersionIsAlready")}
                           aria-disabled="true"
                         >
                           <Check size={14} />
-                          <span>Already Active</span>
+                          <span>{t("versionTimeline.alreadyActive")}</span>
                         </button>
                       ) : (
                         <button
@@ -474,7 +554,7 @@ export default function VersionTimeline({
                           aria-label={`Publish Version ${ver.version_number}`}
                         >
                           <Send size={14} />
-                          <span>Publish</span>
+                          <span>{t("versionTimeline.publish")}</span>
                         </button>
                       )}
                     </div>

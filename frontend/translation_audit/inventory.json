@@ -1,0 +1,2978 @@
+[
+  {
+    "file_path": "App.jsx",
+    "line_number": 114,
+    "raw_string": "Workspace",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Workspace",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 118,
+    "raw_string": "t(\"sidebar.overview\")",
+    "already_using_t": "yes",
+    "i18n_key": "sidebar.overview",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 124,
+    "raw_string": "t(\"sidebar.forms_portfolio\")",
+    "already_using_t": "yes",
+    "i18n_key": "sidebar.forms_portfolio",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 130,
+    "raw_string": "t(\"sidebar.templates\")",
+    "already_using_t": "yes",
+    "i18n_key": "sidebar.templates",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 136,
+    "raw_string": "t(\"sidebar.submissions\")",
+    "already_using_t": "yes",
+    "i18n_key": "sidebar.submissions",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 142,
+    "raw_string": "t(\"sidebar.conditional_rules\")",
+    "already_using_t": "yes",
+    "i18n_key": "sidebar.conditional_rules",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 148,
+    "raw_string": "t(\"sidebar.analytics\")",
+    "already_using_t": "yes",
+    "i18n_key": "sidebar.analytics",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 154,
+    "raw_string": "t(\"sidebar.reports_export\")",
+    "already_using_t": "yes",
+    "i18n_key": "sidebar.reports_export",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 158,
+    "raw_string": "Account",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Account",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 162,
+    "raw_string": "t(\"sidebar.user_profile\")",
+    "already_using_t": "yes",
+    "i18n_key": "sidebar.user_profile",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 173,
+    "raw_string": "t(\"sidebar.sign_out\")",
+    "already_using_t": "yes",
+    "i18n_key": "sidebar.sign_out",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "App.jsx",
+    "line_number": 213,
+    "raw_string": "title=\"Sign Out\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Sign Out",
+    "page": "App.jsx"
+  },
+  {
+    "file_path": "components/ProtectedRoute.jsx",
+    "line_number": 21,
+    "raw_string": "Verifying authentication session...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Verifying authentica",
+    "page": "components"
+  },
+  {
+    "file_path": "components/ProtectedRoute.jsx",
+    "line_number": 47,
+    "raw_string": "Access Restricted",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Access Restricted",
+    "page": "components"
+  },
+  {
+    "file_path": "components/common/EmptyState.jsx",
+    "line_number": 6,
+    "raw_string": "title=\"No items found\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_No items found",
+    "page": "components"
+  },
+  {
+    "file_path": "components/common/ErrorBoundary.jsx",
+    "line_number": 63,
+    "raw_string": "Reload Application",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Reload Application",
+    "page": "components"
+  },
+  {
+    "file_path": "components/common/Input.jsx",
+    "line_number": 42,
+    "raw_string": "placeholder=\"Search...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Search...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/common/Modal.jsx",
+    "line_number": 43,
+    "raw_string": "aria-label=\"Close modal\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:aria-label_Close modal",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/ArchiveFormDialog.jsx",
+    "line_number": 31,
+    "raw_string": "Archive Form",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Archive Form",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/ArchiveFormDialog.jsx",
+    "line_number": 62,
+    "raw_string": "unpublish",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:unpublish",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/ArchiveFormDialog.jsx",
+    "line_number": 62,
+    "raw_string": "this form and",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:this form and",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/ArchiveFormDialog.jsx",
+    "line_number": 62,
+    "raw_string": "stop accepting new submissions",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:stop accepting new s",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/ArchiveFormDialog.jsx",
+    "line_number": 87,
+    "raw_string": "Archiving...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Archiving...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/ArchiveFormDialog.jsx",
+    "line_number": 92,
+    "raw_string": "Confirm Archive",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Confirm Archive",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateFormModal.jsx",
+    "line_number": 41,
+    "raw_string": "Create New Form",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Create New Form",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateFormModal.jsx",
+    "line_number": 58,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateFormModal.jsx",
+    "line_number": 64,
+    "raw_string": "placeholder=\"e.g. Customer Satisfaction Survey\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_e.g. Customer S",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateFormModal.jsx",
+    "line_number": 80,
+    "raw_string": "placeholder=\"Briefly describe the purpose of this form...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Briefly describ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateFormModal.jsx",
+    "line_number": 105,
+    "raw_string": "Creating...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Creating...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateFormModal.jsx",
+    "line_number": 110,
+    "raw_string": "Create Form",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Create Form",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 154,
+    "raw_string": "IF \u2014 Trigger Field",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:IF \u2014 Trigger Field",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 160,
+    "raw_string": "Select trigger field...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Select trigger field",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 171,
+    "raw_string": "Operator",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Operator",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 187,
+    "raw_string": "Comparison Value",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Comparison Value",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 200,
+    "raw_string": "THEN \u2014 Action",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:THEN \u2014 Action",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 216,
+    "raw_string": "Target Field",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Target Field",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 222,
+    "raw_string": "Select target field...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Select target field.",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 233,
+    "raw_string": "Logical Group",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Logical Group",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 233,
+    "raw_string": "(optional)",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:(optional)",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/CreateRuleModal.jsx",
+    "line_number": 239,
+    "raw_string": "placeholder=\"e.g. group_a\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_e.g. group_a",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/DeleteFormDialog.jsx",
+    "line_number": 31,
+    "raw_string": "Delete Form",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Delete Form",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/DeleteFormDialog.jsx",
+    "line_number": 62,
+    "raw_string": "\u26a0 This action cannot be undone.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\u26a0 This action cannot",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/DeleteFormDialog.jsx",
+    "line_number": 85,
+    "raw_string": "Deleting...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Deleting...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/DeleteFormDialog.jsx",
+    "line_number": 90,
+    "raw_string": "Confirm Delete",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Confirm Delete",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/EditFormModal.jsx",
+    "line_number": 53,
+    "raw_string": "Edit Form Information",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Edit Form Informatio",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/EditFormModal.jsx",
+    "line_number": 70,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/EditFormModal.jsx",
+    "line_number": 107,
+    "raw_string": "Draft",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Draft",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/EditFormModal.jsx",
+    "line_number": 108,
+    "raw_string": "Published",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/EditFormModal.jsx",
+    "line_number": 109,
+    "raw_string": "Archived",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Archived",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/EditFormModal.jsx",
+    "line_number": 131,
+    "raw_string": "Saving...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Saving...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/EditFormModal.jsx",
+    "line_number": 134,
+    "raw_string": "Save Changes",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Save Changes",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormCard.jsx",
+    "line_number": 36,
+    "raw_string": "\u2022 Published",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\u2022 Published",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormCard.jsx",
+    "line_number": 38,
+    "raw_string": "\u2022 Archived",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\u2022 Archived",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormCard.jsx",
+    "line_number": 41,
+    "raw_string": "\u2022 Draft",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\u2022 Draft",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormCard.jsx",
+    "line_number": 106,
+    "raw_string": "title=\"Open Form Builder\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Open Form Build",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormCard.jsx",
+    "line_number": 118,
+    "raw_string": "title=\"View Form Details\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_View Form Detai",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormCard.jsx",
+    "line_number": 129,
+    "raw_string": "title=\"Edit Form Title & Description\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Edit Form Title",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormCard.jsx",
+    "line_number": 141,
+    "raw_string": "title=\"Archive Form\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Archive Form",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormCard.jsx",
+    "line_number": 153,
+    "raw_string": "title=\"Delete Form\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Delete Form",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormDetailModal.jsx",
+    "line_number": 66,
+    "raw_string": "Form Overview",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Form Overview",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormDetailModal.jsx",
+    "line_number": 68,
+    "raw_string": "aria-label=\"Close form overview dialog\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:aria-label_Close form over",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormDetailModal.jsx",
+    "line_number": 77,
+    "raw_string": "Loading form details...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Loading form details",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormDetailModal.jsx",
+    "line_number": 103,
+    "raw_string": "Owner ID",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Owner ID",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormDetailModal.jsx",
+    "line_number": 108,
+    "raw_string": "Current Active Version",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Current Active Versi",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormDetailModal.jsx",
+    "line_number": 115,
+    "raw_string": "Created At",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Created At",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormDetailModal.jsx",
+    "line_number": 120,
+    "raw_string": "Last Updated",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Last Updated",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormDetailModal.jsx",
+    "line_number": 157,
+    "raw_string": "QR Code",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:QR Code",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/FormsList.jsx",
+    "line_number": 12,
+    "raw_string": "No Forms Found",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:No Forms Found",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublicFormQRModal.jsx",
+    "line_number": 87,
+    "raw_string": "title=\"QR Code & Public Link\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_QR Code & Publi",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublicFormQRModal.jsx",
+    "line_number": 132,
+    "raw_string": "Generating QR...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Generating QR...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublicFormQRModal.jsx",
+    "line_number": 137,
+    "raw_string": "alt=\"QR Code\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:alt_QR Code",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublishConfirmModal.jsx",
+    "line_number": 178,
+    "raw_string": "Published on:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published on:",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublishConfirmModal.jsx",
+    "line_number": 196,
+    "raw_string": "title=\"Click to open public form in new tab\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Click to open p",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublishConfirmModal.jsx",
+    "line_number": 210,
+    "raw_string": "This version will become the active version.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:This version will be",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublishConfirmModal.jsx",
+    "line_number": 219,
+    "raw_string": "Target Version:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Target Version:",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublishConfirmModal.jsx",
+    "line_number": 223,
+    "raw_string": "Total Fields:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Total Fields:",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublishConfirmModal.jsx",
+    "line_number": 227,
+    "raw_string": "Current Status:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Current Status:",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublishedFormDetailModal.jsx",
+    "line_number": 99,
+    "raw_string": "title=\"Published Form Details\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Published Form ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublishedFormDetailModal.jsx",
+    "line_number": 147,
+    "raw_string": "Loading form details...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Loading form details",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/PublishedFormDetailModal.jsx",
+    "line_number": 183,
+    "raw_string": "Published",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/QRCodeCard.jsx",
+    "line_number": 72,
+    "raw_string": "title=\"Delete QR Code\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Delete QR Code",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/QRCodeCard.jsx",
+    "line_number": 120,
+    "raw_string": "Download",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Download",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/SaveAsTemplateModal.jsx",
+    "line_number": 97,
+    "raw_string": "Save Form as Template",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Save Form as Templat",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/SaveAsTemplateModal.jsx",
+    "line_number": 126,
+    "raw_string": "Notice:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Notice:",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/SaveAsTemplateModal.jsx",
+    "line_number": 138,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/SaveAsTemplateModal.jsx",
+    "line_number": 144,
+    "raw_string": "placeholder=\"e.g. Job Application Blueprint\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_e.g. Job Applic",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/SaveAsTemplateModal.jsx",
+    "line_number": 160,
+    "raw_string": "placeholder=\"Describe the purpose of this template...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Describe the pu",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/SaveAsTemplateModal.jsx",
+    "line_number": 181,
+    "raw_string": "Saving Template...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Saving Template...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/SaveAsTemplateModal.jsx",
+    "line_number": 186,
+    "raw_string": "Save Template",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Save Template",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionCompareModal.jsx",
+    "line_number": 35,
+    "raw_string": "v.version_number",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:v.version_number",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionCompareModal.jsx",
+    "line_number": 163,
+    "raw_string": "aria-label=\"Close version comparison dialog\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:aria-label_Close version c",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionCompareModal.jsx",
+    "line_number": 174,
+    "raw_string": "Target Version",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Target Version",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionCompareModal.jsx",
+    "line_number": 185,
+    "raw_string": "with",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:with",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionCompareModal.jsx",
+    "line_number": 190,
+    "raw_string": "Base Version",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Base Version",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionCompareModal.jsx",
+    "line_number": 204,
+    "raw_string": "aria-label=\"Select base version to compare against\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:aria-label_Select base ver",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionCompareModal.jsx",
+    "line_number": 243,
+    "raw_string": "Please select another version to generate field diff comparison.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Please select anothe",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionCompareModal.jsx",
+    "line_number": 263,
+    "raw_string": "Required",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Required",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionCompareModal.jsx",
+    "line_number": 300,
+    "raw_string": "No modified fields between these versions.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:No modified fields b",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionDetailModal.jsx",
+    "line_number": 140,
+    "raw_string": "No fields have been added to this version yet.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:No fields have been ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionDetailModal.jsx",
+    "line_number": 151,
+    "raw_string": "Required",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Required",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 186,
+    "raw_string": "Total Versions",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Total Versions",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 196,
+    "raw_string": "Published Versions",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published Versions",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 206,
+    "raw_string": "Draft Versions",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Draft Versions",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 216,
+    "raw_string": "Archived Versions",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Archived Versions",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 226,
+    "raw_string": "Current Active Version",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Current Active Versi",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 251,
+    "raw_string": "No Active Version",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:No Active Version",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 263,
+    "raw_string": "placeholder=\"Search by version #, status, date, or fields...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Search by versi",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 266,
+    "raw_string": "aria-label=\"Search version history\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:aria-label_Search version ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 272,
+    "raw_string": "aria-label=\"Clear search query\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:aria-label_Clear search qu",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 309,
+    "raw_string": "Unable to load version history",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Unable to load versi",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 402,
+    "raw_string": "Draft",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Draft",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 432,
+    "raw_string": "View",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:View",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 443,
+    "raw_string": "Edit",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Edit",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 455,
+    "raw_string": "Compare",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Compare",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 463,
+    "raw_string": "title=\"This version is already active\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_This version is",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 467,
+    "raw_string": "Already Active",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Already Active",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/VersionTimeline.jsx",
+    "line_number": 477,
+    "raw_string": "Publish",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Publish",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/BuilderHeader.jsx",
+    "line_number": 45,
+    "raw_string": "Unsaved Draft",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Unsaved Draft",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldCard.jsx",
+    "line_number": 43,
+    "raw_string": "title=\"Drag to reorder\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Drag to reorder",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldCard.jsx",
+    "line_number": 46,
+    "raw_string": "Required",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Required",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldCard.jsx",
+    "line_number": 58,
+    "raw_string": "title=\"Duplicate field\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Duplicate field",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldCard.jsx",
+    "line_number": 69,
+    "raw_string": "title=\"Delete field\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Delete field",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldPalette.jsx",
+    "line_number": 66,
+    "raw_string": "title=\"Click or drag into canvas\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Click or drag i",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldPalette.jsx",
+    "line_number": 91,
+    "raw_string": "Field Palette",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Field Palette",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldPalette.jsx",
+    "line_number": 92,
+    "raw_string": "Drag fields or click to add",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Drag fields or click",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldPalette.jsx",
+    "line_number": 97,
+    "raw_string": "placeholder=\"Filter field types...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Filter field ty",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 14,
+    "raw_string": "No Field Selected",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:No Field Selected",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 61,
+    "raw_string": "Field Properties",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Field Properties",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 72,
+    "raw_string": "label=\"Field Label\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:label_Field Label",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 79,
+    "raw_string": "label=\"Field Code Identifier (field_name)\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:label_Field Code Iden",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 81,
+    "raw_string": "placeholder=\"e.g. email_address\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_e.g. email_addr",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 89,
+    "raw_string": "label=\"Placeholder Text\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:label_Placeholder Tex",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 98,
+    "raw_string": "label=\"Help / Description Subtext\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:label_Help / Descript",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 100,
+    "raw_string": "placeholder=\"Subtext shown below the label...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Subtext shown b",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 162,
+    "raw_string": "Options List",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Options List",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 183,
+    "raw_string": "title=\"Remove Option\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Remove Option",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 206,
+    "raw_string": "Validation Rules",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Validation Rules",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 211,
+    "raw_string": "label=\"Minimum Length / Value\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:label_Minimum Length ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 213,
+    "raw_string": "placeholder=\"e.g. 1\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_e.g. 1",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 225,
+    "raw_string": "label=\"Maximum Length / Value\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:label_Maximum Length ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldProperties.jsx",
+    "line_number": 227,
+    "raw_string": "placeholder=\"e.g. 255\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_e.g. 255",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldRenderer.jsx",
+    "line_number": 146,
+    "raw_string": "Click or drag files here to upload",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Click or drag files ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldRenderer.jsx",
+    "line_number": 147,
+    "raw_string": "Supports PDF, DOCX, PNG, JPG (Max 10MB)",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Supports PDF, DOCX, ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldRenderer.jsx",
+    "line_number": 172,
+    "raw_string": "Draw or sign name here",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Draw or sign name he",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FieldRenderer.jsx",
+    "line_number": 211,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FormBuilder.jsx",
+    "line_number": 377,
+    "raw_string": "Loading Form Builder environment...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Loading Form Builder",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FormCanvas.jsx",
+    "line_number": 34,
+    "raw_string": "Drag fields here to start building your form",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Drag fields here to ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FormCanvas.jsx",
+    "line_number": 35,
+    "raw_string": "Choose field types from the left palette or click any item to add it directly to your canvas.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Choose field types f",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FormPreviewModal.jsx",
+    "line_number": 28,
+    "raw_string": "Form Live Preview",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Form Live Preview",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FormPreviewModal.jsx",
+    "line_number": 30,
+    "raw_string": "Respondent View",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Respondent View",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/FormPreviewModal.jsx",
+    "line_number": 34,
+    "raw_string": "aria-label=\"Close preview dialog\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:aria-label_Close preview d",
+    "page": "components"
+  },
+  {
+    "file_path": "components/forms/builder/SaveVersionModal.jsx",
+    "line_number": 46,
+    "raw_string": "Version 1",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Version 1",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/PublicFormRenderer.jsx",
+    "line_number": 497,
+    "raw_string": "Preview Mode",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Preview Mode",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/PublicFormRenderer.jsx",
+    "line_number": 498,
+    "raw_string": "You are viewing this form as a respondent. Submission is disabled.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:You are viewing this",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/PublicFormRenderer.jsx",
+    "line_number": 514,
+    "raw_string": "No questions have been added to this form yet.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:No questions have be",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/CheckboxField.jsx",
+    "line_number": 40,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/DateField.jsx",
+    "line_number": 10,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/DropdownField.jsx",
+    "line_number": 12,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/EmailField.jsx",
+    "line_number": 10,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/FileUploadField.jsx",
+    "line_number": 73,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/FileUploadField.jsx",
+    "line_number": 90,
+    "raw_string": "aria-label=\"Remove uploaded file\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:aria-label_Remove uploaded",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/FileUploadField.jsx",
+    "line_number": 113,
+    "raw_string": "Uploading file...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Uploading file...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/FileUploadField.jsx",
+    "line_number": 118,
+    "raw_string": "Click to upload a file",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Click to upload a fi",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/FileUploadField.jsx",
+    "line_number": 119,
+    "raw_string": "Supported: PDF, Images, Documents",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Supported: PDF, Imag",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/NumberField.jsx",
+    "line_number": 12,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/PhoneField.jsx",
+    "line_number": 10,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/RadioField.jsx",
+    "line_number": 12,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/RadioField.jsx",
+    "line_number": 16,
+    "raw_string": "No radio options configured.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:No radio options con",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/RatingField.jsx",
+    "line_number": 18,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/SignatureField.jsx",
+    "line_number": 76,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/SignatureField.jsx",
+    "line_number": 99,
+    "raw_string": "Draw your signature here",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Draw your signature ",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/SignatureField.jsx",
+    "line_number": 108,
+    "raw_string": "aria-label=\"Clear signature\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:aria-label_Clear signature",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/SignatureField.jsx",
+    "line_number": 111,
+    "raw_string": "Clear",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Clear",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/SubmitButton.jsx",
+    "line_number": 15,
+    "raw_string": "Submitting Response...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Submitting Response.",
+    "page": "components"
+  },
+  {
+    "file_path": "components/public/fields/TextField.jsx",
+    "line_number": 13,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 116,
+    "raw_string": "Create New Template",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Create New Template",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 129,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 135,
+    "raw_string": "placeholder=\"e.g. Employee Onboarding Questionnaire\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_e.g. Employee O",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 151,
+    "raw_string": "placeholder=\"Describe the purpose of this template...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Describe the pu",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 177,
+    "raw_string": "Add Field",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Add Field",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 185,
+    "raw_string": "\"Add Field\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\"Add Field\"",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 212,
+    "raw_string": "title=\"Remove field\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Remove field",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 221,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 227,
+    "raw_string": "placeholder=\"e.g. Email Address\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_e.g. Email Addr",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 236,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 242,
+    "raw_string": "placeholder=\"email_address\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_email_address",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 278,
+    "raw_string": "placeholder=\"Optional placeholder...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Optional placeh",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 293,
+    "raw_string": "Required",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Required",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 317,
+    "raw_string": "Creating...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Creating...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/CreateTemplateModal.jsx",
+    "line_number": 322,
+    "raw_string": "Create Template",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Create Template",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/DeleteTemplateDialog.jsx",
+    "line_number": 31,
+    "raw_string": "Delete Template",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Delete Template",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/DeleteTemplateDialog.jsx",
+    "line_number": 62,
+    "raw_string": "\u26a0 This action cannot be undone.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\u26a0 This action cannot",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/DeleteTemplateDialog.jsx",
+    "line_number": 85,
+    "raw_string": "Deleting...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Deleting...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/DeleteTemplateDialog.jsx",
+    "line_number": 90,
+    "raw_string": "Confirm Delete",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Confirm Delete",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 133,
+    "raw_string": "Edit Template",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Edit Template",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 146,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 152,
+    "raw_string": "placeholder=\"Template title...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Template title.",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 167,
+    "raw_string": "placeholder=\"Template description...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Template descri",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 193,
+    "raw_string": "Add Field",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Add Field",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 201,
+    "raw_string": "\"Add Field\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\"Add Field\"",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 228,
+    "raw_string": "title=\"Remove field\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Remove field",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 237,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 243,
+    "raw_string": "placeholder=\"e.g. Full Name\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_e.g. Full Name",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 252,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 258,
+    "raw_string": "placeholder=\"full_name\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_full_name",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 294,
+    "raw_string": "placeholder=\"Optional placeholder...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Optional placeh",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 309,
+    "raw_string": "Required",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Required",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 333,
+    "raw_string": "Saving...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Saving...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/EditTemplateModal.jsx",
+    "line_number": 338,
+    "raw_string": "Save Changes",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Save Changes",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/PreviewTemplateModal.jsx",
+    "line_number": 15,
+    "raw_string": "Template Preview",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Template Preview",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/PreviewTemplateModal.jsx",
+    "line_number": 121,
+    "raw_string": "Use Template",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Use Template",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/TemplateCard.jsx",
+    "line_number": 72,
+    "raw_string": "title=\"Use Template to create form\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Use Template to",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/TemplateCard.jsx",
+    "line_number": 83,
+    "raw_string": "title=\"Preview Template schema\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Preview Templat",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/TemplateCard.jsx",
+    "line_number": 94,
+    "raw_string": "title=\"Edit Template\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Edit Template",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/TemplateCard.jsx",
+    "line_number": 105,
+    "raw_string": "title=\"Delete Template\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Delete Template",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/UseTemplateModal.jsx",
+    "line_number": 51,
+    "raw_string": "Use Template to Create Form",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Use Template to Crea",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/UseTemplateModal.jsx",
+    "line_number": 73,
+    "raw_string": "*",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:*",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/UseTemplateModal.jsx",
+    "line_number": 79,
+    "raw_string": "placeholder=\"Enter form title...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Enter form titl",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/UseTemplateModal.jsx",
+    "line_number": 95,
+    "raw_string": "placeholder=\"Enter description...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Enter descripti",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/UseTemplateModal.jsx",
+    "line_number": 120,
+    "raw_string": "Creating Form...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Creating Form...",
+    "page": "components"
+  },
+  {
+    "file_path": "components/templates/UseTemplateModal.jsx",
+    "line_number": 125,
+    "raw_string": "Create & Launch Builder",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Create & Launch Buil",
+    "page": "components"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 385,
+    "raw_string": "All Forms (Overview)",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:All Forms (Overview)",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 397,
+    "raw_string": "All Versions",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:All Versions",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 409,
+    "raw_string": "All Time",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:All Time",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 410,
+    "raw_string": "Last 7 Days",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Last 7 Days",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 411,
+    "raw_string": "Last 30 Days",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Last 30 Days",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 412,
+    "raw_string": "Last 90 Days",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Last 90 Days",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 421,
+    "raw_string": "Daily",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Daily",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 422,
+    "raw_string": "Monthly",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Monthly",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 518,
+    "raw_string": "Submission Volume Trend",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Submission Volume Tr",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 548,
+    "raw_string": "Form-wise Submissions",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Form-wise Submission",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 588,
+    "raw_string": "Response Volume Area Trend",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Response Volume Area",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 624,
+    "raw_string": "Field Type Distribution",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Field Type Distribut",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 661,
+    "raw_string": "Field Type Composition (Google Pie Chart)",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Field Type Compositi",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/AnalyticsPage.jsx",
+    "line_number": 714,
+    "raw_string": "Form Status Share (Google Pie Chart)",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Form Status Share (G",
+    "page": "AnalyticsPage"
+  },
+  {
+    "file_path": "pages/ConditionalRulesPage.jsx",
+    "line_number": 173,
+    "raw_string": "Refresh",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Refresh",
+    "page": "ConditionalRulesPage"
+  },
+  {
+    "file_path": "pages/ConditionalRulesPage.jsx",
+    "line_number": 194,
+    "raw_string": "+ Create Rule",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:+ Create Rule",
+    "page": "ConditionalRulesPage"
+  },
+  {
+    "file_path": "pages/ConditionalRulesPage.jsx",
+    "line_number": 244,
+    "raw_string": "Select form...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Select form...",
+    "page": "ConditionalRulesPage"
+  },
+  {
+    "file_path": "pages/ConditionalRulesPage.jsx",
+    "line_number": 289,
+    "raw_string": "Select version...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Select version...",
+    "page": "ConditionalRulesPage"
+  },
+  {
+    "file_path": "pages/ConditionalRulesPage.jsx",
+    "line_number": 355,
+    "raw_string": "title=\"No Rules Found\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_No Rules Found",
+    "page": "ConditionalRulesPage"
+  },
+  {
+    "file_path": "pages/ConditionalRulesPage.jsx",
+    "line_number": 408,
+    "raw_string": "title=\"Edit Rule\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Edit Rule",
+    "page": "ConditionalRulesPage"
+  },
+  {
+    "file_path": "pages/ConditionalRulesPage.jsx",
+    "line_number": 428,
+    "raw_string": "title=\"Delete Rule\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Delete Rule",
+    "page": "ConditionalRulesPage"
+  },
+  {
+    "file_path": "pages/ConditionalRulesPage.jsx",
+    "line_number": 454,
+    "raw_string": "IF",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:IF",
+    "page": "ConditionalRulesPage"
+  },
+  {
+    "file_path": "pages/ConditionalRulesPage.jsx",
+    "line_number": 464,
+    "raw_string": "THEN",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:THEN",
+    "page": "ConditionalRulesPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 306,
+    "raw_string": "Published Forms",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published Forms",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 346,
+    "raw_string": "All Forms",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:All Forms",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 347,
+    "raw_string": "Manage all your forms",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Manage all your form",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 370,
+    "raw_string": "Published Forms",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published Forms",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 371,
+    "raw_string": "View live, public forms",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:View live, public fo",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 396,
+    "raw_string": "placeholder=\"Search forms by title or description...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Search forms by",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 403,
+    "raw_string": "All Status",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:All Status",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 404,
+    "raw_string": "Published",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 405,
+    "raw_string": "Draft",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Draft",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 406,
+    "raw_string": "Archived",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Archived",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 411,
+    "raw_string": "Sort: Recently Updated",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Sort: Recently Updat",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 412,
+    "raw_string": "Sort: Title A \u2192 Z",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Sort: Title A \u2192 Z",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 438,
+    "raw_string": "\ud83d\udccd",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\ud83d\udccd",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 440,
+    "raw_string": "\u2022 Live",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\u2022 Live",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 458,
+    "raw_string": "Recently",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Recently",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 497,
+    "raw_string": "placeholder=\"Search published forms by title...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Search publishe",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 504,
+    "raw_string": "All Status",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:All Status",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 505,
+    "raw_string": "Published",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 510,
+    "raw_string": "Newest First",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Newest First",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 511,
+    "raw_string": "Oldest First",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Oldest First",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 512,
+    "raw_string": "Name A \u2192 Z",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Name A \u2192 Z",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 513,
+    "raw_string": "Name Z \u2192 A",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Name Z \u2192 A",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 578,
+    "raw_string": "\u2022 Published",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\u2022 Published",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 698,
+    "raw_string": "title=\"Project Activity Logs\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Project Activit",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/FormsPage.jsx",
+    "line_number": 717,
+    "raw_string": "placeholder=\"Search logs by title, description or author...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Search logs by ",
+    "page": "FormsPage"
+  },
+  {
+    "file_path": "pages/LoginPage.jsx",
+    "line_number": 73,
+    "raw_string": "Administrator Sign In",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Administrator Sign I",
+    "page": "LoginPage"
+  },
+  {
+    "file_path": "pages/LoginPage.jsx",
+    "line_number": 118,
+    "raw_string": "placeholder=\"admin@example.com\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_admin@example.c",
+    "page": "LoginPage"
+  },
+  {
+    "file_path": "pages/LoginPage.jsx",
+    "line_number": 144,
+    "raw_string": "placeholder=\"\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
+    "page": "LoginPage"
+  },
+  {
+    "file_path": "pages/LoginPage.jsx",
+    "line_number": 171,
+    "raw_string": "Authenticating...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Authenticating...",
+    "page": "LoginPage"
+  },
+  {
+    "file_path": "pages/LoginPage.jsx",
+    "line_number": 175,
+    "raw_string": "Sign In",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Sign In",
+    "page": "LoginPage"
+  },
+  {
+    "file_path": "pages/LoginPage.jsx",
+    "line_number": 186,
+    "raw_string": "OR",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:OR",
+    "page": "LoginPage"
+  },
+  {
+    "file_path": "pages/LoginPage.jsx",
+    "line_number": 217,
+    "raw_string": "Connecting to Google...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Connecting to Google",
+    "page": "LoginPage"
+  },
+  {
+    "file_path": "pages/LoginPage.jsx",
+    "line_number": 227,
+    "raw_string": "Continue with Google",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Continue with Google",
+    "page": "LoginPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 30,
+    "raw_string": "= 5 && hour",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:= 5 && hour",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 32,
+    "raw_string": "= 12 && hour",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:= 12 && hour",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 34,
+    "raw_string": "= 17 && hour",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:= 17 && hour",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 316,
+    "raw_string": "t(\"overview.subtitle\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.subtitle",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 328,
+    "raw_string": "t(\"overview.search_placeholder\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.search_placeholder",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 351,
+    "raw_string": "t(\"common.refresh\")",
+    "already_using_t": "yes",
+    "i18n_key": "common.refresh",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 477,
+    "raw_string": "t(\"common.create_form\")",
+    "already_using_t": "yes",
+    "i18n_key": "common.create_form",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 512,
+    "raw_string": "t(\"overview.total_forms\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.total_forms",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 522,
+    "raw_string": "t(\"overview.published_count\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.published_count",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 522,
+    "raw_string": "t(\"overview.draft_count\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.draft_count",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 545,
+    "raw_string": "t(\"overview.total_submissions\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.total_submissions",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 555,
+    "raw_string": "t(\"overview.completed_count\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.completed_count",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 555,
+    "raw_string": "t(\"overview.in_progress_count\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.in_progress_count",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 578,
+    "raw_string": "t(\"overview.completion_rate\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.completion_rate",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 591,
+    "raw_string": "t(\"overview.finalized_vs_started\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.finalized_vs_started",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 611,
+    "raw_string": "t(\"overview.registered_users\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.registered_users",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 621,
+    "raw_string": "t(\"overview.active_accounts\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.active_accounts",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 653,
+    "raw_string": "t(\"overview.recent_submissions\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.recent_submissions",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 686,
+    "raw_string": "t(\"overview.view_all\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.view_all",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 696,
+    "raw_string": "title=\"No submissions found\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_No submissions ",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 718,
+    "raw_string": "t(\"overview.headers.id\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.headers.id",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 719,
+    "raw_string": "t(\"overview.headers.form_title\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.headers.form_title",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 720,
+    "raw_string": "t(\"overview.headers.fields\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.headers.fields",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 721,
+    "raw_string": "t(\"overview.headers.status\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.headers.status",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 722,
+    "raw_string": "t(\"overview.headers.submitted_at\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.headers.submitted_at",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 762,
+    "raw_string": "t(\"common.fields_count\")",
+    "already_using_t": "yes",
+    "i18n_key": "common.fields_count",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 769,
+    "raw_string": "t(\"common.completed\")",
+    "already_using_t": "yes",
+    "i18n_key": "common.completed",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 798,
+    "raw_string": "t(\"overview.quick_actions\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.quick_actions",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 824,
+    "raw_string": "t(\"overview.new_form\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.new_form",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 848,
+    "raw_string": "t(\"overview.analytics\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.analytics",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 872,
+    "raw_string": "t(\"overview.rules\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.rules",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 896,
+    "raw_string": "t(\"overview.export\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.export",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 914,
+    "raw_string": "t(\"overview.top_performing_forms\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.top_performing_forms",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 922,
+    "raw_string": "t(\"overview.manage\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.manage",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 929,
+    "raw_string": "No forms found.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:No forms found.",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/OverviewPage.jsx",
+    "line_number": 938,
+    "raw_string": "t(\"overview.responses_count\")",
+    "already_using_t": "yes",
+    "i18n_key": "overview.responses_count",
+    "page": "OverviewPage"
+  },
+  {
+    "file_path": "pages/ProfilePage.jsx",
+    "line_number": 111,
+    "raw_string": "title=\"Refresh Account Data\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Refresh Account",
+    "page": "ProfilePage"
+  },
+  {
+    "file_path": "pages/ProfilePage.jsx",
+    "line_number": 206,
+    "raw_string": "JWT Bearer OAuth2",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:JWT Bearer OAuth2",
+    "page": "ProfilePage"
+  },
+  {
+    "file_path": "pages/ProfilePage.jsx",
+    "line_number": 213,
+    "raw_string": "Read / Write Admin Permissions",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Read / Write Admin P",
+    "page": "ProfilePage"
+  },
+  {
+    "file_path": "pages/ProfilePage.jsx",
+    "line_number": 229,
+    "raw_string": "BCrypt Hashed (Salted)",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:BCrypt Hashed (Salte",
+    "page": "ProfilePage"
+  },
+  {
+    "file_path": "pages/PublicFormPage.jsx",
+    "line_number": 126,
+    "raw_string": "Form Unavailable",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Form Unavailable",
+    "page": "PublicFormPage"
+  },
+  {
+    "file_path": "pages/PublicFormPage.jsx",
+    "line_number": 130,
+    "raw_string": "Try Again",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Try Again",
+    "page": "PublicFormPage"
+  },
+  {
+    "file_path": "pages/PublicFormPage.jsx",
+    "line_number": 141,
+    "raw_string": "\u2713 Thank You",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:\u2713 Thank You",
+    "page": "PublicFormPage"
+  },
+  {
+    "file_path": "pages/PublicFormPage.jsx",
+    "line_number": 153,
+    "raw_string": "Submit Another Response",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Submit Another Respo",
+    "page": "PublicFormPage"
+  },
+  {
+    "file_path": "pages/PublicFormPage.jsx",
+    "line_number": 175,
+    "raw_string": "Close",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Close",
+    "page": "PublicFormPage"
+  },
+  {
+    "file_path": "pages/PublicFormPage.jsx",
+    "line_number": 218,
+    "raw_string": "Powered by",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Powered by",
+    "page": "PublicFormPage"
+  },
+  {
+    "file_path": "pages/PublicFormPage.jsx",
+    "line_number": 218,
+    "raw_string": "FormCraft",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:FormCraft",
+    "page": "PublicFormPage"
+  },
+  {
+    "file_path": "pages/PublishedFormsPage.jsx",
+    "line_number": 138,
+    "raw_string": "Published Forms",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published Forms",
+    "page": "PublishedFormsPage"
+  },
+  {
+    "file_path": "pages/PublishedFormsPage.jsx",
+    "line_number": 139,
+    "raw_string": "View and manage all your live, publicly accessible forms.",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:View and manage all ",
+    "page": "PublishedFormsPage"
+  },
+  {
+    "file_path": "pages/PublishedFormsPage.jsx",
+    "line_number": 156,
+    "raw_string": "placeholder=\"Search published forms...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Search publishe",
+    "page": "PublishedFormsPage"
+  },
+  {
+    "file_path": "pages/PublishedFormsPage.jsx",
+    "line_number": 167,
+    "raw_string": "Newest First",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Newest First",
+    "page": "PublishedFormsPage"
+  },
+  {
+    "file_path": "pages/PublishedFormsPage.jsx",
+    "line_number": 168,
+    "raw_string": "Oldest First",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Oldest First",
+    "page": "PublishedFormsPage"
+  },
+  {
+    "file_path": "pages/PublishedFormsPage.jsx",
+    "line_number": 169,
+    "raw_string": "Name A \u2192 Z",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Name A \u2192 Z",
+    "page": "PublishedFormsPage"
+  },
+  {
+    "file_path": "pages/PublishedFormsPage.jsx",
+    "line_number": 170,
+    "raw_string": "Name Z \u2192 A",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Name Z \u2192 A",
+    "page": "PublishedFormsPage"
+  },
+  {
+    "file_path": "pages/PublishedFormsPage.jsx",
+    "line_number": 211,
+    "raw_string": "Published",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published",
+    "page": "PublishedFormsPage"
+  },
+  {
+    "file_path": "pages/RegisterPage.jsx",
+    "line_number": 86,
+    "raw_string": "Create Administrator",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Create Administrator",
+    "page": "RegisterPage"
+  },
+  {
+    "file_path": "pages/RegisterPage.jsx",
+    "line_number": 129,
+    "raw_string": "Administrator account created in Firebase! Redirecting to Sign In...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Administrator accoun",
+    "page": "RegisterPage"
+  },
+  {
+    "file_path": "pages/RegisterPage.jsx",
+    "line_number": 150,
+    "raw_string": "placeholder=\"Admin\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Admin",
+    "page": "RegisterPage"
+  },
+  {
+    "file_path": "pages/RegisterPage.jsx",
+    "line_number": 172,
+    "raw_string": "placeholder=\"User\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_User",
+    "page": "RegisterPage"
+  },
+  {
+    "file_path": "pages/RegisterPage.jsx",
+    "line_number": 197,
+    "raw_string": "placeholder=\"admin@example.com\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_admin@example.c",
+    "page": "RegisterPage"
+  },
+  {
+    "file_path": "pages/RegisterPage.jsx",
+    "line_number": 221,
+    "raw_string": "placeholder=\"\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
+    "page": "RegisterPage"
+  },
+  {
+    "file_path": "pages/RegisterPage.jsx",
+    "line_number": 248,
+    "raw_string": "Creating Firebase Account...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Creating Firebase Ac",
+    "page": "RegisterPage"
+  },
+  {
+    "file_path": "pages/RegisterPage.jsx",
+    "line_number": 252,
+    "raw_string": "Register Administrator",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Register Administrat",
+    "page": "RegisterPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 103,
+    "raw_string": "Forms & Version Metadata",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Forms & Version Meta",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 104,
+    "raw_string": "Submissions & Responses",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Submissions & Respon",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 105,
+    "raw_string": "Analytics & Metrics",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Analytics & Metrics",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 106,
+    "raw_string": "System Dashboard Summary",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:System Dashboard Sum",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 113,
+    "raw_string": "(Optional)",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:(Optional)",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 116,
+    "raw_string": "All Forms",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:All Forms",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 146,
+    "raw_string": "CSV",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:CSV",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 165,
+    "raw_string": "JSON",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:JSON",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 184,
+    "raw_string": "PDF",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:PDF",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 216,
+    "raw_string": "Total Forms:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Total Forms:",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 220,
+    "raw_string": "Total Submissions:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Total Submissions:",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 224,
+    "raw_string": "Published Forms:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Published Forms:",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ReportsExportPage.jsx",
+    "line_number": 228,
+    "raw_string": "Completion Rate:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Completion Rate:",
+    "page": "ReportsExportPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 241,
+    "raw_string": "Refresh",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Refresh",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 291,
+    "raw_string": "Select form...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Select form...",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 336,
+    "raw_string": "Select version...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Select version...",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 368,
+    "raw_string": "placeholder=\"Search by submission ID or timestamp...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Search by submi",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 436,
+    "raw_string": "title=\"No Submissions Found\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_No Submissions ",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 510,
+    "raw_string": "Loading field responses...",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Loading field respon",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 533,
+    "raw_string": "ID",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:ID",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 534,
+    "raw_string": "FIELD",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:FIELD",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 535,
+    "raw_string": "VALUE",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:VALUE",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 568,
+    "raw_string": "Empty",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Empty",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/ResponsesPage.jsx",
+    "line_number": 579,
+    "raw_string": "title=\"Delete Response\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Delete Response",
+    "page": "ResponsesPage"
+  },
+  {
+    "file_path": "pages/TemplatesPage.jsx",
+    "line_number": 152,
+    "raw_string": "Total Templates:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Total Templates:",
+    "page": "TemplatesPage"
+  },
+  {
+    "file_path": "pages/TemplatesPage.jsx",
+    "line_number": 157,
+    "raw_string": "Pre-configured Fields:",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Pre-configured Field",
+    "page": "TemplatesPage"
+  },
+  {
+    "file_path": "pages/TemplatesPage.jsx",
+    "line_number": 166,
+    "raw_string": "placeholder=\"Search templates by title or description...\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:placeholder_Search template",
+    "page": "TemplatesPage"
+  },
+  {
+    "file_path": "pages/TemplatesPage.jsx",
+    "line_number": 177,
+    "raw_string": "Sort by Newest",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Sort by Newest",
+    "page": "TemplatesPage"
+  },
+  {
+    "file_path": "pages/TemplatesPage.jsx",
+    "line_number": 178,
+    "raw_string": "Sort by Oldest",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Sort by Oldest",
+    "page": "TemplatesPage"
+  },
+  {
+    "file_path": "pages/TemplatesPage.jsx",
+    "line_number": 179,
+    "raw_string": "Sort by Title (A-Z)",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Sort by Title (A-Z)",
+    "page": "TemplatesPage"
+  },
+  {
+    "file_path": "pages/TemplatesPage.jsx",
+    "line_number": 180,
+    "raw_string": "Sort by Most Fields",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:Sort by Most Fields",
+    "page": "TemplatesPage"
+  },
+  {
+    "file_path": "services/qrApi.js",
+    "line_number": 65,
+    "raw_string": "title=\"Public Form QR\"",
+    "already_using_t": "no",
+    "i18n_key": "PROPOSED:title_Public Form QR",
+    "page": "services"
+  }
+]

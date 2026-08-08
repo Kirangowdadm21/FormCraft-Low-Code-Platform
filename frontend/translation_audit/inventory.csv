@@ -1,0 +1,373 @@
+file_path,line_number,raw_string,already_using_t,i18n_key,page
+App.jsx,114,Workspace,no,PROPOSED:Workspace,App.jsx
+App.jsx,118,"t(""sidebar.overview"")",yes,sidebar.overview,App.jsx
+App.jsx,124,"t(""sidebar.forms_portfolio"")",yes,sidebar.forms_portfolio,App.jsx
+App.jsx,130,"t(""sidebar.templates"")",yes,sidebar.templates,App.jsx
+App.jsx,136,"t(""sidebar.submissions"")",yes,sidebar.submissions,App.jsx
+App.jsx,142,"t(""sidebar.conditional_rules"")",yes,sidebar.conditional_rules,App.jsx
+App.jsx,148,"t(""sidebar.analytics"")",yes,sidebar.analytics,App.jsx
+App.jsx,154,"t(""sidebar.reports_export"")",yes,sidebar.reports_export,App.jsx
+App.jsx,158,Account,no,PROPOSED:Account,App.jsx
+App.jsx,162,"t(""sidebar.user_profile"")",yes,sidebar.user_profile,App.jsx
+App.jsx,173,"t(""sidebar.sign_out"")",yes,sidebar.sign_out,App.jsx
+App.jsx,213,"title=""Sign Out""",no,PROPOSED:title_Sign Out,App.jsx
+components/ProtectedRoute.jsx,21,Verifying authentication session...,no,PROPOSED:Verifying authentica,components
+components/ProtectedRoute.jsx,47,Access Restricted,no,PROPOSED:Access Restricted,components
+components/common/EmptyState.jsx,6,"title=""No items found""",no,PROPOSED:title_No items found,components
+components/common/ErrorBoundary.jsx,63,Reload Application,no,PROPOSED:Reload Application,components
+components/common/Input.jsx,42,"placeholder=""Search...""",no,PROPOSED:placeholder_Search...,components
+components/common/Modal.jsx,43,"aria-label=""Close modal""",no,PROPOSED:aria-label_Close modal,components
+components/forms/ArchiveFormDialog.jsx,31,Archive Form,no,PROPOSED:Archive Form,components
+components/forms/ArchiveFormDialog.jsx,62,unpublish,no,PROPOSED:unpublish,components
+components/forms/ArchiveFormDialog.jsx,62,this form and,no,PROPOSED:this form and,components
+components/forms/ArchiveFormDialog.jsx,62,stop accepting new submissions,no,PROPOSED:stop accepting new s,components
+components/forms/ArchiveFormDialog.jsx,87,Archiving...,no,PROPOSED:Archiving...,components
+components/forms/ArchiveFormDialog.jsx,92,Confirm Archive,no,PROPOSED:Confirm Archive,components
+components/forms/CreateFormModal.jsx,41,Create New Form,no,PROPOSED:Create New Form,components
+components/forms/CreateFormModal.jsx,58,*,no,PROPOSED:*,components
+components/forms/CreateFormModal.jsx,64,"placeholder=""e.g. Customer Satisfaction Survey""",no,PROPOSED:placeholder_e.g. Customer S,components
+components/forms/CreateFormModal.jsx,80,"placeholder=""Briefly describe the purpose of this form...""",no,PROPOSED:placeholder_Briefly describ,components
+components/forms/CreateFormModal.jsx,105,Creating...,no,PROPOSED:Creating...,components
+components/forms/CreateFormModal.jsx,110,Create Form,no,PROPOSED:Create Form,components
+components/forms/CreateRuleModal.jsx,154,IF — Trigger Field,no,PROPOSED:IF — Trigger Field,components
+components/forms/CreateRuleModal.jsx,160,Select trigger field...,no,PROPOSED:Select trigger field,components
+components/forms/CreateRuleModal.jsx,171,Operator,no,PROPOSED:Operator,components
+components/forms/CreateRuleModal.jsx,187,Comparison Value,no,PROPOSED:Comparison Value,components
+components/forms/CreateRuleModal.jsx,200,THEN — Action,no,PROPOSED:THEN — Action,components
+components/forms/CreateRuleModal.jsx,216,Target Field,no,PROPOSED:Target Field,components
+components/forms/CreateRuleModal.jsx,222,Select target field...,no,PROPOSED:Select target field.,components
+components/forms/CreateRuleModal.jsx,233,Logical Group,no,PROPOSED:Logical Group,components
+components/forms/CreateRuleModal.jsx,233,(optional),no,PROPOSED:(optional),components
+components/forms/CreateRuleModal.jsx,239,"placeholder=""e.g. group_a""",no,PROPOSED:placeholder_e.g. group_a,components
+components/forms/DeleteFormDialog.jsx,31,Delete Form,no,PROPOSED:Delete Form,components
+components/forms/DeleteFormDialog.jsx,62,⚠ This action cannot be undone.,no,PROPOSED:⚠ This action cannot,components
+components/forms/DeleteFormDialog.jsx,85,Deleting...,no,PROPOSED:Deleting...,components
+components/forms/DeleteFormDialog.jsx,90,Confirm Delete,no,PROPOSED:Confirm Delete,components
+components/forms/EditFormModal.jsx,53,Edit Form Information,no,PROPOSED:Edit Form Informatio,components
+components/forms/EditFormModal.jsx,70,*,no,PROPOSED:*,components
+components/forms/EditFormModal.jsx,107,Draft,no,PROPOSED:Draft,components
+components/forms/EditFormModal.jsx,108,Published,no,PROPOSED:Published,components
+components/forms/EditFormModal.jsx,109,Archived,no,PROPOSED:Archived,components
+components/forms/EditFormModal.jsx,131,Saving...,no,PROPOSED:Saving...,components
+components/forms/EditFormModal.jsx,134,Save Changes,no,PROPOSED:Save Changes,components
+components/forms/FormCard.jsx,36,• Published,no,PROPOSED:• Published,components
+components/forms/FormCard.jsx,38,• Archived,no,PROPOSED:• Archived,components
+components/forms/FormCard.jsx,41,• Draft,no,PROPOSED:• Draft,components
+components/forms/FormCard.jsx,106,"title=""Open Form Builder""",no,PROPOSED:title_Open Form Build,components
+components/forms/FormCard.jsx,118,"title=""View Form Details""",no,PROPOSED:title_View Form Detai,components
+components/forms/FormCard.jsx,129,"title=""Edit Form Title & Description""",no,PROPOSED:title_Edit Form Title,components
+components/forms/FormCard.jsx,141,"title=""Archive Form""",no,PROPOSED:title_Archive Form,components
+components/forms/FormCard.jsx,153,"title=""Delete Form""",no,PROPOSED:title_Delete Form,components
+components/forms/FormDetailModal.jsx,66,Form Overview,no,PROPOSED:Form Overview,components
+components/forms/FormDetailModal.jsx,68,"aria-label=""Close form overview dialog""",no,PROPOSED:aria-label_Close form over,components
+components/forms/FormDetailModal.jsx,77,Loading form details...,no,PROPOSED:Loading form details,components
+components/forms/FormDetailModal.jsx,103,Owner ID,no,PROPOSED:Owner ID,components
+components/forms/FormDetailModal.jsx,108,Current Active Version,no,PROPOSED:Current Active Versi,components
+components/forms/FormDetailModal.jsx,115,Created At,no,PROPOSED:Created At,components
+components/forms/FormDetailModal.jsx,120,Last Updated,no,PROPOSED:Last Updated,components
+components/forms/FormDetailModal.jsx,157,QR Code,no,PROPOSED:QR Code,components
+components/forms/FormsList.jsx,12,No Forms Found,no,PROPOSED:No Forms Found,components
+components/forms/PublicFormQRModal.jsx,87,"title=""QR Code & Public Link""",no,PROPOSED:title_QR Code & Publi,components
+components/forms/PublicFormQRModal.jsx,132,Generating QR...,no,PROPOSED:Generating QR...,components
+components/forms/PublicFormQRModal.jsx,137,"alt=""QR Code""",no,PROPOSED:alt_QR Code,components
+components/forms/PublishConfirmModal.jsx,178,Published on:,no,PROPOSED:Published on:,components
+components/forms/PublishConfirmModal.jsx,196,"title=""Click to open public form in new tab""",no,PROPOSED:title_Click to open p,components
+components/forms/PublishConfirmModal.jsx,210,This version will become the active version.,no,PROPOSED:This version will be,components
+components/forms/PublishConfirmModal.jsx,219,Target Version:,no,PROPOSED:Target Version:,components
+components/forms/PublishConfirmModal.jsx,223,Total Fields:,no,PROPOSED:Total Fields:,components
+components/forms/PublishConfirmModal.jsx,227,Current Status:,no,PROPOSED:Current Status:,components
+components/forms/PublishedFormDetailModal.jsx,99,"title=""Published Form Details""",no,PROPOSED:title_Published Form ,components
+components/forms/PublishedFormDetailModal.jsx,147,Loading form details...,no,PROPOSED:Loading form details,components
+components/forms/PublishedFormDetailModal.jsx,183,Published,no,PROPOSED:Published,components
+components/forms/QRCodeCard.jsx,72,"title=""Delete QR Code""",no,PROPOSED:title_Delete QR Code,components
+components/forms/QRCodeCard.jsx,120,Download,no,PROPOSED:Download,components
+components/forms/SaveAsTemplateModal.jsx,97,Save Form as Template,no,PROPOSED:Save Form as Templat,components
+components/forms/SaveAsTemplateModal.jsx,126,Notice:,no,PROPOSED:Notice:,components
+components/forms/SaveAsTemplateModal.jsx,138,*,no,PROPOSED:*,components
+components/forms/SaveAsTemplateModal.jsx,144,"placeholder=""e.g. Job Application Blueprint""",no,PROPOSED:placeholder_e.g. Job Applic,components
+components/forms/SaveAsTemplateModal.jsx,160,"placeholder=""Describe the purpose of this template...""",no,PROPOSED:placeholder_Describe the pu,components
+components/forms/SaveAsTemplateModal.jsx,181,Saving Template...,no,PROPOSED:Saving Template...,components
+components/forms/SaveAsTemplateModal.jsx,186,Save Template,no,PROPOSED:Save Template,components
+components/forms/VersionCompareModal.jsx,35,v.version_number,no,PROPOSED:v.version_number,components
+components/forms/VersionCompareModal.jsx,163,"aria-label=""Close version comparison dialog""",no,PROPOSED:aria-label_Close version c,components
+components/forms/VersionCompareModal.jsx,174,Target Version,no,PROPOSED:Target Version,components
+components/forms/VersionCompareModal.jsx,185,with,no,PROPOSED:with,components
+components/forms/VersionCompareModal.jsx,190,Base Version,no,PROPOSED:Base Version,components
+components/forms/VersionCompareModal.jsx,204,"aria-label=""Select base version to compare against""",no,PROPOSED:aria-label_Select base ver,components
+components/forms/VersionCompareModal.jsx,243,Please select another version to generate field diff comparison.,no,PROPOSED:Please select anothe,components
+components/forms/VersionCompareModal.jsx,263,Required,no,PROPOSED:Required,components
+components/forms/VersionCompareModal.jsx,300,No modified fields between these versions.,no,PROPOSED:No modified fields b,components
+components/forms/VersionDetailModal.jsx,140,No fields have been added to this version yet.,no,PROPOSED:No fields have been ,components
+components/forms/VersionDetailModal.jsx,151,Required,no,PROPOSED:Required,components
+components/forms/VersionTimeline.jsx,186,Total Versions,no,PROPOSED:Total Versions,components
+components/forms/VersionTimeline.jsx,196,Published Versions,no,PROPOSED:Published Versions,components
+components/forms/VersionTimeline.jsx,206,Draft Versions,no,PROPOSED:Draft Versions,components
+components/forms/VersionTimeline.jsx,216,Archived Versions,no,PROPOSED:Archived Versions,components
+components/forms/VersionTimeline.jsx,226,Current Active Version,no,PROPOSED:Current Active Versi,components
+components/forms/VersionTimeline.jsx,251,No Active Version,no,PROPOSED:No Active Version,components
+components/forms/VersionTimeline.jsx,263,"placeholder=""Search by version #, status, date, or fields...""",no,PROPOSED:placeholder_Search by versi,components
+components/forms/VersionTimeline.jsx,266,"aria-label=""Search version history""",no,PROPOSED:aria-label_Search version ,components
+components/forms/VersionTimeline.jsx,272,"aria-label=""Clear search query""",no,PROPOSED:aria-label_Clear search qu,components
+components/forms/VersionTimeline.jsx,309,Unable to load version history,no,PROPOSED:Unable to load versi,components
+components/forms/VersionTimeline.jsx,402,Draft,no,PROPOSED:Draft,components
+components/forms/VersionTimeline.jsx,432,View,no,PROPOSED:View,components
+components/forms/VersionTimeline.jsx,443,Edit,no,PROPOSED:Edit,components
+components/forms/VersionTimeline.jsx,455,Compare,no,PROPOSED:Compare,components
+components/forms/VersionTimeline.jsx,463,"title=""This version is already active""",no,PROPOSED:title_This version is,components
+components/forms/VersionTimeline.jsx,467,Already Active,no,PROPOSED:Already Active,components
+components/forms/VersionTimeline.jsx,477,Publish,no,PROPOSED:Publish,components
+components/forms/builder/BuilderHeader.jsx,45,Unsaved Draft,no,PROPOSED:Unsaved Draft,components
+components/forms/builder/FieldCard.jsx,43,"title=""Drag to reorder""",no,PROPOSED:title_Drag to reorder,components
+components/forms/builder/FieldCard.jsx,46,Required,no,PROPOSED:Required,components
+components/forms/builder/FieldCard.jsx,58,"title=""Duplicate field""",no,PROPOSED:title_Duplicate field,components
+components/forms/builder/FieldCard.jsx,69,"title=""Delete field""",no,PROPOSED:title_Delete field,components
+components/forms/builder/FieldPalette.jsx,66,"title=""Click or drag into canvas""",no,PROPOSED:title_Click or drag i,components
+components/forms/builder/FieldPalette.jsx,91,Field Palette,no,PROPOSED:Field Palette,components
+components/forms/builder/FieldPalette.jsx,92,Drag fields or click to add,no,PROPOSED:Drag fields or click,components
+components/forms/builder/FieldPalette.jsx,97,"placeholder=""Filter field types...""",no,PROPOSED:placeholder_Filter field ty,components
+components/forms/builder/FieldProperties.jsx,14,No Field Selected,no,PROPOSED:No Field Selected,components
+components/forms/builder/FieldProperties.jsx,61,Field Properties,no,PROPOSED:Field Properties,components
+components/forms/builder/FieldProperties.jsx,72,"label=""Field Label""",no,PROPOSED:label_Field Label,components
+components/forms/builder/FieldProperties.jsx,79,"label=""Field Code Identifier (field_name)""",no,PROPOSED:label_Field Code Iden,components
+components/forms/builder/FieldProperties.jsx,81,"placeholder=""e.g. email_address""",no,PROPOSED:placeholder_e.g. email_addr,components
+components/forms/builder/FieldProperties.jsx,89,"label=""Placeholder Text""",no,PROPOSED:label_Placeholder Tex,components
+components/forms/builder/FieldProperties.jsx,98,"label=""Help / Description Subtext""",no,PROPOSED:label_Help / Descript,components
+components/forms/builder/FieldProperties.jsx,100,"placeholder=""Subtext shown below the label...""",no,PROPOSED:placeholder_Subtext shown b,components
+components/forms/builder/FieldProperties.jsx,162,Options List,no,PROPOSED:Options List,components
+components/forms/builder/FieldProperties.jsx,183,"title=""Remove Option""",no,PROPOSED:title_Remove Option,components
+components/forms/builder/FieldProperties.jsx,206,Validation Rules,no,PROPOSED:Validation Rules,components
+components/forms/builder/FieldProperties.jsx,211,"label=""Minimum Length / Value""",no,PROPOSED:label_Minimum Length ,components
+components/forms/builder/FieldProperties.jsx,213,"placeholder=""e.g. 1""",no,PROPOSED:placeholder_e.g. 1,components
+components/forms/builder/FieldProperties.jsx,225,"label=""Maximum Length / Value""",no,PROPOSED:label_Maximum Length ,components
+components/forms/builder/FieldProperties.jsx,227,"placeholder=""e.g. 255""",no,PROPOSED:placeholder_e.g. 255,components
+components/forms/builder/FieldRenderer.jsx,146,Click or drag files here to upload,no,PROPOSED:Click or drag files ,components
+components/forms/builder/FieldRenderer.jsx,147,"Supports PDF, DOCX, PNG, JPG (Max 10MB)",no,"PROPOSED:Supports PDF, DOCX, ",components
+components/forms/builder/FieldRenderer.jsx,172,Draw or sign name here,no,PROPOSED:Draw or sign name he,components
+components/forms/builder/FieldRenderer.jsx,211,*,no,PROPOSED:*,components
+components/forms/builder/FormBuilder.jsx,377,Loading Form Builder environment...,no,PROPOSED:Loading Form Builder,components
+components/forms/builder/FormCanvas.jsx,34,Drag fields here to start building your form,no,PROPOSED:Drag fields here to ,components
+components/forms/builder/FormCanvas.jsx,35,Choose field types from the left palette or click any item to add it directly to your canvas.,no,PROPOSED:Choose field types f,components
+components/forms/builder/FormPreviewModal.jsx,28,Form Live Preview,no,PROPOSED:Form Live Preview,components
+components/forms/builder/FormPreviewModal.jsx,30,Respondent View,no,PROPOSED:Respondent View,components
+components/forms/builder/FormPreviewModal.jsx,34,"aria-label=""Close preview dialog""",no,PROPOSED:aria-label_Close preview d,components
+components/forms/builder/SaveVersionModal.jsx,46,Version 1,no,PROPOSED:Version 1,components
+components/public/PublicFormRenderer.jsx,497,Preview Mode,no,PROPOSED:Preview Mode,components
+components/public/PublicFormRenderer.jsx,498,You are viewing this form as a respondent. Submission is disabled.,no,PROPOSED:You are viewing this,components
+components/public/PublicFormRenderer.jsx,514,No questions have been added to this form yet.,no,PROPOSED:No questions have be,components
+components/public/fields/CheckboxField.jsx,40,*,no,PROPOSED:*,components
+components/public/fields/DateField.jsx,10,*,no,PROPOSED:*,components
+components/public/fields/DropdownField.jsx,12,*,no,PROPOSED:*,components
+components/public/fields/EmailField.jsx,10,*,no,PROPOSED:*,components
+components/public/fields/FileUploadField.jsx,73,*,no,PROPOSED:*,components
+components/public/fields/FileUploadField.jsx,90,"aria-label=""Remove uploaded file""",no,PROPOSED:aria-label_Remove uploaded,components
+components/public/fields/FileUploadField.jsx,113,Uploading file...,no,PROPOSED:Uploading file...,components
+components/public/fields/FileUploadField.jsx,118,Click to upload a file,no,PROPOSED:Click to upload a fi,components
+components/public/fields/FileUploadField.jsx,119,"Supported: PDF, Images, Documents",no,"PROPOSED:Supported: PDF, Imag",components
+components/public/fields/NumberField.jsx,12,*,no,PROPOSED:*,components
+components/public/fields/PhoneField.jsx,10,*,no,PROPOSED:*,components
+components/public/fields/RadioField.jsx,12,*,no,PROPOSED:*,components
+components/public/fields/RadioField.jsx,16,No radio options configured.,no,PROPOSED:No radio options con,components
+components/public/fields/RatingField.jsx,18,*,no,PROPOSED:*,components
+components/public/fields/SignatureField.jsx,76,*,no,PROPOSED:*,components
+components/public/fields/SignatureField.jsx,99,Draw your signature here,no,PROPOSED:Draw your signature ,components
+components/public/fields/SignatureField.jsx,108,"aria-label=""Clear signature""",no,PROPOSED:aria-label_Clear signature,components
+components/public/fields/SignatureField.jsx,111,Clear,no,PROPOSED:Clear,components
+components/public/fields/SubmitButton.jsx,15,Submitting Response...,no,PROPOSED:Submitting Response.,components
+components/public/fields/TextField.jsx,13,*,no,PROPOSED:*,components
+components/templates/CreateTemplateModal.jsx,116,Create New Template,no,PROPOSED:Create New Template,components
+components/templates/CreateTemplateModal.jsx,129,*,no,PROPOSED:*,components
+components/templates/CreateTemplateModal.jsx,135,"placeholder=""e.g. Employee Onboarding Questionnaire""",no,PROPOSED:placeholder_e.g. Employee O,components
+components/templates/CreateTemplateModal.jsx,151,"placeholder=""Describe the purpose of this template...""",no,PROPOSED:placeholder_Describe the pu,components
+components/templates/CreateTemplateModal.jsx,177,Add Field,no,PROPOSED:Add Field,components
+components/templates/CreateTemplateModal.jsx,185,"""Add Field""",no,"PROPOSED:""Add Field""",components
+components/templates/CreateTemplateModal.jsx,212,"title=""Remove field""",no,PROPOSED:title_Remove field,components
+components/templates/CreateTemplateModal.jsx,221,*,no,PROPOSED:*,components
+components/templates/CreateTemplateModal.jsx,227,"placeholder=""e.g. Email Address""",no,PROPOSED:placeholder_e.g. Email Addr,components
+components/templates/CreateTemplateModal.jsx,236,*,no,PROPOSED:*,components
+components/templates/CreateTemplateModal.jsx,242,"placeholder=""email_address""",no,PROPOSED:placeholder_email_address,components
+components/templates/CreateTemplateModal.jsx,278,"placeholder=""Optional placeholder...""",no,PROPOSED:placeholder_Optional placeh,components
+components/templates/CreateTemplateModal.jsx,293,Required,no,PROPOSED:Required,components
+components/templates/CreateTemplateModal.jsx,317,Creating...,no,PROPOSED:Creating...,components
+components/templates/CreateTemplateModal.jsx,322,Create Template,no,PROPOSED:Create Template,components
+components/templates/DeleteTemplateDialog.jsx,31,Delete Template,no,PROPOSED:Delete Template,components
+components/templates/DeleteTemplateDialog.jsx,62,⚠ This action cannot be undone.,no,PROPOSED:⚠ This action cannot,components
+components/templates/DeleteTemplateDialog.jsx,85,Deleting...,no,PROPOSED:Deleting...,components
+components/templates/DeleteTemplateDialog.jsx,90,Confirm Delete,no,PROPOSED:Confirm Delete,components
+components/templates/EditTemplateModal.jsx,133,Edit Template,no,PROPOSED:Edit Template,components
+components/templates/EditTemplateModal.jsx,146,*,no,PROPOSED:*,components
+components/templates/EditTemplateModal.jsx,152,"placeholder=""Template title...""",no,PROPOSED:placeholder_Template title.,components
+components/templates/EditTemplateModal.jsx,167,"placeholder=""Template description...""",no,PROPOSED:placeholder_Template descri,components
+components/templates/EditTemplateModal.jsx,193,Add Field,no,PROPOSED:Add Field,components
+components/templates/EditTemplateModal.jsx,201,"""Add Field""",no,"PROPOSED:""Add Field""",components
+components/templates/EditTemplateModal.jsx,228,"title=""Remove field""",no,PROPOSED:title_Remove field,components
+components/templates/EditTemplateModal.jsx,237,*,no,PROPOSED:*,components
+components/templates/EditTemplateModal.jsx,243,"placeholder=""e.g. Full Name""",no,PROPOSED:placeholder_e.g. Full Name,components
+components/templates/EditTemplateModal.jsx,252,*,no,PROPOSED:*,components
+components/templates/EditTemplateModal.jsx,258,"placeholder=""full_name""",no,PROPOSED:placeholder_full_name,components
+components/templates/EditTemplateModal.jsx,294,"placeholder=""Optional placeholder...""",no,PROPOSED:placeholder_Optional placeh,components
+components/templates/EditTemplateModal.jsx,309,Required,no,PROPOSED:Required,components
+components/templates/EditTemplateModal.jsx,333,Saving...,no,PROPOSED:Saving...,components
+components/templates/EditTemplateModal.jsx,338,Save Changes,no,PROPOSED:Save Changes,components
+components/templates/PreviewTemplateModal.jsx,15,Template Preview,no,PROPOSED:Template Preview,components
+components/templates/PreviewTemplateModal.jsx,121,Use Template,no,PROPOSED:Use Template,components
+components/templates/TemplateCard.jsx,72,"title=""Use Template to create form""",no,PROPOSED:title_Use Template to,components
+components/templates/TemplateCard.jsx,83,"title=""Preview Template schema""",no,PROPOSED:title_Preview Templat,components
+components/templates/TemplateCard.jsx,94,"title=""Edit Template""",no,PROPOSED:title_Edit Template,components
+components/templates/TemplateCard.jsx,105,"title=""Delete Template""",no,PROPOSED:title_Delete Template,components
+components/templates/UseTemplateModal.jsx,51,Use Template to Create Form,no,PROPOSED:Use Template to Crea,components
+components/templates/UseTemplateModal.jsx,73,*,no,PROPOSED:*,components
+components/templates/UseTemplateModal.jsx,79,"placeholder=""Enter form title...""",no,PROPOSED:placeholder_Enter form titl,components
+components/templates/UseTemplateModal.jsx,95,"placeholder=""Enter description...""",no,PROPOSED:placeholder_Enter descripti,components
+components/templates/UseTemplateModal.jsx,120,Creating Form...,no,PROPOSED:Creating Form...,components
+components/templates/UseTemplateModal.jsx,125,Create & Launch Builder,no,PROPOSED:Create & Launch Buil,components
+pages/AnalyticsPage.jsx,385,All Forms (Overview),no,PROPOSED:All Forms (Overview),AnalyticsPage
+pages/AnalyticsPage.jsx,397,All Versions,no,PROPOSED:All Versions,AnalyticsPage
+pages/AnalyticsPage.jsx,409,All Time,no,PROPOSED:All Time,AnalyticsPage
+pages/AnalyticsPage.jsx,410,Last 7 Days,no,PROPOSED:Last 7 Days,AnalyticsPage
+pages/AnalyticsPage.jsx,411,Last 30 Days,no,PROPOSED:Last 30 Days,AnalyticsPage
+pages/AnalyticsPage.jsx,412,Last 90 Days,no,PROPOSED:Last 90 Days,AnalyticsPage
+pages/AnalyticsPage.jsx,421,Daily,no,PROPOSED:Daily,AnalyticsPage
+pages/AnalyticsPage.jsx,422,Monthly,no,PROPOSED:Monthly,AnalyticsPage
+pages/AnalyticsPage.jsx,518,Submission Volume Trend,no,PROPOSED:Submission Volume Tr,AnalyticsPage
+pages/AnalyticsPage.jsx,548,Form-wise Submissions,no,PROPOSED:Form-wise Submission,AnalyticsPage
+pages/AnalyticsPage.jsx,588,Response Volume Area Trend,no,PROPOSED:Response Volume Area,AnalyticsPage
+pages/AnalyticsPage.jsx,624,Field Type Distribution,no,PROPOSED:Field Type Distribut,AnalyticsPage
+pages/AnalyticsPage.jsx,661,Field Type Composition (Google Pie Chart),no,PROPOSED:Field Type Compositi,AnalyticsPage
+pages/AnalyticsPage.jsx,714,Form Status Share (Google Pie Chart),no,PROPOSED:Form Status Share (G,AnalyticsPage
+pages/ConditionalRulesPage.jsx,173,Refresh,no,PROPOSED:Refresh,ConditionalRulesPage
+pages/ConditionalRulesPage.jsx,194,+ Create Rule,no,PROPOSED:+ Create Rule,ConditionalRulesPage
+pages/ConditionalRulesPage.jsx,244,Select form...,no,PROPOSED:Select form...,ConditionalRulesPage
+pages/ConditionalRulesPage.jsx,289,Select version...,no,PROPOSED:Select version...,ConditionalRulesPage
+pages/ConditionalRulesPage.jsx,355,"title=""No Rules Found""",no,PROPOSED:title_No Rules Found,ConditionalRulesPage
+pages/ConditionalRulesPage.jsx,408,"title=""Edit Rule""",no,PROPOSED:title_Edit Rule,ConditionalRulesPage
+pages/ConditionalRulesPage.jsx,428,"title=""Delete Rule""",no,PROPOSED:title_Delete Rule,ConditionalRulesPage
+pages/ConditionalRulesPage.jsx,454,IF,no,PROPOSED:IF,ConditionalRulesPage
+pages/ConditionalRulesPage.jsx,464,THEN,no,PROPOSED:THEN,ConditionalRulesPage
+pages/FormsPage.jsx,306,Published Forms,no,PROPOSED:Published Forms,FormsPage
+pages/FormsPage.jsx,346,All Forms,no,PROPOSED:All Forms,FormsPage
+pages/FormsPage.jsx,347,Manage all your forms,no,PROPOSED:Manage all your form,FormsPage
+pages/FormsPage.jsx,370,Published Forms,no,PROPOSED:Published Forms,FormsPage
+pages/FormsPage.jsx,371,"View live, public forms",no,"PROPOSED:View live, public fo",FormsPage
+pages/FormsPage.jsx,396,"placeholder=""Search forms by title or description...""",no,PROPOSED:placeholder_Search forms by,FormsPage
+pages/FormsPage.jsx,403,All Status,no,PROPOSED:All Status,FormsPage
+pages/FormsPage.jsx,404,Published,no,PROPOSED:Published,FormsPage
+pages/FormsPage.jsx,405,Draft,no,PROPOSED:Draft,FormsPage
+pages/FormsPage.jsx,406,Archived,no,PROPOSED:Archived,FormsPage
+pages/FormsPage.jsx,411,Sort: Recently Updated,no,PROPOSED:Sort: Recently Updat,FormsPage
+pages/FormsPage.jsx,412,Sort: Title A → Z,no,PROPOSED:Sort: Title A → Z,FormsPage
+pages/FormsPage.jsx,438,📍,no,PROPOSED:📍,FormsPage
+pages/FormsPage.jsx,440,• Live,no,PROPOSED:• Live,FormsPage
+pages/FormsPage.jsx,458,Recently,no,PROPOSED:Recently,FormsPage
+pages/FormsPage.jsx,497,"placeholder=""Search published forms by title...""",no,PROPOSED:placeholder_Search publishe,FormsPage
+pages/FormsPage.jsx,504,All Status,no,PROPOSED:All Status,FormsPage
+pages/FormsPage.jsx,505,Published,no,PROPOSED:Published,FormsPage
+pages/FormsPage.jsx,510,Newest First,no,PROPOSED:Newest First,FormsPage
+pages/FormsPage.jsx,511,Oldest First,no,PROPOSED:Oldest First,FormsPage
+pages/FormsPage.jsx,512,Name A → Z,no,PROPOSED:Name A → Z,FormsPage
+pages/FormsPage.jsx,513,Name Z → A,no,PROPOSED:Name Z → A,FormsPage
+pages/FormsPage.jsx,578,• Published,no,PROPOSED:• Published,FormsPage
+pages/FormsPage.jsx,698,"title=""Project Activity Logs""",no,PROPOSED:title_Project Activit,FormsPage
+pages/FormsPage.jsx,717,"placeholder=""Search logs by title, description or author...""",no,PROPOSED:placeholder_Search logs by ,FormsPage
+pages/LoginPage.jsx,73,Administrator Sign In,no,PROPOSED:Administrator Sign I,LoginPage
+pages/LoginPage.jsx,118,"placeholder=""admin@example.com""",no,PROPOSED:placeholder_admin@example.c,LoginPage
+pages/LoginPage.jsx,144,"placeholder=""••••••••""",no,PROPOSED:placeholder_••••••••,LoginPage
+pages/LoginPage.jsx,171,Authenticating...,no,PROPOSED:Authenticating...,LoginPage
+pages/LoginPage.jsx,175,Sign In,no,PROPOSED:Sign In,LoginPage
+pages/LoginPage.jsx,186,OR,no,PROPOSED:OR,LoginPage
+pages/LoginPage.jsx,217,Connecting to Google...,no,PROPOSED:Connecting to Google,LoginPage
+pages/LoginPage.jsx,227,Continue with Google,no,PROPOSED:Continue with Google,LoginPage
+pages/OverviewPage.jsx,30,= 5 && hour,no,PROPOSED:= 5 && hour,OverviewPage
+pages/OverviewPage.jsx,32,= 12 && hour,no,PROPOSED:= 12 && hour,OverviewPage
+pages/OverviewPage.jsx,34,= 17 && hour,no,PROPOSED:= 17 && hour,OverviewPage
+pages/OverviewPage.jsx,316,"t(""overview.subtitle"")",yes,overview.subtitle,OverviewPage
+pages/OverviewPage.jsx,328,"t(""overview.search_placeholder"")",yes,overview.search_placeholder,OverviewPage
+pages/OverviewPage.jsx,351,"t(""common.refresh"")",yes,common.refresh,OverviewPage
+pages/OverviewPage.jsx,477,"t(""common.create_form"")",yes,common.create_form,OverviewPage
+pages/OverviewPage.jsx,512,"t(""overview.total_forms"")",yes,overview.total_forms,OverviewPage
+pages/OverviewPage.jsx,522,"t(""overview.published_count"")",yes,overview.published_count,OverviewPage
+pages/OverviewPage.jsx,522,"t(""overview.draft_count"")",yes,overview.draft_count,OverviewPage
+pages/OverviewPage.jsx,545,"t(""overview.total_submissions"")",yes,overview.total_submissions,OverviewPage
+pages/OverviewPage.jsx,555,"t(""overview.completed_count"")",yes,overview.completed_count,OverviewPage
+pages/OverviewPage.jsx,555,"t(""overview.in_progress_count"")",yes,overview.in_progress_count,OverviewPage
+pages/OverviewPage.jsx,578,"t(""overview.completion_rate"")",yes,overview.completion_rate,OverviewPage
+pages/OverviewPage.jsx,591,"t(""overview.finalized_vs_started"")",yes,overview.finalized_vs_started,OverviewPage
+pages/OverviewPage.jsx,611,"t(""overview.registered_users"")",yes,overview.registered_users,OverviewPage
+pages/OverviewPage.jsx,621,"t(""overview.active_accounts"")",yes,overview.active_accounts,OverviewPage
+pages/OverviewPage.jsx,653,"t(""overview.recent_submissions"")",yes,overview.recent_submissions,OverviewPage
+pages/OverviewPage.jsx,686,"t(""overview.view_all"")",yes,overview.view_all,OverviewPage
+pages/OverviewPage.jsx,696,"title=""No submissions found""",no,PROPOSED:title_No submissions ,OverviewPage
+pages/OverviewPage.jsx,718,"t(""overview.headers.id"")",yes,overview.headers.id,OverviewPage
+pages/OverviewPage.jsx,719,"t(""overview.headers.form_title"")",yes,overview.headers.form_title,OverviewPage
+pages/OverviewPage.jsx,720,"t(""overview.headers.fields"")",yes,overview.headers.fields,OverviewPage
+pages/OverviewPage.jsx,721,"t(""overview.headers.status"")",yes,overview.headers.status,OverviewPage
+pages/OverviewPage.jsx,722,"t(""overview.headers.submitted_at"")",yes,overview.headers.submitted_at,OverviewPage
+pages/OverviewPage.jsx,762,"t(""common.fields_count"")",yes,common.fields_count,OverviewPage
+pages/OverviewPage.jsx,769,"t(""common.completed"")",yes,common.completed,OverviewPage
+pages/OverviewPage.jsx,798,"t(""overview.quick_actions"")",yes,overview.quick_actions,OverviewPage
+pages/OverviewPage.jsx,824,"t(""overview.new_form"")",yes,overview.new_form,OverviewPage
+pages/OverviewPage.jsx,848,"t(""overview.analytics"")",yes,overview.analytics,OverviewPage
+pages/OverviewPage.jsx,872,"t(""overview.rules"")",yes,overview.rules,OverviewPage
+pages/OverviewPage.jsx,896,"t(""overview.export"")",yes,overview.export,OverviewPage
+pages/OverviewPage.jsx,914,"t(""overview.top_performing_forms"")",yes,overview.top_performing_forms,OverviewPage
+pages/OverviewPage.jsx,922,"t(""overview.manage"")",yes,overview.manage,OverviewPage
+pages/OverviewPage.jsx,929,No forms found.,no,PROPOSED:No forms found.,OverviewPage
+pages/OverviewPage.jsx,938,"t(""overview.responses_count"")",yes,overview.responses_count,OverviewPage
+pages/ProfilePage.jsx,111,"title=""Refresh Account Data""",no,PROPOSED:title_Refresh Account,ProfilePage
+pages/ProfilePage.jsx,206,JWT Bearer OAuth2,no,PROPOSED:JWT Bearer OAuth2,ProfilePage
+pages/ProfilePage.jsx,213,Read / Write Admin Permissions,no,PROPOSED:Read / Write Admin P,ProfilePage
+pages/ProfilePage.jsx,229,BCrypt Hashed (Salted),no,PROPOSED:BCrypt Hashed (Salte,ProfilePage
+pages/PublicFormPage.jsx,126,Form Unavailable,no,PROPOSED:Form Unavailable,PublicFormPage
+pages/PublicFormPage.jsx,130,Try Again,no,PROPOSED:Try Again,PublicFormPage
+pages/PublicFormPage.jsx,141,✓ Thank You,no,PROPOSED:✓ Thank You,PublicFormPage
+pages/PublicFormPage.jsx,153,Submit Another Response,no,PROPOSED:Submit Another Respo,PublicFormPage
+pages/PublicFormPage.jsx,175,Close,no,PROPOSED:Close,PublicFormPage
+pages/PublicFormPage.jsx,218,Powered by,no,PROPOSED:Powered by,PublicFormPage
+pages/PublicFormPage.jsx,218,FormCraft,no,PROPOSED:FormCraft,PublicFormPage
+pages/PublishedFormsPage.jsx,138,Published Forms,no,PROPOSED:Published Forms,PublishedFormsPage
+pages/PublishedFormsPage.jsx,139,"View and manage all your live, publicly accessible forms.",no,PROPOSED:View and manage all ,PublishedFormsPage
+pages/PublishedFormsPage.jsx,156,"placeholder=""Search published forms...""",no,PROPOSED:placeholder_Search publishe,PublishedFormsPage
+pages/PublishedFormsPage.jsx,167,Newest First,no,PROPOSED:Newest First,PublishedFormsPage
+pages/PublishedFormsPage.jsx,168,Oldest First,no,PROPOSED:Oldest First,PublishedFormsPage
+pages/PublishedFormsPage.jsx,169,Name A → Z,no,PROPOSED:Name A → Z,PublishedFormsPage
+pages/PublishedFormsPage.jsx,170,Name Z → A,no,PROPOSED:Name Z → A,PublishedFormsPage
+pages/PublishedFormsPage.jsx,211,Published,no,PROPOSED:Published,PublishedFormsPage
+pages/RegisterPage.jsx,86,Create Administrator,no,PROPOSED:Create Administrator,RegisterPage
+pages/RegisterPage.jsx,129,Administrator account created in Firebase! Redirecting to Sign In...,no,PROPOSED:Administrator accoun,RegisterPage
+pages/RegisterPage.jsx,150,"placeholder=""Admin""",no,PROPOSED:placeholder_Admin,RegisterPage
+pages/RegisterPage.jsx,172,"placeholder=""User""",no,PROPOSED:placeholder_User,RegisterPage
+pages/RegisterPage.jsx,197,"placeholder=""admin@example.com""",no,PROPOSED:placeholder_admin@example.c,RegisterPage
+pages/RegisterPage.jsx,221,"placeholder=""••••••••""",no,PROPOSED:placeholder_••••••••,RegisterPage
+pages/RegisterPage.jsx,248,Creating Firebase Account...,no,PROPOSED:Creating Firebase Ac,RegisterPage
+pages/RegisterPage.jsx,252,Register Administrator,no,PROPOSED:Register Administrat,RegisterPage
+pages/ReportsExportPage.jsx,103,Forms & Version Metadata,no,PROPOSED:Forms & Version Meta,ReportsExportPage
+pages/ReportsExportPage.jsx,104,Submissions & Responses,no,PROPOSED:Submissions & Respon,ReportsExportPage
+pages/ReportsExportPage.jsx,105,Analytics & Metrics,no,PROPOSED:Analytics & Metrics,ReportsExportPage
+pages/ReportsExportPage.jsx,106,System Dashboard Summary,no,PROPOSED:System Dashboard Sum,ReportsExportPage
+pages/ReportsExportPage.jsx,113,(Optional),no,PROPOSED:(Optional),ReportsExportPage
+pages/ReportsExportPage.jsx,116,All Forms,no,PROPOSED:All Forms,ReportsExportPage
+pages/ReportsExportPage.jsx,146,CSV,no,PROPOSED:CSV,ReportsExportPage
+pages/ReportsExportPage.jsx,165,JSON,no,PROPOSED:JSON,ReportsExportPage
+pages/ReportsExportPage.jsx,184,PDF,no,PROPOSED:PDF,ReportsExportPage
+pages/ReportsExportPage.jsx,216,Total Forms:,no,PROPOSED:Total Forms:,ReportsExportPage
+pages/ReportsExportPage.jsx,220,Total Submissions:,no,PROPOSED:Total Submissions:,ReportsExportPage
+pages/ReportsExportPage.jsx,224,Published Forms:,no,PROPOSED:Published Forms:,ReportsExportPage
+pages/ReportsExportPage.jsx,228,Completion Rate:,no,PROPOSED:Completion Rate:,ReportsExportPage
+pages/ResponsesPage.jsx,241,Refresh,no,PROPOSED:Refresh,ResponsesPage
+pages/ResponsesPage.jsx,291,Select form...,no,PROPOSED:Select form...,ResponsesPage
+pages/ResponsesPage.jsx,336,Select version...,no,PROPOSED:Select version...,ResponsesPage
+pages/ResponsesPage.jsx,368,"placeholder=""Search by submission ID or timestamp...""",no,PROPOSED:placeholder_Search by submi,ResponsesPage
+pages/ResponsesPage.jsx,436,"title=""No Submissions Found""",no,PROPOSED:title_No Submissions ,ResponsesPage
+pages/ResponsesPage.jsx,510,Loading field responses...,no,PROPOSED:Loading field respon,ResponsesPage
+pages/ResponsesPage.jsx,533,ID,no,PROPOSED:ID,ResponsesPage
+pages/ResponsesPage.jsx,534,FIELD,no,PROPOSED:FIELD,ResponsesPage
+pages/ResponsesPage.jsx,535,VALUE,no,PROPOSED:VALUE,ResponsesPage
+pages/ResponsesPage.jsx,568,Empty,no,PROPOSED:Empty,ResponsesPage
+pages/ResponsesPage.jsx,579,"title=""Delete Response""",no,PROPOSED:title_Delete Response,ResponsesPage
+pages/TemplatesPage.jsx,152,Total Templates:,no,PROPOSED:Total Templates:,TemplatesPage
+pages/TemplatesPage.jsx,157,Pre-configured Fields:,no,PROPOSED:Pre-configured Field,TemplatesPage
+pages/TemplatesPage.jsx,166,"placeholder=""Search templates by title or description...""",no,PROPOSED:placeholder_Search template,TemplatesPage
+pages/TemplatesPage.jsx,177,Sort by Newest,no,PROPOSED:Sort by Newest,TemplatesPage
+pages/TemplatesPage.jsx,178,Sort by Oldest,no,PROPOSED:Sort by Oldest,TemplatesPage
+pages/TemplatesPage.jsx,179,Sort by Title (A-Z),no,PROPOSED:Sort by Title (A-Z),TemplatesPage
+pages/TemplatesPage.jsx,180,Sort by Most Fields,no,PROPOSED:Sort by Most Fields,TemplatesPage
+services/qrApi.js,65,"title=""Public Form QR""",no,PROPOSED:title_Public Form QR,services

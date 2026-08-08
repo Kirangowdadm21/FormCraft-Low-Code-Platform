@@ -3,14 +3,14 @@
  * Interacts with FastAPI backend /reports endpoints.
  */
 
-import { getStoredToken } from './api';
+import { getStoredToken } from "./api";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 function getAuthHeaders() {
   const token = getStoredToken();
   return {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
 }
@@ -24,12 +24,14 @@ async function handleResponse(response) {
   }
 
   if (!response.ok) {
-    let errorMsg = 'An unexpected error occurred';
+    let errorMsg = "An unexpected error occurred";
     if (data) {
-      if (typeof data.detail === 'string') {
+      if (typeof data.detail === "string") {
         errorMsg = data.detail;
       } else if (Array.isArray(data.detail)) {
-        errorMsg = data.detail.map((e) => `${e.loc ? e.loc.join(' -> ') : ''}: ${e.msg}`).join(', ');
+        errorMsg = data.detail
+          .map((e) => `${e.loc ? e.loc.join(" -> ") : ""}: ${e.msg}`)
+          .join(", ");
       } else if (data.message) {
         errorMsg = data.message;
       }
@@ -46,7 +48,7 @@ async function handleResponse(response) {
 // GET /reports/dashboard
 export async function getDashboardReport() {
   const response = await fetch(`${BASE_URL}/reports/dashboard`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
   return handleResponse(response);
@@ -55,7 +57,7 @@ export async function getDashboardReport() {
 // GET /reports/forms
 export async function getFormsReport() {
   const response = await fetch(`${BASE_URL}/reports/forms`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
   return handleResponse(response);
@@ -64,10 +66,10 @@ export async function getFormsReport() {
 // GET /reports/submissions
 export async function getSubmissionsReport(formId = null) {
   const params = new URLSearchParams();
-  if (formId) params.append('form_id', formId);
-  const url = `${BASE_URL}/reports/submissions${params.toString() ? '?' + params.toString() : ''}`;
+  if (formId) params.append("form_id", formId);
+  const url = `${BASE_URL}/reports/submissions${params.toString() ? "?" + params.toString() : ""}`;
   const response = await fetch(url, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
   return handleResponse(response);
@@ -76,11 +78,11 @@ export async function getSubmissionsReport(formId = null) {
 // GET /reports/responses
 export async function getFieldsReport(submissionId = null, fieldId = null) {
   const params = new URLSearchParams();
-  if (submissionId) params.append('submission_id', submissionId);
-  if (fieldId) params.append('field_id', fieldId);
-  const url = `${BASE_URL}/reports/responses${params.toString() ? '?' + params.toString() : ''}`;
+  if (submissionId) params.append("submission_id", submissionId);
+  if (fieldId) params.append("field_id", fieldId);
+  const url = `${BASE_URL}/reports/responses${params.toString() ? "?" + params.toString() : ""}`;
   const response = await fetch(url, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
   return handleResponse(response);
@@ -90,9 +92,9 @@ export async function getFieldsReport(submissionId = null, fieldId = null) {
 export async function generateReportFile(reportType, format, formId = null) {
   const token = getStoredToken();
   const response = await fetch(`${BASE_URL}/reports/generate`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
     body: JSON.stringify({
@@ -103,7 +105,7 @@ export async function generateReportFile(reportType, format, formId = null) {
   });
 
   if (!response.ok) {
-    let errorMsg = 'Failed to generate report';
+    let errorMsg = "Failed to generate report";
     try {
       const errJson = await response.json();
       errorMsg = errJson.detail || errorMsg;
@@ -113,7 +115,7 @@ export async function generateReportFile(reportType, format, formId = null) {
 
   const blob = await response.blob();
   const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
   a.download = `report_${reportType}_${Date.now()}.${format}`;
   document.body.appendChild(a);

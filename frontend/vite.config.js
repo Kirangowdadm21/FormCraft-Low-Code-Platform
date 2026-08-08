@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const API_TARGET = 'http://localhost:8000'
+const API_TARGET = 'http://127.0.0.1:8000'
 
 // Routes that need HTML bypass (SPA handles them in browser)
 function htmlBypass(req) {
@@ -31,6 +31,7 @@ export default defineConfig({
       '/reports': { target: API_TARGET, changeOrigin: true },
       '/public': { target: API_TARGET, changeOrigin: true },
       '/health': { target: API_TARGET, changeOrigin: true },
+      '/translate': { target: API_TARGET, changeOrigin: true },
     }
   }
 })

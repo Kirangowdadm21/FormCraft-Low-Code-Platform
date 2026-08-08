@@ -3,14 +3,14 @@
  * Interacts with FastAPI backend for Rules CRUD operations.
  */
 
-import { getStoredToken } from './api';
+import { getStoredToken } from "./api";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 function getAuthHeaders() {
   const token = getStoredToken();
   return {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
 }
@@ -24,12 +24,14 @@ async function handleResponse(response) {
   }
 
   if (!response.ok) {
-    let errorMsg = 'An unexpected error occurred';
+    let errorMsg = "An unexpected error occurred";
     if (data) {
-      if (typeof data.detail === 'string') {
+      if (typeof data.detail === "string") {
         errorMsg = data.detail;
       } else if (Array.isArray(data.detail)) {
-        errorMsg = data.detail.map(e => `${e.loc ? e.loc.join(' -> ') : ''}: ${e.msg}`).join(', ');
+        errorMsg = data.detail
+          .map((e) => `${e.loc ? e.loc.join(" -> ") : ""}: ${e.msg}`)
+          .join(", ");
       } else if (data.message) {
         errorMsg = data.message;
       }
@@ -44,15 +46,20 @@ async function handleResponse(response) {
 }
 
 // GET /rules/ — List conditional rules with optional filters
-export async function getRules(triggerField, targetedField, skip = 0, limit = 100) {
+export async function getRules(
+  triggerField,
+  targetedField,
+  skip = 0,
+  limit = 100,
+) {
   const params = new URLSearchParams();
-  if (triggerField) params.append('trigger_field', triggerField);
-  if (targetedField) params.append('targeted_field', targetedField);
-  params.append('skip', skip);
-  params.append('limit', limit);
+  if (triggerField) params.append("trigger_field", triggerField);
+  if (targetedField) params.append("targeted_field", targetedField);
+  params.append("skip", skip);
+  params.append("limit", limit);
 
   const response = await fetch(`${BASE_URL}/rules/?${params.toString()}`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
   return handleResponse(response);
@@ -61,7 +68,7 @@ export async function getRules(triggerField, targetedField, skip = 0, limit = 10
 // GET /rules/{id} — Get single rule
 export async function getRuleById(ruleId) {
   const response = await fetch(`${BASE_URL}/rules/${ruleId}`, {
-    method: 'GET',
+    method: "GET",
     headers: getAuthHeaders(),
   });
   return handleResponse(response);
@@ -70,7 +77,7 @@ export async function getRuleById(ruleId) {
 // POST /rules/ — Create a new rule
 export async function createRule(ruleData) {
   const response = await fetch(`${BASE_URL}/rules/`, {
-    method: 'POST',
+    method: "POST",
     headers: getAuthHeaders(),
     body: JSON.stringify(ruleData),
   });
@@ -80,7 +87,7 @@ export async function createRule(ruleData) {
 // PATCH /rules/{id} — Update an existing rule
 export async function updateRule(ruleId, ruleData) {
   const response = await fetch(`${BASE_URL}/rules/${ruleId}`, {
-    method: 'PATCH',
+    method: "PATCH",
     headers: getAuthHeaders(),
     body: JSON.stringify(ruleData),
   });
@@ -90,7 +97,7 @@ export async function updateRule(ruleId, ruleData) {
 // DELETE /rules/{id} — Delete a rule
 export async function deleteRule(ruleId) {
   const response = await fetch(`${BASE_URL}/rules/${ruleId}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: getAuthHeaders(),
   });
   if (response.status === 204) return true;

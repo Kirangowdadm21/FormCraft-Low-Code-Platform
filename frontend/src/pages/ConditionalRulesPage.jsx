@@ -1,31 +1,41 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 import {
-  GitFork, Plus, Loader2, AlertCircle, RefreshCw, Trash2, Edit3, Search,
-} from 'lucide-react';
-import { getRules, deleteRule } from '../services/rulesApi';
-import { getForms, getFormVersions, getFieldsByVersion } from '../services/formsApi';
-import CreateRuleModal from '../components/forms/CreateRuleModal';
+  GitFork,
+  Plus,
+  Loader2,
+  AlertCircle,
+  RefreshCw,
+  Trash2,
+  Edit2,
+} from "lucide-react";
+import { getRules, deleteRule } from "../services/rulesApi";
+import {
+  getForms,
+  getFormVersions,
+  getFieldsByVersion,
+} from "../services/formsApi";
+import CreateRuleModal from "../components/forms/CreateRuleModal";
+import EmptyState from "../components/common/EmptyState";
+import { useToast } from "../components/common/Toast";
+import { RulesSkeleton } from "../components/common/PageSkeletons";
+import { useTranslation } from "react-i18next";
 
 export default function ConditionalRulesPage() {
+  const toast = useToast();
+  const { t } = useTranslation();
   const [forms, setForms] = useState([]);
-  const [selectedFormId, setSelectedFormId] = useState('');
+  const [selectedFormId, setSelectedFormId] = useState("");
   const [versions, setVersions] = useState([]);
-  const [selectedVersionId, setSelectedVersionId] = useState('');
+  const [selectedVersionId, setSelectedVersionId] = useState("");
   const [fields, setFields] = useState([]);
   const [rules, setRules] = useState([]);
 
   const [loading, setLoading] = useState(false);
   const [loadingFields, setLoadingFields] = useState(false);
   const [error, setError] = useState(null);
-  const [notification, setNotification] = useState(null);
 
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [editingRule, setEditingRule] = useState(null);
-
-  const showNotification = (msg, type = 'success') => {
-    setNotification({ msg, type });
-    setTimeout(() => setNotification(null), 4000);
-  };
 
   // Load forms on mount
   useEffect(() => {
@@ -33,8 +43,11 @@ export default function ConditionalRulesPage() {
       try {
         const data = await getForms(0, 200);
         setForms(data || []);
+        if (data && data.length > 0 && !selectedFormId) {
+          setSelectedFormId(String(data[0].id));
+        }
       } catch (err) {
-        console.error('Error loading forms:', err);
+        console.error("Error loading forms:", err);
       }
     };
     loadForms();
@@ -44,7 +57,7 @@ export default function ConditionalRulesPage() {
   useEffect(() => {
     if (!selectedFormId) {
       setVersions([]);
-      setSelectedVersionId('');
+      setSelectedVersionId("");
       return;
     }
     const loadVersions = async () => {
@@ -52,13 +65,15 @@ export default function ConditionalRulesPage() {
         const vers = await getFormVersions(parseInt(selectedFormId, 10));
         setVersions(vers || []);
         if (vers && vers.length > 0) {
-          const latest = [...vers].sort((a, b) => b.version_number - a.version_number)[0];
+          const latest = [...vers].sort(
+            (a, b) => b.version_number - a.version_number,
+          )[0];
           setSelectedVersionId(String(latest.id));
         } else {
-          setSelectedVersionId('');
+          setSelectedVersionId("");
         }
       } catch (err) {
-        console.error('Error loading versions:', err);
+        console.error("Error loading versions:", err);
         setVersions([]);
       }
     };
@@ -83,7 +98,7 @@ export default function ConditionalRulesPage() {
         setFields(fieldsData || []);
         setRules(rulesData || []);
       } catch (err) {
-        setError(err.message || 'Failed to load data');
+        setError(err.message || "Failed to load data");
       } finally {
         setLoadingFields(false);
       }
@@ -98,30 +113,30 @@ export default function ConditionalRulesPage() {
       const data = await getRules();
       setRules(data || []);
     } catch (err) {
-      setError(err.message || 'Failed to load rules');
+      setError(err.message || "Failed to load rules");
     } finally {
       setLoading(false);
     }
   }, []);
 
   const handleDeleteRule = async (ruleId) => {
-    if (!window.confirm('Are you sure you want to delete this rule?')) return;
+    if (!window.confirm(t("rules.confirm_delete"))) return;
     try {
       await deleteRule(ruleId);
       setRules((prev) => prev.filter((r) => r.id !== ruleId));
-      showNotification('Rule deleted successfully.');
+      toast.success("Rule deleted successfully.");
     } catch (err) {
-      setError(err.message || 'Failed to delete rule');
+      toast.error(err.message || "Failed to delete rule");
     }
   };
 
   const handleRuleCreated = (rule, isUpdate) => {
     if (isUpdate) {
       setRules((prev) => prev.map((r) => (r.id === rule.id ? rule : r)));
-      showNotification('Rule updated successfully.');
+      toast.success("Rule updated successfully.");
     } else {
       setRules((prev) => [rule, ...prev]);
-      showNotification('Rule created successfully.');
+      toast.success("Rule created successfully.");
     }
   };
 
@@ -133,181 +148,528 @@ export default function ConditionalRulesPage() {
   // Filter rules relevant to selected version's fields
   const fieldIds = fields.map((f) => f.id);
   const filteredRules = selectedVersionId
-    ? rules.filter((r) => fieldIds.includes(r.trigger_field) || fieldIds.includes(r.targeted_field))
+    ? rules.filter(
+        (r) =>
+          fieldIds.includes(r.trigger_field) ||
+          fieldIds.includes(r.targeted_field),
+      )
     : rules;
 
-  const selectStyle = {
-    padding: '0.5rem 0.8rem',
-    background: 'var(--field)',
-    border: '1px solid var(--rule)',
-    borderRadius: '8px',
-    color: 'var(--ink)',
-    fontSize: '0.85rem',
-    fontFamily: 'var(--font-family)',
-    minWidth: '180px',
-  };
-
   return (
-    <div>
-      <div className="header">
-        <div className="header-title">
-          <h1>Conditional Rules Engine</h1>
-          <p>Define conditional logic rules that control field visibility and validation at submission time.</p>
+    <div
+      style={{
+        padding: "2rem 2.5rem",
+        maxWidth: "1400px",
+        margin: "0 auto",
+        fontFamily: "Inter, system-ui, -apple-system, sans-serif",
+      }}
+    >
+      {/* Header */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "2rem",
+        }}
+      >
+        <div>
+          <h1
+            style={{
+              fontSize: "1.75rem",
+              fontWeight: 800,
+              color: "#0f172a",
+              letterSpacing: "-0.02em",
+              margin: 0,
+            }}
+          >
+            {t("rules.title")}
+          </h1>
+          <p
+            style={{
+              fontSize: "0.875rem",
+              color: "#64748b",
+              marginTop: "0.35rem",
+              margin: 0,
+            }}
+          >
+            {t("rules.subtitle")}
+          </p>
         </div>
-        <div style={{ display: 'flex', gap: '0.75rem' }}>
-          <button className="btn-secondary" onClick={loadRules} disabled={loading}>
-            <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
-            <span>Refresh</span>
+        <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+          <button
+            onClick={loadRules}
+            disabled={loading}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              padding: "0.5rem 1rem",
+              backgroundColor: "#ffffff",
+              border: "1px solid #cbd5e1",
+              borderRadius: "0.5rem",
+              fontSize: "0.875rem",
+              fontWeight: 500,
+              color: "#334155",
+              cursor: "pointer",
+              boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+              transition: "all 0.15s ease",
+            }}
+          >
+            <RefreshCw size={15} className={loading ? "animate-spin" : ""} />
+            <span>{t("rules.refresh")}</span>
           </button>
-          <button className="btn-primary" onClick={() => { setEditingRule(null); setIsCreateModalOpen(true); }}>
-            <Plus size={18} />
-            <span>Create Rule</span>
+          <button
+            onClick={() => {
+              setEditingRule(null);
+              setIsCreateModalOpen(true);
+            }}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              padding: "0.5rem 1.15rem",
+              backgroundColor: "#059669",
+              border: "none",
+              borderRadius: "0.5rem",
+              fontSize: "0.875rem",
+              fontWeight: 600,
+              color: "#ffffff",
+              cursor: "pointer",
+              boxShadow: "0 1px 3px 0 rgba(5, 150, 105, 0.3)",
+              transition: "all 0.15s ease",
+            }}
+          >
+            <Plus size={16} />
+            <span>{t("rules.create_rule")}</span>
           </button>
         </div>
       </div>
 
-      {/* Form & Version Selectors */}
-      <div style={{
-        display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap', alignItems: 'center',
-        padding: '1rem', background: 'var(--card-bg)', borderRadius: '12px',
-        border: '1px solid var(--rule)', boxShadow: 'var(--card-shadow)',
-      }}>
-        <div>
-          <label style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '0.3rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Form</label>
-          <select style={selectStyle} value={selectedFormId} onChange={(e) => setSelectedFormId(e.target.value)}>
-            <option value="">All Forms</option>
-            {forms.map((f) => (
-              <option key={f.id} value={f.id}>{f.title}</option>
-            ))}
-          </select>
-        </div>
+      {/* Form & Version Selectors Row */}
+      <div
+        style={{
+          backgroundColor: "#ffffff",
+          border: "1px solid #e2e8f0",
+          borderRadius: "0.75rem",
+          padding: "1.25rem 1.5rem",
+          marginBottom: "2rem",
+          boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.02)",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: "1.5rem",
+            flexWrap: "wrap",
+            alignItems: "center",
+          }}
+        >
+          {/* FORM Dropdown */}
+          <div style={{ flex: "1 1 320px", minWidth: "260px" }}>
+            <label
+              style={{
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                color: "#64748b",
+                display: "block",
+                marginBottom: "0.4rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+              }}
+            >
+              {t("rules.form_label")}
+            </label>
+            <div style={{ position: "relative" }}>
+              <select
+                value={selectedFormId}
+                onChange={(e) => setSelectedFormId(e.target.value)}
+                style={{
+                  width: "100%",
+                  padding: "0.65rem 1rem",
+                  backgroundColor: "#ffffff",
+                  border: "2px solid #059669",
+                  borderRadius: "0.5rem",
+                  fontSize: "0.9rem",
+                  fontWeight: 600,
+                  color: "#0f172a",
+                  outline: "none",
+                  cursor: "pointer",
+                  appearance: "none",
+                }}
+              >
+                <option value="">{t("rules.select_form")}</option>
+                {forms.map((f) => (
+                  <option key={f.id} value={f.id}>
+                    {f.title}
+                  </option>
+                ))}
+              </select>
+              <div
+                style={{
+                  position: "absolute",
+                  right: "0.85rem",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  pointerEvents: "none",
+                  color: "#059669",
+                  fontSize: "0.75rem",
+                }}
+              >
+                {t("conditionalRulesPage.text")}
+              </div>
+            </div>
+          </div>
 
-        <div>
-          <label style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '0.3rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Version</label>
-          <select style={selectStyle} value={selectedVersionId} onChange={(e) => setSelectedVersionId(e.target.value)} disabled={!selectedFormId}>
-            <option value="">Select version...</option>
-            {versions.map((v) => (
-              <option key={v.id} value={v.id}>v{v.version_number}{v.ispublished ? ' (Published)' : ''}</option>
-            ))}
-          </select>
-        </div>
+          {/* VERSION Dropdown */}
+          <div style={{ flex: "0 1 240px", minWidth: "200px" }}>
+            <label
+              style={{
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                color: "#64748b",
+                display: "block",
+                marginBottom: "0.4rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+              }}
+            >
+              {t("rules.version_label")}
+            </label>
+            <div style={{ position: "relative" }}>
+              <select
+                value={selectedVersionId}
+                onChange={(e) => setSelectedVersionId(e.target.value)}
+                disabled={!selectedFormId}
+                style={{
+                  width: "100%",
+                  padding: "0.65rem 1rem",
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #cbd5e1",
+                  borderRadius: "0.5rem",
+                  fontSize: "0.9rem",
+                  fontWeight: 500,
+                  color: "#334155",
+                  outline: "none",
+                  cursor: selectedFormId ? "pointer" : "not-allowed",
+                  appearance: "none",
+                }}
+              >
+                <option value="">{t("rules.select_version")}</option>
+                {versions.map((v) => (
+                  <option key={v.id} value={v.id}>
+                    {t("conditionalRulesPage.v")}
+                    {v.version_number}
+                    {v.ispublished
+                      ? ` ${t("submissions.published_version")}`
+                      : ""}
+                  </option>
+                ))}
+              </select>
+              <div
+                style={{
+                  position: "absolute",
+                  right: "0.85rem",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  pointerEvents: "none",
+                  color: "#64748b",
+                  fontSize: "0.75rem",
+                }}
+              >
+                {t("conditionalRulesPage.text")}
+              </div>
+            </div>
+          </div>
 
-        <div style={{ marginLeft: 'auto', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-          {fields.length > 0 && <span>{fields.length} fields loaded</span>}
+          {/* Fields Loaded Badge */}
+          <div
+            style={{
+              marginLeft: "auto",
+              alignSelf: "center",
+              paddingTop: "1.25rem",
+            }}
+          >
+            {fields.length > 0 && (
+              <span
+                style={{
+                  fontSize: "0.825rem",
+                  color: "#64748b",
+                  fontWeight: 500,
+                }}
+              >
+                {t("rules.fields_loaded", { count: fields.length })}
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Error Banner */}
       {error && (
-        <div className="modal-error" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <AlertCircle size={20} />
+        <div
+          style={{
+            marginBottom: "1.5rem",
+            padding: "1rem",
+            backgroundColor: "#fef2f2",
+            border: "1px solid #fecaca",
+            borderRadius: "0.5rem",
+            color: "#dc2626",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+            fontSize: "0.875rem",
+          }}
+        >
+          <AlertCircle size={18} />
           <span>{error}</span>
-          <button onClick={loadRules} style={{ marginLeft: 'auto', background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', textDecoration: 'underline' }}>
-            Retry
+          <button
+            onClick={loadRules}
+            style={{
+              marginLeft: "auto",
+              background: "none",
+              border: "none",
+              color: "#dc2626",
+              fontWeight: 600,
+              cursor: "pointer",
+              textDecoration: "underline",
+            }}
+          >
+            {t("rules.retry")}
           </button>
         </div>
       )}
 
-      {/* Loading */}
-      {loadingFields && (
-        <div style={{ padding: '4rem 0', textAlign: 'center', color: 'var(--text-muted)' }}>
-          <Loader2 size={36} className="animate-spin" style={{ margin: '0 auto 1rem auto', color: 'var(--ledger)' }} />
-          <p style={{ fontSize: '0.95rem' }}>Loading rules and fields...</p>
-        </div>
-      )}
+      {/* Loading State */}
+      {loadingFields && <RulesSkeleton />}
 
       {/* Empty State */}
       {!loadingFields && filteredRules.length === 0 && (
-        <div className="empty-state">
-          <div className="empty-icon">
-            <GitFork size={36} />
-          </div>
-          <h3 className="empty-title">No Rules Found</h3>
-          <p className="empty-description">
-            {selectedVersionId
-              ? 'No conditional rules exist for the selected form version. Create one to get started.'
-              : 'Select a form and version above, or create a new rule.'}
-          </p>
-        </div>
+        <EmptyState
+          icon={GitFork}
+          title={t("rules.no_rules")}
+          description={
+            selectedVersionId
+              ? t("rules.no_rules_version")
+              : t("rules.no_rules_select")
+          }
+        />
       )}
 
       {/* Rules Cards Grid */}
       {!loadingFields && filteredRules.length > 0 && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1rem' }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))",
+            gap: "1.25rem",
+          }}
+        >
           {filteredRules.map((rule) => (
-            <div key={rule.id} style={{
-              background: 'var(--card-bg)', borderRadius: '12px', border: '1px solid var(--rule)',
-              padding: '1.25rem', boxShadow: 'var(--card-shadow)',
-              transition: 'box-shadow 0.2s ease, transform 0.2s ease',
-            }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
-                <span className="mono-id">RULE-{rule.id}</span>
-                <div style={{ display: 'flex', gap: '0.25rem' }}>
+            <div
+              key={rule.id}
+              style={{
+                backgroundColor: "#ffffff",
+                border: "1px solid #e2e8f0",
+                borderRadius: "0.75rem",
+                padding: "1.25rem 1.5rem",
+                boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.04)",
+                transition: "all 0.15s ease",
+              }}
+            >
+              {/* Card Top Row */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "1.25rem",
+                }}
+              >
+                {/* Rule Tag Badge */}
+                <span
+                  style={{
+                    backgroundColor: "#f1f5f9",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "0.375rem",
+                    padding: "0.2rem 0.6rem",
+                    fontSize: "0.75rem",
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    color: "#475569",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  {t("conditionalRulesPage.rule")}
+
+                  {rule.id}
+                </span>
+
+                {/* Edit / Delete Buttons */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "0.5rem",
+                    alignItems: "center",
+                  }}
+                >
                   <button
-                    className="btn-tertiary"
-                    onClick={() => { setEditingRule(rule); setIsCreateModalOpen(true); }}
-                    title="Edit Rule"
+                    onClick={() => {
+                      setEditingRule(rule);
+                      setIsCreateModalOpen(true);
+                    }}
+                    title={t("rules.edit_rule")}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      color: "#94a3b8",
+                      cursor: "pointer",
+                      padding: "0.35rem",
+                      borderRadius: "0.375rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transition: "color 0.15s ease",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "#334155")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "#94a3b8")
+                    }
                   >
-                    <Edit3 size={14} />
+                    <Edit2 size={16} />
                   </button>
                   <button
-                    className="btn-destructive-subtle"
                     onClick={() => handleDeleteRule(rule.id)}
-                    title="Delete Rule"
+                    title={t("rules.delete_rule")}
+                    style={{
+                      backgroundColor: "#dc2626",
+                      border: "none",
+                      color: "#ffffff",
+                      cursor: "pointer",
+                      padding: "0.45rem",
+                      borderRadius: "0.375rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: "0 1px 2px 0 rgba(220, 38, 38, 0.2)",
+                      transition: "background-color 0.15s ease",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#b91c1c")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#dc2626")
+                    }
                   >
-                    <Trash2 size={14} />
+                    <Trash2 size={15} />
                   </button>
                 </div>
               </div>
 
-              <div style={{ fontSize: '0.88rem', lineHeight: '1.6' }}>
-                <div style={{ marginBottom: '0.5rem' }}>
-                  <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>IF </span>
-                  <span style={{ fontWeight: 600, color: 'var(--ink)' }}>{getFieldLabel(rule.trigger_field)}</span>
-                  <span style={{ color: 'var(--ledger)', fontWeight: 600 }}> {rule.operator} </span>
+              {/* Card Body - Rule Logic */}
+              <div
+                style={{
+                  fontSize: "0.9rem",
+                  lineHeight: "1.7",
+                  color: "#1e293b",
+                }}
+              >
+                {/* IF clause */}
+                <div
+                  style={{
+                    marginBottom: "0.5rem",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.4rem",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <span
+                    style={{
+                      color: "#0284c7",
+                      fontWeight: 800,
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    {t("conditionalRulesPage.if")}
+                  </span>
+                  <span style={{ fontWeight: 700, color: "#0f172a" }}>
+                    {getFieldLabel(rule.trigger_field)}
+                  </span>
+                  <span style={{ color: "#0284c7", fontWeight: 700 }}>
+                    {rule.operator}
+                  </span>
                   {rule.comparison && (
-                    <span style={{ color: 'var(--text-secondary)' }}>"{rule.comparison}"</span>
+                    <span style={{ fontWeight: 700, color: "#0f172a" }}>
+                      {t("conditionalRulesPage.text")}
+                      {rule.comparison}
+                      {t("conditionalRulesPage.text")}
+                    </span>
                   )}
                 </div>
-                <div>
-                  <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>THEN </span>
-                  <span style={{
-                    display: 'inline-block',
-                    padding: '0.15rem 0.5rem',
-                    borderRadius: '4px',
-                    fontSize: '0.78rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    background: rule.action === 'require' ? 'rgba(245, 158, 11, 0.15)' : 'rgba(16, 185, 129, 0.15)',
-                    color: rule.action === 'require' ? '#f59e0b' : '#10b981',
-                  }}>
+
+                {/* THEN clause */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <span
+                    style={{
+                      color: "#0284c7",
+                      fontWeight: 800,
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    {t("conditionalRulesPage.then")}
+                  </span>
+                  <span
+                    style={{
+                      backgroundColor:
+                        rule.action === "show"
+                          ? "#dcfce7"
+                          : rule.action === "hide"
+                            ? "#fee2e2"
+                            : "#fef3c7",
+                      color:
+                        rule.action === "show"
+                          ? "#15803d"
+                          : rule.action === "hide"
+                            ? "#b91c1c"
+                            : "#b45309",
+                      fontWeight: 800,
+                      fontSize: "0.75rem",
+                      padding: "0.15rem 0.65rem",
+                      borderRadius: "9999px",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.04em",
+                    }}
+                  >
                     {rule.action}
                   </span>
-                  <span style={{ color: 'var(--text-muted)' }}> → </span>
-                  <span style={{ fontWeight: 600, color: 'var(--ink)' }}>{getFieldLabel(rule.targeted_field)}</span>
+                  <span style={{ fontWeight: 700, color: "#0f172a" }}>
+                    {t("conditionalRulesPage.text")}
+                    {getFieldLabel(rule.targeted_field)}
+                  </span>
                 </div>
-                {rule.logical_group && (
-                  <div style={{ marginTop: '0.5rem', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                    Group: <span style={{ fontFamily: 'var(--font-mono)' }}>{rule.logical_group}</span>
-                  </div>
-                )}
               </div>
             </div>
           ))}
         </div>
       )}
 
-      {/* Notification Toast */}
-      {notification && (
-        <div className={`notification-toast ${notification.type}`}>
-          <span>{notification.msg}</span>
-        </div>
-      )}
-
       {/* Create/Edit Rule Modal */}
       <CreateRuleModal
         isOpen={isCreateModalOpen}
-        onClose={() => { setIsCreateModalOpen(false); setEditingRule(null); }}
+        onClose={() => {
+          setIsCreateModalOpen(false);
+          setEditingRule(null);
+        }}
         onRuleCreated={handleRuleCreated}
         existingRule={editingRule}
         fields={fields}

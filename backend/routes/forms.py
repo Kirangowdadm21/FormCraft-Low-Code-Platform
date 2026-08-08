@@ -45,7 +45,11 @@ def get_public_form(form_id: int, db: Session = Depends(get_db)):
     if not version:
         raise HTTPException(status_code=404, detail="Form version not found")
 
-    field_ids = [f.id for f in (version.fields or [])]
+    sorted_fields = db.query(models.Field).filter(
+        models.Field.formversion == version.id
+    ).order_by(models.Field.display_order.asc(), models.Field.id.asc()).all()
+
+    field_ids = [f.id for f in sorted_fields]
     rules = []
     if field_ids:
         rules = db.query(models.ConditionalRule).filter(
@@ -58,7 +62,7 @@ def get_public_form(form_id: int, db: Session = Depends(get_db)):
         "title": db_form.title,
         "description": db_form.description,
         "current_version": db_form.current_version,
-        "fields": version.fields,
+        "fields": sorted_fields,
         "rules": rules
     }
 
@@ -135,6 +139,17 @@ def archive_existing_form(
     current_user: models.User = Depends(security.get_current_user)
 ):
     db_form = crud.archive_form(db=db, form_id=form_id)
+    if db_form is None:
+        raise HTTPException(status_code=404, detail="Form not found")
+    return db_form
+
+@router.post("/{form_id}/unarchive", response_model=schemas.FormResponse)
+def unarchive_existing_form(
+    form_id: int,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(security.get_current_user)
+):
+    db_form = crud.unarchive_form(db=db, form_id=form_id)
     if db_form is None:
         raise HTTPException(status_code=404, detail="Form not found")
     return db_form

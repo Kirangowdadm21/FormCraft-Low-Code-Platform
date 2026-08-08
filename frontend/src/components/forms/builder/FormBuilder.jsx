@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useTranslation } from "react-i18next";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import {
   DndContext,
   DragOverlay,
@@ -6,27 +7,31 @@ import {
   useSensor,
   useSensors,
   closestCenter,
-} from '@dnd-kit/core';
-import { arrayMove } from '@dnd-kit/sortable';
+} from "@dnd-kit/core";
+import { arrayMove } from "@dnd-kit/sortable";
 import {
   getFormById,
   getFormVersions,
   createFormVersion,
   getFieldsByVersion,
   publishForm,
-} from '../../../services/formsApi';
-
-import BuilderHeader from './BuilderHeader';
-import FieldPalette from './FieldPalette';
-import FormCanvas from './FormCanvas';
-import FieldProperties from './FieldProperties';
-import FormPreviewModal from './FormPreviewModal';
-import SaveVersionModal from './SaveVersionModal';
-import PublishConfirmModal from '../PublishConfirmModal';
-import SaveAsTemplateModal from '../SaveAsTemplateModal';
-import { Loader2, AlertCircle } from 'lucide-react';
-
-export default function FormBuilder({ formId, initialVersionId, onBack, onNavigateToPublished }) {
+} from "../../../services/formsApi";
+import BuilderHeader from "./BuilderHeader";
+import FieldPalette from "./FieldPalette";
+import FormCanvas from "./FormCanvas";
+import FieldProperties from "./FieldProperties";
+import FormPreviewModal from "./FormPreviewModal";
+import SaveVersionModal from "./SaveVersionModal";
+import PublishConfirmModal from "../PublishConfirmModal";
+import SaveAsTemplateModal from "../SaveAsTemplateModal";
+import { Loader2, AlertCircle } from "lucide-react";
+export default function FormBuilder({
+  formId,
+  initialVersionId,
+  onBack,
+  onNavigateToPublished,
+}) {
+  const { t } = useTranslation();
   const saveLock = useRef(false);
   const [form, setForm] = useState(null);
   const [allVersions, setAllVersions] = useState([]);
@@ -35,13 +40,11 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
   const [originalFields, setOriginalFields] = useState([]);
   const [selectedFieldId, setSelectedFieldId] = useState(null);
   const [isDirty, setIsDirty] = useState(false);
-
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [error, setError] = useState(null);
   const [notification, setNotification] = useState(null);
-
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
   const [isPublishModalOpen, setIsPublishModalOpen] = useState(false);
@@ -54,12 +57,15 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
       activationConstraint: {
         distance: 5,
       },
-    })
+    }),
   );
 
   // Auto-dismiss notification after 4s
-  const showNotification = (msg, type = 'success') => {
-    setNotification({ msg, type });
+  const showNotification = (msg, type = "success") => {
+    setNotification({
+      msg,
+      type,
+    });
     setTimeout(() => setNotification(null), 4000);
   };
 
@@ -85,12 +91,16 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
       if (versions.length > 0) {
         if (initialVersionId) {
           versionToUse = versions.find(
-            (v) => v.id === initialVersionId || v.version_number === initialVersionId
+            (v) =>
+              v.id === initialVersionId ||
+              v.version_number === initialVersionId,
           );
         }
         if (!versionToUse) {
           // Pick latest version by highest version_number
-          versionToUse = [...versions].sort((a, b) => b.version_number - a.version_number)[0];
+          versionToUse = [...versions].sort(
+            (a, b) => b.version_number - a.version_number,
+          )[0];
         }
       }
       setActiveVersion(versionToUse);
@@ -104,25 +114,21 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
           dbId: f.id,
           options: f.options || [],
         }));
-
         mapped.sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
-
         setFields(mapped);
         setOriginalFields(mapped);
       } else {
         setFields([]);
         setOriginalFields([]);
       }
-
       setIsDirty(false);
     } catch (err) {
-      console.error('Error loading form builder:', err);
-      setError(err.message || 'Failed to load form builder data');
+      console.error("Error loading form builder:", err);
+      setError(err.message || "Failed to load form builder data");
     } finally {
       setLoading(false);
     }
   }, [formId, initialVersionId]);
-
   useEffect(() => {
     if (formId) {
       loadBuilderData();
@@ -135,26 +141,28 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
     const fieldCount = fields.length + 1;
     const label = defaultLabel || `Untitled ${type}`;
     const fieldName = `${type}_${Date.now().toString().slice(-4)}`;
-
     let formattedOptions = [];
     if (defaultOptions && Array.isArray(defaultOptions)) {
       formattedOptions = defaultOptions.map((opt, i) => ({
-        optiontext: typeof opt === 'string' ? opt : opt.optiontext || `Option ${i + 1}`,
-        value: typeof opt === 'string' ? opt.toLowerCase().replace(/\s+/g, '_') : opt.value,
+        optiontext:
+          typeof opt === "string" ? opt : opt.optiontext || `Option ${i + 1}`,
+        value:
+          typeof opt === "string"
+            ? opt.toLowerCase().replace(/\s+/g, "_")
+            : opt.value,
         display_order: i + 1,
       }));
     }
-
     return {
       id: tempId,
       dbId: null,
       field_type: type,
       label,
       field_name: fieldName,
-      placeholder: '',
-      help_text: '',
+      placeholder: "",
+      help_text: "",
       required: false,
-      width: 'full',
+      width: "full",
       display_order: fieldCount,
       options: formattedOptions,
       validation_conf: null,
@@ -173,7 +181,6 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
   const handleDuplicateField = (fieldId) => {
     const targetIdx = fields.findIndex((f) => f.id === fieldId);
     if (targetIdx === -1) return;
-
     const source = fields[targetIdx];
     const clone = {
       ...source,
@@ -183,17 +190,17 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
       field_name: `${source.field_name}_copy`,
       display_order: targetIdx + 2,
       options: Array.isArray(source.options)
-        ? source.options.map((o) => ({ ...o, id: undefined }))
+        ? source.options.map((o) => ({
+            ...o,
+            id: undefined,
+          }))
         : [],
     };
-
     const newFields = [...fields];
     newFields.splice(targetIdx + 1, 0, clone);
-
     newFields.forEach((f, idx) => {
       f.display_order = idx + 1;
     });
-
     setFields(newFields);
     setSelectedFieldId(clone.id);
     setIsDirty(true);
@@ -208,7 +215,6 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
       });
       return filtered;
     });
-
     if (selectedFieldId === fieldId) {
       setSelectedFieldId(null);
     }
@@ -220,10 +226,13 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
     setFields((prev) =>
       prev.map((f) => {
         if (f.id === fieldId) {
-          return { ...f, ...updates };
+          return {
+            ...f,
+            ...updates,
+          };
         }
         return f;
-      })
+      }),
     );
     setIsDirty(true);
   };
@@ -233,17 +242,19 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
     const { active } = event;
     setActiveDragItem(active.data.current);
   };
-
   const handleDragEnd = (event) => {
     const { active, over } = event;
     setActiveDragItem(null);
-
     if (!over) return;
 
     // Palette drag -> Canvas
     if (active.data.current?.isPaletteItem) {
       const { fieldType, defaultLabel, defaultOptions } = active.data.current;
-      const newField = createLocalField(fieldType, defaultLabel, defaultOptions);
+      const newField = createLocalField(
+        fieldType,
+        defaultLabel,
+        defaultOptions,
+      );
       setFields((prev) => [...prev, newField]);
       setSelectedFieldId(newField.id);
       setIsDirty(true);
@@ -267,9 +278,10 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
 
   // Calculate next version number
   const currentVersionNumber = activeVersion ? activeVersion.version_number : 0;
-  const maxVersionNumber = allVersions.length > 0
-    ? Math.max(...allVersions.map((v) => v.version_number || 0))
-    : 0;
+  const maxVersionNumber =
+    allVersions.length > 0
+      ? Math.max(...allVersions.map((v) => v.version_number || 0))
+      : 0;
   const nextVersionNumber = maxVersionNumber + 1;
 
   // Open Save Confirmation Dialog
@@ -284,7 +296,6 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
     try {
       setSaving(true);
       setError(null);
-
       const payloadFields = fields.map((f, i) => ({
         label: f.label || `Field ${i + 1}`,
         field_name: f.field_name || `field_${i + 1}`,
@@ -292,13 +303,19 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
         placeholder: f.placeholder || null,
         help_text: f.help_text || null,
         required: !!f.required,
-        width: f.width || 'full',
+        width: f.width || "full",
         display_order: i + 1,
         validation_conf: f.validation_conf || null,
         options: Array.isArray(f.options)
           ? f.options.map((opt, optIdx) => ({
-              optiontext: typeof opt === 'object' ? opt.optiontext || `Option ${optIdx + 1}` : String(opt),
-              value: typeof opt === 'object' ? opt.value || `opt_${optIdx + 1}` : String(opt),
+              optiontext:
+                typeof opt === "object"
+                  ? opt.optiontext || `Option ${optIdx + 1}`
+                  : String(opt),
+              value:
+                typeof opt === "object"
+                  ? opt.value || opt.optiontext || opt.label || `Option ${optIdx + 1}`
+                  : String(opt),
               display_order: optIdx + 1,
             }))
           : null,
@@ -309,29 +326,32 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
         formId,
         nextVersionNumber,
         payloadFields,
-        false
+        false,
       );
 
       // Update state to point to new version
       setAllVersions((prev) => [createdVersion, ...prev]);
       setActiveVersion(createdVersion);
-
       const freshFields = (createdVersion.fields || []).map((f) => ({
         ...f,
         id: String(f.id),
         dbId: f.id,
         options: f.options || [],
       }));
-      freshFields.sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
-
+      freshFields.sort(
+        (a, b) => (a.display_order || 0) - (b.display_order || 0),
+      );
       setFields(freshFields);
       setOriginalFields(freshFields);
       setIsDirty(false);
       setIsSaveModalOpen(false);
-      showNotification(`Version ${createdVersion.version_number} created successfully!`, 'success');
+      showNotification(
+        `Version ${createdVersion.version_number} created successfully!`,
+        "success",
+      );
     } catch (err) {
-      console.error('Error creating new version:', err);
-      setError(err.message || 'Failed to create new form version');
+      console.error("Error creating new version:", err);
+      setError(err.message || "Failed to create new form version");
     } finally {
       setSaving(false);
       saveLock.current = false;
@@ -342,43 +362,73 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
   const handlePublish = async (verNum) => {
     // Block publishing if there are unsaved changes — user must save first
     if (isDirty) {
-      setError('You have unsaved changes. Please save your work before publishing.');
+      setError(
+        "You have unsaved changes. Please save your work before publishing.",
+      );
       return;
     }
     // Block publishing if no version has been saved yet
     if (!activeVersion) {
-      setError('No saved version to publish. Please save your form first.');
+      setError("No saved version to publish. Please save your form first.");
       return;
     }
     try {
       setPublishing(true);
       setError(null);
-
       const versionToPublish = verNum || activeVersion.version_number;
       const res = await publishForm(formId, versionToPublish);
-      setForm((prev) => ({ ...prev, status: res.status || 'published' }));
-      setActiveVersion((prev) => (prev ? { ...prev, ispublished: true } : prev));
-      showNotification(`Form version v${versionToPublish} published successfully!`, 'success');
+      setForm((prev) => ({
+        ...prev,
+        status: res.status || "published",
+      }));
+      setActiveVersion((prev) =>
+        prev
+          ? {
+              ...prev,
+              ispublished: true,
+            }
+          : prev,
+      );
+      showNotification(
+        `Form version v${versionToPublish} published successfully!`,
+        "success",
+      );
     } catch (err) {
-      console.error('Error publishing form:', err);
-      setError(err.message || 'Failed to publish form version');
+      console.error("Error publishing form:", err);
+      setError(err.message || "Failed to publish form version");
       throw err;
     } finally {
       setPublishing(false);
     }
   };
-
   const selectedField = fields.find((f) => f.id === selectedFieldId);
-
   if (loading) {
     return (
-      <div style={{ padding: '6rem 0', textAlign: 'center', color: 'var(--text-muted)' }}>
-        <Loader2 size={40} className="animate-spin" style={{ margin: '0 auto 1rem auto', color: 'var(--ledger)' }} />
-        <p style={{ fontSize: '1rem' }}>Loading Form Builder environment...</p>
+      <div
+        style={{
+          padding: "6rem 0",
+          textAlign: "center",
+          color: "var(--text-muted)",
+        }}
+      >
+        <Loader2
+          size={40}
+          className="animate-spin"
+          style={{
+            margin: "0 auto 1rem auto",
+            color: "var(--ledger)",
+          }}
+        />
+        <p
+          style={{
+            fontSize: "1rem",
+          }}
+        >
+          {t("formBuilder.loadingFormBuilderEnvironment")}
+        </p>
       </div>
     );
   }
-
   return (
     <div className="builder-layout-container">
       {/* Top Header Navigation */}
@@ -404,7 +454,15 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
 
       {/* Error alert */}
       {error && (
-        <div className="modal-error" style={{ margin: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div
+          className="modal-error"
+          style={{
+            margin: "1rem 1.5rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+          }}
+        >
           <AlertCircle size={20} />
           <span>{error}</span>
         </div>
@@ -442,7 +500,10 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
         <DragOverlay>
           {activeDragItem ? (
             <div className="palette-item dragging">
-              <span>Dragging {activeDragItem.fieldType || 'Field'}</span>
+              <span>
+                {t("formBuilder.dragging")}
+                {activeDragItem.fieldType || "Field"}
+              </span>
             </div>
           ) : null}
         </DragOverlay>
@@ -489,7 +550,7 @@ export default function FormBuilder({ formId, initialVersionId, onBack, onNaviga
           setIsSaveTemplateModalOpen(false);
           showNotification(
             `Template "${newTemplate.title}" saved successfully!`,
-            'success'
+            "success",
           );
         }}
       />

@@ -312,6 +312,15 @@ def archive_form(db: Session, form_id: int):
     db.refresh(db_form)
     return db_form
 
+def unarchive_form(db: Session, form_id: int):
+    db_form = db.query(models.Form).filter(models.Form.id == form_id).first()
+    if not db_form:
+        return None
+    db_form.status = "draft"
+    db.commit()
+    db.refresh(db_form)
+    return db_form
+
 def publish_form(db: Session, form_id: int, version_number: Optional[int] = None):
     db_form = db.query(models.Form).filter(models.Form.id == form_id).first()
     if not db_form:

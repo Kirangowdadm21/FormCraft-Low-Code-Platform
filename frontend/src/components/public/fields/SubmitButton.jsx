@@ -1,7 +1,8 @@
-import React from 'react';
-import { Send, Loader2 } from 'lucide-react';
-
+import { useTranslation } from "react-i18next";
+import React from "react";
+import { Send, Loader2 } from "lucide-react";
 export default function SubmitButton({ isSubmitting, disabled, label }) {
+  const { t } = useTranslation();
   return (
     <button
       type="submit"
@@ -12,11 +13,11 @@ export default function SubmitButton({ isSubmitting, disabled, label }) {
       {isSubmitting ? (
         <>
           <Loader2 size={18} className="animate-spin" />
-          <span>Submitting Response...</span>
+          <span>{t("submitButton.submittingResponse")}</span>
         </>
       ) : (
         <>
-          <span>{label || 'Submit Response'}</span>
+          <span>{label || "Submit Response"}</span>
           <Send size={18} />
         </>
       )}
