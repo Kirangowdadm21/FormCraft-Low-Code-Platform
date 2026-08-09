@@ -19,6 +19,12 @@ export default function VersionDetailModal({
   currentVersion,
 }) {
   const { t } = useTranslation();
+  const sortedFields = React.useMemo(() => {
+    return [...(version?.fields || [])].sort(
+      (a, b) => (a.display_order || 0) - (b.display_order || 0)
+    );
+  }, [version?.fields]);
+
   if (!isOpen || !version) return null;
   const isActive = currentVersion && version.version_number === currentVersion;
   const formatDate = (dateStr) => {
@@ -32,7 +38,7 @@ export default function VersionDetailModal({
       return dateStr;
     }
   };
-  const fieldCount = version.fields ? version.fields.length : 0;
+  const fieldCount = sortedFields.length;
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div
@@ -187,7 +193,7 @@ export default function VersionDetailModal({
               </div>
             ) : (
               <div className="version-detail-fields-list">
-                {version.fields.map((field, idx) => (
+                {sortedFields.map((field, idx) => (
                   <div
                     className="version-detail-field-row"
                     key={field.id || idx}

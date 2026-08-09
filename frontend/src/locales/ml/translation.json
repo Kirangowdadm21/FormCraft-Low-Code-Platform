@@ -93,6 +93,10 @@
     "by_author": "{{author}} ഓഫ്",
     "retry": "വീണ്ടും ശ്രമിക്കുക",
     "all_status": "എല്ലാ നിലകൾ",
+    "audit_filter_all": "എല്ലാം",
+    "audit_filter_published": "പ്രസിദ്ധീകരിച്ചത്",
+    "audit_filter_created": "സൃഷ്ടിച്ചു",
+    "audit_filter_submission": "സമർപ്പണം",
     "status_published": "പ്രസിദ്ധീകരിച്ചത്",
     "status_draft": "ഡ്രാഫ്റ്റ്",
     "status_archived": "ആർക്കൈവ് ചെയ്തത്",
@@ -133,7 +137,8 @@
     "form_published_desc": "\"{{title}}\" പ്രസിദ്ധീകരിച്ചു (v{{version}}).",
     "new_submission_desc": "\"{{title}}\" എന്നതിൽ പുതിയ സമർപ്പണം.",
     "new_form_created_desc": "\"{{title}}\" സൃഷ്ടിച്ചു.",
-    "submission_prefix": "സമർപ്പിക്കൽ #"
+    "submission_prefix": "സമർപ്പിക്കൽ #",
+    "anonymous": "അജ്ഞാതൻ"
   },
   "templates": {
     "template_gallery": "ടെംപ്ലേറ്റ് ഗ്യാലറി",
@@ -199,6 +204,8 @@
     "id_col": "ഐഡി",
     "empty_value": "ശൂന്യം",
     "delete_response": "പ്രതികരണം ഇല്ലാതാക്കുക",
+    "delete_submission": "സമർപ്പണം ഇല്ലാതാക്കുക",
+    "delete_submission_confirm": "ഈ സമർപ്പണവും അതിന്റെ എല്ലാ പ്രതികരണ മൂല്യങ്ങളും ശാശ്വതമായി ഇല്ലാതാക്കണോ?",
     "retry": "വീണ്ടും ശ്രമിക്കുക",
     "submission_count_one": "{{count}} സമർപ്പണം",
     "submission_count_other": "{{count}} സമർപ്പണങ്ങൾ"
@@ -840,7 +847,7 @@
   },
   "deleteFormDialog": {
     "deleteForm": "ഫോം ഇല്ലാതാക്കുക",
-    "areYouSureYou": "നിങ്ങൾക്ക് ഫോം ഇല്ലാതാക്കണമെന്ന് തീർച്ചയാണോ",
+    "areYouSureYou": "നിങ്ങൾക്ക് ഫോം \"{{title}}\" ഇല്ലാതാക്കണമെന്ന് തീർച്ചയാണോ?",
     "text": "?",
     "thisActionCannot": "⚠ ഈ പ്രവർത്തനം പഴയപടിയാക്കാനാകില്ല.",
     "allVersionsFieldsResponses": "ഈ ഫോമുമായി ലിങ്ക് ചെയ്‌തിരിക്കുന്ന എല്ലാ പതിപ്പുകളും ഫീൽഡുകളും പ്രതികരണങ്ങളും സമർപ്പിക്കലുകളും ശാശ്വതമായി ഇല്ലാതാക്കപ്പെടും.",
@@ -875,7 +882,7 @@
   },
   "archiveFormDialog": {
     "archiveForm": "ആർക്കൈവ് ഫോം",
-    "areYouSureYou": "നിങ്ങൾക്ക് ഫോം ആർക്കൈവ് ചെയ്യണമെന്ന് തീർച്ചയാണോ",
+    "areYouSureYou": "നിങ്ങൾക്ക് ഫോം \"{{title}}\" ആർക്കൈവ് ചെയ്യണമെന്ന് തീർച്ചയാണോ?",
     "text": "?",
     "archivingWill": "ആർക്കൈവിംഗ് ഇഷ്ടം",
     "unpublish": "പ്രസിദ്ധീകരിക്കാതിരിക്കുക",

@@ -125,12 +125,13 @@ export default function PublishedFormsPage() {
   return (
     <div className="published-forms-page">
       {/* Header */}
-      <div className="header">
+      <div className="header page-header-row">
         <div className="header-title">
           <h1>{t("publishedFormsPage.publishedForms")}</h1>
           <p>{t("publishedFormsPage.viewAndManageAll")}</p>
         </div>
         <div
+          className="page-header-actions"
           style={{
             display: "flex",
             gap: "0.75rem",

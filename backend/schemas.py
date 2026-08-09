@@ -180,9 +180,28 @@ class FormResponse(FormBase):
     createdat: datetime
     updatedat: datetime
     versions: List[FormVersionResponse] = []
+    fields_count: Optional[int] = None
 
     class Config:
         from_attributes = True
+
+    @classmethod
+    def from_orm_with_count(cls, form):
+        """Build a FormResponse and compute fields_count from the current version."""
+        obj = cls.model_validate(form)
+        if form.current_version is not None and form.versions:
+            current_ver = next(
+                (v for v in form.versions if v.version_number == form.current_version),
+                None
+            )
+            obj.fields_count = len(current_ver.fields) if current_ver else 0
+        elif form.versions:
+            # No current_version set — use the latest version
+            latest = max(form.versions, key=lambda v: v.version_number)
+            obj.fields_count = len(latest.fields)
+        else:
+            obj.fields_count = 0
+        return obj
 
 class PublicFormResponse(BaseModel):
     id: int

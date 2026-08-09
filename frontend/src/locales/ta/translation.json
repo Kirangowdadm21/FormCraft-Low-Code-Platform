@@ -93,6 +93,10 @@
     "by_author": "{{author}} மூலம்",
     "retry": "மீண்டும் முயற்சிக்கவும்",
     "all_status": "அனைத்து நிலை",
+    "audit_filter_all": "அனைத்தும்",
+    "audit_filter_published": "வெளியிடப்பட்டது",
+    "audit_filter_created": "உருவாக்கப்பட்டது",
+    "audit_filter_submission": "சமர்ப்பிப்பு",
     "status_published": "வெளியிடப்பட்டது",
     "status_draft": "வரைவு",
     "status_archived": "காப்பகப்படுத்தப்பட்டது",
@@ -133,7 +137,8 @@
     "form_published_desc": "\"{{title}}\" வெளியிடப்பட்டது (v{{version}}).",
     "new_submission_desc": "\"{{title}}\" இல் புதிய சமர்ப்பிப்பு.",
     "new_form_created_desc": "\"{{title}}\" உருவாக்கப்பட்டது.",
-    "submission_prefix": "சமர்ப்பிப்பு #"
+    "submission_prefix": "சமர்ப்பிப்பு #",
+    "anonymous": "அநாமதேய"
   },
   "templates": {
     "template_gallery": "வார்ப்புரு தொகுப்பு",
@@ -199,6 +204,8 @@
     "id_col": "ஐடி",
     "empty_value": "காலி",
     "delete_response": "பதிலை நீக்கு",
+    "delete_submission": "சமர்ப்பிப்பை நீக்கு",
+    "delete_submission_confirm": "இந்த சமர்ப்பிப்பையும் அதன் அனைத்து பதில் மதிப்புகளையும் நிரந்தரமாக நீக்கவா?",
     "retry": "மீண்டும் முயற்சிக்கவும்",
     "submission_count_one": "{{count}} சமர்ப்பிப்பு",
     "submission_count_other": "{{count}} சமர்ப்பிப்புகள்"
@@ -840,7 +847,7 @@
   },
   "deleteFormDialog": {
     "deleteForm": "படிவத்தை நீக்கு",
-    "areYouSureYou": "படிவத்தை நீக்க விரும்புகிறீர்களா?",
+    "areYouSureYou": "நீங்கள் படிவத்தை \"{{title}}\" நீக்க விரும்புகிறீர்களா?",
     "text": "?",
     "thisActionCannot": "⚠ இந்த செயலை செயல்தவிர்க்க முடியாது.",
     "allVersionsFieldsResponses": "இந்தப் படிவத்துடன் இணைக்கப்பட்டுள்ள அனைத்து பதிப்புகள், புலங்கள், பதில்கள் மற்றும் சமர்ப்பிப்புகள் நிரந்தரமாக நீக்கப்படும்.",
@@ -875,7 +882,7 @@
   },
   "archiveFormDialog": {
     "archiveForm": "காப்பக படிவம்",
-    "areYouSureYou": "படிவத்தை காப்பகப்படுத்த விரும்புகிறீர்களா?",
+    "areYouSureYou": "நீங்கள் படிவத்தை \"{{title}}\" காப்பகப்படுத்த விரும்புகிறீர்களா?",
     "text": "?",
     "archivingWill": "காப்பக விருப்பம்",
     "unpublish": "வெளியிட வேண்டாம்",

@@ -147,6 +147,7 @@ export default function TemplatesPage({ onNavigateToPublished }) {
     <div style={{ paddingBottom: "2.5rem" }}>
       {/* Page Header */}
       <div
+        className="page-header-row"
         style={{
           display: "flex",
           alignItems: "center",
@@ -176,7 +177,7 @@ export default function TemplatesPage({ onNavigateToPublished }) {
             {t("templates.subtitle")}
           </p>
         </div>
-        <div style={{ display: "flex", gap: "0.75rem" }}>
+        <div className="page-header-actions" style={{ display: "flex", gap: "0.75rem" }}>
           <Button
             variant="outline"
             onClick={loadTemplates}
@@ -197,6 +198,7 @@ export default function TemplatesPage({ onNavigateToPublished }) {
 
       {/* Summary Stats Strip */}
       <div
+        className="page-stats-summary-strip"
         style={{
           display: "flex",
           alignItems: "center",
@@ -227,6 +229,7 @@ export default function TemplatesPage({ onNavigateToPublished }) {
 
       {/* Controls Bar: Search & Sort */}
       <div
+        className="forms-controls-bar"
         style={{
           display: "flex",
           gap: "1rem",

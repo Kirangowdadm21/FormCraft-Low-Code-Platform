@@ -93,6 +93,10 @@
     "by_author": "by {{author}}",
     "retry": "Retry",
     "all_status": "All Status",
+    "audit_filter_all": "ALL",
+    "audit_filter_published": "PUBLISHED",
+    "audit_filter_created": "CREATED",
+    "audit_filter_submission": "SUBMISSION",
     "status_published": "Published",
     "status_draft": "Draft",
     "status_archived": "Archived",
@@ -133,7 +137,8 @@
     "form_published_desc": "\"{{title}}\" published (v{{version}}).",
     "new_submission_desc": "New submission in \"{{title}}\".",
     "new_form_created_desc": "\"{{title}}\" created.",
-    "submission_prefix": "Submission #"
+    "submission_prefix": "Submission #",
+    "anonymous": "Anonymous"
   },
   "templates": {
     "template_gallery": "Template Gallery",
@@ -199,6 +204,8 @@
     "id_col": "ID",
     "empty_value": "Empty",
     "delete_response": "Delete Response",
+    "delete_submission": "Delete Submission",
+    "delete_submission_confirm": "Delete this submission and all its response values permanently?",
     "retry": "Retry",
     "submission_count_one": "{{count}} submission",
     "submission_count_other": "{{count}} submissions"
@@ -840,7 +847,7 @@
   },
   "deleteFormDialog": {
     "deleteForm": "Delete Form",
-    "areYouSureYou": "Are you sure you want to delete form",
+    "areYouSureYou": "Are you sure you want to delete form \"{{title}}\"?",
     "text": "?",
     "thisActionCannot": "⚠ This action cannot be undone.",
     "allVersionsFieldsResponses": "All versions, fields, responses, and submissions linked to this form will be permanently deleted.",
@@ -875,7 +882,7 @@
   },
   "archiveFormDialog": {
     "archiveForm": "Archive Form",
-    "areYouSureYou": "Are you sure you want to archive form",
+    "areYouSureYou": "Are you sure you want to archive form \"{{title}}\"?",
     "text": "?",
     "archivingWill": "Archiving will",
     "unpublish": "unpublish",

@@ -25,3 +25,13 @@ alembic.log
 # Local media uploads folder
 backend/uploads/*
 !backend/uploads/.gitkeep
+
+# Python virtual environments
+backend/.venv/
+backend/.venv311/
+backend/venv/
+backend/env/
+
+# Translation/generated files
+translation_audit/
+frontend/translation_audit/

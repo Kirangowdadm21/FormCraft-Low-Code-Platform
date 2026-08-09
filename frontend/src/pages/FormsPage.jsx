@@ -57,6 +57,38 @@ const PASTEL_ICONS = [
   { bg: "#d1fae5", color: "#059669", Icon: FileText },
 ];
 
+const getLogTranslation = (log, t) => {
+  let title = "";
+  let description = "";
+  let badge = "";
+
+  if (log.type === "published") {
+    title = t("forms.form_published", "Form Published");
+    description = t("forms.form_published_desc", {
+      title: log.formTitle,
+      version: log.version || 1,
+      defaultValue: `"${log.formTitle}" published (v${log.version || 1}).`,
+    });
+  } else if (log.type === "submission") {
+    title = t("forms.new_submission", "New Submission");
+    description = t("forms.new_submission_desc", {
+      title: log.formTitle || "Form",
+      defaultValue: `New submission in "${log.formTitle || "Form"}".`,
+    });
+    badge = `${t("forms.submission_prefix", "Submission #")}${log.submissionId}`;
+  } else {
+    title = t("forms.new_form_created", "New Form Created");
+    description = t("forms.new_form_created_desc", {
+      title: log.formTitle,
+      defaultValue: `"${log.formTitle}" created.`,
+    });
+  }
+
+  const author = log.author || (log.type === "submission" ? t("forms.anonymous", "Anonymous") : t("forms.system", "System"));
+
+  return { title, description, badge, author };
+};
+
 export default function FormsPage({ initialSubTab = "all" }) {
   const { user } = useAuth();
   const toast = useToast();
@@ -171,15 +203,17 @@ export default function FormsPage({ initialSubTab = "all" }) {
     }
     if (activityLogSearch.trim()) {
       const q = activityLogSearch.toLowerCase();
-      list = list.filter(
-        (l) =>
-          l.title?.toLowerCase().includes(q) ||
-          l.description?.toLowerCase().includes(q) ||
-          l.author?.toLowerCase().includes(q),
-      );
+      list = list.filter((l) => {
+        const { title, description, author } = getLogTranslation(l, t);
+        return (
+          title.toLowerCase().includes(q) ||
+          description.toLowerCase().includes(q) ||
+          author.toLowerCase().includes(q)
+        );
+      });
     }
     return list;
-  }, [allAuditLogs, activityLogFilter, activityLogSearch]);
+  }, [allAuditLogs, activityLogFilter, activityLogSearch, t]);
 
   // Load forms
   const loadForms = useCallback(async () => {
@@ -381,7 +415,7 @@ export default function FormsPage({ initialSubTab = "all" }) {
   return (
     <div className="forms-page-container" style={{ paddingBottom: "2rem" }}>
       {/* Header */}
-      <div className="header" style={{ marginBottom: "1.25rem" }}>
+      <div className="header page-header-row" style={{ marginBottom: "1.25rem" }}>
         <div className="header-title">
           {activeSubTab === "published" && (
             <div
@@ -426,7 +460,7 @@ export default function FormsPage({ initialSubTab = "all" }) {
                 )}
           </p>
         </div>
-        <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+        <div className="page-header-actions" style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
           <Button
             variant="primary"
             onClick={() => setIsCreateModalOpen(true)}
@@ -623,6 +657,7 @@ export default function FormsPage({ initialSubTab = "all" }) {
 
             {/* Controls Bar */}
             <div
+              className="forms-controls-bar"
               style={{
                 display: "flex",
                 gap: "0.75rem",
@@ -726,97 +761,93 @@ export default function FormsPage({ initialSubTab = "all" }) {
                 marginBottom: "1.25rem",
               }}
             >
-              {auditLogs.map((log) => (
-                <div
-                  key={log.id}
-                  style={{
-                    display: "flex",
-                    gap: "0.75rem",
-                    fontSize: "0.82rem",
-                  }}
-                >
+              {auditLogs.map((log) => {
+                const { title, description, badge, author } = getLogTranslation(log, t);
+                return (
                   <div
+                    key={log.id}
                     style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      background:
-                        log.type === "published"
-                          ? "#d1fae5"
-                          : log.type === "submission"
-                            ? "#f3e8ff"
-                            : "#e0f2fe",
-                      color:
-                        log.type === "published"
-                          ? "#059669"
-                          : log.type === "submission"
-                            ? "#7e22ce"
-                            : "#0284c7",
                       display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      fontWeight: 700,
+                      gap: "0.75rem",
+                      fontSize: "0.82rem",
                     }}
                   >
-                    {log.type === "published"
-                      ? "✓"
-                      : log.type === "submission"
-                        ? "↑"
-                        : "+"}
-                  </div>
-                  <div style={{ flex: 1 }}>
                     <div
                       style={{
+                        width: "32px",
+                        height: "32px",
+                        borderRadius: "50%",
+                        background:
+                          log.type === "published"
+                            ? "#d1fae5"
+                            : log.type === "submission"
+                              ? "#f3e8ff"
+                              : "#e0f2fe",
+                        color:
+                          log.type === "published"
+                            ? "#059669"
+                            : log.type === "submission"
+                              ? "#7e22ce"
+                              : "#0284c7",
                         display: "flex",
-                        justifyContent: "space-between",
-                        marginBottom: "0.15rem",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        fontWeight: 700,
                       }}
                     >
-                      <span style={{ fontWeight: 700, color: "#0f172a" }}>
-                        {log.type === "published"
-                          ? t("forms.form_published", "Form Published")
-                          : log.type === "submission"
-                            ? t("forms.new_submission", "New Submission")
-                            : t("forms.new_form_created", "New Form Created")}
-                      </span>
-                      <span style={{ color: "#94a3b8", fontSize: "0.75rem" }}>
-                        {t("forms.recently", "Recently")}
-                      </span>
-                    </div>
-                    <div style={{ color: "#475569", marginBottom: "0.25rem" }}>
                       {log.type === "published"
-                        ? t("forms.form_published_desc", { title: log.formTitle, version: log.version || 1, defaultValue: `"${log.formTitle}" published (v${log.version || 1}).` })
+                        ? "✓"
                         : log.type === "submission"
-                          ? t("forms.new_submission_desc", { title: log.formTitle || "Form", defaultValue: `New submission in "${log.formTitle || "Form"}".` })
-                          : t("forms.new_form_created_desc", { title: log.formTitle, defaultValue: `"${log.formTitle}" created.` })}
+                          ? "↑"
+                          : "+"}
                     </div>
-                    {log.submissionId ? (
-                      <span
+                    <div style={{ flex: 1 }}>
+                      <div
                         style={{
-                          background: "#d1fae5",
-                          color: "#047857",
-                          padding: "0.15rem 0.5rem",
-                          borderRadius: "4px",
-                          fontSize: "0.72rem",
-                          fontWeight: 600,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          marginBottom: "0.15rem",
                         }}
                       >
-                        {t("forms.submission_prefix", "Submission #")}{log.submissionId}
-                      </span>
-                    ) : null}
-                    <div
-                      style={{
-                        color: "#94a3b8",
-                        fontSize: "0.75rem",
-                        marginTop: "0.2rem",
-                      }}
-                    >
-                      {t("forms.by_author", { author: log.author || t("forms.system", "System"), defaultValue: `By ${log.author || "System"}` })}
+                        <span style={{ fontWeight: 700, color: "#0f172a" }}>
+                          {title}
+                        </span>
+                        <span style={{ color: "#94a3b8", fontSize: "0.75rem" }}>
+                          {t("forms.recently", "Recently")}
+                        </span>
+                      </div>
+                      <div style={{ color: "#475569", marginBottom: "0.25rem" }}>
+                        {description}
+                      </div>
+                      {badge ? (
+                        <span
+                          style={{
+                            background: "#d1fae5",
+                            color: "#047857",
+                            padding: "0.15rem 0.5rem",
+                            borderRadius: "4px",
+                            fontSize: "0.72rem",
+                            fontWeight: 600,
+                            display: "inline-block",
+                          }}
+                        >
+                          {badge}
+                        </span>
+                      ) : null}
+                      <div
+                        style={{
+                          color: "#94a3b8",
+                          fontSize: "0.75rem",
+                          marginTop: badge ? "0.35rem" : "0.2rem",
+                        }}
+                      >
+                        {t("forms.by_author", { author })}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <button
@@ -855,6 +886,7 @@ export default function FormsPage({ initialSubTab = "all" }) {
         <div>
           {/* Controls Bar */}
           <div
+            className="forms-controls-bar"
             style={{
               display: "flex",
               gap: "0.75rem",
@@ -993,7 +1025,7 @@ export default function FormsPage({ initialSubTab = "all" }) {
                             </span>
                             <span>•</span>
                             <span>
-                              {form.fields_count || 8} {t("forms.fields", "Fields")}
+                              {form.fields_count ?? 0} {t("forms.fields", "Fields")}
                             </span>
                             <span>•</span>
                             <span>
@@ -1188,6 +1220,7 @@ export default function FormsPage({ initialSubTab = "all" }) {
           >
             {/* Search & Category Filters */}
             <div
+              className="forms-controls-bar"
               style={{
                 display: "flex",
                 gap: "0.75rem",
@@ -1220,7 +1253,7 @@ export default function FormsPage({ initialSubTab = "all" }) {
                       transition: "all 0.15s ease",
                     }}
                   >
-                    {cat}
+                    {t(`forms.audit_filter_${cat.toLowerCase()}`)}
                   </button>
                 ))}
               </div>
@@ -1249,125 +1282,128 @@ export default function FormsPage({ initialSubTab = "all" }) {
                   {t("forms.no_logs")}
                 </p>
               ) : (
-                filteredActivityLogs.map((log) => (
-                  <div
-                    key={log.id}
-                    style={{
-                      display: "flex",
-                      gap: "0.85rem",
-                      padding: "0.85rem 1rem",
-                      borderRadius: "8px",
-                      border: "1px solid #f1f5f9",
-                      backgroundColor: "#fafafa",
-                      alignItems: "flex-start",
-                    }}
-                  >
+                filteredActivityLogs.map((log) => {
+                  const { title, description, badge, author } = getLogTranslation(log, t);
+                  return (
                     <div
+                      key={log.id}
                       style={{
-                        width: "34px",
-                        height: "34px",
-                        borderRadius: "50%",
-                        background:
-                          log.type === "published"
-                            ? "#d1fae5"
-                            : log.type === "submission"
-                              ? "#f3e8ff"
-                              : "#e0f2fe",
-                        color:
-                          log.type === "published"
-                            ? "#059669"
-                            : log.type === "submission"
-                              ? "#7e22ce"
-                              : "#0284c7",
                         display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                        fontWeight: 700,
-                        fontSize: "0.9rem",
+                        gap: "0.85rem",
+                        padding: "0.85rem 1rem",
+                        borderRadius: "8px",
+                        border: "1px solid #f1f5f9",
+                        backgroundColor: "#fafafa",
+                        alignItems: "flex-start",
                       }}
                     >
-                      {log.type === "published"
-                        ? "✓"
-                        : log.type === "submission"
-                          ? "↑"
-                          : "+"}
-                    </div>
+                      <div
+                        style={{
+                          width: "34px",
+                          height: "34px",
+                          borderRadius: "50%",
+                          background:
+                            log.type === "published"
+                              ? "#d1fae5"
+                              : log.type === "submission"
+                                ? "#f3e8ff"
+                                : "#e0f2fe",
+                          color:
+                            log.type === "published"
+                              ? "#059669"
+                              : log.type === "submission"
+                                ? "#7e22ce"
+                                : "#0284c7",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          fontWeight: 700,
+                          fontSize: "0.9rem",
+                        }}
+                      >
+                        {log.type === "published"
+                          ? "✓"
+                          : log.type === "submission"
+                            ? "↑"
+                            : "+"}
+                      </div>
 
-                    <div style={{ flex: 1 }}>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          marginBottom: "0.2rem",
-                        }}
-                      >
-                        <span
+                      <div style={{ flex: 1 }}>
+                        <div
                           style={{
-                            fontWeight: 700,
-                            color: "#0f172a",
-                            fontSize: "0.875rem",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            marginBottom: "0.2rem",
                           }}
                         >
-                          {log.title}
-                        </span>
-                        <span
-                          style={{
-                            color: "#94a3b8",
-                            fontSize: "0.75rem",
-                            fontFamily: "monospace",
-                          }}
-                        >
-                          {log.timestamp
-                            ? new Date(log.timestamp).toLocaleString("en-US", {
-                                month: "short",
-                                day: "numeric",
-                                year: "numeric",
-                                hour: "numeric",
-                                minute: "2-digit",
-                                hour12: true,
-                              })
-                            : "Recent"}
-                        </span>
-                      </div>
-                      <div
-                        style={{
-                          color: "#475569",
-                          fontSize: "0.825rem",
-                          marginBottom: "0.35rem",
-                        }}
-                      >
-                        {log.description}
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "0.5rem",
-                        }}
-                      >
-                        {log.badge && (
                           <span
                             style={{
-                              background: "#d1fae5",
-                              color: "#047857",
-                              padding: "0.15rem 0.5rem",
-                              borderRadius: "4px",
-                              fontSize: "0.72rem",
-                              fontWeight: 600,
+                              fontWeight: 700,
+                              color: "#0f172a",
+                              fontSize: "0.875rem",
                             }}
                           >
-                            {log.badge}
+                            {title}
                           </span>
-                        )}
-                        <span style={{ color: "#94a3b8", fontSize: "0.75rem" }}>
-                          {t("forms.by_author", { author: log.author })}
-                        </span>
+                          <span
+                            style={{
+                              color: "#94a3b8",
+                              fontSize: "0.75rem",
+                              fontFamily: "monospace",
+                            }}
+                          >
+                            {log.timestamp
+                              ? new Date(log.timestamp).toLocaleString("en-US", {
+                                  month: "short",
+                                  day: "numeric",
+                                  year: "numeric",
+                                  hour: "numeric",
+                                  minute: "2-digit",
+                                  hour12: true,
+                                })
+                              : "Recent"}
+                          </span>
+                        </div>
+                        <div
+                          style={{
+                            color: "#475569",
+                            fontSize: "0.825rem",
+                            marginBottom: "0.35rem",
+                          }}
+                        >
+                          {description}
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "0.5rem",
+                          }}
+                        >
+                          {badge && (
+                            <span
+                              style={{
+                                background: "#d1fae5",
+                                color: "#047857",
+                                padding: "0.15rem 0.5rem",
+                                borderRadius: "4px",
+                                fontSize: "0.72rem",
+                                fontWeight: 600,
+                              }}
+                            >
+                              {badge}
+                            </span>
+                          )}
+                          <span style={{ color: "#94a3b8", fontSize: "0.75rem" }}>
+                            {t("forms.by_author", { author })}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))
+                  );
+                })
               )}
             </div>
           </div>

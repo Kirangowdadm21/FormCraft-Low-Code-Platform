@@ -182,6 +182,14 @@ def get_submissions(db: Session, form_version_id: Optional[int] = None, skip: in
         query = query.filter(models.Submission.form_version == form_version_id)
     return query.offset(skip).limit(limit).all()
 
+def delete_submission(db: Session, submission_id: int) -> bool:
+    db_sub = db.query(models.Submission).filter(models.Submission.id == submission_id).first()
+    if not db_sub:
+        return False
+    db.delete(db_sub)
+    db.commit()
+    return True
+
 # ==========================================
 # ANALYTICS CRUD
 # ==========================================
@@ -239,7 +247,7 @@ def get_fields(db: Session, formversion_id: Optional[int] = None, skip: int = 0,
     query = db.query(models.Field)
     if formversion_id is not None:
         query = query.filter(models.Field.formversion == formversion_id)
-    return query.offset(skip).limit(limit).all()
+    return query.order_by(models.Field.display_order.asc()).offset(skip).limit(limit).all()
 
 def create_field(db: Session, field: schemas.FieldCreate):
     db_field = models.Field(

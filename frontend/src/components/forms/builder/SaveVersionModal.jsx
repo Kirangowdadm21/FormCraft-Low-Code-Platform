@@ -32,7 +32,7 @@ export default function SaveVersionModal({
               <GitBranch size={18} />
             </div>
             <h2 className="modal-title">
-              {t("saveVersionModal.createVersion")}
+              {t("saveVersionModal.createVersion")}{" "}
               {nextVersionNumber}
               {t("saveVersionModal.text")}
             </h2>
@@ -81,9 +81,8 @@ export default function SaveVersionModal({
             >
               {currentVersionNumber === 0 ? (
                 <>
-                  {t("saveVersionModal.thisWillSaveYour")}
-                  <strong>{t("saveVersionModal.version1")}</strong>
-                  {t("saveVersionModal.text")}
+                  {t("saveVersionModal.thisWillSaveYour")}{" "}
+                  <strong>{t("saveVersionModal.version1")}</strong>.
                   <br />
                   <span
                     style={{
@@ -96,13 +95,13 @@ export default function SaveVersionModal({
                 </>
               ) : (
                 <>
-                  {t("saveVersionModal.savingTheseChangesWill")}
+                  {t("saveVersionModal.savingTheseChangesWill")}{" "}
                   <strong>
                     {t("saveVersionModal.newVersionV")}
                     {nextVersionNumber}
-                    {t("saveVersionModal.text")}
+                    )
                   </strong>
-                  {t("saveVersionModal.text")}
+                  .
                   <br />
                   <span
                     style={{
@@ -110,8 +109,8 @@ export default function SaveVersionModal({
                       fontSize: "0.85rem",
                     }}
                   >
-                    {t("saveVersionModal.version")}
-                    {currentVersionNumber}
+                    {t("saveVersionModal.version")}{" "}
+                    {currentVersionNumber}{" "}
                     {t("saveVersionModal.willRemainCompletelyUnchanged")}
                   </span>
                 </>
@@ -125,9 +124,9 @@ export default function SaveVersionModal({
               color: "var(--text-muted)",
             }}
           >
-            {t("saveVersionModal.allCurrentFieldConfigurations")}
+            {t("saveVersionModal.allCurrentFieldConfigurations")}{" "}
             {nextVersionNumber}
-            {t("saveVersionModal.text")}
+            .
           </p>
         </div>
 
@@ -156,7 +155,7 @@ export default function SaveVersionModal({
               <>
                 <Loader2 size={16} className="animate-spin" />
                 <span>
-                  {t("saveVersionModal.creatingVersion")}
+                  {t("saveVersionModal.creatingVersion")}{" "}
                   {nextVersionNumber}
                   {t("saveVersionModal.text")}
                 </span>
@@ -165,7 +164,7 @@ export default function SaveVersionModal({
               <>
                 <GitBranch size={16} />
                 <span>
-                  {t("saveVersionModal.confirmCreateVersion")}
+                  {t("saveVersionModal.confirmCreateVersion")}{" "}
                   {nextVersionNumber}
                 </span>
               </>

@@ -82,17 +82,7 @@ export default function ArchiveFormDialog({
               lineHeight: "1.5",
             }}
           >
-            {t("archiveFormDialog.areYouSureYou")}
-            <strong
-              style={{
-                color: "var(--ink)",
-              }}
-            >
-              {t("archiveFormDialog.text")}
-              {form.title}
-              {t("archiveFormDialog.text")}
-            </strong>
-            {t("archiveFormDialog.text")}
+            {t("archiveFormDialog.areYouSureYou", { title: form.title })}
           </p>
 
           <div
@@ -121,9 +111,9 @@ export default function ArchiveFormDialog({
                 lineHeight: "1.5",
               }}
             >
-              {t("archiveFormDialog.archivingWill")}
-              <strong>{t("archiveFormDialog.unpublish")}</strong>
-              {t("archiveFormDialog.thisFormAnd")}
+              {t("archiveFormDialog.archivingWill")}{" "}
+              <strong>{t("archiveFormDialog.unpublish")}</strong>{" "}
+              {t("archiveFormDialog.thisFormAnd")}{" "}
               <strong>
                 {t("archiveFormDialog.stopAcceptingNewSubmissions")}
               </strong>

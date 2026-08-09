@@ -41,6 +41,13 @@ def read_submission(id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Submission not found")
     return db_sub
 
+@router.delete("/{id}", status_code=status.HTTP_200_OK)
+def delete_existing_submission(id: int, db: Session = Depends(get_db)):
+    success = crud.delete_submission(db=db, submission_id=id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Submission not found")
+    return {"message": "Submission successfully deleted"}
+
 @public_router.post("/public/forms/{token}/submit", response_model=schemas.SubmissionResponse, status_code=status.HTTP_201_CREATED)
 def submit_public_form(token: str, submission_data: schemas.SubmissionCreatePublic, db: Session = Depends(get_db)):
     try:

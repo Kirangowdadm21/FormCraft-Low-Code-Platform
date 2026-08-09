@@ -24,7 +24,9 @@ import FormPreviewModal from "./FormPreviewModal";
 import SaveVersionModal from "./SaveVersionModal";
 import PublishConfirmModal from "../PublishConfirmModal";
 import SaveAsTemplateModal from "../SaveAsTemplateModal";
-import { Loader2, AlertCircle } from "lucide-react";
+import { Loader2, AlertCircle, Plus, X } from "lucide-react";
+import Button from "../../common/Button";
+
 export default function FormBuilder({
   formId,
   initialVersionId,
@@ -50,6 +52,8 @@ export default function FormBuilder({
   const [isPublishModalOpen, setIsPublishModalOpen] = useState(false);
   const [isSaveTemplateModalOpen, setIsSaveTemplateModalOpen] = useState(false);
   const [activeDragItem, setActiveDragItem] = useState(null);
+  const [isPaletteOpen, setIsPaletteOpen] = useState(false);
+  const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
 
   // Setup dnd-kit sensors
   const sensors = useSensors(
@@ -402,6 +406,10 @@ export default function FormBuilder({
     }
   };
   const selectedField = fields.find((f) => f.id === selectedFieldId);
+  const handleAddFieldFromPalette = (type, defaultLabel, defaultOptions) => {
+    handleAddField(type, defaultLabel, defaultOptions);
+    setIsPaletteOpen(false);
+  };
   if (loading) {
     return (
       <div
@@ -476,24 +484,85 @@ export default function FormBuilder({
         onDragEnd={handleDragEnd}
       >
         <div className="builder-panels-row">
+          {/* Backdrop overlay for drawers on mobile/tablet */}
+          {(isPaletteOpen || (isPropertiesOpen && selectedField)) && (
+            <div 
+              className="builder-drawer-backdrop" 
+              onClick={() => {
+                setIsPaletteOpen(false);
+                setIsPropertiesOpen(false);
+              }}
+            />
+          )}
+
           {/* Left Panel: Field Palette */}
-          <FieldPalette onAddField={handleAddField} />
+          <div className={`builder-drawer-panel left-drawer ${isPaletteOpen ? "drawer-open" : ""}`}>
+            <div className="drawer-header-mobile-only">
+              <h3>{t("fieldPalette.fieldPalette")}</h3>
+              <button 
+                type="button" 
+                className="drawer-close-btn"
+                onClick={() => setIsPaletteOpen(false)}
+              >
+                <X size={20} />
+              </button>
+            </div>
+            <FieldPalette onAddField={handleAddFieldFromPalette} />
+          </div>
 
           {/* Center Panel: Form Canvas Drop Area */}
-          <FormCanvas
-            fields={fields}
-            selectedFieldId={selectedFieldId}
-            onSelectField={(id) => setSelectedFieldId(id)}
-            onDuplicateField={handleDuplicateField}
-            onDeleteField={handleDeleteField}
-            onCanvasClick={() => setSelectedFieldId(null)}
-          />
+          <div className="builder-center-canvas-panel">
+            {/* Mobile Add Field Trigger */}
+            <div className="mobile-add-field-bar">
+              <Button
+                variant="primary"
+                size="md"
+                leftIcon={Plus}
+                onClick={() => setIsPaletteOpen(true)}
+                style={{ width: "100%" }}
+              >
+                {t("formBuilder.addField") || "Add Field"}
+              </Button>
+            </div>
+
+            <FormCanvas
+              fields={fields}
+              selectedFieldId={selectedFieldId}
+              onSelectField={(id) => {
+                setSelectedFieldId(id);
+                if (id) {
+                  setIsPropertiesOpen(true);
+                }
+              }}
+              onDuplicateField={handleDuplicateField}
+              onDeleteField={handleDeleteField}
+              onCanvasClick={() => {
+                setSelectedFieldId(null);
+                setIsPropertiesOpen(false);
+              }}
+            />
+          </div>
 
           {/* Right Panel: Field Properties Config */}
-          <FieldProperties
-            selectedField={selectedField}
-            onUpdateField={handleUpdateField}
-          />
+          <div className={`builder-drawer-panel right-drawer ${isPropertiesOpen && selectedField ? "drawer-open" : ""}`}>
+            <div className="drawer-header-mobile-only">
+              <h3>{t("fieldProperties.fieldProperties") || "Field Properties"}</h3>
+              <button 
+                type="button" 
+                className="drawer-close-btn"
+                onClick={() => {
+                  setIsPropertiesOpen(false);
+                  setSelectedFieldId(null);
+                }}
+              >
+                <X size={20} />
+              </button>
+            </div>
+            <FieldProperties
+              selectedField={selectedField}
+              onUpdateField={handleUpdateField}
+            />
+          </div>
         </div>
 
         {/* Drag Overlay for visual feedback */}

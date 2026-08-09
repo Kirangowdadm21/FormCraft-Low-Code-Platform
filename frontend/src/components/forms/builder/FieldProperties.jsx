@@ -1,10 +1,7 @@
 import { useTranslation } from "react-i18next";
 import React from "react";
 import { Settings, Plus, Trash2, Sliders, Layers } from "lucide-react";
-import Input from "../../common/Input";
-import Button from "../../common/Button";
-import Card from "../../common/Card";
-import Badge from "../../common/Badge";
+
 export default function FieldProperties({ selectedField, onUpdateField }) {
   const { t } = useTranslation();
   if (!selectedField) {
@@ -101,296 +98,170 @@ export default function FieldProperties({ selectedField, onUpdateField }) {
   );
   return (
     <div className="builder-panel right-panel">
-      <div
-        className="panel-header"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginBottom: "1.25rem",
-          paddingBottom: "0.75rem",
-          borderBottom: "1px solid var(--rule)",
-        }}
-      >
-        <div>
-          <h3
-            style={{
-              fontSize: "1rem",
-              fontWeight: 700,
-              color: "var(--ink)",
-              margin: 0,
-            }}
-          >
-            {t("fieldProperties.fieldProperties")}
-          </h3>
-          <span
-            className="panel-subtitle"
-            style={{
-              fontSize: "0.78rem",
-              color: "var(--text-muted)",
-            }}
-          >
-            {t("fieldProperties.editingTargetField")}
-          </span>
-        </div>
-        <Badge variant="outline">
-          {selectedField.field_type.toUpperCase()}
-        </Badge>
+      <div className="panel-header">
+        <h3 className="properties-title">
+          {t("fieldProperties.fieldProperties")}
+        </h3>
+        <span className="properties-subtitle">
+          Editing: <span className="properties-subtitle-type">{selectedField.field_type.toUpperCase()}</span>
+        </span>
       </div>
 
-      <div
-        className="properties-content"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-        }}
-      >
-        {/* Label & Field Slug */}
-        <Input
-          label={t("fieldProperties.fieldLabel")}
-          type="text"
-          value={selectedField.label || ""}
-          onChange={(e) => handleChange("label", e.target.value)}
-        />
+      <div className="properties-form-container">
+        {/* Field Label */}
+        <div className="properties-group">
+          <label className="properties-label">
+            {t("fieldProperties.fieldLabel")}
+          </label>
+          <input
+            type="text"
+            className="properties-input-field"
+            value={selectedField.label || ""}
+            onChange={(e) => handleChange("label", e.target.value)}
+          />
+        </div>
 
-        <Input
-          label={t("fieldProperties.fieldCodeIdentifierFieldName")}
-          type="text"
-          placeholder={t("fieldProperties.eGEmailAddress")}
-          value={selectedField.field_name || ""}
-          onChange={(e) =>
-            handleChange(
-              "field_name",
-              e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, "_"),
-            )
-          }
-        />
+        {/* Field Code Identifier */}
+        <div className="properties-group">
+          <label className="properties-label">
+            {t("fieldProperties.fieldCodeIdentifierFieldName")}
+          </label>
+          <input
+            type="text"
+            className="properties-input-field"
+            placeholder={t("fieldProperties.eGEmailAddress")}
+            value={selectedField.field_name || ""}
+            onChange={(e) =>
+              handleChange(
+                "field_name",
+                e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, "_"),
+              )
+            }
+          />
+        </div>
 
         {/* Placeholder */}
         {selectedField.field_type !== "submit" && (
-          <Input
-            label={t("fieldProperties.placeholderText")}
-            type="text"
-            value={selectedField.placeholder || ""}
-            onChange={(e) => handleChange("placeholder", e.target.value)}
-          />
+          <div className="properties-group">
+            <label className="properties-label">
+              {t("fieldProperties.placeholderText")}
+            </label>
+            <input
+              type="text"
+              className="properties-input-field"
+              value={selectedField.placeholder || ""}
+              onChange={(e) => handleChange("placeholder", e.target.value)}
+            />
+          </div>
         )}
 
         {/* Help Text */}
-        <Input
-          label={t("fieldProperties.helpDescriptionSubtext")}
-          type="text"
-          placeholder={t("fieldProperties.subtextShownBelowThe")}
-          value={selectedField.help_text || ""}
-          onChange={(e) => handleChange("help_text", e.target.value)}
-        />
+        <div className="properties-group">
+          <label className="properties-label">
+            {t("fieldProperties.helpDescriptionSubtext")}
+          </label>
+          <input
+            type="text"
+            className="properties-input-field"
+            placeholder={t("fieldProperties.subtextShownBelowThe")}
+            value={selectedField.help_text || ""}
+            onChange={(e) => handleChange("help_text", e.target.value)}
+          />
+        </div>
 
-        {/* Required Toggle Switch */}
-        <Card
-          style={{
-            padding: "0.75rem 1rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <div>
-            <span
-              style={{
-                fontWeight: 600,
-                fontSize: "0.875rem",
-                color: "var(--ink)",
-                display: "block",
-              }}
-            >
-              {t("fieldProperties.requiredField")}
-            </span>
-            <span
-              style={{
-                fontSize: "0.75rem",
-                color: "var(--text-muted)",
-              }}
-            >
-              {t("fieldProperties.submissionsRequireThisValue")}
-            </span>
-          </div>
+        {/* Required Field checkbox */}
+        <div className="properties-checkbox-row">
+          <span className="properties-checkbox-label">
+            {t("fieldProperties.requiredField")}
+          </span>
           <input
             type="checkbox"
-            className="toggle-checkbox"
+            className="properties-checkbox"
             checked={!!selectedField.required}
             onChange={(e) => handleChange("required", e.target.checked)}
-            style={{
-              width: "18px",
-              height: "18px",
-              cursor: "pointer",
-              accentColor: "var(--ledger)",
-            }}
           />
-        </Card>
+        </div>
 
         {/* Layout Width */}
-        <div className="form-group">
-          <label
-            className="form-label"
-            style={{
-              fontSize: "0.8rem",
-              fontWeight: 600,
-              color: "var(--ink)",
-              marginBottom: "0.35rem",
-              display: "block",
-            }}
-          >
+        <div className="properties-group">
+          <label className="properties-label">
             {t("fieldProperties.layoutWidth")}
           </label>
-          <div
-            className="width-btn-group"
-            style={{
-              display: "flex",
-              gap: "0.35rem",
-            }}
-          >
-            <Button
-              variant={
-                !selectedField.width || selectedField.width === "full"
-                  ? "primary"
-                  : "outline"
-              }
-              size="sm"
+          <div className="properties-width-group">
+            <button
+              type="button"
+              className={`properties-width-btn ${(!selectedField.width || selectedField.width === "full") ? "active" : ""}`}
               onClick={() => handleChange("width", "full")}
-              style={{
-                flex: 1,
-              }}
             >
               {t("fieldProperties.full100")}
-            </Button>
-            <Button
-              variant={selectedField.width === "half" ? "primary" : "outline"}
-              size="sm"
+            </button>
+            <button
+              type="button"
+              className={`properties-width-btn ${selectedField.width === "half" ? "active" : ""}`}
               onClick={() => handleChange("width", "half")}
-              style={{
-                flex: 1,
-              }}
             >
               {t("fieldProperties.half50")}
-            </Button>
-            <Button
-              variant={selectedField.width === "third" ? "primary" : "outline"}
-              size="sm"
+            </button>
+            <button
+              type="button"
+              className={`properties-width-btn ${selectedField.width === "third" ? "active" : ""}`}
               onClick={() => handleChange("width", "third")}
-              style={{
-                flex: 1,
-              }}
             >
               {t("fieldProperties.third33")}
-            </Button>
+            </button>
           </div>
         </div>
 
         {/* Dynamic Options Manager for Dropdown, Radio, Checkbox */}
         {hasOptions && (
-          <Card
-            padding="p-4"
-            style={{
-              marginTop: "0.5rem",
-            }}
-          >
-            <div
-              className="section-title"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                marginBottom: "0.75rem",
-                fontWeight: 700,
-                fontSize: "0.875rem",
-              }}
-            >
-              <Layers size={16} color="var(--ledger)" />
+          <div className="properties-section-divider">
+            <div className="properties-section-title">
+              <Layers size={16} />
               <span>{t("fieldProperties.optionsList")}</span>
             </div>
 
-            <div
-              className="options-manager-list"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.5rem",
-              }}
-            >
+            <div className="options-manager-list">
               {(selectedField.options || []).map((opt, idx) => {
                 const optText = typeof opt === "object" ? opt.optiontext : opt;
                 return (
-                  <div
-                    key={idx}
-                    className="option-row"
-                    style={{
-                      display: "flex",
-                      gap: "0.5rem",
-                      alignItems: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        flex: 1,
-                      }}
-                    >
-                      <Input
-                        type="text"
-                        value={optText}
-                        onChange={(e) =>
-                          handleOptionChange(idx, "optiontext", e.target.value)
-                        }
-                        placeholder={`Option ${idx + 1}`}
-                      />
-                    </div>
-                    <Button
-                      variant="danger"
-                      size="sm"
-                      leftIcon={Trash2}
+                  <div key={idx} className="properties-option-row">
+                    <input
+                      type="text"
+                      className="properties-input-field properties-option-input"
+                      value={optText}
+                      onChange={(e) =>
+                        handleOptionChange(idx, "optiontext", e.target.value)
+                      }
+                      placeholder={`Option ${idx + 1}`}
+                    />
+                    <button
+                      type="button"
+                      className="properties-delete-btn"
                       onClick={() => handleRemoveOption(idx)}
                       title={t("fieldProperties.removeOption")}
-                    />
+                    >
+                      <Trash2 size={16} />
+                    </button>
                   </div>
                 );
               })}
             </div>
 
-            <Button
-              variant="outline"
-              size="sm"
-              leftIcon={Plus}
+            <button
+              type="button"
+              className="properties-add-btn"
               onClick={handleAddOption}
-              style={{
-                marginTop: "0.75rem",
-                width: "100%",
-                justifyContent: "center",
-              }}
             >
+              <Plus size={16} />
               {t("fieldProperties.addChoiceOption")}
-            </Button>
-          </Card>
+            </button>
+          </div>
         )}
 
         {/* Validation Rules Section */}
-        <Card
-          padding="p-4"
-          style={{
-            marginTop: "0.5rem",
-          }}
-        >
-          <div
-            className="section-title"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              marginBottom: "0.75rem",
-              fontWeight: 700,
-              fontSize: "0.875rem",
-            }}
-          >
-            <Sliders size={16} color="var(--ledger)" />
+        <div className="properties-section-divider">
+          <div className="properties-section-title">
+            <Sliders size={16} />
             <span>{t("fieldProperties.validationRules")}</span>
           </div>
 
@@ -398,46 +269,56 @@ export default function FieldProperties({ selectedField, onUpdateField }) {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "0.75rem",
+              gap: "20px",
             }}
           >
-            <Input
-              label={t("fieldProperties.minimumLengthValue")}
-              type="number"
-              placeholder={t("fieldProperties.eG1")}
-              value={
-                selectedField.validation_conf?.min_length ??
-                selectedField.validation_conf?.min_value ??
-                ""
-              }
-              onChange={(e) =>
-                handleChange("validation_conf", {
-                  ...selectedField.validation_conf,
-                  min_length: e.target.value ? Number(e.target.value) : null,
-                  min_value: e.target.value ? Number(e.target.value) : null,
-                })
-              }
-            />
+            <div className="properties-group">
+              <label className="properties-label">
+                {t("fieldProperties.minimumLengthValue")}
+              </label>
+              <input
+                type="number"
+                className="properties-input-field"
+                placeholder={t("fieldProperties.eG1")}
+                value={
+                  selectedField.validation_conf?.min_length ??
+                  selectedField.validation_conf?.min_value ??
+                  ""
+                }
+                onChange={(e) =>
+                  handleChange("validation_conf", {
+                    ...selectedField.validation_conf,
+                    min_length: e.target.value ? Number(e.target.value) : null,
+                    min_value: e.target.value ? Number(e.target.value) : null,
+                  })
+                }
+              />
+            </div>
 
-            <Input
-              label={t("fieldProperties.maximumLengthValue")}
-              type="number"
-              placeholder={t("fieldProperties.eG255")}
-              value={
-                selectedField.validation_conf?.max_length ??
-                selectedField.validation_conf?.max_value ??
-                ""
-              }
-              onChange={(e) =>
-                handleChange("validation_conf", {
-                  ...selectedField.validation_conf,
-                  max_length: e.target.value ? Number(e.target.value) : null,
-                  max_value: e.target.value ? Number(e.target.value) : null,
-                })
-              }
-            />
+            <div className="properties-group">
+              <label className="properties-label">
+                {t("fieldProperties.maximumLengthValue")}
+              </label>
+              <input
+                type="number"
+                className="properties-input-field"
+                placeholder={t("fieldProperties.eG255")}
+                value={
+                  selectedField.validation_conf?.max_length ??
+                  selectedField.validation_conf?.max_value ??
+                  ""
+                }
+                onChange={(e) =>
+                  handleChange("validation_conf", {
+                    ...selectedField.validation_conf,
+                    max_length: e.target.value ? Number(e.target.value) : null,
+                    max_value: e.target.value ? Number(e.target.value) : null,
+                  })
+                }
+              />
+            </div>
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   );

@@ -61,7 +61,7 @@ class FormVersion(Base):
 
     # Relationships
     form = relationship("Form", back_populates="versions")
-    fields = relationship("Field", back_populates="version", cascade="all, delete-orphan")
+    fields = relationship("Field", back_populates="version", cascade="all, delete-orphan", order_by="Field.display_order")
     submissions = relationship("Submission", back_populates="form_version_rel", cascade="all, delete-orphan")
 
 
@@ -82,7 +82,7 @@ class Field(Base):
 
     # Relationships
     version = relationship("FormVersion", back_populates="fields")
-    options = relationship("FieldOption", back_populates="field", cascade="all, delete-orphan")
+    options = relationship("FieldOption", back_populates="field", cascade="all, delete-orphan", order_by="FieldOption.display_order")
     response_values = relationship("ResponseValue", back_populates="field", cascade="all, delete-orphan")
 
     trigger_rules = relationship(

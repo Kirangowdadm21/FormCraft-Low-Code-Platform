@@ -93,6 +93,10 @@
     "by_author": "{{author}} ద్వారా",
     "retry": "మళ్ళీ ప్రయత్నించు",
     "all_status": "అన్ని స్థితి",
+    "audit_filter_all": "అన్నీ",
+    "audit_filter_published": "ప్రచురించబడింది",
+    "audit_filter_created": "సృష్టించబడింది",
+    "audit_filter_submission": "సమర్పణ",
     "status_published": "ప్రచురించబడింది",
     "status_draft": "డ్రాఫ్ట్",
     "status_archived": "ఆర్కైవ్ చేయబడింది",
@@ -133,7 +137,8 @@
     "form_published_desc": "\"{{title}}\" ప్రచురించబడింది (v{{version}}).",
     "new_submission_desc": "\"{{title}}\"లో కొత్త సమర్పణ.",
     "new_form_created_desc": "\"{{title}}\" సృష్టించబడింది.",
-    "submission_prefix": "సమర్పణ #"
+    "submission_prefix": "సమర్పణ #",
+    "anonymous": "అనామక"
   },
   "templates": {
     "template_gallery": "టెంప్లేట్ గ్యాలరీ",
@@ -199,6 +204,8 @@
     "id_col": "ఐడి",
     "empty_value": "ఖాళీ",
     "delete_response": "ప్రతిస్పందన తొలగించు",
+    "delete_submission": "సమర్పణ తొలగించు",
+    "delete_submission_confirm": "ఈ సమర్పణ మరియు దాని అన్ని ప్రతిస్పందన విలువలను శాశ్వతంగా తొలగించాలా?",
     "retry": "మళ్ళీ ప్రయత్నించు",
     "submission_count_one": "{{count}} సమర్పణ",
     "submission_count_other": "{{count}} సమర్పణలు"
@@ -840,7 +847,7 @@
   },
   "deleteFormDialog": {
     "deleteForm": "ఫారమ్‌ను తొలగించండి",
-    "areYouSureYou": "మీరు ఖచ్చితంగా ఫారమ్‌ను తొలగించాలనుకుంటున్నారా",
+    "areYouSureYou": "మీరు ఖచ్చితంగా ఫారమ్ \"{{title}}\" ను తొలగించాలనుకుంటున్నారా?",
     "text": "?",
     "thisActionCannot": "⚠ ఈ చర్య రద్దు చేయబడదు.",
     "allVersionsFieldsResponses": "ఈ ఫారమ్‌కు లింక్ చేయబడిన అన్ని సంస్కరణలు, ఫీల్డ్‌లు, ప్రతిస్పందనలు మరియు సమర్పణలు శాశ్వతంగా తొలగించబడతాయి.",
@@ -857,7 +864,7 @@
     "thenAction": "అప్పుడు - చర్య",
     "targetField": "టార్గెట్ ఫీల్డ్",
     "selectTargetField": "లక్ష్య ఫీల్డ్‌ని ఎంచుకోండి...",
-    "logicalGroup": "లాజికల్ గ్రూప్",
+    "logicalGroup": "లాజికಲ್ గ్రూప్",
     "optional": "(ఐచ్ఛికం)",
     "eGGroupA": "ఉదా సమూహం_a",
     "cancel": "రద్దు చేయి"
@@ -875,7 +882,7 @@
   },
   "archiveFormDialog": {
     "archiveForm": "ఆర్కైవ్ ఫారమ్",
-    "areYouSureYou": "మీరు ఖచ్చితంగా ఫారమ్‌ను ఆర్కైవ్ చేయాలనుకుంటున్నారా",
+    "areYouSureYou": "మీరు ఖచ్చితంగా ఫారమ్ \"{{title}}\" ను ఆర్కైవ్ చేయాలనుకుంటున్నారా?",
     "text": "?",
     "archivingWill": "ఆర్కైవింగ్ రెడీ",
     "unpublish": "ప్రచురించని",

@@ -166,6 +166,7 @@ export default function ConditionalRulesPage() {
     >
       {/* Header */}
       <div
+        className="page-header-row"
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -196,7 +197,7 @@ export default function ConditionalRulesPage() {
             {t("rules.subtitle")}
           </p>
         </div>
-        <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+        <div className="page-header-actions" style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
           <button
             onClick={loadRules}
             disabled={loading}
@@ -248,6 +249,7 @@ export default function ConditionalRulesPage() {
 
       {/* Form & Version Selectors Row */}
       <div
+        className="forms-controls-bar"
         style={{
           backgroundColor: "#ffffff",
           border: "1px solid #e2e8f0",

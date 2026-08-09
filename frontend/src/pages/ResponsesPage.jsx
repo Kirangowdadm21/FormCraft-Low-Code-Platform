@@ -14,6 +14,7 @@ import {
   getSubmissions,
   getResponses,
   deleteResponse,
+  deleteSubmission,
 } from "../services/responsesApi";
 import {
   getForms,
@@ -202,6 +203,22 @@ export default function ResponsesPage() {
     }
   };
 
+  const handleDeleteSubmission = async (submissionId) => {
+    if (!window.confirm(t("submissions.delete_submission_confirm"))) return;
+    try {
+      await deleteSubmission(submissionId);
+      setSubmissions((prev) => prev.filter((s) => s.id !== submissionId));
+      if (expandedSubmission === submissionId) {
+        setExpandedSubmission(null);
+        setResponses([]);
+      }
+      toast.success("Submission deleted successfully.");
+    } catch (err) {
+      toast.error(err.message || "Failed to delete submission");
+    }
+  };
+
+
   const formatDate = (dateStr) => {
     if (!dateStr) return "N/A";
     try {
@@ -233,7 +250,7 @@ export default function ResponsesPage() {
   return (
     <div className="responses-page-container">
       {/* Page Header */}
-      <div className="responses-page-header">
+      <div className="responses-page-header page-header-row">
         <div>
           <h1
             style={{
@@ -257,7 +274,7 @@ export default function ResponsesPage() {
             {t("submissions.subtitle")}
           </p>
         </div>
-        <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+        <div className="page-header-actions" style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
           <button
             onClick={loadSubmissions}
             disabled={loading}
@@ -614,6 +631,37 @@ export default function ResponsesPage() {
                       color: "#94a3b8",
                     }}
                   >
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDeleteSubmission(sub.id);
+                      }}
+                      title={t("submissions.delete_submission")}
+                      style={{
+                        backgroundColor: "transparent",
+                        border: "none",
+                        color: "#ef4444",
+                        cursor: "pointer",
+                        width: "28px",
+                        height: "28px",
+                        borderRadius: "6px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        transition: "background-color 0.15s ease, color 0.15s ease",
+                        marginRight: "0.25rem",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = "#fee2e2";
+                        e.currentTarget.style.color = "#b91c1c";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = "transparent";
+                        e.currentTarget.style.color = "#ef4444";
+                      }}
+                    >
+                      <Trash2 size={16} />
+                    </button>
                     <SlidersHorizontal
                       size={16}
                       style={{ transform: "rotate(90deg)", opacity: 0.6 }}

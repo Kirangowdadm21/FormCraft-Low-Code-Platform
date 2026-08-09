@@ -70,8 +70,8 @@ export default function VersionCompareModal({
         unchanged: [],
       };
     }
-    const fieldsA = currentVersionObj.fields || []; // Target version (newer)
-    const fieldsB = baseVersionObj.fields || []; // Base version (older)
+    const fieldsA = [...(currentVersionObj.fields || [])].sort((a, b) => (a.display_order || 0) - (b.display_order || 0)); // Target version (newer)
+    const fieldsB = [...(baseVersionObj.fields || [])].sort((a, b) => (a.display_order || 0) - (b.display_order || 0)); // Base version (older)
 
     const added = [];
     const removed = [];

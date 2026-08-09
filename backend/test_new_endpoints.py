@@ -222,6 +222,22 @@ def test_new_endpoints_workflow():
     assert get_deleted_resp.status_code == 404
     print("Response deleted and verified successfully.")
 
+    # Testing DELETE /submissions/{id}
+    print(f"Testing DELETE /submissions/{submission_id}...")
+    delete_sub_resp = client.delete(f"/submissions/{submission_id}")
+    assert delete_sub_resp.status_code == 200
+    assert delete_sub_resp.json()["message"] == "Submission successfully deleted"
+
+    # Verify deleted submission is 404
+    get_deleted_sub_resp = client.get(f"/submissions/{submission_id}")
+    assert get_deleted_sub_resp.status_code == 404
+
+    # Verify cascade delete of responses (GET /responses/?submission_id={submission_id} returns empty)
+    get_resps_after_sub_deleted = client.get(f"/responses/?submission_id={submission_id}")
+    assert get_resps_after_sub_deleted.status_code == 200
+    assert len(get_resps_after_sub_deleted.json()) == 0
+    print("Submission and cascade responses deleted and verified successfully.")
+
     # Clean up: delete form
     print("Cleaning up Form...")
     delete_form_resp = client.delete(f"/forms/{form_id}")

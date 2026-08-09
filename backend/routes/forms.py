@@ -26,7 +26,8 @@ def create_new_form(
 
 @router.get("/", response_model=List[schemas.FormResponse])
 def list_all_forms(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    return crud.get_forms(db=db, skip=skip, limit=limit)
+    forms = crud.get_forms(db=db, skip=skip, limit=limit)
+    return [schemas.FormResponse.from_orm_with_count(f) for f in forms]
 
 # NOTE: /public/{form_id} MUST be declared before /{form_id} to avoid route shadowing
 @router.get("/public/{form_id}", response_model=schemas.PublicFormResponse)
@@ -71,7 +72,7 @@ def read_form(form_id: int, db: Session = Depends(get_db)):
     db_form = crud.get_form(db, form_id=form_id)
     if db_form is None:
         raise HTTPException(status_code=404, detail="Form not found")
-    return db_form
+    return schemas.FormResponse.from_orm_with_count(db_form)
 
 @router.post("/{form_id}/versions", response_model=schemas.FormVersionResponse, status_code=status.HTTP_201_CREATED)
 def add_new_version(

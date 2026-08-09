@@ -77,7 +77,7 @@ export default function FormCard({
     form.fields_count ??
     (form.versions && form.versions.length > 0 && form.versions[0]?.fields
       ? form.versions[0].fields.length
-      : 8);
+      : 0);
   const getStatusBadge = (status) => {
     switch (status?.toLowerCase()) {
       case "published":
@@ -93,6 +93,7 @@ export default function FormCard({
   const PastelIcon = badgeConfig.Icon;
   return (
     <div
+      className="dashboard-form-card"
       style={{
         background: "#FFFFFF",
         border: "1px solid #e2e8f0",
@@ -203,6 +204,7 @@ export default function FormCard({
 
         {/* Right Side: Status Badge + Horizontal Action Buttons */}
         <div
+          className="dashboard-form-card-right"
           style={{
             display: "flex",
             flexDirection: "column",

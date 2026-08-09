@@ -83,17 +83,7 @@ export default function DeleteFormDialog({
               lineHeight: "1.5",
             }}
           >
-            {t("deleteFormDialog.areYouSureYou")}
-            <strong
-              style={{
-                color: "var(--ink)",
-              }}
-            >
-              {t("deleteFormDialog.text")}
-              {form.title}
-              {t("deleteFormDialog.text")}
-            </strong>
-            {t("deleteFormDialog.text")}
+            {t("deleteFormDialog.areYouSureYou", { title: form.title })}
           </p>
 
           <div
@@ -128,7 +118,7 @@ export default function DeleteFormDialog({
                 }}
               >
                 {t("deleteFormDialog.thisActionCannot")}
-              </strong>
+              </strong>{" "}
               {t("deleteFormDialog.allVersionsFieldsResponses")}
             </div>
           </div>

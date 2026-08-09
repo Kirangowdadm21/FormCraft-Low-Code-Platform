@@ -239,7 +239,7 @@ export default function PublishConfirmModal({
                   }}
                 >
                   <Badge variant="outline">
-                    {t("publishConfirmModal.version")}
+                    {t("publishConfirmModal.version")}{" "}
                     {version.version_number}
                   </Badge>
                   <Badge variant="success">
@@ -368,8 +368,8 @@ export default function PublishConfirmModal({
                   margin: 0,
                 }}
               >
-                {t("publishConfirmModal.publishingVersion")}
-                {version.version_number}
+                {t("publishConfirmModal.publishingVersion")}{" "}
+                {version.version_number}{" "}
                 {t("publishConfirmModal.willMarkItAs")}
               </p>
             </div>
@@ -436,7 +436,7 @@ export default function PublishConfirmModal({
                   color: "var(--ink)",
                 }}
               >
-                {version.fields ? version.fields.length : 0}
+                {version.fields ? version.fields.length : 0}{" "}
                 {t("publishConfirmModal.fields")}
               </span>
             </div>

@@ -109,3 +109,13 @@ export async function getSubmissionById(id) {
   });
   return handleResponse(response);
 }
+
+// DELETE /submissions/{id} — Delete a submission
+export async function deleteSubmission(id) {
+  const response = await fetch(`${BASE_URL}/submissions/${id}`, {
+    method: "DELETE",
+    headers: getAuthHeaders(),
+  });
+  return handleResponse(response);
+}
+
