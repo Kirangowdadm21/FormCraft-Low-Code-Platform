@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
 
 const API_TARGET = 'http://127.0.0.1:8000'
 
@@ -11,7 +12,45 @@ function htmlBypass(req) {
 }
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'prompt',
+      includeAssets: ['pwa-192x192.png', 'pwa-512x512.png'],
+      manifest: {
+        name: 'FormCraft',
+        short_name: 'FormCraft',
+        description: 'Intelligent Data Collection and Low-Code Workflow Automation Platform',
+        theme_color: '#4F46E5',
+        background_color: '#ffffff',
+        display: 'standalone',
+        start_url: '/',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
+          }
+        ]
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff,woff2}'],
+        navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/(auth|users|forms|fields|rules|submissions|responses|uploads|analytics|export|templates|qrcodes|reports|public|health|translate)/]
+      }
+    })
+  ],
   server: {
     port: 3000,
     host: '0.0.0.0',

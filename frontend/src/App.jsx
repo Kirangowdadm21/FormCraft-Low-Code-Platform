@@ -54,6 +54,7 @@ import Skeleton, {
   SkeletonRect,
   SkeletonText,
 } from "./components/common/Skeleton";
+import ReloadPrompt from "./components/common/ReloadPrompt";
 
 function MainDashboard() {
   const { user, isAuthenticated, logout } = useAuth();
@@ -677,6 +678,7 @@ export default function App() {
     <AuthProvider>
       <ToastProvider>
         <AppContent />
+        <ReloadPrompt />
       </ToastProvider>
     </AuthProvider>
   );
