@@ -48,7 +48,7 @@ async function handleResponse(response) {
 // GET /qrcodes — List all QR codes
 export async function getQRCodes(skip = 0, limit = 100) {
   const response = await fetch(
-    `${BASE_URL}/qrcodes/?skip=${skip}&limit=${limit}`,
+    `${BASE_URL}/qrcodes?skip=${skip}&limit=${limit}`,
     {
       method: "GET",
       headers: getAuthHeaders(),
@@ -68,7 +68,7 @@ export async function getQRCodeById(qrId) {
 
 // POST /qrcodes — Generate a new QR code
 export async function createQRCode(targetUrl, title = "Public Form QR") {
-  const response = await fetch(`${BASE_URL}/qrcodes/`, {
+  const response = await fetch(`${BASE_URL}/qrcodes`, {
     method: "POST",
     headers: getAuthHeaders(),
     body: JSON.stringify({

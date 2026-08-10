@@ -27,6 +27,7 @@ def is_valid_url(url: str) -> bool:
         return False
 
 @router.post("", response_model=schemas.QRCodeResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/", response_model=schemas.QRCodeResponse, status_code=status.HTTP_201_CREATED, include_in_schema=False)
 def create_new_qrcode(qrcode_data: schemas.QRCodeCreate, db: Session = Depends(get_db)):
     # 1. Validate target_url
     if not is_valid_url(qrcode_data.target_url):
@@ -71,6 +72,7 @@ def create_new_qrcode(qrcode_data: schemas.QRCodeCreate, db: Session = Depends(g
     return crud.create_qrcode(db=db, qrcode_data=qrcode_data, qr_image_path=qr_image_path)
 
 @router.get("", response_model=List[schemas.QRCodeResponse])
+@router.get("/", response_model=List[schemas.QRCodeResponse], include_in_schema=False)
 def list_all_qrcodes(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return crud.get_qrcodes(db=db, skip=skip, limit=limit)
 
